@@ -1,0 +1,7 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- White egg/circle shape background for hero content -->
+  <ellipse cx="400" cy="400" rx="380" ry="390" fill="white" opacity="0.95"/>
+
+  <!-- Subtle border -->
+  <ellipse cx="400" cy="400" rx="380" ry="390" fill="none" stroke="#f0f0f0" stroke-width="2"/>
+</svg>

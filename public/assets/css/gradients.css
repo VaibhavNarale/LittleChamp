@@ -1,0 +1,115 @@
+/**
+ * Custom Gradient Backgrounds
+ * These gradients replace missing background images with theme-matching colors
+ */
+
+/* Hero Section Gradients */
+[data-bg-src*="hero"] {
+  background-image: linear-gradient(135deg, #9C29B2 0%, #786acf 50%, #88c90d 100%) !important;
+}
+
+[data-bg-src*="hero1-1"] {
+  background-image: linear-gradient(135deg, #fec624 0%, #9C29B2 50%, #786acf 100%) !important;
+}
+
+[data-bg-src*="hero1-2"] {
+  background-image: linear-gradient(135deg, #88c90d 0%, #9C29B2 50%, #fec624 100%) !important;
+}
+
+[data-bg-src*="hero1-3"] {
+  background-image: linear-gradient(135deg, #786acf 0%, #9C29B2 50%, #88c90d 100%) !important;
+}
+
+[data-bg-src*="hero2"] {
+  background-image: linear-gradient(to right, #9C29B2 0%, #786acf 100%) !important;
+}
+
+[data-bg-src*="hero3"] {
+  background-image: radial-gradient(circle at top right, #fec624 0%, #9C29B2 50%, #786acf 100%) !important;
+}
+
+[data-bg-src*="hero4"] {
+  background-image: linear-gradient(45deg, #88c90d 0%, #786acf 50%, #9C29B2 100%) !important;
+}
+
+[data-bg-src*="hero5"] {
+  background-image: linear-gradient(135deg, #9C29B2 0%, #fec624 100%) !important;
+}
+
+/* Breadcrumb Backgrounds */
+[data-bg-src*="breadcrumb"] {
+  background-image: linear-gradient(135deg, #786acf 0%, #9C29B2 50%, #88c90d 100%) !important;
+}
+
+/* Counter Section Backgrounds */
+[data-bg-src*="counter"] {
+  background-image: linear-gradient(to bottom, #fef5ff 0%, #f9f6ef 100%) !important;
+}
+
+/* CTA Section Backgrounds */
+[data-bg-src*="cta"] {
+  background-image: linear-gradient(135deg, #9C29B2 0%, #786acf 100%) !important;
+}
+
+/* Content Backgrounds */
+[data-bg-src*="hcontent-bg"] {
+  background-image: radial-gradient(circle at center, rgba(156, 41, 178, 0.1) 0%, transparent 70%) !important;
+}
+
+/* Event/Blog Backgrounds */
+[data-bg-src*="event"],
+[data-bg-src*="blog"] {
+  background-image: linear-gradient(135deg, #f9f6ef 0%, #fef5ff 100%) !important;
+}
+
+/* Team Section Backgrounds */
+[data-bg-src*="team"] {
+  background-image: linear-gradient(to bottom right, #fef5ff 0%, #f9f6ef 100%) !important;
+}
+
+/* About Section Backgrounds */
+[data-bg-src*="about"] {
+  background-image: linear-gradient(135deg, #88c90d 0%, #fec624 100%) !important;
+}
+
+/* Service Section Backgrounds */
+[data-bg-src*="service"] {
+  background-image: linear-gradient(to right, #786acf 0%, #9C29B2 100%) !important;
+}
+
+/* Testimonial Backgrounds */
+[data-bg-src*="testimonial"] {
+  background-image: linear-gradient(135deg, #fef5ff 0%, #f9f6ef 50%, #fef5ff 100%) !important;
+}
+
+/* Gallery/Project Backgrounds */
+[data-bg-src*="gallery"],
+[data-bg-src*="project"] {
+  background-image: linear-gradient(to bottom, #f9f6ef 0%, #ffffff 100%) !important;
+}
+
+/* Error Page Background */
+[data-bg-src*="error"],
+[data-bg-src*="404"] {
+  background-image: linear-gradient(135deg, #786acf 0%, #9C29B2 50%, #fec624 100%) !important;
+}
+
+/* Generic background fallback */
+.background-image:not([style*="background-image"]) {
+  background-image: linear-gradient(135deg, #f9f6ef 0%, #fef5ff 100%) !important;
+}
+
+/* Footer Gradient Background */
+.footer-wrapper,
+[class*="footer-layout"] {
+  background-image: linear-gradient(135deg, #103741 0%, #9C29B2 50%, #786acf 100%) !important;
+}
+
+/* Overlay backgrounds with gradients */
+[data-overlay] {
+  position: relative;
+}
+
+[data-overlay]::before {
+  background: linear-gradient(135deg, rgba(156, 41, 178, 0.7) 0%, rgba(120, 106, 207, 0.7) 100%);
+}

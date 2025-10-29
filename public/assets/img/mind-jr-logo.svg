@@ -1,0 +1,93 @@
+<svg width="220" height="65" viewBox="0 0 220 65" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Definitions for gradients -->
+  <defs>
+    <!-- Gradient for "Mind" -->
+    <linearGradient id="mindGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A29BFE;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Gradient for "Jr" -->
+    <linearGradient id="jrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6584;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FD79A8;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Soft background gradient for tiger circle -->
+    <linearGradient id="circleBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFE5B4;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#FFDAB9;stop-opacity:0.3" />
+    </linearGradient>
+
+    <!-- Shadow filter -->
+    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Circular clip path for tiger image -->
+    <clipPath id="circle">
+      <circle cx="32.5" cy="32.5" r="28"/>
+    </clipPath>
+  </defs>
+
+  <!-- Tiger mascot group with shadow -->
+  <g filter="url(#dropShadow)">
+    <!-- Soft background circle -->
+    <circle cx="32.5" cy="32.5" r="30" fill="url(#circleBg)"/>
+
+    <!-- Tiger image - references tiger.jpg from same folder -->
+    <image
+      x="4.5"
+      y="4.5"
+      width="56"
+      height="56"
+      href="tiger.jpg"
+      clip-path="url(#circle)"
+      preserveAspectRatio="xMidYMid slice"
+    />
+
+    <!-- Decorative border -->
+    <circle cx="32.5" cy="32.5" r="30" fill="none" stroke="#FFA500" stroke-width="1.5" opacity="0.3"/>
+  </g>
+
+  <!-- Text: "Mind" with gradient -->
+  <text
+    x="75"
+    y="36"
+    font-family="Arial Black, Segoe UI Black, sans-serif"
+    font-size="28"
+    font-weight="900"
+    letter-spacing="-1"
+    fill="url(#mindGrad)"
+  >Mind</text>
+
+  <!-- Text: "Jr" with gradient -->
+  <text
+    x="146"
+    y="36"
+    font-family="Arial Black, Segoe UI Black, sans-serif"
+    font-size="28"
+    font-weight="900"
+    letter-spacing="-0.5"
+    fill="url(#jrGrad)"
+  >Jr</text>
+
+  <!-- Text: "GROUP" subtitle -->
+  <text
+    x="75"
+    y="53"
+    font-family="Arial, Segoe UI, sans-serif"
+    font-size="13"
+    font-weight="700"
+    letter-spacing="1.5"
+    fill="#2D3436"
+  >GROUP</text>
+</svg>

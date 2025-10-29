@@ -1,0 +1,179 @@
+/* Mind Jr Group CSS Variables */
+:root {
+  /* Primary Brand Colors */
+  --primary: #6C63FF;
+  --primary-light: #A29BFE;
+  --primary-dark: #5A52D5;
+  --secondary: #FF6584;
+  --secondary-light: #FF8FA3;
+  --accent: #4ECDC4;
+
+  /* Override template theme colors to match navbar */
+  --theme-color: #6C63FF;
+  --secondary-color: #88c90d;
+  --blue-color: #786acf;
+
+  /* Subject Colors */
+  --math: #6C5CE7;
+  --reading: #FD79A8;
+  --science: #00B894;
+  --early-skills: #FFB800;
+
+  /* Neutral Colors */
+  --dark: #2D3436;
+  --gray: #636E72;
+  --light-gray: #F5F6FA;
+  --white: #FFFFFF;
+
+  /* Status Colors */
+  --success: #00D2A0;
+  --warning: #FFB800;
+  --error: #FF6B6B;
+  --info: #6C63FF;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  --gradient-secondary: linear-gradient(135deg, #FF6584 0%, #FF8FA3 100%);
+  --gradient-hero: linear-gradient(135deg, #6C63FF 0%, #FF6584 50%, #4ECDC4 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 60px rgba(108, 99, 255, 0.25);
+  --shadow-primary: 0 15px 40px rgba(108, 99, 255, 0.4);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 50px;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 60px;
+
+  /* Typography */
+  --font-primary: 'Baloo 2', cursive;
+  --font-secondary: 'Catamaran', sans-serif;
+}
+
+/* Utility Classes */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary-enhanced {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 18px 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  box-shadow: var(--shadow-primary);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.btn-primary-enhanced:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(108, 99, 255, 0.6);
+}
+
+.btn-secondary-enhanced {
+  background: white;
+  color: var(--primary);
+  padding: 18px 40px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--primary);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.btn-secondary-enhanced:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-primary);
+}
+
+.card-modern {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-modern:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.section-title {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-family: var(--font-secondary);
+  font-size: 18px;
+  color: var(--gray);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 30px rgba(108, 99, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
+  }
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0;
+  }
+}
+
+.floating-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
