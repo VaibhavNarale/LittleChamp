@@ -1308,7 +1308,7 @@ onBeforeUnmount(() => {
 
   .vs-hero-inner {
     height: auto;
-    padding: 35px 0;
+    padding: 61px 0px 35px 0;
   }
 
   .modern-hero-content {
