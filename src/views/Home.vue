@@ -315,7 +315,7 @@ onBeforeUnmount(() => {
   <section class="about-section bg-smoke space">
     <div class="container">
       <div class="row flex-column-reverse flex-lg-row align-items-center gy-30">
-        <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-sm-12 col-md-12 col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
           <div class="text-center text-lg-start">
             <span class="sub-title">Why Mind Jr Group</span>
             <h2 class="sec-title big-title">Transforming Learning Into An <span class="gradient-text">Adventure</span>
@@ -357,7 +357,7 @@ onBeforeUnmount(() => {
                   alt="shape">
                 <img class="line-2" data-ani="slideinup" data-ani-delay=".5s" src="/assets/img/shape/line-2.png"
                   alt="shape">
-                <img src="/assets/img/shape/shape-slide-3.png" alt="shape">
+                <img src="/assets/img/shape/shape-slide-3.png" alt="shape" style="width: 90%">
               </div>
             </div>
           </div>
@@ -432,7 +432,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="class-card">
             <div class="class-img">
-              <router-link to="/subjects/math"><img src="/assets/img/class/class-3.jpg" alt="Mathematics"></router-link>
+              <router-link to="/subjects/math"><img src="/assets/img/class/class-3.png" alt="Mathematics"></router-link>
               <span class="class-fee" style="background: #6C5CE7;">1000+ Games</span>
             </div>
             <div class="class-content">
@@ -464,7 +464,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
           <div class="class-card">
             <div class="class-img">
-              <router-link to="/subjects/reading"><img src="/assets/img/class/class-1.jpg"
+              <router-link to="/subjects/reading"><img src="/assets/img/class/class-1.png"
                   alt="Reading & ELA"></router-link>
               <span class="class-fee" style="background: #FD79A8;">1200+ Games</span>
             </div>
@@ -497,7 +497,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="class-card">
             <div class="class-img">
-              <router-link to="/subjects/science"><img src="/assets/img/class/class-2.jpg" alt="Science"></router-link>
+              <router-link to="/subjects/science"><img src="/assets/img/class/class-2.png" alt="Science"></router-link>
               <span class="class-fee" style="background: #00B894;">800+ Games</span>
             </div>
             <div class="class-content">
@@ -911,6 +911,11 @@ onBeforeUnmount(() => {
   padding-top: 70px;
 }
 
+.class-card .class-img img {
+  height: 388px;
+  width: 100%;
+}
+
 /* Bottom Wave Curve - SVG */
 .hero-wave-bottom {
   position: absolute;
@@ -1198,7 +1203,11 @@ onBeforeUnmount(() => {
 }
 
 /* Responsive Design */
-@media (max-width: 991px) {
+@media (max-width: 1025px) {
+  .shape-slider-area .slick-slider {
+    padding: 0px 10px;
+  }
+
   .vs-hero-wrapper {
     padding-bottom: 80px;
     margin-bottom: -80px;
@@ -1234,6 +1243,10 @@ onBeforeUnmount(() => {
     padding-bottom: 60px;
     margin-bottom: -60px;
     padding-top: 60px;
+  }
+
+  .shape-slider-area .slick-slider {
+    padding: 0px 10px;
   }
 
   .hero-wave-bottom {
@@ -1296,6 +1309,13 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 575px) {
+  .shape-slider-area .slick-slider {
+    padding: 0px 10px;
+  }
+  .class-card .class-img img{
+    height: 342px;
+  }
+
   .vs-hero-wrapper {
     padding-bottom: 50px;
     margin-bottom: -50px;
