@@ -39,8 +39,8 @@
 @media (max-width: 575px) {
   .container, .v-container {
     max-width: 100% !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
 
@@ -48,23 +48,23 @@
    TYPOGRAPHY RESPONSIVE
    =================================== */
 
-/* Hero Titles */
+/* Hero Titles (exclude .modern-hero-title which has its own responsive styles) */
 @media (max-width: 991px) {
-  h1, .h1, .hero-title, .servicedetails-hero-title {
+  h1:not(.modern-hero-title), .h1:not(.modern-hero-title), .hero-title, .servicedetails-hero-title {
     font-size: 42px !important;
     line-height: 1.2 !important;
   }
 }
 
 @media (max-width: 767px) {
-  h1, .h1, .hero-title, .servicedetails-hero-title {
+  h1:not(.modern-hero-title), .h1:not(.modern-hero-title), .hero-title, .servicedetails-hero-title {
     font-size: 32px !important;
     line-height: 1.3 !important;
   }
 }
 
 @media (max-width: 575px) {
-  h1, .h1, .hero-title, .servicedetails-hero-title {
+  h1:not(.modern-hero-title), .h1:not(.modern-hero-title), .hero-title, .servicedetails-hero-title {
     font-size: 28px !important;
     line-height: 1.3 !important;
   }

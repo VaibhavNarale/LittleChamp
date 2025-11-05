@@ -447,6 +447,11 @@ const handleLogout = async () => {
 
 <style>
 /* Global Header Fixed Styles (non-scoped) */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 .vs-header {
   position: relative;
   z-index: 999;
@@ -462,48 +467,99 @@ const handleLogout = async () => {
   background: white !important;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1) !important;
   transition: all 0.3s ease;
+  overflow: visible;
+  height: 68px;
 }
 
 .vs-header .sticky-active {
   position: relative;
   z-index: 9999;
+  height: 68px;
+  overflow: visible;
+  background: white;
+}
+
+.vs-header .sticky-active.active {
+  background: white !important;
 }
 
 .vs-header .header-menu-area {
   background: white;
-  padding: 10px 0 !important;
+  padding: 8px 0 !important;
+  overflow: visible;
+  height: 68px;
+  display: flex;
+  align-items: center;
+}
+
+.vs-header .header-menu-area .v-container {
+  overflow: visible;
+  max-width: 100% !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin: 0 auto;
 }
 
 .vs-header .header-menu-area .v-row {
   flex-wrap: nowrap !important;
-  gap: 15px;
+  gap: 10px;
+  max-width: 100%;
+  align-items: center !important;
+  height: 100%;
 }
 
 .vs-header .header-menu-area .v-col {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .vs-header .header-menu-area .v-col.flex-grow-1 {
   flex-shrink: 1;
   min-width: 0;
+  overflow: visible;
 }
 
 .vs-header .header-logo {
-  padding: 4px 0;
-  transform: scale(0.75);
+  padding: 2px 0;
+  transform: scale(0.68);
   transform-origin: left center;
+  flex-shrink: 0;
 }
 
 /* Nav menu spacing */
+.vs-header .main-menu {
+  overflow: visible;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.vs-header .main-menu > ul {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .vs-header .main-menu > ul > li {
-  margin: 0 10px !important;
+  margin: 0 8px !important;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .vs-header .main-menu > ul > li > a {
-  padding: 10px 0 !important;
-  line-height: 1.4 !important;
+  padding: 8px 0 !important;
+  line-height: 1.2 !important;
   position: relative;
   transition: color 0.3s ease;
+  font-size: 15px !important;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 /* Modern hover effect with underline */
@@ -556,11 +612,11 @@ const handleLogout = async () => {
   border-width: 0 !important;
   outline: none !important;
   padding: 10px !important;
-  margin-top: 0 !important;
+  margin-top: 8px !important;
   top: 100% !important;
   left: 0 !important;
   background: white !important;
-  z-index: 9999 !important;
+  z-index: 100000 !important;
   position: absolute !important;
   min-width: 200px !important;
   opacity: 0 !important;
@@ -569,16 +625,24 @@ const handleLogout = async () => {
   transition: all 0.3s ease !important;
   list-style-type: none !important;
   list-style: none !important;
+  pointer-events: none !important;
 }
 
 .vs-header .main-menu > ul > li.menu-item-has-children {
   position: relative !important;
+  display: block !important;
 }
 
-.vs-header .main-menu > ul > li.menu-item-has-children:hover > .sub-menu {
+.vs-header .main-menu > ul > li.menu-item-has-children > a {
+  display: block !important;
+}
+
+.vs-header .main-menu > ul > li.menu-item-has-children:hover > .sub-menu,
+.vs-header .main-menu > ul > li.menu-item-has-children > .sub-menu:hover {
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateY(0) !important;
+  pointer-events: auto !important;
 }
 
 .vs-header .main-menu .sub-menu li {
@@ -630,18 +694,38 @@ const handleLogout = async () => {
 
 /* Button sizes */
 .vs-header .header-button {
-  padding: 4px 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .vs-header .btn-login,
-.vs-header .btn-signup {
-  padding: 10px 20px !important;
-  font-size: 14px !important;
+.vs-header .btn-signup,
+.vs-header .btn-dashboard {
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  flex-shrink: 0;
 }
 
 .vs-header .icon-btn-modern {
-  width: 42px !important;
-  height: 42px !important;
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0;
+}
+
+.vs-header .user-btn {
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  flex-shrink: 0;
+}
+
+.vs-header .user-avatar {
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 12px !important;
+  flex-shrink: 0;
 }
 
 .vs-header .vs-menu-toggle {
@@ -650,12 +734,60 @@ const handleLogout = async () => {
 
 /* Add padding to body to prevent content from hiding under fixed header */
 body {
-  padding-top: 70px;
+  padding-top: 68px;
+}
+
+/* Desktop optimization for better single-line layout */
+@media (min-width: 992px) and (max-width: 1399px) {
+  .vs-header .main-menu > ul > li {
+    margin: 0 6px !important;
+  }
+
+  .vs-header .main-menu > ul > li > a {
+    font-size: 14px !important;
+  }
+
+  .vs-header .header-logo {
+    transform: scale(0.65);
+  }
+
+  .vs-header .btn-login,
+  .vs-header .btn-signup,
+  .vs-header .btn-dashboard {
+    padding: 7px 14px !important;
+    font-size: 12px !important;
+  }
+
+  .vs-header .header-button {
+    gap: 6px !important;
+  }
+
+  .vs-header .icon-btn-modern {
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
+
+/* Large desktop - comfortable spacing */
+@media (min-width: 1400px) {
+  .vs-header .main-menu > ul > li {
+    margin: 0 12px !important;
+  }
+
+  .vs-header .header-logo {
+    transform: scale(0.75);
+  }
+
+  .vs-header .btn-login,
+  .vs-header .btn-signup,
+  .vs-header .btn-dashboard {
+    padding: 9px 18px !important;
+  }
 }
 
 @media (max-width: 991px) {
   body {
-    padding-top: 65px;
+    padding-top: 68px;
   }
 
   .vs-header .header-logo {
@@ -698,13 +830,62 @@ body {
   }
 }
 
+/* Tablet: Show compact icon-only auth buttons */
+@media (min-width: 768px) and (max-width: 991px) {
+  .vs-header .header-menu-area .v-col:last-child {
+    display: flex !important;
+  }
+
+  .vs-header .header-button {
+    gap: 6px !important;
+  }
+
+  .vs-header .btn-login .btn-text,
+  .vs-header .btn-signup .btn-text,
+  .vs-header .btn-dashboard .btn-text {
+    display: none;
+  }
+
+  .vs-header .btn-login,
+  .vs-header .btn-signup,
+  .vs-header .btn-dashboard {
+    padding: 10px 12px !important;
+    min-width: 42px;
+  }
+
+  .vs-header .user-dropdown {
+    display: flex;
+  }
+
+  .vs-header .user-name {
+    display: none !important;
+  }
+
+  .vs-header .user-btn {
+    padding: 6px !important;
+  }
+
+  .vs-header .user-btn i {
+    display: none;
+  }
+
+  .vs-header .icon-btn-modern {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
 @media (max-width: 767px) {
   body {
-    padding-top: 60px;
+    padding-top: 62px;
   }
 
   .vs-header .header-logo {
     transform: scale(0.65);
+  }
+
+  .vs-header .header-menu-area {
+    padding: 11px 0 !important;
   }
 
   .vs-header .vs-menu-toggle {
@@ -719,24 +900,55 @@ body {
 
 @media (max-width: 575px) {
   body {
-    padding-top: 55px;
+    padding-top: 58px;
   }
 
   .vs-header .header-logo {
     transform: scale(0.6);
+    transform-origin: left center;
+  }
+
+  .vs-header .header-menu-area {
+    padding: 10px 0 !important;
+  }
+
+  .vs-header .header-menu-area .v-row {
+    gap: 8px !important;
+  }
+
+  .vs-header .vs-menu-toggle {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .vs-header .vs-menu-toggle i {
+    font-size: 14px;
+  }
+}
+
+/* Landscape mobile - Extra compact */
+@media (max-width: 767px) and (orientation: landscape) {
+  .vs-header .header-logo {
+    transform: scale(0.55);
   }
 
   .vs-header .header-menu-area {
     padding: 8px 0 !important;
   }
 
-  .vs-header .vs-menu-toggle {
-    padding: 6px 12px !important;
-    font-size: 12px !important;
+  .vs-header .header-menu-area .v-row {
+    gap: 6px !important;
   }
 
-  .vs-header .vs-menu-toggle i {
-    font-size: 14px;
+  .vs-header .vs-menu-toggle {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+  }
+
+  body {
+    padding-top: 52px;
   }
 }
 </style>

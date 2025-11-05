@@ -142,17 +142,14 @@ $('.vs-menu-wrapper').vsmobilemenu();
     var st = $(window).scrollTop();
     var height = $targetMenu.css('height');
     $targetMenu.parent().css('min-height', height);
+
+    // Always keep the navbar visible
+    $targetMenu.addClass($toggleClass);
+
     if ($(window).scrollTop() > 800) {
       $targetMenu.parent().addClass($parentClass);
-
-      if (st > lastScrollTop) {
-        $targetMenu.removeClass($toggleClass);
-      } else {
-        $targetMenu.addClass($toggleClass);
-      };
     } else {
       $targetMenu.parent().css('min-height', '').removeClass($parentClass);
-      $targetMenu.removeClass($toggleClass);
     };
     lastScrollTop = st;
   };

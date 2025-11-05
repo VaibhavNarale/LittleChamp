@@ -315,7 +315,7 @@ onBeforeUnmount(() => {
   <section class="about-section bg-smoke space">
     <div class="container">
       <div class="row flex-column-reverse flex-lg-row align-items-center gy-30">
-        <div class="col-sm-12 col-md-12 col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-sm-12 col-md-12 col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
           <div class="text-center text-lg-start">
             <span class="sub-title">Why Mind Jr Group</span>
             <h2 class="sec-title big-title">Transforming Learning Into An <span class="gradient-text">Adventure</span>
@@ -908,12 +908,13 @@ onBeforeUnmount(() => {
 .vs-hero-wrapper {
   position: relative;
   overflow: visible;
-  padding-top: 70px;
 }
 
 .class-card .class-img img {
   height: 388px;
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Bottom Wave Curve - SVG */
@@ -1204,15 +1205,15 @@ onBeforeUnmount(() => {
 
 /* Responsive Design */
 @media (max-width: 1025px) {
-  .shape-slider-area .slick-slider {
-    padding: 0px 10px;
+  .about-section .shape-slider-area .slick-slider {
+    padding: 0px 15px;
   }
 
   .vs-hero-wrapper {
     padding-bottom: 80px;
     margin-bottom: -80px;
-    margin-top: -65px;
-    padding-top: 65px;
+    margin-top: -68px;
+    padding-top: 68px;
   }
 
   .hero-wave-bottom {
@@ -1236,17 +1237,32 @@ onBeforeUnmount(() => {
     padding: 13px 24px;
     font-size: 14px;
   }
+
+  /* Counter Section - Better tablet layout */
+  .counter-section .row {
+    justify-content: center !important;
+  }
+
+  .counter-section .col-lg-auto {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 220px;
+    max-width: 260px;
+  }
+
+  .counter-item {
+    padding: 25px 20px !important;
+  }
 }
 
 @media (max-width: 767px) {
   .vs-hero-wrapper {
     padding-bottom: 60px;
     margin-bottom: -60px;
-    padding-top: 60px;
   }
 
-  .shape-slider-area .slick-slider {
-    padding: 0px 10px;
+  .about-section .shape-slider-area .slick-slider {
+    padding: 0px 12px;
   }
 
   .hero-wave-bottom {
@@ -1254,28 +1270,28 @@ onBeforeUnmount(() => {
   }
 
   .vs-hero-inner {
-    min-height: 80vh !important;
+    min-height: 60vh !important;
     height: auto;
-    padding: 40px 0;
+    padding: 30px 0;
   }
 
   .modern-hero-content {
-    padding: 20px 0;
+    padding: 15px 0;
   }
 
   .modern-hero-title {
     font-size: 32px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   .modern-hero-subtitle {
     font-size: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .modern-features-list {
     gap: 8px;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
   .modern-features-list .feature-item {
@@ -1287,7 +1303,7 @@ onBeforeUnmount(() => {
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .modern-btn {
@@ -1298,28 +1314,46 @@ onBeforeUnmount(() => {
   }
 
   .trust-indicators {
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    justify-content: center;
   }
 
   .teacher-badge {
     width: 100%;
     justify-content: center;
   }
+
+  /* Counter Section - Mobile layout */
+  .counter-section .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .counter-item {
+    padding: 20px 15px !important;
+  }
+
+  .counter-number {
+    font-size: 36px !important;
+  }
 }
 
 @media (max-width: 575px) {
-  .shape-slider-area .slick-slider {
+  .about-section .shape-slider-area .slick-slider {
     padding: 0px 10px;
   }
   .class-card .class-img img{
     height: 342px;
+    object-fit: cover;
+    object-position: center;
   }
 
   .vs-hero-wrapper {
     padding-bottom: 50px;
     margin-bottom: -50px;
-    padding-top: 60px;
+    padding-top: 58px;
   }
 
   .hero-wave-bottom {
@@ -1356,6 +1390,24 @@ onBeforeUnmount(() => {
 
   .modern-cta-group {
     margin-bottom: 18px;
+  }
+
+  /* Counter Section - XS layout */
+  .counter-section .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .counter-item {
+    padding: 18px 12px !important;
+  }
+
+  .counter-number {
+    font-size: 32px !important;
+  }
+
+  .counter-text {
+    font-size: 13px !important;
   }
 }
 </style>
