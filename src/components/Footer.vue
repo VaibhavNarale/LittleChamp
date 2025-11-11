@@ -66,10 +66,9 @@ const currentYear = computed(() => new Date().getFullYear())
             <div class="widget footer-widget">
               <h3 class="widget_title">Contact Us</h3>
               <div class="vs-widget-contact">
-                <p class="footer-info"><i class="fas fa-globe"></i>Online Learning Platform - Accessible Worldwide</p>
-                <p class="footer-info"><i class="fas fa-envelope"></i><a href="mailto:support@mindjrgroup.com">support@mindjrgroup.com</a></p>
-                <p class="footer-info"><i class="fas fa-phone-alt"></i><a href="tel:+18005551234">+1 (800) 555-1234</a></p>
-                <p class="footer-info"><i class="fas fa-headset"></i>24/7 Customer Support Available</p>
+                <p class="footer-info"><i class="fas fa-envelope"></i><a href="mailto:Info@mindgrowupjr.com">Info@mindgrowupjr.com</a></p>
+                <p class="footer-info"><i class="fas fa-phone-alt"></i><a href="tel:+919821749524">+91 9821749524</a></p>
+                <p class="footer-info"><i class="fab fa-instagram"></i><a href="https://instagram.com/mindgrowupjr" target="_blank" rel="noopener">@mindgrowupjr</a></p>
               </div>
             </div>
           </v-col>

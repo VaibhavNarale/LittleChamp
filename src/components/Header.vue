@@ -468,13 +468,13 @@ html, body {
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1) !important;
   transition: all 0.3s ease;
   overflow: visible;
-  height: 68px;
+  height: 85px;
 }
 
 .vs-header .sticky-active {
   position: relative;
   z-index: 9999;
-  height: 68px;
+  height: 85px;
   overflow: visible;
   background: white;
 }
@@ -487,7 +487,7 @@ html, body {
   background: white;
   padding: 8px 0 !important;
   overflow: visible;
-  height: 68px;
+  height: 85px;
   display: flex;
   align-items: center;
 }
@@ -522,9 +522,10 @@ html, body {
 
 .vs-header .header-logo {
   padding: 2px 0;
-  transform: scale(0.68);
+  transform: scale(0.78);
   transform-origin: left center;
   flex-shrink: 0;
+  margin-left: -50px;
 }
 
 /* Nav menu spacing */
@@ -734,7 +735,7 @@ html, body {
 
 /* Add padding to body to prevent content from hiding under fixed header */
 body {
-  padding-top: 68px;
+  padding-top: 85px;
 }
 
 /* Desktop optimization for better single-line layout */
@@ -748,7 +749,8 @@ body {
   }
 
   .vs-header .header-logo {
-    transform: scale(0.65);
+    transform: scale(0.7);
+    margin-left: -52px;
   }
 
   .vs-header .btn-login,
@@ -775,7 +777,8 @@ body {
   }
 
   .vs-header .header-logo {
-    transform: scale(0.75);
+    transform: scale(0.84);
+    margin-left: -45px;
   }
 
   .vs-header .btn-login,
@@ -787,15 +790,22 @@ body {
 
 @media (max-width: 991px) {
   body {
-    padding-top: 68px;
+    padding-top: 80px;
   }
 
   .vs-header .header-logo {
-    transform: scale(0.7);
+    transform: scale(0.72);
+    margin-left: -50px;
+  }
+
+  .vs-header .sticky-wrapper,
+  .vs-header .sticky-active,
+  .vs-header .header-menu-area {
+    height: 80px;
   }
 
   .vs-header .header-menu-area {
-    padding: 12px 0 !important;
+    padding: 8px 0 !important;
   }
 
   /* Reset flex layout for tablet/mobile */
@@ -877,15 +887,22 @@ body {
 
 @media (max-width: 767px) {
   body {
-    padding-top: 62px;
+    padding-top: 75px;
   }
 
   .vs-header .header-logo {
-    transform: scale(0.65);
+    transform: scale(0.66);
+    margin-left: -54px;
+  }
+
+  .vs-header .sticky-wrapper,
+  .vs-header .sticky-active,
+  .vs-header .header-menu-area {
+    height: 75px;
   }
 
   .vs-header .header-menu-area {
-    padding: 11px 0 !important;
+    padding: 8px 0 !important;
   }
 
   .vs-header .vs-menu-toggle {
@@ -900,16 +917,23 @@ body {
 
 @media (max-width: 575px) {
   body {
-    padding-top: 58px;
+    padding-top: 70px;
   }
 
   .vs-header .header-logo {
     transform: scale(0.6);
     transform-origin: left center;
+    margin-left: -58px;
+  }
+
+  .vs-header .sticky-wrapper,
+  .vs-header .sticky-active,
+  .vs-header .header-menu-area {
+    height: 70px;
   }
 
   .vs-header .header-menu-area {
-    padding: 10px 0 !important;
+    padding: 6px 0 !important;
   }
 
   .vs-header .header-menu-area .v-row {
@@ -931,11 +955,18 @@ body {
 /* Landscape mobile - Extra compact */
 @media (max-width: 767px) and (orientation: landscape) {
   .vs-header .header-logo {
-    transform: scale(0.55);
+    transform: scale(0.58);
+    margin-left: -58px;
+  }
+
+  .vs-header .sticky-wrapper,
+  .vs-header .sticky-active,
+  .vs-header .header-menu-area {
+    height: 65px;
   }
 
   .vs-header .header-menu-area {
-    padding: 8px 0 !important;
+    padding: 5px 0 !important;
   }
 
   .vs-header .header-menu-area .v-row {
@@ -948,7 +979,7 @@ body {
   }
 
   body {
-    padding-top: 52px;
+    padding-top: 65px;
   }
 }
 </style>

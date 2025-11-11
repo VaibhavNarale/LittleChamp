@@ -151,11 +151,9 @@ onBeforeUnmount(() => {
 
             <div class="price-display">
               <span class="currency">$</span>
-              <span class="amount">{{ isYearly ? '59' : '7.99' }}</span>
-              <span class="period">{{ isYearly ? '/year' : '/month' }}</span>
+              <span class="amount">0</span>
             </div>
-            <p class="billing-cycle" v-if="isYearly">or $7.99/month</p>
-            <p class="billing-cycle" v-else>or $59/year (save 20%)</p>
+            <p class="billing-cycle">Free for now</p>
 
             <ul class="feature-list">
               <li>
@@ -266,9 +264,10 @@ onBeforeUnmount(() => {
             </div>
 
             <div class="price-display">
-              <span class="amount-custom">Custom</span>
+              <span class="currency">$</span>
+              <span class="amount">0</span>
             </div>
-            <p class="billing-cycle">Contact us for pricing</p>
+            <p class="billing-cycle">Free for now</p>
 
             <ul class="feature-list">
               <li>

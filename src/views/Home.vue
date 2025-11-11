@@ -2,6 +2,18 @@
 import { onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
 
+// Import new images
+import heroImage1 from '@/assets/new-images/fachry-hasan-9VH7JsBSA4c-unsplash.jpg'
+import heroImage2 from '@/assets/new-images/depositphotos_791040040-stock-photo-mumbai-india-february-school-children.jpg'
+import heroImage3 from '@/assets/new-images/pexels-yankrukov-8613062.jpg'
+import mathImage from '@/assets/new-images/istockphoto-165964685-612x612.jpg'
+import readingImage from '@/assets/new-images/gettyimages-123273724-640x640.jpg'
+import scienceImage from '@/assets/new-images/rare-7-planet-alignment-1024x683.jpg'
+import blog1 from '@/assets/new-images/young-indian-boy-watching-television.jpg'
+import blog2 from '@/assets/new-images/hw-to-play-hopscotch-with-a-preschooler.jpg'
+import blog3 from '@/assets/new-images/hopscotch.webp'
+import blog4 from '@/assets/new-images/istockphoto-507276910-612x612.webp'
+
 // Admin Client URL for sign up/login links
 const adminClientUrl = import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
 
@@ -33,7 +45,7 @@ onBeforeUnmount(() => {
     <div class="hero-slider1 vs-carousel" data-slide-show="1" data-md-slide-show="1" data-fade="true">
       <!-- Hero Slide 1: Main Value Proposition -->
       <div class="vs-hero-inner">
-        <div class="vs-hero-bg" data-bg-src="/assets/img/bg/hero1-1.jpg"></div>
+        <div class="vs-hero-bg" :data-bg-src="heroImage1"></div>
         <div class="container h-100">
           <div class="row align-items-center h-100">
             <div class="col-lg-6 col-md-8">
@@ -108,7 +120,7 @@ onBeforeUnmount(() => {
 
       <!-- Hero Slide 2: Personalized Learning -->
       <div class="vs-hero-inner">
-        <div class="vs-hero-bg" data-bg-src="/assets/img/bg/hero1-2.jpg"></div>
+        <div class="vs-hero-bg" :data-bg-src="heroImage2"></div>
         <div class="container h-100">
           <div class="row align-items-center h-100">
             <div class="col-lg-6 col-md-8">
@@ -167,7 +179,7 @@ onBeforeUnmount(() => {
 
       <!-- Hero Slide 3: Teachers -->
       <div class="vs-hero-inner">
-        <div class="vs-hero-bg" data-bg-src="/assets/img/bg/hero1-3.jpg"></div>
+        <div class="vs-hero-bg" :data-bg-src="heroImage3"></div>
         <div class="container h-100">
           <div class="row align-items-center h-100">
             <div class="col-lg-6 col-md-8">
@@ -432,7 +444,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="class-card">
             <div class="class-img">
-              <router-link to="/subjects/math"><img src="/assets/img/class/class-3.png" alt="Mathematics"></router-link>
+              <router-link to="/subjects/math"><img :src="mathImage" alt="Mathematics"></router-link>
               <span class="class-fee" style="background: #6C5CE7;">1000+ Games</span>
             </div>
             <div class="class-content">
@@ -464,7 +476,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
           <div class="class-card">
             <div class="class-img">
-              <router-link to="/subjects/reading"><img src="/assets/img/class/class-1.png"
+              <router-link to="/subjects/reading"><img :src="readingImage"
                   alt="Reading & ELA"></router-link>
               <span class="class-fee" style="background: #FD79A8;">1200+ Games</span>
             </div>
@@ -497,7 +509,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="class-card">
             <div class="class-img">
-              <router-link to="/subjects/science"><img src="/assets/img/class/class-2.png" alt="Science"></router-link>
+              <router-link to="/subjects/science"><img :src="scienceImage" alt="Science"></router-link>
               <span class="class-fee" style="background: #00B894;">800+ Games</span>
             </div>
             <div class="class-content">
@@ -663,122 +675,6 @@ onBeforeUnmount(() => {
   </section>
   <!--======== / Appointment Section ========-->
 
-  <!--======== Team Section ========-->
-  <section class="team-section bg-smoke space-top space-extra-bottom">
-    <div class="container">
-      <div class="row text-center justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-        <div class="col-xl-6 col-lg-7 col-md-8 col-sm-9">
-          <div class="title-area">
-            <span class="sub-title">Our Expert Staff</span>
-            <h2 class="sec-title">Most Dedicated Staff For Your Child</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row  vs-carousel" data-slide-show="3" data-lg-slide-show="2" data-arrows="true">
-        <!-- Single Team -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="team-card">
-            <div class="team-img" data-mask-src="/assets/img/team/t-mask.png">
-              <img src="/assets/img/team/t-1.jpg" alt="team">
-              <div class="team-content">
-                <p class="team-text">Assertively repurpose orthogonal architectures through just in time manufactured
-                  products.</p>
-                <div class="multi-social">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-            </div>
-            <button class="icon-btn expand-btn"><i class="fas fa-share-alt"></i></button>
-            <div class="team-info">
-              <h4 class="team-title"><router-link to="/team-details">Bableo Dablo</router-link></h4>
-              <span class="team-desig">Kids Specialist</span>
-            </div>
-          </div>
-        </div>
-        <!-- Single Team -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="team-card">
-            <div class="team-img" data-mask-src="/assets/img/team/t-mask.png">
-              <img src="/assets/img/team/t-2.jpg" alt="team">
-              <div class="team-content">
-                <p class="team-text">Assertively repurpose orthogonal architectures through just in time manufactured
-                  products.</p>
-                <div class="multi-social">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-            </div>
-            <button class="icon-btn expand-btn"><i class="fas fa-share-alt"></i></button>
-            <div class="team-info">
-              <h4 class="team-title"><router-link to="/team-details">Rose Marry</router-link></h4>
-              <span class="team-desig">Drawing Teacher</span>
-            </div>
-          </div>
-        </div>
-        <!-- Single Team -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="team-card">
-            <div class="team-img" data-mask-src="/assets/img/team/t-mask.png">
-              <img src="/assets/img/team/t-3.jpg" alt="team">
-              <div class="team-content">
-                <p class="team-text">Assertively repurpose orthogonal architectures through just in time manufactured
-                  products.</p>
-                <div class="multi-social">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-            </div>
-            <button class="icon-btn expand-btn"><i class="fas fa-share-alt"></i></button>
-            <div class="team-info">
-              <h4 class="team-title"><router-link to="/team-details">Jabian Joe</router-link></h4>
-              <span class="team-desig">Kids Teacher</span>
-            </div>
-          </div>
-        </div>
-        <!-- Single Team -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="team-card">
-            <div class="team-img" data-mask-src="/assets/img/team/t-mask.png">
-              <img src="/assets/img/team/t-4.jpg" alt="team">
-              <div class="team-content">
-                <p class="team-text">Assertively repurpose orthogonal architectures through just in time manufactured
-                  products.</p>
-                <div class="multi-social">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-            </div>
-            <button class="icon-btn expand-btn"><i class="fas fa-share-alt"></i></button>
-            <div class="team-info">
-              <h4 class="team-title"><router-link to="/team-details">Sonia Khan</router-link></h4>
-              <span class="team-desig">Kids Specialist</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="shape-mockup movingX d-none d-sm-block" data-top="18%" data-left="12%"><img
-        src="/assets/img/icon/car-2.png" alt="shapes"></div>
-    <div class="shape-mockup shapePulse d-none d-hd-block" data-bottom="20%" data-left="5%"><img
-        src="/assets/img/icon/sun.png" alt="shapes"></div>
-    <div class="shape-mockup moving d-none d-hd-block" data-bottom="10%" data-right="4%"><img
-        src="/assets/img/icon/math-1.png" alt="shapes"></div>
-  </section>
-  <!--======== / Team Section ========-->
-
   <!--======== CTA Section ========-->
   <section class="cta-section bg-smoke-blue space">
     <div class="container text-center">
@@ -814,7 +710,7 @@ onBeforeUnmount(() => {
           <div class="vs-blog blog-card">
             <div class="blog-img">
               <router-link to="/blog-details">
-                <img src="/assets/img/blog/blog-1.jpg" alt="blog">
+                <img :src="blog1" alt="blog">
               </router-link>
             </div>
             <div class="blog-content">
@@ -834,7 +730,7 @@ onBeforeUnmount(() => {
           <div class="vs-blog blog-card">
             <div class="blog-img">
               <router-link to="/blog-details">
-                <img src="/assets/img/blog/blog-2.jpg" alt="blog">
+                <img :src="blog2" alt="blog">
               </router-link>
             </div>
             <div class="blog-content">
@@ -854,7 +750,7 @@ onBeforeUnmount(() => {
           <div class="vs-blog blog-card">
             <div class="blog-img">
               <router-link to="/blog-details">
-                <img src="/assets/img/blog/blog-3.jpg" alt="blog">
+                <img :src="blog3" alt="blog">
               </router-link>
             </div>
             <div class="blog-content">
@@ -874,7 +770,7 @@ onBeforeUnmount(() => {
           <div class="vs-blog blog-card">
             <div class="blog-img">
               <router-link to="/blog-details">
-                <img src="/assets/img/blog/blog-4.jpg" alt="blog">
+                <img :src="blog4" alt="blog">
               </router-link>
             </div>
             <div class="blog-content">
@@ -948,9 +844,9 @@ onBeforeUnmount(() => {
   right: 0;
   bottom: 0;
   background: linear-gradient(135deg,
-      rgba(108, 99, 255, 0.95) 0%,
-      rgba(88, 77, 204, 0.92) 35%,
-      rgba(255, 71, 108, 0.93) 100%);
+      rgba(108, 99, 255, 0.4) 0%,
+      rgba(88, 77, 204, 0.35) 35%,
+      rgba(255, 71, 108, 0.4) 100%);
   z-index: 1;
 }
 
@@ -962,23 +858,23 @@ onBeforeUnmount(() => {
 /* Different gradient for each slide */
 .vs-hero-inner:nth-child(1) .vs-hero-bg::after {
   background: linear-gradient(135deg,
-      rgba(108, 99, 255, 0.95) 0%,
-      rgba(162, 155, 254, 0.9) 45%,
-      rgba(255, 101, 132, 0.93) 100%);
+      rgba(108, 99, 255, 0.45) 0%,
+      rgba(162, 155, 254, 0.4) 45%,
+      rgba(255, 101, 132, 0.45) 100%);
 }
 
 .vs-hero-inner:nth-child(2) .vs-hero-bg::after {
   background: linear-gradient(135deg,
-      rgba(162, 155, 254, 0.95) 0%,
-      rgba(108, 99, 255, 0.92) 45%,
-      rgba(255, 71, 108, 0.93) 100%);
+      rgba(162, 155, 254, 0.45) 0%,
+      rgba(108, 99, 255, 0.4) 45%,
+      rgba(255, 71, 108, 0.45) 100%);
 }
 
 .vs-hero-inner:nth-child(3) .vs-hero-bg::after {
   background: linear-gradient(135deg,
-      rgba(0, 210, 160, 0.95) 0%,
-      rgba(0, 184, 148, 0.92) 40%,
-      rgba(108, 99, 255, 0.93) 100%);
+      rgba(0, 210, 160, 0.45) 0%,
+      rgba(0, 184, 148, 0.4) 40%,
+      rgba(108, 99, 255, 0.45) 100%);
 }
 
 /* Hero Section Height Control */
@@ -1212,8 +1108,8 @@ onBeforeUnmount(() => {
   .vs-hero-wrapper {
     padding-bottom: 80px;
     margin-bottom: -80px;
-    margin-top: -68px;
-    padding-top: 68px;
+    margin-top: -80px;
+    padding-top: 80px;
   }
 
   .hero-wave-bottom {
@@ -1353,7 +1249,7 @@ onBeforeUnmount(() => {
   .vs-hero-wrapper {
     padding-bottom: 50px;
     margin-bottom: -50px;
-    padding-top: 58px;
+    padding-top: 70px;
   }
 
   .hero-wave-bottom {
