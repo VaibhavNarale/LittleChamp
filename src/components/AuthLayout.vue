@@ -1,6 +1,4 @@
 <script setup>
-import Logo from './Logo.vue'
-
 defineProps({
   title: {
     type: String,
@@ -31,12 +29,6 @@ defineProps({
     </div>
 
     <div class="branding-content">
-      <div class="brand-logo mb-5">
-        <router-link to="/">
-          <Logo size="large" variant="white" />
-        </router-link>
-      </div>
-
       <h1 class="display-4 text-white fw-bold mb-4">
         {{ title }}<br>
         <span class="gradient-text-light">{{ subtitle }}</span>

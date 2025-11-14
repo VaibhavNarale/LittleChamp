@@ -3,14 +3,14 @@ import { onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
 
 // Import new images
-import heroImage1 from '@/assets/new-images/fachry-hasan-9VH7JsBSA4c-unsplash.jpg'
-import heroImage2 from '@/assets/new-images/depositphotos_791040040-stock-photo-mumbai-india-february-school-children.jpg'
-import heroImage3 from '@/assets/new-images/pexels-yankrukov-8613062.jpg'
-import mathImage from '@/assets/new-images/istockphoto-165964685-612x612.jpg'
-import readingImage from '@/assets/new-images/gettyimages-123273724-640x640.jpg'
-import scienceImage from '@/assets/new-images/rare-7-planet-alignment-1024x683.jpg'
-import blog1 from '@/assets/new-images/young-indian-boy-watching-television.jpg'
-import blog2 from '@/assets/new-images/hw-to-play-hopscotch-with-a-preschooler.jpg'
+import heroImage1 from '@/assets/new-images/fachry-hasan-9VH7JsBSA4c-unsplash.webp'
+import heroImage2 from '@/assets/new-images/10975.webp'
+import heroImage3 from '@/assets/new-images/pexels-yankrukov-8613062.webp'
+import mathImage from '@/assets/new-images/vedic-math.webp'
+import readingImage from '@/assets/new-images/gettyimages-123273724-640x640.webp'
+import scienceImage from '@/assets/new-images/Kids_hands_creating_on_card_arches_with_an_array_of_craft_suppplies.webp'
+import blog1 from '@/assets/new-images/young-indian-boy-watching-television.webp'
+import blog2 from '@/assets/new-images/hw-to-play-hopscotch-with-a-preschooler.webp'
 import blog3 from '@/assets/new-images/hopscotch.webp'
 import blog4 from '@/assets/new-images/istockphoto-507276910-612x612.webp'
 
@@ -195,7 +195,7 @@ onBeforeUnmount(() => {
                 </h1>
 
                 <p class="modern-hero-subtitle" data-ani="slideinup" data-ani-delay="0.2s">
-                  Join 100,000+ educators using Mind Jr Group to engage students and track progress in their classrooms.
+                  Join 100,000+ educators using Mind Growup Jr to engage students and track progress in their classrooms.
                 </p>
 
                 <div class="modern-features-list" data-ani="slideinup" data-ani-delay="0.3s">
@@ -250,7 +250,7 @@ onBeforeUnmount(() => {
       <div class="row text-center justify-content-center wow fadeInUp" data-wow-delay="0.1s">
         <div class="col-xl-8 col-lg-9">
           <div class="title-area">
-            <span class="sub-title">Why Choose Mind Jr Group</span>
+            <span class="sub-title">Why Choose Mind Growup Jr</span>
             <h2 class="sec-title">Powerful Features That Make Learning <span class="gradient-text">Irresistible</span>
             </h2>
             <p class="mt-3 text-muted">Everything your child needs to excel in Math, Reading, and Science</p>
@@ -329,10 +329,10 @@ onBeforeUnmount(() => {
       <div class="row flex-column-reverse flex-lg-row align-items-center gy-30">
         <div class="col-sm-12 col-md-12 col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
           <div class="text-center text-lg-start">
-            <span class="sub-title">Why Mind Jr Group</span>
+            <span class="sub-title">Why Mind Growup Jr</span>
             <h2 class="sec-title big-title">Transforming Learning Into An <span class="gradient-text">Adventure</span>
             </h2>
-            <p class="fs-md mb-30">At Mind Jr Group, we believe every child deserves to discover the joy of learning.
+            <p class="fs-md mb-30">At Mind Growup Jr, we believe every child deserves to discover the joy of learning.
               Our platform combines cutting-edge adaptive technology with engaging games to create personalized learning
               experiences for Math, Reading, and Science.</p>
             <p class="fs-md mb-30">Trusted by 50 million kids and 100,000+ teachers worldwide, we're on a mission to
@@ -505,17 +505,16 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <!-- Science Subject -->
+        <!-- Craft & Drawing Subject -->
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="class-card">
             <div class="class-img">
-              <router-link to="/subjects/science"><img :src="scienceImage" alt="Science"></router-link>
-              <span class="class-fee" style="background: #00B894;">800+ Games</span>
+              <router-link to="/subjects/craft-drawing"><img :src="scienceImage" alt="Craft & Drawing"></router-link>
+              <span class="class-fee" style="background: #00B894;">800+ Activities</span>
             </div>
             <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/subjects/science">Science</router-link></h2>
-              <p class="class-text">Discover the wonders of nature, animals, plants, weather, space, and scientific
-                inquiry.</p>
+              <h2 class="class-title h4"><router-link to="/subjects/craft-drawing">Craft & Drawing</router-link></h2>
+              <p class="class-text">Unleash creativity through hands-on crafts, drawing, coloring, and artistic expression.</p>
               <ul class="class-info">
                 <li>
                   <p>Grades:</p>
@@ -526,12 +525,12 @@ onBeforeUnmount(() => {
                   <span>10+ Topics</span>
                 </li>
                 <li>
-                  <p>Games:</p>
+                  <p>Activities:</p>
                   <span>800+</span>
                 </li>
               </ul>
-              <router-link to="/subjects/science" class="vs-btn style-1">
-                Explore Science
+              <router-link to="/subjects/craft-drawing" class="vs-btn style-1">
+                Explore Craft & Drawing
                 <i class="fas fa-arrow-right ms-2"></i>
               </router-link>
             </div>
@@ -844,9 +843,9 @@ onBeforeUnmount(() => {
   right: 0;
   bottom: 0;
   background: linear-gradient(135deg,
-      rgba(108, 99, 255, 0.4) 0%,
-      rgba(88, 77, 204, 0.35) 35%,
-      rgba(255, 71, 108, 0.4) 100%);
+      rgba(108, 99, 255, 0.2) 0%,
+      rgba(88, 77, 204, 0.15) 35%,
+      rgba(255, 71, 108, 0.2) 100%);
   z-index: 1;
 }
 
@@ -858,23 +857,23 @@ onBeforeUnmount(() => {
 /* Different gradient for each slide */
 .vs-hero-inner:nth-child(1) .vs-hero-bg::after {
   background: linear-gradient(135deg,
-      rgba(108, 99, 255, 0.45) 0%,
-      rgba(162, 155, 254, 0.4) 45%,
-      rgba(255, 101, 132, 0.45) 100%);
+      rgba(108, 99, 255, 0.2) 0%,
+      rgba(162, 155, 254, 0.18) 45%,
+      rgba(255, 101, 132, 0.2) 100%);
 }
 
 .vs-hero-inner:nth-child(2) .vs-hero-bg::after {
   background: linear-gradient(135deg,
-      rgba(162, 155, 254, 0.45) 0%,
-      rgba(108, 99, 255, 0.4) 45%,
-      rgba(255, 71, 108, 0.45) 100%);
+      rgba(162, 155, 254, 0.2) 0%,
+      rgba(108, 99, 255, 0.18) 45%,
+      rgba(255, 71, 108, 0.2) 100%);
 }
 
 .vs-hero-inner:nth-child(3) .vs-hero-bg::after {
   background: linear-gradient(135deg,
-      rgba(0, 210, 160, 0.45) 0%,
-      rgba(0, 184, 148, 0.4) 40%,
-      rgba(108, 99, 255, 0.45) 100%);
+      rgba(0, 210, 160, 0.2) 0%,
+      rgba(0, 184, 148, 0.18) 40%,
+      rgba(108, 99, 255, 0.2) 100%);
 }
 
 /* Hero Section Height Control */

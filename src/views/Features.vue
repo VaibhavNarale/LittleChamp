@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
           <!-- Hero Badge -->
           <div class="hero-badge">
             <img class="badge-icon" src="/assets/img/icon/car.png" alt="icon">
-            <span>Why Choose Mind Jr Group</span>
+            <span>Why Choose Mind Growup Jr</span>
           </div>
 
           <!-- Hero Title -->
@@ -42,7 +42,7 @@ onBeforeUnmount(() => {
 
           <!-- Hero Description -->
           <p class="features-hero-description">
-            Discover the powerful features that make Mind Jr Group the #1 choice for 50M+ kids and 100,000+ teachers worldwide
+            Discover the powerful features that make Mind Growup Jr the #1 choice for 50M+ kids and 100,000+ teachers worldwide
           </p>
 
           <!-- Trust Indicators -->
@@ -335,7 +335,7 @@ onBeforeUnmount(() => {
           <div class="title-area">
             <span class="sub-title">Safe & Secure</span>
             <h2 class="sec-title">Your Child's Safety is Our <span class="gradient-text">Top Priority</span></h2>
-            <p class="mb-4">We take privacy and security seriously. Mind Jr Group is fully compliant with all major children's privacy regulations.</p>
+            <p class="mb-4">We take privacy and security seriously. Mind Growup Jr is fully compliant with all major children's privacy regulations.</p>
           </div>
 
           <div class="security-features">

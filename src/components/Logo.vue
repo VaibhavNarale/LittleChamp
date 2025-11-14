@@ -22,7 +22,7 @@ const sizeClasses = {
 <template>
   <div class="mind-jr-logo" :class="[sizeClasses[size], `logo-${variant}`]">
     <div class="logo-container">
-      <img :src="newLogo" alt="Mind Jr Group Logo" class="logo-image">
+      <img :src="newLogo" alt="Mind Growup Jr Logo" class="logo-image">
     </div>
   </div>
 </template>
@@ -56,42 +56,42 @@ const sizeClasses = {
 
 /* Size Variations */
 .logo-small .logo-container {
-  height: 180px;
+  height: 200px;
   width: auto;
 }
 
 .logo-medium .logo-container {
-  height: 220px;
+  height: 260px;
   width: auto;
 }
 
 .logo-large .logo-container {
-  height: 280px;
+  height: 320px;
   width: auto;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .logo-medium .logo-container {
-    height: 180px;
+    height: 200px;
   }
 
   .logo-large .logo-container {
-    height: 220px;
+    height: 240px;
   }
 }
 
 @media (max-width: 480px) {
   .logo-small .logo-container {
-    height: 140px;
+    height: 150px;
   }
 
   .logo-medium .logo-container {
-    height: 160px;
+    height: 170px;
   }
 
   .logo-large .logo-container {
-    height: 180px;
+    height: 200px;
   }
 }
 </style>

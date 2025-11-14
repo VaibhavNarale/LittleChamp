@@ -96,7 +96,7 @@ const handleLogout = async () => {
                     </router-link>
                   </div>
                 </v-col>
-                <v-col cols="auto" class="flex-grow-1 d-flex justify-center">
+                <v-col cols="auto"  class="flex-grow-1 d-flex justify-end">
                   <nav class="main-menu menu-style1 d-none d-lg-inline-block">
                     <ul>
                       <li>
@@ -511,7 +511,6 @@ html, body {
 .vs-header .header-menu-area .v-col {
   flex-shrink: 0;
   display: flex;
-  align-items: center;
 }
 
 .vs-header .header-menu-area .v-col.flex-grow-1 {
@@ -522,7 +521,7 @@ html, body {
 
 .vs-header .header-logo {
   padding: 2px 0;
-  transform: scale(0.78);
+  transform: scale(0.92);
   transform-origin: left center;
   flex-shrink: 0;
   margin-left: -50px;
@@ -749,7 +748,7 @@ body {
   }
 
   .vs-header .header-logo {
-    transform: scale(0.7);
+    transform: scale(1);
     margin-left: -52px;
   }
 
@@ -777,7 +776,7 @@ body {
   }
 
   .vs-header .header-logo {
-    transform: scale(0.84);
+    transform: scale(1);
     margin-left: -45px;
   }
 
@@ -790,18 +789,18 @@ body {
 
 @media (max-width: 991px) {
   body {
-    padding-top: 80px;
+    padding-top: 85px;
   }
 
   .vs-header .header-logo {
-    transform: scale(0.72);
-    margin-left: -50px;
+    transform: scale(1.2);
+    margin-left: -60px;
   }
 
   .vs-header .sticky-wrapper,
   .vs-header .sticky-active,
   .vs-header .header-menu-area {
-    height: 80px;
+    height: 85px;
   }
 
   .vs-header .header-menu-area {
@@ -826,7 +825,6 @@ body {
     flex: 1 1 auto !important;
     display: flex !important;
     justify-content: flex-end !important;
-    align-items: center !important;
   }
 
   /* Right column (buttons) is hidden on mobile/tablet */
@@ -887,18 +885,18 @@ body {
 
 @media (max-width: 767px) {
   body {
-    padding-top: 75px;
+    padding-top: 90px;
   }
 
   .vs-header .header-logo {
-    transform: scale(0.66);
-    margin-left: -54px;
+    transform: scale(1);
+    margin-left: -60px;
   }
 
   .vs-header .sticky-wrapper,
   .vs-header .sticky-active,
   .vs-header .header-menu-area {
-    height: 75px;
+    height: 90px;
   }
 
   .vs-header .header-menu-area {
@@ -917,19 +915,25 @@ body {
 
 @media (max-width: 575px) {
   body {
-    padding-top: 70px;
+    padding-top: 85px;
+  }
+  .vs-header .header-menu-area .v-container {
+    padding: 0px !important;
+  }
+  .vs-header .header-menu-area .v-col:nth-child(2) {
+    padding-right: 0px !important;
   }
 
   .vs-header .header-logo {
-    transform: scale(0.6);
+    transform: scale(1.2);
     transform-origin: left center;
-    margin-left: -58px;
+    margin-left: -39px;
   }
 
   .vs-header .sticky-wrapper,
   .vs-header .sticky-active,
   .vs-header .header-menu-area {
-    height: 70px;
+    height: 85px;
   }
 
   .vs-header .header-menu-area {
@@ -955,14 +959,14 @@ body {
 /* Landscape mobile - Extra compact */
 @media (max-width: 767px) and (orientation: landscape) {
   .vs-header .header-logo {
-    transform: scale(0.58);
-    margin-left: -58px;
+    transform: scale(1);
+    margin-left: -60px;
   }
 
   .vs-header .sticky-wrapper,
   .vs-header .sticky-active,
   .vs-header .header-menu-area {
-    height: 65px;
+    height: 75px;
   }
 
   .vs-header .header-menu-area {
@@ -979,7 +983,7 @@ body {
   }
 
   body {
-    padding-top: 65px;
+    padding-top: 75px;
   }
 }
 </style>

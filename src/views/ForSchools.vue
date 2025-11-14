@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
           </div>
           <h1 class="servicedetails-hero-title">
             Transform Your School
-            <span class="gradient-text-light d-block">with Mind Jr Group</span>
+            <span class="gradient-text-light d-block">with Mind Growup Jr</span>
           </h1>
           <p class="hero-description">
             Comprehensive learning platform for schools with unlimited students, advanced analytics, and dedicated support
@@ -281,7 +281,7 @@ onBeforeUnmount(() => {
       <div class="cta-box">
         <div class="row align-items-center">
           <div class="col-lg-8">
-            <h2 class="cta-title">Ready to Bring Mind Jr Group to Your School?</h2>
+            <h2 class="cta-title">Ready to Bring Mind Growup Jr to Your School?</h2>
             <p class="cta-text">
               Contact our school sales team for a free demo, pricing information, and custom implementation plan.
             </p>

@@ -602,7 +602,7 @@ onBeforeUnmount(() => {
               <i class="fas fa-shield-check fa-5x" style="color: #00D2A0;"></i>
             </div>
             <h2 class="sec-title mb-3">30-Day Money-Back Guarantee</h2>
-            <p class="fs-md mb-4">Try Mind Jr Group risk-free! If you're not completely satisfied with your subscription within the first 30 days, we'll give you a full refund. No questions asked, no hassle.</p>
+            <p class="fs-md mb-4">Try Mind Growup Jr risk-free! If you're not completely satisfied with your subscription within the first 30 days, we'll give you a full refund. No questions asked, no hassle.</p>
             <div class="guarantee-features d-flex flex-wrap justify-content-center gap-4 mt-4">
               <div class="guarantee-feature">
                 <i class="fas fa-check-circle text-success fa-2x mb-2"></i>

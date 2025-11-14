@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import Logo from './Logo.vue'
+import footerLogo from '@/assets/footer-logo.png'
 
 const currentYear = computed(() => new Date().getFullYear())
 </script>
@@ -16,7 +16,7 @@ const currentYear = computed(() => new Date().getFullYear())
               <div class="vs-widget-about">
                 <div class="about-logo">
                   <router-link to="/">
-                    <Logo size="medium" variant="white" />
+                    <img :src="footerLogo" alt="Mind Growup Jr" class="footer-logo-img" />
                   </router-link>
                 </div>
                 <p class="about-text">Make learning magical and fun for your child with 4000+ interactive games for Math, Reading, and Science. Trusted by 50M+ kids and 100,000+ teachers worldwide.</p>
@@ -79,7 +79,7 @@ const currentYear = computed(() => new Date().getFullYear())
     <!-- Copyright -->
     <div class="footer-copyright">
       <v-container>
-        <p class="copyright">&copy; Copyright {{ currentYear }} Mind Jr Group. All Rights Reserved. | <router-link to="/privacy">Privacy Policy</router-link> | <router-link to="/terms">Terms of Service</router-link></p>
+        <p class="copyright">&copy; Copyright {{ currentYear }} Mind Growup Jr. All Rights Reserved. | <router-link to="/privacy">Privacy Policy</router-link> | <router-link to="/terms">Terms of Service</router-link></p>
       </v-container>
     </div>
 
@@ -108,6 +108,76 @@ const currentYear = computed(() => new Date().getFullYear())
 <style scoped>
 .footer-wrapper {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
+}
+
+/* Footer Logo Styling */
+.footer-logo-img {
+  max-width: 320px;
+  height: auto;
+  display: block;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo-img:hover {
+  transform: scale(1.05);
+}
+
+.about-logo {
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+.vs-widget-about {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.footer-wrapper :deep(.widget-area) {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+.footer-wrapper :deep(.footer-widget) {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.footer-wrapper :deep(.widget) {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 991px) {
+  .footer-logo-img {
+    max-width: 280px;
+  }
+
+  .footer-wrapper :deep(.widget-area) {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-logo-img {
+    max-width: 240px;
+  }
+
+  .footer-wrapper :deep(.widget-area) {
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer-logo-img {
+    max-width: 200px;
+  }
+
+  .footer-wrapper :deep(.widget-area) {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
 }
 
 /* Update text colors for dark background */

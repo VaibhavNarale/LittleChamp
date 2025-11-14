@@ -56,7 +56,7 @@ const handleLogin = async () => {
         <!-- Left Side - Branding -->
         <AuthLayout
           title="Welcome Back to"
-          subtitle="Mind Jr Group!"
+          subtitle="Mind Growup Jr!"
           description="Continue your child's learning journey with 4000+ interactive games and activities."
         />
 
@@ -72,7 +72,7 @@ const handleLogin = async () => {
 
             <div class="form-header">
               <h2 class="form-title">Sign In</h2>
-              <p class="form-subtitle">Access your Mind Jr Group account</p>
+              <p class="form-subtitle">Access your Mind Growup Jr account</p>
             </div>
 
             <!-- Social Login Buttons -->

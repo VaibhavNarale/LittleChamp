@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
           </div>
           <h1 class="servicedetails-hero-title">
             Empower Your Classroom
-            <span class="gradient-text-light d-block">with Mind Jr Group</span>
+            <span class="gradient-text-light d-block">with Mind Growup Jr</span>
           </h1>
           <p class="hero-description">
             Free premium access for teachers! Engage your students with interactive learning games and track their progress in real-time
@@ -230,7 +230,7 @@ onBeforeUnmount(() => {
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "Mind Jr Group has transformed how I teach mathematics. My students are more engaged and their test scores have improved significantly!"
+              "Mind Growup Jr has transformed how I teach mathematics. My students are more engaged and their test scores have improved significantly!"
             </p>
             <div class="testimonial-author">
               <h5>Sarah Johnson</h5>
@@ -288,7 +288,7 @@ onBeforeUnmount(() => {
           <div class="col-lg-8">
             <h2 class="cta-title">Ready to Transform Your Classroom?</h2>
             <p class="cta-text">
-              Join thousands of teachers using Mind Jr Group. Register now and get instant access to all premium features for free!
+              Join thousands of teachers using Mind Growup Jr. Register now and get instant access to all premium features for free!
             </p>
           </div>
           <div class="col-lg-4 text-lg-end">

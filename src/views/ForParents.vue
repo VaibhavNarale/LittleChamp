@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
           </div>
           <h1 class="servicedetails-hero-title">
             Help Your Child
-            <span class="gradient-text-light d-block">Succeed with Mind Jr Group</span>
+            <span class="gradient-text-light d-block">Succeed with Mind Growup Jr</span>
           </h1>
           <p class="hero-description">
             Give your child the gift of learning through play with 4000+ educational games and activities designed by experts
@@ -208,7 +208,7 @@ onBeforeUnmount(() => {
           <div class="col-lg-8">
             <h2 class="cta-title">Start Your Free Trial Today</h2>
             <p class="cta-text">
-              Join thousands of parents who trust Mind Jr Group for their children's education. No credit card required.
+              Join thousands of parents who trust Mind Growup Jr for their children's education. No credit card required.
             </p>
           </div>
           <div class="col-lg-4 text-lg-end">

@@ -160,7 +160,7 @@ const goBackToLogin = () => {
               <div class="instructions">
                 <h4>What's Next?</h4>
                 <ol>
-                  <li>Check your email inbox for a message from Mind Jr Group</li>
+                  <li>Check your email inbox for a message from Mind Growup Jr</li>
                   <li>Click the password reset link in the email</li>
                   <li>Create a new password for your account</li>
                   <li>Sign in with your new password</li>

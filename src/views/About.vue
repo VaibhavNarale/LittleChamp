@@ -63,15 +63,15 @@ onBeforeUnmount(() => {
       <div class="row align-items-center gy-30">
         <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
           <div class="img-box-2">
-            <img src="/assets/img/normal/square-1.jpg" alt="Kids learning with Mind Jr Group" class="big-img">
+            <img src="/assets/img/normal/square-1.jpg" alt="Kids learning with Mind Growup Jr" class="big-img">
             <img src="/assets/img/normal/square-2.jpg" alt="Interactive educational games" class="small-img">
           </div>
         </div>
         <div class="col-lg-5 wow fadeInRight" data-wow-delay="0.1s">
           <div class="text-center text-lg-start">
-            <span class="sub-title">About Mind Jr Group</span>
+            <span class="sub-title">About Mind Growup Jr</span>
             <h2 class="sec-title big-title">Making Learning Fun Through Interactive Games</h2>
-            <p class="fs-md mb-30">Mind Jr Group is a leading educational technology platform that transforms how children learn. With over 4,000 interactive games covering Math, Reading, and Science for Pre-K through Grade 5, we make learning feel like play while delivering curriculum-aligned content that builds essential skills.</p>
+            <p class="fs-md mb-30">Mind Growup Jr is a leading educational technology platform that transforms how children learn. With over 4,000 interactive games covering Math, Reading, and Science for Pre-K through Grade 5, we make learning feel like play while delivering curriculum-aligned content that builds essential skills.</p>
 
             <div class="call-media">
               <div class="media-icon"><i class="fas fa-graduation-cap"></i></div>
@@ -238,7 +238,7 @@ onBeforeUnmount(() => {
           <div class="text-center text-lg-start">
             <span class="sub-title">Parent Reviews</span>
             <h2 class="sec-title">What Parents & Teachers Say</h2>
-            <p class="mb-30">Discover how Mind Jr Group is transforming learning for millions of families worldwide. Real stories from real parents about their children's progress and engagement.</p>
+            <p class="mb-30">Discover how Mind Growup Jr is transforming learning for millions of families worldwide. Real stories from real parents about their children's progress and engagement.</p>
             <router-link to="/pricing" class="vs-btn wave-btn style-1">Start Free Trial</router-link>
           </div>
         </div>

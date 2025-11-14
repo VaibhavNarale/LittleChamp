@@ -32,7 +32,7 @@ const blogPosts = ref([
       <p>Shopping trips are perfect for teaching budgeting, comparison shopping, and calculating discounts. Let your child help plan purchases within a budget and calculate savings during sales.</p>
 
       <h4>5. Math Apps and Online Games</h4>
-      <p>Leverage technology with educational platforms like Mind Jr Group that offer interactive math games aligned with curriculum standards. These make practice feel like play while building essential skills.</p>
+      <p>Leverage technology with educational platforms like Mind Growup Jr that offer interactive math games aligned with curriculum standards. These make practice feel like play while building essential skills.</p>
 
       <p><strong>Remember:</strong> The key is consistency and enthusiasm. When you show excitement about math, your child will mirror that attitude!</p>
     `,
@@ -100,7 +100,7 @@ const blogPosts = ref([
       <h4>Maximizing Educational Screen Time</h4>
       <p>Choose platforms that offer:</p>
       <ul>
-        <li>Curriculum-aligned content (like Mind Jr Group)</li>
+        <li>Curriculum-aligned content (like Mind Growup Jr)</li>
         <li>Progress tracking and reporting</li>
         <li>Adaptive learning that adjusts to your child's level</li>
         <li>Interactive elements that require thinking, not just clicking</li>
@@ -194,7 +194,7 @@ const blogPosts = ref([
         <li><strong>Pattern Block Puzzles:</strong> Spatial reasoning and geometry</li>
         <li><strong>Dice Games:</strong> Addition, probability, number sense</li>
         <li><strong>Measurement Activities:</strong> Cooking, building, using rulers</li>
-        <li><strong>Digital Math Games:</strong> Platforms like Mind Jr Group offer adaptive, engaging practice</li>
+        <li><strong>Digital Math Games:</strong> Platforms like Mind Growup Jr offer adaptive, engaging practice</li>
       </ul>
 
       <h4>Games That Boost Reading</h4>
@@ -236,7 +236,7 @@ const blogPosts = ref([
       </ul>
 
       <h4>The Gamification Revolution</h4>
-      <p>Educational platforms are leveraging game mechanics (points, levels, rewards) to make learning irresistible. Mind Jr Group's 4000+ games demonstrate how technology can make practice feel like play while delivering curriculum-aligned content.</p>
+      <p>Educational platforms are leveraging game mechanics (points, levels, rewards) to make learning irresistible. Mind Growup Jr's 4000+ games demonstrate how technology can make practice feel like play while delivering curriculum-aligned content.</p>
 
       <p><strong>Research Shows:</strong> Students who engage in play-based learning score 17% higher on standardized tests and demonstrate better retention of material compared to traditional instruction-only approaches.</p>
 

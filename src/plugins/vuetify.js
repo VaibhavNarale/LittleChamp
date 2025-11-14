@@ -12,7 +12,7 @@ const vuetify = createVuetify({
     themes: {
       light: {
         colors: {
-          // Mind Jr Group Brand Colors
+          // Mind Growup Jr Brand Colors
           primary: '#6C63FF',      // Purple - Trust & Learning
           secondary: '#FF6584',    // Pink - Fun & Energy
           accent: '#4ECDC4',       // Teal - Calm & Growth
