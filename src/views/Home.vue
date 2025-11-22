@@ -2,10 +2,10 @@
 import { onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
 
-// Import new images
-import heroImage1 from '@/assets/new-images/new-image1.png'
-import heroImage2 from '@/assets/new-images/new-image2.png'
-import heroImage3 from '@/assets/new-images/pexels-yankrukov-8613062.webp'
+// Import new images (WebP optimized)
+import heroImage1 from '@/assets/new-images/new-image1.webp'
+import heroImage2 from '@/assets/new-images/new-image2.webp'
+import heroImage3 from '@/assets/new-images/new-image3.webp'
 import mathImage from '@/assets/new-images/vedic-math.webp'
 import readingImage from '@/assets/new-images/gettyimages-123273724-640x640.webp'
 import scienceImage from '@/assets/new-images/Kids_hands_creating_on_card_arches_with_an_array_of_craft_suppplies.webp'
@@ -17,7 +17,6 @@ import blog4 from '@/assets/new-images/istockphoto-507276910-612x612.webp'
 // import rocketImage from '@/assets/new-images/rocket-image.png'
 
 // Admin Client URL for sign up/login links
-const adminClientUrl = import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
 
 onMounted(async () => {
   // Wait for DOM to be fully rendered
@@ -42,20 +41,13 @@ onBeforeUnmount(() => {
 
   <!--======== Hero Section ========-->
   <section class="vs-hero-wrapper position-relative">
-    <!-- Bottom Wave Curve SVG -->
-    <div class="hero-wave-bottom">
-      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF" />
-      </svg>
-    </div>
-
     <div class="hero-slider1 vs-carousel" data-slide-show="1" data-md-slide-show="1" data-fade="true">
       <!-- Hero Slide 1: Main Value Proposition -->
       <div class="vs-hero-inner">
         <div class="vs-hero-bg" :data-bg-src="heroImage1"></div>
         <div class="container h-100">
-          <div class="row align-items-center h-100">
-            <div class="col-lg-6 col-md-8">
+          <div class="row align-items-center justify-content-end h-100">
+            <div class="col-lg-5 col-md-7">
               <div class="modern-hero-content">
                 <div class="hero-badge" data-ani="slideinup" data-ani-delay="0s">
                   <img class="badge-icon" src="/assets/img/icon/car.png" alt="icon">
@@ -117,10 +109,23 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <!-- Wave Bottom -->
+        <!-- Multi-Layer Wave Bottom -->
         <div class="hero-wave-bottom">
-          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF" />
+          <!-- Layer 1: Light Blue/Turquoise Wave (Top) -->
+          <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#B8E6E1" opacity="0.6"/>
+          </svg>
+          <!-- Layer 2: Pink Wave (Middle) -->
+          <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#FFB5C5" opacity="0.7"/>
+          </svg>
+          <!-- Layer 3: Coral Pink Wave -->
+          <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#FFA8B8"/>
+          </svg>
+          <!-- Layer 4: Cream/Light Yellow Wave (Bottom) -->
+          <svg class="wave-layer wave-layer-4" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#FFF5E6"/>
           </svg>
         </div>
       </div>
@@ -129,8 +134,8 @@ onBeforeUnmount(() => {
       <div class="vs-hero-inner">
         <div class="vs-hero-bg" :data-bg-src="heroImage2"></div>
         <div class="container h-100">
-          <div class="row align-items-center h-100">
-            <div class="col-lg-6 col-md-8">
+          <div class="row align-items-center justify-content-end h-100">
+            <div class="col-lg-5 col-md-7">
               <div class="modern-hero-content">
                 <div class="hero-badge" data-ani="slideinup" data-ani-delay="0s">
                   <img class="badge-icon" src="/assets/img/icon/car.png" alt="icon">
@@ -176,10 +181,23 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <!-- Wave Bottom -->
+        <!-- Multi-Layer Wave Bottom -->
         <div class="hero-wave-bottom">
-          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF" />
+          <!-- Layer 1: Light Blue/Turquoise Wave (Top) -->
+          <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#B8E6E1" opacity="0.6"/>
+          </svg>
+          <!-- Layer 2: Pink Wave (Middle) -->
+          <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#FFB5C5" opacity="0.7"/>
+          </svg>
+          <!-- Layer 3: Coral Pink Wave -->
+          <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#FFA8B8"/>
+          </svg>
+          <!-- Layer 4: Cream/Light Yellow Wave (Bottom) -->
+          <svg class="wave-layer wave-layer-4" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#FFF5E6"/>
           </svg>
         </div>
       </div>
@@ -188,8 +206,8 @@ onBeforeUnmount(() => {
       <div class="vs-hero-inner">
         <div class="vs-hero-bg" :data-bg-src="heroImage3"></div>
         <div class="container h-100">
-          <div class="row align-items-center h-100">
-            <div class="col-lg-6 col-md-8">
+          <div class="row align-items-center justify-content-end h-100">
+            <div class="col-lg-5 col-md-7">
               <div class="modern-hero-content">
                 <div class="hero-badge badge-teacher" data-ani="slideinup" data-ani-delay="0s">
                   <i class="fas fa-graduation-cap"></i>
@@ -239,10 +257,23 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <!-- Wave Bottom -->
+        <!-- Multi-Layer Wave Bottom -->
         <div class="hero-wave-bottom">
-          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF" />
+          <!-- Layer 1: Light Blue/Turquoise Wave (Top) -->
+          <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#B8E6E1" opacity="0.6"/>
+          </svg>
+          <!-- Layer 2: Pink Wave (Middle) -->
+          <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#FFB5C5" opacity="0.7"/>
+          </svg>
+          <!-- Layer 3: Coral Pink Wave -->
+          <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#FFA8B8"/>
+          </svg>
+          <!-- Layer 4: Cream/Light Yellow Wave (Bottom) -->
+          <svg class="wave-layer wave-layer-4" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#FFF5E6"/>
           </svg>
         </div>
       </div>
@@ -819,41 +850,51 @@ onBeforeUnmount(() => {
   object-position: center;
 }
 
-/* Bottom Wave Curve - SVG */
+/* Bottom Wave Curve - Multi-Layer SVG */
 .hero-wave-bottom {
   position: absolute;
   bottom: -1px;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 150px;
   z-index: 10;
   pointer-events: none;
   line-height: 0;
 }
 
-.hero-wave-bottom svg {
+.hero-wave-bottom .wave-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: block;
 }
 
-/* Hero Background Overlay */
-.vs-hero-inner {
-  position: relative;
+/* Layer specific positioning for depth effect */
+.wave-layer-1 {
+  z-index: 1;
+  bottom: 0px;
 }
 
-.vs-hero-bg::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg,
-      rgba(108, 99, 255, 0.2) 0%,
-      rgba(88, 77, 204, 0.15) 35%,
-      rgba(255, 71, 108, 0.2) 100%);
-  z-index: 1;
+.wave-layer-2 {
+  z-index: 2;
+  bottom: -10px;
+}
+
+.wave-layer-3 {
+  z-index: 3;
+  bottom: -20px;
+}
+
+.wave-layer-4 {
+  z-index: 4;
+  bottom: -30px;
+}
+
+/* Hero Background - No Overlay */
+.vs-hero-inner {
+  position: relative;
 }
 
 .vs-hero-inner .container {
@@ -861,34 +902,12 @@ onBeforeUnmount(() => {
   z-index: 2;
 }
 
-/* Different gradient for each slide */
-.vs-hero-inner:nth-child(1) .vs-hero-bg::after {
-  background: linear-gradient(135deg,
-      rgba(108, 99, 255, 0.2) 0%,
-      rgba(162, 155, 254, 0.18) 45%,
-      rgba(255, 101, 132, 0.2) 100%);
-}
-
-.vs-hero-inner:nth-child(2) .vs-hero-bg::after {
-  background: linear-gradient(135deg,
-      rgba(162, 155, 254, 0.2) 0%,
-      rgba(108, 99, 255, 0.18) 45%,
-      rgba(255, 71, 108, 0.2) 100%);
-}
-
-.vs-hero-inner:nth-child(3) .vs-hero-bg::after {
-  background: linear-gradient(135deg,
-      rgba(0, 210, 160, 0.2) 0%,
-      rgba(0, 184, 148, 0.18) 40%,
-      rgba(108, 99, 255, 0.2) 100%);
-}
-
 /* Hero Section Height Control */
 .vs-hero-wrapper {
   min-height: auto !important;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   /* Space for bottom wave curve */
-  margin-bottom: -100px;
+  margin-bottom: -150px;
   /* Pull next section up */
 }
 
@@ -898,8 +917,8 @@ onBeforeUnmount(() => {
 }
 
 .vs-hero-inner {
-  min-height: 70vh !important;
-  height: 70vh;
+  min-height: 80vh !important;
+  height: 80vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -1112,19 +1131,19 @@ onBeforeUnmount(() => {
   }
 
   .vs-hero-wrapper {
-    padding-bottom: 80px;
-    margin-bottom: -80px;
+    padding-bottom: 120px;
+    margin-bottom: -120px;
     margin-top: -80px;
     padding-top: 80px;
   }
 
   .hero-wave-bottom {
-    height: 80px;
+    height: 120px;
   }
 
   .vs-hero-inner {
-    min-height: 65vh !important;
-    height: 65vh;
+    min-height: 70vh !important;
+    height: 70vh;
   }
 
   .modern-hero-title {
@@ -1159,8 +1178,8 @@ onBeforeUnmount(() => {
 
 @media (max-width: 767px) {
   .vs-hero-wrapper {
-    padding-bottom: 60px;
-    margin-bottom: -60px;
+    padding-bottom: 100px;
+    margin-bottom: -100px;
   }
 
   .about-section .shape-slider-area .slick-slider {
@@ -1168,11 +1187,11 @@ onBeforeUnmount(() => {
   }
 
   .hero-wave-bottom {
-    height: 60px;
+    height: 100px;
   }
 
   .vs-hero-inner {
-    min-height: 60vh !important;
+    min-height: 65vh !important;
     height: auto;
     padding: 30px 0;
   }
@@ -1253,13 +1272,13 @@ onBeforeUnmount(() => {
   }
 
   .vs-hero-wrapper {
-    padding-bottom: 50px;
-    margin-bottom: -50px;
+    padding-bottom: 80px;
+    margin-bottom: -80px;
     padding-top: 70px;
   }
 
   .hero-wave-bottom {
-    height: 50px;
+    height: 80px;
   }
 
   .vs-hero-inner {

@@ -612,7 +612,7 @@ html, body {
   border-width: 0 !important;
   outline: none !important;
   padding: 10px !important;
-  margin-top: 8px !important;
+  margin-top: 0px !important;
   top: 100% !important;
   left: 0 !important;
   background: white !important;
@@ -730,6 +730,18 @@ html, body {
 
 .vs-header .vs-menu-toggle {
   padding: 10px 20px !important;
+}
+
+/* Header bottom curved edge with CSS */
+.vs-header .sticky-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: white;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
 
 /* Add padding to body to prevent content from hiding under fixed header */

@@ -12,10 +12,10 @@ const quality = 85; // WebP quality (0-100, higher is better)
 // Get all image files
 const files = fs.readdirSync(imagesDir);
 
-// Filter for JPG and JPEG files only
+// Filter for JPG, JPEG, and PNG files
 const imageFiles = files.filter(file => {
   const ext = path.extname(file).toLowerCase();
-  return ['.jpg', '.jpeg'].includes(ext);
+  return ['.jpg', '.jpeg', '.png'].includes(ext);
 });
 
 console.log(`Found ${imageFiles.length} images to convert...\n`);
@@ -27,13 +27,17 @@ let errors = 0;
 imageFiles.forEach(async (file, index) => {
   try {
     const inputPath = path.join(imagesDir, file);
-    const outputPath = path.join(imagesDir, file.replace(/\.(jpg|jpeg)$/i, '.webp'));
+    const outputPath = path.join(imagesDir, file.replace(/\.(jpg|jpeg|png)$/i, '.webp'));
 
     // Get original file size
     const originalSize = fs.statSync(inputPath).size;
 
-    // Convert to WebP
+    // Convert to WebP with resizing for optimization
     await sharp(inputPath)
+      .resize(1920, null, { // Resize to max 1920px width, maintain aspect ratio
+        withoutEnlargement: true,
+        fit: 'inside'
+      })
       .webp({ quality })
       .toFile(outputPath);
 
