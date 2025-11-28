@@ -1804,4 +1804,14 @@ onBeforeUnmount(() => {
   object-fit: contain !important;
   object-position: center center !important;
 }
+
+/* Mobile fix for hero images - shift content to be visible */
+@media (max-width: 767px) {
+  .vs-hero-inner:nth-child(1) .vs-hero-bg {
+    background-position: 20% center !important;
+  }
+  .vs-hero-inner:nth-child(2) .vs-hero-bg {
+    background-position: 30% center !important;
+  }
+}
 </style>
