@@ -71,7 +71,7 @@ defineProps({
 <style scoped>
 /* Auth Branding */
 .auth-branding {
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
   position: relative;
   overflow: hidden;
   padding: 60px;

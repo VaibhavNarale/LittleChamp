@@ -12,10 +12,10 @@ const vuetify = createVuetify({
     themes: {
       light: {
         colors: {
-          // Mind Growup Jr Brand Colors
-          primary: '#6C63FF',      // Purple - Trust & Learning
-          secondary: '#FF6584',    // Pink - Fun & Energy
-          accent: '#4ECDC4',       // Teal - Calm & Growth
+          // Mind Growup Jr Brand Colors - Matched to Logo
+          primary: '#4A8B3F',      // Green - "Mind" from logo
+          secondary: '#E91E8C',    // Pink - "JR." from logo
+          accent: '#1B1464',       // Navy - "GROWUP" from logo
 
           // Subject Colors
           math: '#6C5CE7',         // Purple for Math
@@ -25,7 +25,7 @@ const vuetify = createVuetify({
 
           // Status Colors
           error: '#FF6B6B',
-          info: '#6C63FF',
+          info: '#4A8B3F',
           success: '#00D2A0',
           warning: '#FFB800',
 

@@ -170,7 +170,7 @@ const handleLinkClick = () => {
   bottom: 0;
   width: 320px;
   max-width: 85vw;
-  background: linear-gradient(180deg, #6C63FF 0%, #A29BFE 100%);
+  background: linear-gradient(180deg, #4A8B3F 0%, #5EA750 100%);
   z-index: 9999;
   overflow-y: auto;
   transform: translateX(100%);
@@ -267,7 +267,7 @@ const handleLinkClick = () => {
 
 .login-btn {
   background: white;
-  color: #6C63FF;
+  color: #4A8B3F;
 }
 
 .login-btn:hover {
@@ -288,7 +288,7 @@ const handleLinkClick = () => {
 
 .dashboard-btn {
   background: white;
-  color: #6C63FF;
+  color: #4A8B3F;
 }
 
 .dashboard-btn:hover {

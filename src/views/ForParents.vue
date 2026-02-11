@@ -230,7 +230,7 @@ onBeforeUnmount(() => {
 }
 
 .servicedetails-hero-bg {
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
   padding: 120px 0 80px;
   position: relative;
 }
@@ -273,7 +273,7 @@ onBeforeUnmount(() => {
   border-radius: 50px;
   margin-bottom: 20px;
   backdrop-filter: blur(10px);
-  color: #6C63FF;
+  color: #4A8B3F;
   font-weight: 600;
 }
 
@@ -331,13 +331,13 @@ onBeforeUnmount(() => {
 
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(108, 99, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(74, 139, 63, 0.15);
 }
 
 .feature-card-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -371,7 +371,7 @@ onBeforeUnmount(() => {
   right: 20px;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -384,12 +384,12 @@ onBeforeUnmount(() => {
 .process-icon {
   width: 80px;
   height: 80px;
-  background: rgba(108, 99, 255, 0.1);
+  background: rgba(74, 139, 63, 0.1);
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #6C63FF;
+  color: #4A8B3F;
   font-size: 32px;
   margin-bottom: 20px;
 }
@@ -407,7 +407,7 @@ onBeforeUnmount(() => {
 }
 
 .cta-box {
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
   padding: 50px;
   border-radius: 20px;
   color: white;

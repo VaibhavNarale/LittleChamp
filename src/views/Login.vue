@@ -203,7 +203,7 @@ const handleLogin = async () => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #6C63FF;
+  color: #4A8B3F;
   text-decoration: none;
   font-weight: 600;
   margin-bottom: 30px;
@@ -211,7 +211,7 @@ const handleLogin = async () => {
 }
 
 .back-link:hover {
-  color: #5A52D5;
+  color: #3A7032;
   gap: 12px;
 }
 
@@ -255,8 +255,8 @@ const handleLogin = async () => {
 
 .form-control:focus {
   outline: none;
-  border-color: #6C63FF;
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+  border-color: #4A8B3F;
+  box-shadow: 0 0 0 3px rgba(74, 139, 63, 0.1);
 }
 
 .password-input-wrapper {
@@ -276,7 +276,7 @@ const handleLogin = async () => {
 }
 
 .password-toggle:hover {
-  color: #6C63FF;
+  color: #4A8B3F;
 }
 
 .form-options {
@@ -308,8 +308,8 @@ const handleLogin = async () => {
 }
 
 .custom-checkbox input:checked ~ .checkmark {
-  background: #6C63FF;
-  border-color: #6C63FF;
+  background: #4A8B3F;
+  border-color: #4A8B3F;
 }
 
 .custom-checkbox input:checked ~ .checkmark::after {
@@ -330,20 +330,20 @@ const handleLogin = async () => {
 }
 
 .forgot-link {
-  color: #6C63FF;
+  color: #4A8B3F;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
 }
 
 .forgot-link:hover {
-  color: #5A52D5;
+  color: #3A7032;
 }
 
 .btn-submit {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
   color: white;
   border: none;
   border-radius: 10px;
@@ -351,12 +351,12 @@ const handleLogin = async () => {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(74, 139, 63, 0.3);
 }
 
 .btn-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(74, 139, 63, 0.4);
 }
 
 .btn-submit:disabled {
@@ -377,13 +377,13 @@ const handleLogin = async () => {
 }
 
 .signup-cta {
-  color: #6C63FF;
+  color: #4A8B3F;
   font-weight: 700;
   text-decoration: none;
 }
 
 .signup-cta:hover {
-  color: #5A52D5;
+  color: #3A7032;
   text-decoration: underline;
 }
 

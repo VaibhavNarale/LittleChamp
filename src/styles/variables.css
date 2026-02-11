@@ -1,17 +1,17 @@
 /* Mind Growup Jr CSS Variables */
 :root {
-  /* Primary Brand Colors */
-  --primary: #6C63FF;
-  --primary-light: #A29BFE;
-  --primary-dark: #5A52D5;
-  --secondary: #FF6584;
-  --secondary-light: #FF8FA3;
-  --accent: #4ECDC4;
+  /* Primary Brand Colors - Matched to Logo */
+  --primary: #4A8B3F;
+  --primary-light: #5EA750;
+  --primary-dark: #3A7032;
+  --secondary: #E91E8C;
+  --secondary-light: #F04DA3;
+  --accent: #1B1464;
 
-  /* Override template theme colors to match navbar */
-  --theme-color: #6C63FF;
-  --secondary-color: #88c90d;
-  --blue-color: #786acf;
+  /* Override template theme colors to match logo */
+  --theme-color: #4A8B3F;
+  --secondary-color: #3A7032;
+  --blue-color: #1B1464;
 
   /* Subject Colors */
   --math: #6C5CE7;
@@ -29,18 +29,18 @@
   --success: #00D2A0;
   --warning: #FFB800;
   --error: #FF6B6B;
-  --info: #6C63FF;
+  --info: #4A8B3F;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
-  --gradient-secondary: linear-gradient(135deg, #FF6584 0%, #FF8FA3 100%);
-  --gradient-hero: linear-gradient(135deg, #6C63FF 0%, #FF6584 50%, #4ECDC4 100%);
+  --gradient-primary: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
+  --gradient-secondary: linear-gradient(135deg, #E91E8C 0%, #F04DA3 100%);
+  --gradient-hero: linear-gradient(135deg, #4A8B3F 0%, #E91E8C 50%, #1B1464 100%);
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 20px 60px rgba(108, 99, 255, 0.25);
-  --shadow-primary: 0 15px 40px rgba(108, 99, 255, 0.4);
+  --shadow-lg: 0 20px 60px rgba(74, 139, 63, 0.25);
+  --shadow-primary: 0 15px 40px rgba(74, 139, 63, 0.4);
 
   /* Border Radius */
   --radius-sm: 8px;
@@ -62,7 +62,7 @@
 
 /* Utility Classes */
 .gradient-text {
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #E91E8C 0%, #F04DA3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -87,7 +87,7 @@
 
 .btn-primary-enhanced:hover {
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 20px 60px rgba(108, 99, 255, 0.6);
+  box-shadow: 0 20px 60px rgba(74, 139, 63, 0.6);
 }
 
 .btn-secondary-enhanced {
@@ -154,13 +154,13 @@
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.4);
+    box-shadow: 0 0 0 0 rgba(74, 139, 63, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 30px rgba(108, 99, 255, 0);
+    box-shadow: 0 0 0 30px rgba(74, 139, 63, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
+    box-shadow: 0 0 0 0 rgba(74, 139, 63, 0);
   }
 }
 

@@ -24,6 +24,16 @@ onBeforeUnmount(() => {
   <!--======== Modern Hero Section ========-->
   <section class="subjects-hero-section">
     <div class="subjects-hero-bg">
+      <!-- Floating Particles -->
+      <div class="hero-particles">
+        <span class="particle" style="left: 8%; top: 20%; width: 10px; height: 10px; animation-delay: 0s; animation-duration: 7s;"></span>
+        <span class="particle" style="left: 85%; top: 30%; width: 8px; height: 8px; animation-delay: 1.5s; animation-duration: 9s;"></span>
+        <span class="particle" style="left: 25%; top: 65%; width: 12px; height: 12px; animation-delay: 3s; animation-duration: 8s;"></span>
+        <span class="particle" style="left: 70%; top: 15%; width: 7px; height: 7px; animation-delay: 2s; animation-duration: 10s;"></span>
+        <span class="particle" style="left: 50%; top: 75%; width: 9px; height: 9px; animation-delay: 4s; animation-duration: 7.5s;"></span>
+        <span class="particle" style="left: 92%; top: 55%; width: 11px; height: 11px; animation-delay: 1s; animation-duration: 8.5s;"></span>
+      </div>
+
       <div class="container">
         <div class="subjects-hero-content">
           <!-- Subtle Breadcrumb -->
@@ -137,7 +147,7 @@ onBeforeUnmount(() => {
         <div class="row align-items-center gy-40">
           <div class="col-lg-5">
             <div class="subject-header">
-              <div class="subject-icon-large mb-4" style="background: linear-gradient(135deg, #6C5CE7, #A29BFE);">
+              <div class="subject-icon-large mb-4" style="background: linear-gradient(135deg, #6C5CE7, #5EA750);">
                 <i class="fas fa-calculator fa-4x text-white"></i>
               </div>
               <h2 class="sec-title mb-3">Mathematics</h2>
@@ -568,15 +578,15 @@ onBeforeUnmount(() => {
 }
 
 .grade-pill:hover {
-  border-color: #6C63FF;
-  color: #6C63FF;
+  border-color: #4A8B3F;
+  color: #4A8B3F;
   transform: translateY(-2px);
 }
 
 .grade-pill.active {
-  background: linear-gradient(135deg, #6C63FF, #5A52D5);
+  background: linear-gradient(135deg, #4A8B3F, #3A7032);
   color: white;
-  border-color: #6C63FF;
+  border-color: #4A8B3F;
 }
 
 /* Subject Card Large */
@@ -706,9 +716,8 @@ onBeforeUnmount(() => {
 
 .subjects-hero-bg {
   position: relative;
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 45%, #FF6584 100%);
-  padding: 100px 0 120px;
-  min-height: 450px;
+  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  padding: 70px 0 80px;
 }
 
 .subjects-hero-content {
@@ -719,23 +728,48 @@ onBeforeUnmount(() => {
   margin: 0 auto;
 }
 
+/* Floating Particles */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-particles .particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.4; }
+  100% { transform: translateY(0) rotate(360deg); opacity: 0.25; }
+}
+
+/* Breadcrumb */
 .modern-breadcrumb {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 24px;
-  background: rgba(255, 255, 255, 0.15);
+  gap: 10px;
+  padding: 7px 18px;
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
   border-radius: 50px;
-  margin-bottom: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .breadcrumb-link {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s ease;
 }
 
@@ -745,46 +779,48 @@ onBeforeUnmount(() => {
 
 .modern-breadcrumb i {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .breadcrumb-current {
   color: white;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
 }
 
+/* Hero Badge */
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
-  background: rgba(255, 255, 255, 0.2);
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 18px;
   animation: float-badge 3s ease-in-out infinite;
 }
 
 .hero-badge i {
   color: #FFE5B4;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .hero-badge span {
   color: white;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 0.5px;
 }
 
+/* Hero Title */
 .subjects-hero-title {
-  font-size: 58px;
+  font-size: 40px;
   font-weight: 900;
   line-height: 1.2;
   color: white;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   letter-spacing: -1px;
 }
 
@@ -795,17 +831,19 @@ onBeforeUnmount(() => {
   background-clip: text;
 }
 
+/* Hero Description */
 .subjects-hero-description {
-  font-size: 19px;
+  font-size: 15px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 35px;
-  max-width: 700px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   font-weight: 400;
 }
 
+/* Wave Bottom */
 .hero-wave-bottom {
   position: absolute;
   bottom: -1px;
@@ -817,86 +855,86 @@ onBeforeUnmount(() => {
 
 .hero-wave-bottom svg {
   width: 100%;
-  height: 120px;
+  height: 80px;
   display: block;
 }
 
+/* Animations */
 @keyframes float-badge {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
 }
 
+/* Responsive */
 @media (max-width: 991px) {
   .subjects-hero-bg {
-    padding: 80px 0 100px;
-    min-height: 400px;
+    padding: 60px 0 70px;
   }
 
   .subjects-hero-title {
-    font-size: 46px;
+    font-size: 34px;
   }
 
   .subjects-hero-description {
-    font-size: 17px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 767px) {
   .subjects-hero-bg {
-    padding: 60px 0 80px;
-    min-height: auto;
+    padding: 50px 0 60px;
   }
 
   .subjects-hero-title {
-    font-size: 36px;
+    font-size: 30px;
   }
 
   .subjects-hero-description {
-    font-size: 16px;
-    margin-bottom: 30px;
+    font-size: 14px;
+    margin-bottom: 15px;
   }
 
   .hero-badge span {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .hero-badge i {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .hero-wave-bottom svg {
-    height: 80px;
+    height: 60px;
   }
 }
 
 @media (max-width: 575px) {
   .subjects-hero-bg {
-    padding: 74px 0 70px;
+    padding: 45px 0 55px;
   }
 
   .subjects-hero-title {
-    font-size: 32px;
+    font-size: 26px;
   }
 
   .subjects-hero-description {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .modern-breadcrumb {
-    padding: 8px 20px;
+    padding: 6px 16px;
   }
 
   .breadcrumb-link,
   .breadcrumb-current {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hero-badge {
-    padding: 10px 24px;
+    padding: 6px 16px;
   }
 
   .hero-wave-bottom svg {
-    height: 60px;
+    height: 50px;
   }
 }
 </style>

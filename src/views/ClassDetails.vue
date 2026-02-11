@@ -1,6 +1,136 @@
 <script setup>
-import { onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+
+const route = useRoute()
+const router = useRouter()
+
+const subjectsData = {
+  math: {
+    name: 'Mathematics',
+    icon: 'fas fa-calculator',
+    color: '#6C5CE7',
+    gradient: 'linear-gradient(135deg, #6C5CE7, #5EA750)',
+    heroTitle: 'Master Mathematics',
+    heroDescription: 'Build strong math foundations with interactive games, puzzles, and activities designed for Pre-K through Grade 5.',
+    description: 'Build number sense, master arithmetic, explore geometry, and solve real-world problems through engaging games and activities.',
+    stats: {
+      games: '1000+',
+      worksheets: '3500+',
+      grades: 'Pre-K to 5',
+    },
+    topics: [
+      { icon: 'fas fa-hashtag', name: 'Counting & Numbers', games: '120 games' },
+      { icon: 'fas fa-plus', name: 'Addition', games: '95 games' },
+      { icon: 'fas fa-minus', name: 'Subtraction', games: '88 games' },
+      { icon: 'fas fa-times', name: 'Multiplication', games: '102 games' },
+      { icon: 'fas fa-divide', name: 'Division', games: '76 games' },
+      { icon: 'fas fa-shapes', name: 'Geometry', games: '64 games' },
+      { icon: 'fas fa-percentage', name: 'Fractions & Decimals', games: '85 games' },
+      { icon: 'fas fa-question-circle', name: 'Word Problems', games: '92 games' },
+    ],
+    grades: [
+      { name: 'Pre-K', ages: '3-4 years', skills: ['Number recognition 1-10', 'Counting objects', 'Shape identification', 'Sorting & patterns'] },
+      { name: 'Kindergarten', ages: '5-6 years', skills: ['Counting to 100', 'Addition within 10', 'Comparing numbers', 'Basic shapes & measurement'] },
+      { name: '1st Grade', ages: '6-7 years', skills: ['Addition & subtraction to 20', 'Place value (tens & ones)', 'Telling time', 'Measuring lengths'] },
+      { name: '2nd Grade', ages: '7-8 years', skills: ['Addition & subtraction to 100', 'Introduction to multiplication', 'Money concepts', 'Basic fractions'] },
+      { name: '3rd Grade', ages: '8-9 years', skills: ['Multiplication & division facts', 'Fractions on number lines', 'Area & perimeter', 'Rounding numbers'] },
+      { name: '4th Grade', ages: '9-10 years', skills: ['Multi-digit multiplication', 'Long division', 'Equivalent fractions', 'Angles & geometry'] },
+      { name: '5th Grade', ages: '10-11 years', skills: ['Decimal operations', 'Adding & subtracting fractions', 'Volume measurement', 'Coordinate graphing'] },
+    ],
+    features: [
+      { icon: 'fas fa-brain', title: 'Builds Problem Solving', description: 'Develop critical thinking and logical reasoning through real-world math challenges and puzzles.' },
+      { icon: 'fas fa-chart-line', title: 'Adaptive Learning', description: 'Activities automatically adjust difficulty based on your child\'s skill level and progress.' },
+      { icon: 'fas fa-globe-americas', title: 'Real-World Application', description: 'Learn math through practical scenarios like shopping, cooking, and measuring that kids encounter daily.' },
+      { icon: 'fas fa-trophy', title: 'Progress Tracking', description: 'Visual dashboards and achievement badges keep kids motivated and parents informed.' },
+    ],
+  },
+  reading: {
+    name: 'Reading & ELA',
+    icon: 'fas fa-book-open',
+    color: '#FD79A8',
+    gradient: 'linear-gradient(135deg, #FD79A8, #E84393)',
+    heroTitle: 'Explore Reading & ELA',
+    heroDescription: 'Spark a lifelong love of reading with phonics, vocabulary, comprehension, and writing activities for Pre-K through Grade 5.',
+    description: 'Develop phonics, vocabulary, reading comprehension, grammar, and writing skills through interactive stories and activities.',
+    stats: {
+      games: '1200+',
+      worksheets: '4000+',
+      grades: 'Pre-K to 5',
+    },
+    topics: [
+      { icon: 'fas fa-font', name: 'Phonics & Letters', games: '150 games' },
+      { icon: 'fas fa-spell-check', name: 'Spelling', games: '110 games' },
+      { icon: 'fas fa-book-reader', name: 'Reading Comprehension', games: '180 games' },
+      { icon: 'fas fa-language', name: 'Vocabulary', games: '95 games' },
+      { icon: 'fas fa-pen-fancy', name: 'Grammar', games: '88 games' },
+      { icon: 'fas fa-pencil-alt', name: 'Writing', games: '72 games' },
+      { icon: 'fas fa-comment-dots', name: 'Parts of Speech', games: '65 games' },
+      { icon: 'fas fa-quote-left', name: 'Punctuation', games: '55 games' },
+    ],
+    grades: [
+      { name: 'Pre-K', ages: '3-4 years', skills: ['Letter recognition', 'Rhyming words', 'Listening comprehension', 'Name writing'] },
+      { name: 'Kindergarten', ages: '5-6 years', skills: ['Letter sounds & phonics', 'Sight words', 'Simple sentence reading', 'Print concepts'] },
+      { name: '1st Grade', ages: '6-7 years', skills: ['Decoding & blending', 'Reading fluency', 'Story comprehension', 'Basic spelling patterns'] },
+      { name: '2nd Grade', ages: '7-8 years', skills: ['Chapter book reading', 'Vocabulary building', 'Story elements', 'Writing paragraphs'] },
+      { name: '3rd Grade', ages: '8-9 years', skills: ['Reading for information', 'Context clues', 'Grammar & punctuation', 'Writing essays'] },
+      { name: '4th Grade', ages: '9-10 years', skills: ['Inference & analysis', 'Research skills', 'Parts of speech mastery', 'Narrative writing'] },
+      { name: '5th Grade', ages: '10-11 years', skills: ['Critical reading', 'Advanced vocabulary', 'Persuasive writing', 'Literary analysis'] },
+    ],
+    features: [
+      { icon: 'fas fa-book', title: 'Builds Literacy', description: 'Structured phonics and reading programs that develop confident, independent readers step by step.' },
+      { icon: 'fas fa-lightbulb', title: 'Sparks Imagination', description: 'Interactive stories and creative writing prompts that nurture a love of reading and self-expression.' },
+      { icon: 'fas fa-comments', title: 'Communication Skills', description: 'Grammar, vocabulary, and writing exercises that strengthen how kids express their ideas.' },
+      { icon: 'fas fa-trophy', title: 'Progress Tracking', description: 'Visual dashboards and achievement badges keep kids motivated and parents informed.' },
+    ],
+  },
+  science: {
+    name: 'Science',
+    icon: 'fas fa-flask',
+    color: '#00B894',
+    gradient: 'linear-gradient(135deg, #00B894, #00D2A0)',
+    heroTitle: 'Discover Science',
+    heroDescription: 'Explore the wonders of the natural world with hands-on experiments, observations, and interactive activities for K through Grade 5.',
+    description: 'Discover the wonders of the natural world through experiments, observations, and interactive science games covering biology, physics, and earth science.',
+    stats: {
+      games: '800+',
+      worksheets: '2500+',
+      grades: 'K to 5',
+    },
+    topics: [
+      { icon: 'fas fa-paw', name: 'Animals & Habitats', games: '110 games' },
+      { icon: 'fas fa-seedling', name: 'Plants & Life Cycles', games: '85 games' },
+      { icon: 'fas fa-cloud-sun-rain', name: 'Weather & Seasons', games: '72 games' },
+      { icon: 'fas fa-globe-americas', name: 'Earth & Space', games: '95 games' },
+      { icon: 'fas fa-atom', name: 'Matter & Energy', games: '68 games' },
+      { icon: 'fas fa-microscope', name: 'Scientific Method', games: '55 games' },
+    ],
+    grades: [
+      { name: 'Kindergarten', ages: '5-6 years', skills: ['Five senses', 'Living vs non-living', 'Basic weather', 'Animal needs'] },
+      { name: '1st Grade', ages: '6-7 years', skills: ['Plant parts & needs', 'Day & night sky', 'Sound & light basics', 'Animal habitats'] },
+      { name: '2nd Grade', ages: '7-8 years', skills: ['Life cycles', 'States of matter', 'Landforms & water', 'Push & pull forces'] },
+      { name: '3rd Grade', ages: '8-9 years', skills: ['Ecosystems & food chains', 'Weather patterns', 'Simple machines', 'Inherited traits'] },
+      { name: '4th Grade', ages: '9-10 years', skills: ['Earth\'s systems', 'Energy transfer', 'Rock cycle', 'Plant & animal structures'] },
+      { name: '5th Grade', ages: '10-11 years', skills: ['Matter & chemical changes', 'Earth & space systems', 'Organisms & environments', 'Engineering design'] },
+    ],
+    features: [
+      { icon: 'fas fa-search', title: 'Nurtures Curiosity', description: 'Hands-on experiments and discovery-based activities that encourage kids to ask questions and explore.' },
+      { icon: 'fas fa-flask', title: 'Scientific Thinking', description: 'Learn the scientific method through observation, hypothesis, and experimentation activities.' },
+      { icon: 'fas fa-globe-americas', title: 'Real-World Connections', description: 'Explore topics like weather, animals, and space that connect classroom learning to the world around them.' },
+      { icon: 'fas fa-trophy', title: 'Progress Tracking', description: 'Visual dashboards and achievement badges keep kids motivated and parents informed.' },
+    ],
+  },
+}
+
+const subject = computed(() => {
+  const key = route.params.subject
+  if (subjectsData[key]) {
+    return subjectsData[key]
+  }
+  router.replace('/subjects')
+  return null
+})
 
 onMounted(async () => {
   await nextTick()
@@ -15,218 +145,194 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <!-- Modern Hero Section -->
-  <section class="classdetails-hero-section">
-    <div class="classdetails-hero-bg">
-      <div class="container">
-        <div class="classdetails-hero-content">
-          <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
-            <i class="fas fa-chevron-right"></i>
-            <router-link to="/classes" class="breadcrumb-link">Classes</router-link>
-            <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Class Details</span>
-          </nav>
-          <div class="hero-badge">
-            <i class="fas fa-chalkboard-teacher badge-icon"></i>
-            <span>Class Information</span>
+  <template v-if="subject">
+    <!-- Modern Hero Section -->
+    <section class="classdetails-hero-section">
+      <div class="classdetails-hero-bg">
+        <!-- Floating Particles -->
+        <div class="hero-particles">
+          <span class="particle" style="left: 8%; top: 20%; width: 10px; height: 10px; animation-delay: 0s; animation-duration: 7s;"></span>
+          <span class="particle" style="left: 85%; top: 30%; width: 8px; height: 8px; animation-delay: 1.5s; animation-duration: 9s;"></span>
+          <span class="particle" style="left: 25%; top: 65%; width: 12px; height: 12px; animation-delay: 3s; animation-duration: 8s;"></span>
+          <span class="particle" style="left: 70%; top: 15%; width: 7px; height: 7px; animation-delay: 2s; animation-duration: 10s;"></span>
+          <span class="particle" style="left: 50%; top: 75%; width: 9px; height: 9px; animation-delay: 4s; animation-duration: 7.5s;"></span>
+          <span class="particle" style="left: 92%; top: 55%; width: 11px; height: 11px; animation-delay: 1s; animation-duration: 8.5s;"></span>
+        </div>
+
+        <div class="container">
+          <div class="classdetails-hero-content">
+            <nav class="modern-breadcrumb">
+              <router-link to="/" class="breadcrumb-link">Home</router-link>
+              <i class="fas fa-chevron-right"></i>
+              <router-link to="/subjects" class="breadcrumb-link">Subjects</router-link>
+              <i class="fas fa-chevron-right"></i>
+              <span class="breadcrumb-current">{{ subject.name }}</span>
+            </nav>
+            <div class="hero-badge">
+              <i :class="subject.icon"></i>
+              <span>{{ subject.name }}</span>
+            </div>
+            <h1 class="classdetails-hero-title">
+              {{ subject.heroTitle }}
+              <span class="gradient-text-light d-block">With Fun & Games</span>
+            </h1>
+            <p class="classdetails-hero-description">{{ subject.heroDescription }}</p>
           </div>
-          <h1 class="classdetails-hero-title">
-            Discover
-            <span class="gradient-text-light d-block">Class Details</span>
-          </h1>
         </div>
       </div>
-    </div>
-    <div class="hero-wave-bottom">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
-      </svg>
-    </div>
-  </section>
+      <div class="hero-wave-bottom">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+        </svg>
+      </div>
+    </section>
 
-  <!--======== Class Section ========-->
-  <section class="class-section bg-smoke space-page">
-    <div class="container">
-      <div class="row gx-60">
-        <div class="col-xl-8 col-lg-7">
-          <div class="class-details">
-            <div class="row class-big-img vs-carousel" id="classBig" data-slide-show="1" data-md-slide-show="1" data-fade="true">
-              <div class="col-12">
-                <img src="/assets/img/class/class-details-1.jpg" alt="class">
-              </div>
-              <div class="col-12">
-                <img src="/assets/img/class/class-details-2.jpg" alt="class">
-              </div>
-              <div class="col-12">
-                <img src="/assets/img/class/class-details-3.jpg" alt="class">
-              </div>
-              <div class="col-12">
-                <img src="/assets/img/class/class-details-4.jpg" alt="class">
-              </div>
-              <div class="col-12">
-                <img src="/assets/img/class/class-details-5.jpg" alt="class">
-              </div>
-              <div class="col-12">
-                <img src="/assets/img/class/class-details-6.jpg" alt="class">
-              </div>
-            </div>
-            <div class="row class-thumb-img mb-35 vs-carousel" data-slide-show="5" data-lg-slide-show="4" data-md-slide-show="5" data-sm-slide-show="3" data-xs-slide-show="2" data-asnavfor="#classBig">
-              <div class="col-auto">
-                <img src="/assets/img/class/thumb-1.jpg" alt="class">
-              </div>
-              <div class="col-auto">
-                <img src="/assets/img/class/thumb-2.jpg" alt="class">
-              </div>
-              <div class="col-auto">
-                <img src="/assets/img/class/thumb-3.jpg" alt="class">
-              </div>
-              <div class="col-auto">
-                <img src="/assets/img/class/thumb-4.jpg" alt="class">
-              </div>
-              <div class="col-auto">
-                <img src="/assets/img/class/thumb-5.jpg" alt="class">
-              </div>
-              <div class="col-auto">
-                <img src="/assets/img/class/thumb-6.jpg" alt="class">
+    <!--======== Section A: Subject Overview ========-->
+    <section class="subject-overview-section space-top space-bottom">
+      <div class="container">
+        <div class="subject-card-large">
+          <div class="row align-items-center gy-40">
+            <div class="col-lg-5">
+              <div class="subject-header">
+                <div class="subject-icon-large mb-4" :style="{ background: subject.gradient }">
+                  <i :class="subject.icon + ' fa-4x text-white'"></i>
+                </div>
+                <h2 class="sec-title mb-3">{{ subject.name }}</h2>
+                <p class="fs-md mb-3">{{ subject.description }}</p>
+                <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
+                  <div class="meta-badge">
+                    <i class="fas fa-gamepad text-primary"></i>
+                    <strong>{{ subject.stats.games }}</strong> Games
+                  </div>
+                  <div class="meta-badge">
+                    <i class="fas fa-file-alt text-success"></i>
+                    <strong>{{ subject.stats.worksheets }}</strong> Worksheets
+                  </div>
+                  <div class="meta-badge">
+                    <i class="fas fa-graduation-cap text-warning"></i>
+                    <strong>{{ subject.stats.grades }}</strong>
+                  </div>
+                </div>
+                <div class="difficulty-badges mb-4">
+                  <span class="badge-pill beginner">Beginner</span>
+                  <span class="badge-pill intermediate">Intermediate</span>
+                  <span class="badge-pill advanced">Advanced</span>
+                </div>
+                <router-link to="/pricing" class="vs-btn">
+                  Start Learning Free
+                  <i class="fas fa-arrow-right ms-2"></i>
+                </router-link>
               </div>
             </div>
-            <h2 class="single-title">Pre High School</h2>
-            <div class="service-content">
-              <p>Continually restore backward-compatible networks for goal-oriented results. Rapidiously provide access to best of breed manufactured products whereas out-of-the-box "outside the box" thinking. Assertively plagiarize error-free "outside the box" thinking rather than optimal supply chains. Proactively benchmark flexible opportunities before out-of-the-box materials. Authoritatively streamline multimedia based...</p>
-              <p>Seize high-quality schemas with clicks-and-mortar initiatives. Collaboratively enhance equity invested value via team building action items. Competently empower strategic niche markets before long-term high-impact initiatives. life Synergistically reintermediate just in time testing procedures vis-a-vis corporate internal</p>
-              <div class="check-list style-4">
-                <ul>
-                  <li>Social Skill</li>
-                  <li>Music Classes</li>
-                  <li>Finger Plays</li>
-                  <li>Sensory Activities</li>
-                  <li>Self - Selected Play</li>
-                  <li>Circle Time</li>
-                  <li>Self Help Skills</li>
-                  <li>Focused Learning</li>
-                  <li>Communication</li>
-                  <li>Singing Songs</li>
-                  <li>Outdoor Activities</li>
-                  <li>Online Playing</li>
-                  <li>Konowledge Learning</li>
-                  <li>Task Practice</li>
-                  <li>Good Work</li>
+
+            <div class="col-lg-7">
+              <div class="topic-grid">
+                <h5 class="mb-4">Topics Covered:</h5>
+                <div class="row g-3">
+                  <div class="col-md-6" v-for="topic in subject.topics" :key="topic.name">
+                    <div class="topic-item">
+                      <div class="topic-icon" :style="{ background: subject.color }">
+                        <i :class="topic.icon + ' text-white'"></i>
+                      </div>
+                      <div class="topic-info">
+                        <h6>{{ topic.name }}</h6>
+                        <p class="small mb-0 text-muted">{{ topic.games }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--======== Section B: Grade-by-Grade Breakdown ========-->
+    <section class="grade-breakdown-section space-bottom" style="background: #F8F9FC;">
+      <div class="container">
+        <div class="text-center mb-50">
+          <span class="section-tag" :style="{ background: subject.color + '18', color: subject.color }">
+            <i :class="subject.icon" class="me-1"></i> Grade-by-Grade
+          </span>
+          <h2 class="sec-title mt-3">What Your Child Will Learn</h2>
+          <p class="sec-description">{{ subject.name }} skills and concepts broken down by grade level</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6" v-for="grade in subject.grades" :key="grade.name">
+            <div class="grade-card">
+              <div class="grade-card-accent" :style="{ background: subject.color }"></div>
+              <div class="grade-card-body">
+                <h5 class="grade-card-title">{{ grade.name }}</h5>
+                <span class="grade-card-ages">{{ grade.ages }}</span>
+                <ul class="grade-skills-list">
+                  <li v-for="skill in grade.skills" :key="skill">
+                    <i class="fas fa-check" :style="{ color: subject.color }"></i>
+                    {{ skill }}
+                  </li>
                 </ul>
               </div>
-              <p>Uniquely maximize stand-alone sources with out-of-the-box alignments. Continually procrastinate alternative catalysts for change for user friendly processes. Dynamically negotiate tactical e-markets for holistic web services. benchmark alternative initiatives after clicks-and-mortar outsourcing. Conveniently customize strategic total linkage through functional data. Progressively seize go forward potentialities with end-to-end scenarios. Dynamically implement open-source web-readiness for robust communities egotiate tactical e-markets for holistic web services</p>
             </div>
-            <!-- Register Form -->
-            <div class="vs-register-form">
-              <div class="form-title">
-                <h3 class="blog-inner-title">Register For Your Child</h3>
-              </div>
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" placeholder="Your Name" class="form-control style2">
-                  <i class="fal fa-user"></i>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="text" placeholder="Your Email" class="form-control style2">
-                  <i class="fal fa-envelope"></i>
-                </div>
-                <div class="form-group col-12">
-                  <select name="classes" id="classselect" class="form-select style2">
-                    <option value="" disabled selected hidden>Select Class</option>
-                    <option value="languageclass">Language Class</option>
-                    <option value="mathematicsclass">Mathematics Class</option>
-                    <option value="kidsonlineclass">Kids Online Class</option>
-                    <option value="practicalclasses">Practical Classes</option>
-                  </select>
-                </div>
-                <div class="col-12 form-group">
-                  <textarea placeholder="Write a Comment" id="commentForm" class="form-control style2"></textarea>
-                  <i class="far fa-pencil-alt"></i>
-                </div>
-                <div class="col-12 form-group">
-                  <button class="vs-btn"><i class="fal fa-paper-plane"></i> Register Now</button>
-                </div>
-              </div>
-            </div>
-          </div> <!-- / class details -->
-        </div> <!-- / col-8 end -->
-        <!-- Sidebar -->
-        <div class="col-xl-4 col-lg-5">
-          <aside class="sidebar-area class-sidebar">
-            <div class="widget wow fadeInUp" data-wow-delay="0.1s">
-              <div class="class-info-wrap">
-                <div class="info-item">
-                  <i class="fas fa-calendar-alt"></i>
-                  <div class="info">
-                    <h6 class="title">Start Date: </h6>
-                    <span class="text">25 October, 2024</span>
-                  </div>
-                </div>
-                <div class="info-item">
-                  <i class="fas fa-user"></i>
-                  <div class="info">
-                    <h6 class="title">Student Ages: </h6>
-                    <span class="text">03 - 06 Years</span>
-                  </div>
-                </div>
-                <div class="info-item">
-                  <i class="fas fa-users-class"></i>
-                  <div class="info">
-                    <h6 class="title">Number Of Kids: </h6>
-                    <span class="text">30 Child Student</span>
-                  </div>
-                </div>
-                <div class="info-item">
-                  <i class="fas fa-clock"></i>
-                  <div class="info">
-                    <h6 class="title">Class Time: </h6>
-                    <span class="text">9:00am - 12:00pm</span>
-                  </div>
-                </div>
-                <div class="info-item">
-                  <i class="fas fa-sunrise"></i>
-                  <div class="info">
-                    <h6 class="title">Class Day: </h6>
-                    <span class="text">Monday, Friday</span>
-                  </div>
-                </div>
-                <div class="info-item">
-                  <i class="fas fa-language"></i>
-                  <div class="info">
-                    <h6 class="title">Language: </h6>
-                    <span class="text">English</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="widget wow fadeInUp" data-wow-delay="0.1s">
-              <div class="author-widget-wrap">
-                <div class="avator">
-                  <img src="/assets/img/blog/author-2.jpg" alt="avator">
-                </div>
-                <div class="author-info">
-                  <h4 class="name text-title"><router-link to="/classes">Jenny Rose</router-link></h4>
-                  <span class="desig">Teacher</span>
-                </div>
-                <p class="author-bio">Gressively reinvent optimal expertise without go forward initiatives. virtual applications without resource.</p>
-                <div class="multi-social">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-            </div>
-          </aside>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!--======== / Class Section ========-->
+    </section>
+
+    <!--======== Section C: Why Learn This Subject ========-->
+    <section class="features-section space-bottom">
+      <div class="container">
+        <div class="text-center mb-50">
+          <span class="section-tag" :style="{ background: subject.color + '18', color: subject.color }">
+            <i class="fas fa-star me-1"></i> Benefits
+          </span>
+          <h2 class="sec-title mt-3">Why Learn {{ subject.name }}?</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6" v-for="feature in subject.features" :key="feature.title">
+            <div class="feature-card">
+              <div class="feature-icon" :style="{ background: subject.gradient }">
+                <i :class="feature.icon + ' text-white'"></i>
+              </div>
+              <h5 class="feature-title">{{ feature.title }}</h5>
+              <p class="feature-description">{{ feature.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--======== Section D: CTA Section ========-->
+    <section class="subject-cta-section" style="background: #F8F9FC;">
+      <div class="container">
+        <div class="subject-cta-card" :style="{ background: subject.gradient }">
+          <div class="cta-particles">
+            <span class="cta-particle" style="left: 5%; top: 20%; width: 8px; height: 8px; animation-delay: 0s;"></span>
+            <span class="cta-particle" style="left: 90%; top: 30%; width: 6px; height: 6px; animation-delay: 1s;"></span>
+            <span class="cta-particle" style="left: 20%; top: 70%; width: 10px; height: 10px; animation-delay: 2s;"></span>
+            <span class="cta-particle" style="left: 75%; top: 60%; width: 7px; height: 7px; animation-delay: 0.5s;"></span>
+          </div>
+          <div class="text-center position-relative" style="z-index: 2;">
+            <h2 class="cta-title">Ready to Start Learning {{ subject.name }}?</h2>
+            <p class="cta-description">Give your child the tools to succeed with fun, curriculum-aligned {{ subject.name.toLowerCase() }} activities.</p>
+            <div class="cta-buttons">
+              <router-link to="/pricing" class="vs-btn cta-btn-primary">
+                <i class="fas fa-rocket me-2"></i> Start Free Trial
+              </router-link>
+              <router-link to="/subjects" class="vs-btn cta-btn-secondary">
+                <i class="fas fa-th-large me-2"></i> Explore Other Subjects
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
 </template>
 
 <style scoped>
-/* Modern Hero Section - Class Details */
+/* ========== Hero Section ========== */
 .classdetails-hero-section {
   position: relative;
   overflow: hidden;
@@ -234,8 +340,8 @@ onBeforeUnmount(() => {
 }
 
 .classdetails-hero-bg {
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 45%, #FF6584 100%);
-  padding: 100px 0 60px;
+  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  padding: 70px 0 80px;
   position: relative;
   z-index: 1;
 }
@@ -243,104 +349,131 @@ onBeforeUnmount(() => {
 .classdetails-hero-content {
   text-align: center;
   position: relative;
-  z-index: 2;
+  z-index: 10;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* Modern Breadcrumb */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-particles .particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.4; }
+  100% { transform: translateY(0) rotate(360deg); opacity: 0.25; }
+}
+
 .modern-breadcrumb {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.15);
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
-  padding: 10px 24px;
+  padding: 7px 18px;
   border-radius: 50px;
-  margin-bottom: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .breadcrumb-link {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-weight: 500;
+  font-size: 13px;
   transition: all 0.3s ease;
 }
 
 .breadcrumb-link:hover {
-  color: #fff;
-  transform: translateX(-2px);
+  color: #FFE5B4;
 }
 
 .modern-breadcrumb i {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 12px;
+  font-size: 9px;
 }
 
 .breadcrumb-current {
   color: #fff;
   font-weight: 600;
+  font-size: 13px;
 }
 
-/* Hero Badge */
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.2);
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
-  padding: 12px 28px;
+  padding: 8px 20px;
   border-radius: 50px;
-  margin-bottom: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  animation: float 3s ease-in-out infinite;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: float-badge 3s ease-in-out infinite;
 }
 
-.badge-icon {
-  font-size: 20px;
-  color: #fff;
+.hero-badge i {
+  font-size: 14px;
+  color: #FFE5B4;
 }
 
 .hero-badge span {
   color: #fff;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 0.5px;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
-/* Hero Title */
 .classdetails-hero-title {
-  font-size: 48px;
-  font-weight: 800;
+  font-size: 40px;
+  font-weight: 900;
   line-height: 1.2;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   color: #fff;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  letter-spacing: -1px;
+}
+
+.classdetails-hero-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
 }
 
 .gradient-text-light {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background: linear-gradient(135deg, #FFE5B4, #FFDAB9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Wave Bottom */
 .hero-wave-bottom {
   position: absolute;
-  bottom: -2px;
+  bottom: -1px;
   left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
+  line-height: 0;
 }
 
 .hero-wave-bottom svg {
@@ -349,61 +482,423 @@ onBeforeUnmount(() => {
   height: 80px;
 }
 
-/* Responsive Design */
+/* ========== Subject Overview (Section A) ========== */
+.subject-card-large {
+  background: white;
+  padding: 50px 40px;
+  border-radius: 24px;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
+}
+
+.subject-icon-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.meta-badge {
+  background: #F7F8FA;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #2D3436;
+}
+
+.meta-badge i {
+  font-size: 18px;
+}
+
+.difficulty-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge-pill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge-pill.beginner {
+  background: #D4EDDA;
+  color: #155724;
+}
+
+.badge-pill.intermediate {
+  background: #FFF3CD;
+  color: #856404;
+}
+
+.badge-pill.advanced {
+  background: #F8D7DA;
+  color: #721C24;
+}
+
+.topic-item {
+  background: #F7F8FA;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s;
+}
+
+.topic-item:hover {
+  background: #ECEDF0;
+  transform: translateX(5px);
+}
+
+.topic-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.topic-info h6 {
+  margin: 0;
+  font-weight: 700;
+  color: #2D3436;
+  font-size: 15px;
+}
+
+/* ========== Section Tag ========== */
+.section-tag {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.sec-description {
+  color: #636E72;
+  font-size: 16px;
+  max-width: 550px;
+  margin: 10px auto 0;
+}
+
+/* ========== Grade Cards (Section B) ========== */
+.grade-breakdown-section {
+  padding-top: 80px;
+}
+
+.grade-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s;
+  height: 100%;
+}
+
+.grade-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.grade-card-accent {
+  height: 5px;
+  width: 100%;
+}
+
+.grade-card-body {
+  padding: 25px;
+}
+
+.grade-card-title {
+  font-weight: 800;
+  color: #2D3436;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.grade-card-ages {
+  font-size: 13px;
+  color: #B2BEC3;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.grade-skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.grade-skills-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 14px;
+  color: #2D3436;
+}
+
+.grade-skills-list li i {
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+/* ========== Feature Cards (Section C) ========== */
+.feature-card {
+  background: white;
+  border-radius: 20px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s;
+  height: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-title {
+  font-weight: 800;
+  font-size: 17px;
+  color: #2D3436;
+  margin-bottom: 10px;
+}
+
+.feature-description {
+  font-size: 14px;
+  color: #636E72;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ========== CTA Section (Section D) ========== */
+.subject-cta-section {
+  padding: 0 0 80px;
+}
+
+.subject-cta-card {
+  border-radius: 24px;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  animation: float-particle 6s linear infinite;
+}
+
+.cta-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.cta-description {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 550px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn-primary {
+  background: #fff !important;
+  color: #2D3436 !important;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 50px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s;
+}
+
+.cta-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn-secondary {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  transition: all 0.3s;
+}
+
+.cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-3px);
+}
+
+/* ========== Responsive ========== */
 @media (max-width: 991px) {
   .classdetails-hero-bg {
-    padding: 80px 0 50px;
+    padding: 60px 0 70px;
   }
 
   .classdetails-hero-title {
-    font-size: 38px;
+    font-size: 34px;
   }
 
-  .hero-wave-bottom svg {
-    height: 60px;
+  .subject-card-large {
+    padding: 30px 20px;
+  }
+
+  .subject-icon-large {
+    width: 100px;
+    height: 100px;
+  }
+
+  .subject-icon-large i {
+    font-size: 2.5rem !important;
+  }
+
+  .cta-title {
+    font-size: 26px;
+  }
+
+  .subject-cta-card {
+    padding: 50px 30px;
   }
 }
 
 @media (max-width: 767px) {
   .classdetails-hero-bg {
-    padding: 70px 0 40px;
+    padding: 50px 0 60px;
   }
 
   .classdetails-hero-title {
-    font-size: 32px;
+    font-size: 30px;
   }
 
-  .modern-breadcrumb {
-    padding: 8px 20px;
-    gap: 10px;
+  .classdetails-hero-description {
     font-size: 14px;
   }
 
-  .hero-badge {
-    padding: 10px 24px;
-    font-size: 14px;
+  .hero-badge span {
+    font-size: 12px;
   }
 
-  .badge-icon {
-    font-size: 18px;
+  .hero-badge i {
+    font-size: 12px;
   }
 
   .hero-wave-bottom svg {
-    height: 50px;
+    height: 60px;
+  }
+
+  .feature-card {
+    padding: 25px 20px;
+  }
+
+  .cta-title {
+    font-size: 24px;
+  }
+
+  .cta-description {
+    font-size: 14px;
+  }
+
+  .subject-cta-card {
+    padding: 40px 20px;
   }
 }
 
 @media (max-width: 575px) {
   .classdetails-hero-bg {
-    padding: 74px 0 35px;
+    padding: 45px 0 55px;
   }
 
   .classdetails-hero-title {
-    font-size: 28px;
+    font-size: 26px;
+  }
+
+  .classdetails-hero-description {
+    font-size: 13px;
+  }
+
+  .modern-breadcrumb {
+    padding: 6px 16px;
+  }
+
+  .breadcrumb-link,
+  .breadcrumb-current {
+    font-size: 12px;
+  }
+
+  .hero-badge {
+    padding: 6px 16px;
   }
 
   .hero-wave-bottom svg {
-    height: 40px;
+    height: 50px;
+  }
+
+  .grade-breakdown-section {
+    padding-top: 60px;
+  }
+
+  .cta-title {
+    font-size: 22px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-btn-primary,
+  .cta-btn-secondary {
+    width: 100%;
+    text-align: center;
   }
 }
 </style>

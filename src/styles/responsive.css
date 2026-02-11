@@ -596,6 +596,6 @@
 
   /* Reduce gradients complexity */
   [class*="gradient"] {
-    background: var(--primary-color, #6C63FF) !important;
+    background: var(--primary-color, #4A8B3F) !important;
   }
 }

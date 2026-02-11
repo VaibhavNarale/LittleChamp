@@ -19,6 +19,9 @@ onBeforeUnmount(() => {
   <!--======== Modern Hero Section ========-->
   <section class="features-hero-section">
     <div class="features-hero-bg">
+      <div class="features-hero-particles">
+        <span v-for="n in 6" :key="n" class="particle" :style="{ animationDelay: `${n * 0.5}s` }"></span>
+      </div>
       <div class="container">
         <div class="features-hero-content">
           <!-- Subtle Breadcrumb -->
@@ -30,7 +33,7 @@ onBeforeUnmount(() => {
 
           <!-- Hero Badge -->
           <div class="hero-badge">
-            <img class="badge-icon" src="/assets/img/icon/car.png" alt="icon">
+            <i class="fas fa-star"></i>
             <span>Why Choose Mind Growup Jr</span>
           </div>
 
@@ -44,22 +47,6 @@ onBeforeUnmount(() => {
           <p class="features-hero-description">
             Discover the powerful features that make Mind Growup Jr the #1 choice for 50M+ kids and 100,000+ teachers worldwide
           </p>
-
-          <!-- Trust Indicators -->
-          <div class="trust-indicators">
-            <div class="trust-item">
-              <i class="fas fa-star"></i>
-              <span>4.8/5 Rating</span>
-            </div>
-            <div class="trust-item">
-              <i class="fas fa-users"></i>
-              <span>50M+ Kids</span>
-            </div>
-            <div class="trust-item">
-              <i class="fas fa-chalkboard-teacher"></i>
-              <span>100K+ Teachers</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -81,7 +68,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="feature-card-enhanced">
             <div class="feature-icon-wrapper mb-4">
-              <div class="feature-icon" style="background: linear-gradient(135deg, #6C63FF, #A29BFE);">
+              <div class="feature-icon" style="background: linear-gradient(135deg, #4A8B3F, #5EA750);">
                 <i class="fas fa-gamepad fa-3x text-white"></i>
               </div>
             </div>
@@ -153,7 +140,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
           <div class="feature-card-enhanced">
             <div class="feature-icon-wrapper mb-4">
-              <div class="feature-icon" style="background: linear-gradient(135deg, #6C5CE7, #A29BFE);">
+              <div class="feature-icon" style="background: linear-gradient(135deg, #6C5CE7, #5EA750);">
                 <i class="fas fa-devices fa-3x text-white"></i>
               </div>
             </div>
@@ -260,7 +247,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="teacher-feature-card">
             <div class="icon-badge">
-              <i class="fas fa-users-class fa-2x" style="color: #6C63FF;"></i>
+              <i class="fas fa-users-class fa-2x" style="color: #4A8B3F;"></i>
             </div>
             <h4>Class Management</h4>
             <p>Manage up to 100 students per class with easy rostering and organization tools.</p>
@@ -437,7 +424,7 @@ onBeforeUnmount(() => {
 .feature-card-enhanced:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-  border-color: #6C63FF;
+  border-color: #4A8B3F;
 }
 
 .feature-icon-wrapper {
@@ -540,7 +527,7 @@ onBeforeUnmount(() => {
   transform: translate(-50%, -50%);
   width: 120%;
   height: 120%;
-  background: radial-gradient(circle, rgba(108, 99, 255, 0.1), transparent);
+  background: radial-gradient(circle, rgba(74, 139, 63, 0.1), transparent);
   border-radius: 50%;
   z-index: -1;
 }
@@ -557,7 +544,7 @@ onBeforeUnmount(() => {
   }
 }
 
-/* ========== Modern Hero Section Styles ========== */
+/* ========== Modern Hero Section Styles (matches About/Contact) ========== */
 .features-hero-section {
   position: relative;
   overflow: hidden;
@@ -565,9 +552,38 @@ onBeforeUnmount(() => {
 
 .features-hero-bg {
   position: relative;
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 45%, #FF6584 100%);
-  padding: 100px 0 120px;
-  min-height: 450px;
+  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  padding: 70px 0 80px;
+  min-height: auto;
+}
+
+/* Floating Particles */
+.features-hero-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: float-particle 8s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { top: 20%; left: 10%; }
+.particle:nth-child(2) { top: 60%; left: 25%; width: 8px; height: 8px; }
+.particle:nth-child(3) { top: 30%; left: 70%; }
+.particle:nth-child(4) { top: 70%; left: 80%; width: 4px; height: 4px; }
+.particle:nth-child(5) { top: 15%; left: 50%; width: 5px; height: 5px; }
+.particle:nth-child(6) { top: 80%; left: 45%; }
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+  50% { transform: translateY(-30px) scale(1.5); opacity: 0.7; }
 }
 
 .features-hero-content {
@@ -583,11 +599,11 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 24px;
+  padding: 8px 20px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border-radius: 50px;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -595,7 +611,7 @@ onBeforeUnmount(() => {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s ease;
 }
 
@@ -611,44 +627,43 @@ onBeforeUnmount(() => {
 .breadcrumb-current {
   color: white;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* Hero Badge */
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
+  gap: 8px;
+  padding: 8px 22px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  margin-bottom: 25px;
+  margin-bottom: 14px;
   animation: float-badge 3s ease-in-out infinite;
 }
 
-.badge-icon {
-  width: 24px;
-  height: 24px;
-  animation: wiggle 2s ease-in-out infinite;
+.hero-badge i {
+  color: #FFE5B4;
+  font-size: 14px;
 }
 
 .hero-badge span {
   color: white;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 0.5px;
 }
 
 /* Hero Title */
 .features-hero-title {
-  font-size: 58px;
+  font-size: 40px;
   font-weight: 900;
   line-height: 1.2;
   color: white;
-  margin-bottom: 25px;
-  letter-spacing: -1px;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
 }
 
 .gradient-text-light {
@@ -660,44 +675,14 @@ onBeforeUnmount(() => {
 
 /* Hero Description */
 .features-hero-description {
-  font-size: 19px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 35px;
-  max-width: 700px;
+  margin-bottom: 0;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   font-weight: 400;
-}
-
-/* Trust Indicators */
-.trust-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  flex-wrap: wrap;
-}
-
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.trust-item i {
-  color: #FFE5B4;
-  font-size: 20px;
-}
-
-.trust-item span {
-  color: white;
-  font-weight: 600;
-  font-size: 15px;
 }
 
 /* Wave Bottom */
@@ -712,7 +697,7 @@ onBeforeUnmount(() => {
 
 .hero-wave-bottom svg {
   width: 100%;
-  height: 120px;
+  height: 80px;
   display: block;
 }
 
@@ -722,112 +707,63 @@ onBeforeUnmount(() => {
   50% { transform: translateY(-5px); }
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-5deg); }
-  50% { transform: rotate(5deg); }
-}
-
 /* Responsive Styles */
 @media (max-width: 991px) {
   .features-hero-bg {
-    padding: 80px 0 100px;
-    min-height: 400px;
+    padding: 60px 0 70px;
   }
 
   .features-hero-title {
-    font-size: 46px;
-  }
-
-  .features-hero-description {
-    font-size: 17px;
-  }
-
-  .trust-indicators {
-    gap: 20px;
+    font-size: 34px;
   }
 }
 
 @media (max-width: 767px) {
   .features-hero-bg {
-    padding: 60px 0 80px;
-    min-height: auto;
+    padding: 50px 0 60px;
   }
 
   .features-hero-title {
-    font-size: 36px;
+    font-size: 28px;
   }
 
   .features-hero-description {
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
-
-  .hero-badge span {
-    font-size: 14px;
-  }
-
-  .badge-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .trust-indicators {
-    gap: 15px;
-  }
-
-  .trust-item {
-    padding: 10px 18px;
-  }
-
-  .trust-item span {
     font-size: 14px;
   }
 
   .hero-wave-bottom svg {
-    height: 80px;
+    height: 60px;
   }
 }
 
 @media (max-width: 575px) {
   .features-hero-bg {
-    padding: 74px 0 70px;
+    padding: 45px 0 50px;
   }
 
   .features-hero-title {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .features-hero-description {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .modern-breadcrumb {
-    padding: 8px 20px;
+    padding: 7px 16px;
   }
 
   .breadcrumb-link,
   .breadcrumb-current {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hero-badge {
-    padding: 10px 24px;
-  }
-
-  .trust-indicators {
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-  }
-
-  .trust-item {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
+    padding: 7px 18px;
   }
 
   .hero-wave-bottom svg {
-    height: 60px;
+    height: 50px;
   }
 }
 </style>

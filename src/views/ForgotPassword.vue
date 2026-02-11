@@ -217,7 +217,7 @@ const goBackToLogin = () => {
 
 /* Left Side - Branding */
 .forgot-password-branding {
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
   position: relative;
   overflow: hidden;
   padding: 60px;
@@ -336,7 +336,7 @@ const goBackToLogin = () => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #6C63FF;
+  color: #4A8B3F;
   text-decoration: none;
   font-weight: 600;
   margin-bottom: 30px;
@@ -344,7 +344,7 @@ const goBackToLogin = () => {
 }
 
 .back-link:hover {
-  color: #5A52D5;
+  color: #3A7032;
   gap: 12px;
 }
 
@@ -352,7 +352,7 @@ const goBackToLogin = () => {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -407,14 +407,14 @@ const goBackToLogin = () => {
 
 .form-control:focus {
   outline: none;
-  border-color: #6C63FF;
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+  border-color: #4A8B3F;
+  box-shadow: 0 0 0 3px rgba(74, 139, 63, 0.1);
 }
 
 .btn-submit {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
   color: white;
   border: none;
   border-radius: 10px;
@@ -422,12 +422,12 @@ const goBackToLogin = () => {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(74, 139, 63, 0.3);
 }
 
 .btn-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(74, 139, 63, 0.4);
 }
 
 .btn-submit:disabled {
@@ -438,8 +438,8 @@ const goBackToLogin = () => {
 .btn-secondary {
   padding: 10px 20px;
   background: white;
-  color: #6C63FF;
-  border: 2px solid #6C63FF;
+  color: #4A8B3F;
+  border: 2px solid #4A8B3F;
   border-radius: 10px;
   font-weight: 600;
   font-size: 14px;
@@ -448,10 +448,10 @@ const goBackToLogin = () => {
 }
 
 .btn-secondary:hover {
-  background: #6C63FF;
+  background: #4A8B3F;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(74, 139, 63, 0.3);
 }
 
 .alert {
@@ -506,14 +506,14 @@ const goBackToLogin = () => {
 }
 
 .help-link:hover {
-  border-color: #6C63FF;
+  border-color: #4A8B3F;
   background: #F7F8FA;
   transform: translateY(-2px);
 }
 
 .help-link i {
   font-size: 24px;
-  color: #6C63FF;
+  color: #4A8B3F;
 }
 
 /* Success State */

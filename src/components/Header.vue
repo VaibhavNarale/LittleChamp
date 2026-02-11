@@ -220,16 +220,16 @@ const handleLogout = async () => {
   font-size: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 2px solid #6C63FF;
-  color: #6C63FF;
+  border: 2px solid #4A8B3F;
+  color: #4A8B3F;
   background: white;
 }
 
 .btn-login:hover {
-  background: #6C63FF;
+  background: #4A8B3F;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(74, 139, 63, 0.3);
 }
 
 .btn-signup {
@@ -242,16 +242,16 @@ const handleLogout = async () => {
   font-size: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
   color: white;
   border: none;
-  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(74, 139, 63, 0.3);
 }
 
 .btn-signup:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
-  background: linear-gradient(135deg, #5A52D5, #6C63FF);
+  box-shadow: 0 8px 25px rgba(74, 139, 63, 0.4);
+  background: linear-gradient(135deg, #3A7032, #4A8B3F);
 }
 
 .btn-signup i {
@@ -274,17 +274,17 @@ const handleLogout = async () => {
   font-size: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 2px solid #6C63FF;
-  color: #6C63FF;
+  border: 2px solid #4A8B3F;
+  color: #4A8B3F;
   background: white;
   cursor: pointer;
 }
 
 .btn-dashboard:hover {
-  background: #6C63FF;
+  background: #4A8B3F;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(74, 139, 63, 0.3);
 }
 
 /* User Dropdown */
@@ -305,15 +305,15 @@ const handleLogout = async () => {
 }
 
 .user-btn:hover {
-  border-color: #6C63FF;
-  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.2);
+  border-color: #E91E8C;
+  box-shadow: 0 4px 15px rgba(233, 30, 140, 0.2);
 }
 
 .user-avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
   color: white;
   display: flex;
   align-items: center;
@@ -383,7 +383,7 @@ const handleLogout = async () => {
 
 .dropdown-item:hover {
   background: #F7F8FA;
-  color: #6C63FF;
+  color: #E91E8C;
 }
 
 .dropdown-item.logout:hover {
@@ -411,13 +411,13 @@ const handleLogout = async () => {
 }
 
 .icon-btn-modern:hover {
-  background: #6C63FF;
+  background: #4A8B3F;
   color: white;
   transform: translateY(-2px);
 }
 
 .vs-menu-toggle {
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
   color: white;
   border: none;
   padding: 12px 20px;
@@ -429,14 +429,14 @@ const handleLogout = async () => {
   gap: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(74, 139, 63, 0.3);
   font-size: 15px;
   white-space: nowrap;
 }
 
 .vs-menu-toggle:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(74, 139, 63, 0.4);
 }
 
 .vs-menu-toggle i {
@@ -545,7 +545,7 @@ html, body {
 }
 
 .vs-header .main-menu > ul > li {
-  margin: 0 8px !important;
+  margin: 0 13px !important;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -570,14 +570,14 @@ html, body {
   left: 0;
   width: 0;
   height: 3px;
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #E91E8C, #F04DA3);
   transition: width 0.3s ease;
   border-radius: 2px;
   margin-top: 2px;
 }
 
 .vs-header .main-menu > ul > li > a:hover {
-  color: #6C63FF !important;
+  color: #E91E8C !important;
   background: transparent !important;
 }
 
@@ -588,7 +588,7 @@ html, body {
 /* Active menu item */
 .vs-header .main-menu > ul > li.active > a,
 .vs-header .main-menu > ul > li > a.router-link-active {
-  color: #6C63FF !important;
+  color: #E91E8C !important;
   background: transparent !important;
 }
 
@@ -599,7 +599,7 @@ html, body {
 
 /* Dropdown menu hover */
 .vs-header .main-menu > ul > li.menu-item-has-children:hover > a {
-  color: #6C63FF !important;
+  color: #E91E8C !important;
   background: transparent !important;
 }
 
@@ -679,8 +679,8 @@ html, body {
 }
 
 .vs-header .main-menu .sub-menu li a:hover {
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(162, 155, 254, 0.08)) !important;
-  color: #6C63FF !important;
+  background: linear-gradient(135deg, rgba(233, 30, 140, 0.08), rgba(240, 77, 163, 0.08)) !important;
+  color: #E91E8C !important;
   padding-left: 20px !important;
 }
 
@@ -752,7 +752,7 @@ body {
 /* Desktop optimization for better single-line layout */
 @media (min-width: 992px) and (max-width: 1399px) {
   .vs-header .main-menu > ul > li {
-    margin: 0 6px !important;
+    margin: 0 9px !important;
   }
 
   .vs-header .main-menu > ul > li > a {
@@ -784,7 +784,7 @@ body {
 /* Large desktop - comfortable spacing */
 @media (min-width: 1400px) {
   .vs-header .main-menu > ul > li {
-    margin: 0 12px !important;
+    margin: 0 16px !important;
   }
 
   .vs-header .header-logo {

@@ -1,6 +1,7 @@
 <script setup>
-import { onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { onMounted, onBeforeUnmount, nextTick, ref, computed } from 'vue'
 import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import { useBlogStore } from '@/stores/blog'
 
 // Import new images (WebP optimized)
 import heroImage1 from '@/assets/new-images/new-image1.webp'
@@ -9,23 +10,42 @@ import heroImage3 from '@/assets/new-images/new-image3.webp'
 import mathImage from '@/assets/new-images/vedic-math.webp'
 import readingImage from '@/assets/new-images/gettyimages-123273724-640x640.webp'
 import scienceImage from '@/assets/new-images/Kids_hands_creating_on_card_arches_with_an_array_of_craft_suppplies.webp'
-import blog1 from '@/assets/new-images/young-indian-boy-watching-television.webp'
-import blog2 from '@/assets/new-images/hw-to-play-hopscotch-with-a-preschooler.webp'
-import blog3 from '@/assets/new-images/hopscotch.webp'
-import blog4 from '@/assets/new-images/istockphoto-507276910-612x612.webp'
-// Rocket image now imported in Preloader component
-// import rocketImage from '@/assets/new-images/rocket-image.png'
 
-// Admin Client URL for sign up/login links
+// Blog store for dynamic blog posts
+const blogStore = useBlogStore()
+const blogLoading = ref(true)
+const storageUrl = import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
+
+const blogPosts = computed(() => blogStore.posts.slice(0, 3))
+
+function getImageUrl(path) {
+  if (!path) return '/assets/img/blog/blog-1.jpg'
+  if (path.startsWith('http')) return path
+  return `${storageUrl}${path}`
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return ''
+  const date = new Date(dateStr)
+  return date.toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })
+}
+
+function stripHtml(html) {
+  if (!html) return ''
+  return html.replace(/<[^>]*>/g, '')
+}
 
 onMounted(async () => {
-  // Wait for DOM to be fully rendered
   await nextTick()
 
-  // Initialize all template scripts
   setTimeout(() => {
     initTemplateScripts()
   }, 100)
+
+  // Fetch blog posts for the blog section
+  blogStore.fetchPosts({ perPage: 3, page: 1 }).finally(() => {
+    blogLoading.value = false
+  })
 })
 
 onBeforeUnmount(() => {
@@ -41,16 +61,22 @@ onBeforeUnmount(() => {
 
   <!--======== Hero Section ========-->
   <section class="vs-hero-wrapper position-relative">
+    <!-- Floating Particles (visible across all slides) -->
+    <div class="hero-particles">
+      <span v-for="n in 12" :key="n" class="hero-particle" :style="{ animationDelay: `${n * 0.5}s`, left: `${(n * 7.8 + 3) % 94 + 3}%`, animationDuration: `${5 + (n % 3) * 1.5}s` }"></span>
+    </div>
+
     <div class="hero-slider1 vs-carousel" data-slide-show="1" data-md-slide-show="1" data-fade="true">
       <!-- Hero Slide 1: Main Value Proposition -->
       <div class="vs-hero-inner">
         <div class="vs-hero-bg" :data-bg-src="heroImage1"></div>
+        <div class="hero-gradient-overlay"></div>
         <div class="container h-100">
           <div class="row align-items-center justify-content-end h-100">
-            <div class="col-lg-5 col-md-7">
+            <div class="col-lg-6 col-md-8">
               <div class="modern-hero-content">
                 <div class="hero-badge" data-ani="slideinup" data-ani-delay="0s">
-                  <img class="badge-icon" src="/assets/img/icon/car.png" alt="icon">
+                  <span class="hero-badge-dot"></span>
                   <span>Learn • Play • Grow</span>
                 </div>
 
@@ -93,7 +119,7 @@ onBeforeUnmount(() => {
 
                 <div class="trust-indicators" data-ani="slideinup" data-ani-delay="0.5s">
                   <div class="trust-item">
-                    <i class="fas fa-shield-check"></i>
+                    <i class="fas fa-shield-alt"></i>
                     <span>Safe & Secure</span>
                   </div>
                   <div class="trust-item">
@@ -109,23 +135,19 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <!-- Multi-Layer Wave Bottom -->
+        <!-- Brand Wave Bottom -->
         <div class="hero-wave-bottom">
-          <!-- Layer 1: Light Blue/Turquoise Wave (Top) -->
           <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#B8E6E1" opacity="0.6"/>
+            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#4A8B3F" opacity="0.15"/>
           </svg>
-          <!-- Layer 2: Pink Wave (Middle) -->
           <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#FFB5C5" opacity="0.7"/>
+            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#E91E8C" opacity="0.12"/>
           </svg>
-          <!-- Layer 3: Coral Pink Wave -->
           <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#FFA8B8"/>
+            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#f5f5f5" opacity="0.8"/>
           </svg>
-          <!-- Layer 4: Cream/Light Yellow Wave (Bottom) -->
           <svg class="wave-layer wave-layer-4" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#FFF5E6"/>
+            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#ffffff"/>
           </svg>
         </div>
       </div>
@@ -133,12 +155,13 @@ onBeforeUnmount(() => {
       <!-- Hero Slide 2: Personalized Learning -->
       <div class="vs-hero-inner">
         <div class="vs-hero-bg" :data-bg-src="heroImage2"></div>
+        <div class="hero-gradient-overlay hero-overlay--blue"></div>
         <div class="container h-100">
           <div class="row align-items-center justify-content-end h-100">
-            <div class="col-lg-5 col-md-7">
+            <div class="col-lg-6 col-md-8">
               <div class="modern-hero-content">
                 <div class="hero-badge" data-ani="slideinup" data-ani-delay="0s">
-                  <img class="badge-icon" src="/assets/img/icon/car.png" alt="icon">
+                  <span class="hero-badge-dot hero-badge-dot--blue"></span>
                   <span>Adapt • Grow • Excel</span>
                 </div>
 
@@ -181,23 +204,19 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <!-- Multi-Layer Wave Bottom -->
+        <!-- Brand Wave Bottom -->
         <div class="hero-wave-bottom">
-          <!-- Layer 1: Light Blue/Turquoise Wave (Top) -->
           <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#B8E6E1" opacity="0.6"/>
+            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#4A8B3F" opacity="0.15"/>
           </svg>
-          <!-- Layer 2: Pink Wave (Middle) -->
           <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#FFB5C5" opacity="0.7"/>
+            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#E91E8C" opacity="0.12"/>
           </svg>
-          <!-- Layer 3: Coral Pink Wave -->
           <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#FFA8B8"/>
+            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#f5f5f5" opacity="0.8"/>
           </svg>
-          <!-- Layer 4: Cream/Light Yellow Wave (Bottom) -->
           <svg class="wave-layer wave-layer-4" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#FFF5E6"/>
+            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#ffffff"/>
           </svg>
         </div>
       </div>
@@ -205,9 +224,10 @@ onBeforeUnmount(() => {
       <!-- Hero Slide 3: Teachers -->
       <div class="vs-hero-inner">
         <div class="vs-hero-bg" :data-bg-src="heroImage3"></div>
+        <div class="hero-gradient-overlay hero-overlay--teal"></div>
         <div class="container h-100">
           <div class="row align-items-center justify-content-end h-100">
-            <div class="col-lg-5 col-md-7">
+            <div class="col-lg-6 col-md-8">
               <div class="modern-hero-content">
                 <div class="hero-badge badge-teacher" data-ani="slideinup" data-ani-delay="0s">
                   <i class="fas fa-graduation-cap"></i>
@@ -257,23 +277,19 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <!-- Multi-Layer Wave Bottom -->
+        <!-- Brand Wave Bottom -->
         <div class="hero-wave-bottom">
-          <!-- Layer 1: Light Blue/Turquoise Wave (Top) -->
           <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#B8E6E1" opacity="0.6"/>
+            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#4A8B3F" opacity="0.15"/>
           </svg>
-          <!-- Layer 2: Pink Wave (Middle) -->
           <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#FFB5C5" opacity="0.7"/>
+            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#E91E8C" opacity="0.12"/>
           </svg>
-          <!-- Layer 3: Coral Pink Wave -->
           <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#FFA8B8"/>
+            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#f5f5f5" opacity="0.8"/>
           </svg>
-          <!-- Layer 4: Cream/Light Yellow Wave (Bottom) -->
           <svg class="wave-layer wave-layer-4" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#FFF5E6"/>
+            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#ffffff"/>
           </svg>
         </div>
       </div>
@@ -297,51 +313,51 @@ onBeforeUnmount(() => {
       </div>
       <div class="row gy-30 justify-content-center">
         <!-- Feature 1: Interactive Games -->
-        <div class="col-lg-3 col-md-6 service-card wow fadeInUp" data-wow-delay="0.1s">
-          <div class="service-card-inner">
-            <div class="sr-icon">
-              <i class="fas fa-gamepad fa-3x" style="color: #6C63FF;"></i>
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="feature-card feature-card--pink">
+            <div class="feature-card__icon feature-icon--pink">
+              <i class="fas fa-gamepad"></i>
             </div>
-            <h2 class="sr-title h4">
-              <router-link to="/features">4000+ Interactive Games</router-link>
-            </h2>
-            <p class="sr-text">Kids learn through play with curriculum-aligned games that adapt to their skill level</p>
+            <span class="feature-card__highlight highlight--pink">4000+</span>
+            <h3 class="feature-card__title">4000+ Interactive Games</h3>
+            <p class="feature-card__text">Kids learn through play with curriculum-aligned games that adapt to their level</p>
+            <router-link to="/features" class="feature-card__link">Click to learn more</router-link>
           </div>
         </div>
         <!-- Feature 2: Personalized Learning -->
-        <div class="col-lg-3 col-md-6 service-card wow fadeInUp" data-wow-delay="0.2s">
-          <div class="service-card-inner">
-            <div class="sr-icon">
-              <i class="fas fa-chart-line fa-3x" style="color: #FF6584;"></i>
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+          <div class="feature-card feature-card--purple">
+            <div class="feature-card__icon feature-icon--purple">
+              <i class="fas fa-chart-line"></i>
             </div>
-            <h2 class="sr-title h4">
-              <router-link to="/features">Personalized Learning</router-link>
-            </h2>
-            <p class="sr-text">Adaptive technology that adjusts difficulty and pace to match each child's needs</p>
+            <span class="feature-card__highlight highlight--purple">AI</span>
+            <h3 class="feature-card__title">Personalized Learning</h3>
+            <p class="feature-card__text">Adaptive technology that adjusts difficulty and pace to match each child's needs</p>
+            <router-link to="/features" class="feature-card__link">Click to learn more</router-link>
           </div>
         </div>
         <!-- Feature 3: Progress Tracking -->
-        <div class="col-lg-3 col-md-6 service-card wow fadeInUp" data-wow-delay="0.3s">
-          <div class="service-card-inner">
-            <div class="sr-icon">
-              <i class="fas fa-chart-pie fa-3x" style="color: #4ECDC4;"></i>
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="feature-card feature-card--yellow">
+            <div class="feature-card__icon feature-icon--yellow">
+              <i class="fas fa-chart-pie"></i>
             </div>
-            <h2 class="sr-title h4">
-              <router-link to="/features">Detailed Progress Reports</router-link>
-            </h2>
-            <p class="sr-text">Track your child's learning journey with detailed analytics and weekly reports</p>
+            <span class="feature-card__highlight highlight--yellow">24/7</span>
+            <h3 class="feature-card__title">Detailed Progress Reports</h3>
+            <p class="feature-card__text">Track your child's learning journey with detailed analytics and weekly reports</p>
+            <router-link to="/features" class="feature-card__link">Click to learn more</router-link>
           </div>
         </div>
         <!-- Feature 4: Free for Teachers -->
-        <div class="col-lg-3 col-md-6 service-card wow fadeInUp" data-wow-delay="0.4s">
-          <div class="service-card-inner">
-            <div class="sr-icon">
-              <i class="fas fa-chalkboard-teacher fa-3x" style="color: #00B894;"></i>
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+          <div class="feature-card feature-card--green">
+            <div class="feature-card__icon feature-icon--green">
+              <i class="fas fa-chalkboard-teacher"></i>
             </div>
-            <h2 class="sr-title h4">
-              <router-link to="/for-teachers">Free for Teachers</router-link>
-            </h2>
-            <p class="sr-text">Classroom management, assignments, and progress tracking - completely free forever</p>
+            <span class="feature-card__highlight highlight--green">FREE</span>
+            <h3 class="feature-card__title">Free For Teachers</h3>
+            <p class="feature-card__text">Classroom management, assignments, and progress tracking - completely free forever</p>
+            <router-link to="/for-teachers" class="feature-card__link">Click to learn more</router-link>
           </div>
         </div>
       </div>
@@ -466,110 +482,128 @@ onBeforeUnmount(() => {
   <!--======== / counter Section ========-->
 
   <!--======== Subjects Section ========-->
-  <section class="classes-section space">
+  <section class="subjects-section space">
     <div class="container">
       <div class="row text-center justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-        <div class="col-xl-6 col-lg-7 col-md-8 col-sm-9">
+        <div class="col-xl-7 col-lg-8">
           <div class="title-area">
             <span class="sub-title">Learning Subjects</span>
             <h2 class="sec-title">Explore <span class="gradient-text">Subjects</span> Your Child Will Master</h2>
-            <p class="mt-3">Curriculum-aligned content for Pre-K through Grade 5</p>
+            <p class="mt-3 text-muted">Curriculum-aligned content for Pre-K through Grade 5</p>
           </div>
         </div>
       </div>
-      <div class="row vs-carousel" data-slide-show="3" data-arrows="true">
+      <div class="row gy-30">
         <!-- Mathematics Subject -->
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="class-card">
-            <div class="class-img">
-              <router-link to="/subjects/math"><img :src="mathImage" alt="Mathematics"></router-link>
-              <span class="class-fee" style="background: #6C5CE7;">1000+ Games</span>
+          <div class="subject-card subject-card--purple">
+            <div class="subject-card__img">
+              <router-link to="/subjects/math">
+                <img :src="mathImage" alt="Mathematics">
+                <div class="subject-card__overlay">
+                  <span class="subject-card__play"><i class="fas fa-play"></i></span>
+                </div>
+              </router-link>
+              <span class="subject-card__badge subject-badge--purple">
+                <i class="fas fa-calculator"></i>
+                1000+ Games
+              </span>
             </div>
-            <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/subjects/math">Mathematics</router-link></h2>
-              <p class="class-text">Build number sense, master arithmetic, explore geometry, and solve real-world math
-                problems.</p>
-              <ul class="class-info">
-                <li>
-                  <p>Grades:</p>
-                  <span>Pre-K to 5</span>
-                </li>
-                <li>
-                  <p>Topics:</p>
+            <div class="subject-card__body">
+              <div class="subject-card__grade-tag">Pre-K to Grade 5</div>
+              <h3 class="subject-card__title">
+                <router-link to="/subjects/math">Mathematics</router-link>
+              </h3>
+              <p class="subject-card__text">Build number sense, master arithmetic, explore geometry, and solve real-world math problems.</p>
+              <div class="subject-card__stats">
+                <div class="subject-stat">
+                  <i class="fas fa-book-open"></i>
                   <span>15+ Topics</span>
-                </li>
-                <li>
-                  <p>Games:</p>
-                  <span>1000+</span>
-                </li>
-              </ul>
-              <router-link to="/subjects/math" class="vs-btn style-1">
+                </div>
+                <div class="subject-stat">
+                  <i class="fas fa-gamepad"></i>
+                  <span>1000+ Games</span>
+                </div>
+              </div>
+              <router-link to="/subjects/math" class="subject-card__link subject-link--purple">
                 Explore Math
-                <i class="fas fa-arrow-right ms-2"></i>
+                <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
           </div>
         </div>
         <!-- Reading & ELA Subject -->
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-          <div class="class-card">
-            <div class="class-img">
-              <router-link to="/subjects/reading"><img :src="readingImage"
-                  alt="Reading & ELA"></router-link>
-              <span class="class-fee" style="background: #FD79A8;">1200+ Games</span>
+          <div class="subject-card subject-card--pink">
+            <div class="subject-card__img">
+              <router-link to="/subjects/reading">
+                <img :src="readingImage" alt="Reading & ELA">
+                <div class="subject-card__overlay">
+                  <span class="subject-card__play"><i class="fas fa-play"></i></span>
+                </div>
+              </router-link>
+              <span class="subject-card__badge subject-badge--pink">
+                <i class="fas fa-book-reader"></i>
+                1200+ Games
+              </span>
             </div>
-            <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/subjects/reading">Reading & ELA</router-link></h2>
-              <p class="class-text">Develop phonics, vocabulary, reading comprehension, grammar, and writing skills
-                through engaging activities.</p>
-              <ul class="class-info">
-                <li>
-                  <p>Grades:</p>
-                  <span>Pre-K to 5</span>
-                </li>
-                <li>
-                  <p>Topics:</p>
+            <div class="subject-card__body">
+              <div class="subject-card__grade-tag">Pre-K to Grade 5</div>
+              <h3 class="subject-card__title">
+                <router-link to="/subjects/reading">Reading & ELA</router-link>
+              </h3>
+              <p class="subject-card__text">Develop phonics, vocabulary, reading comprehension, grammar, and writing skills through engaging activities.</p>
+              <div class="subject-card__stats">
+                <div class="subject-stat">
+                  <i class="fas fa-book-open"></i>
                   <span>12+ Topics</span>
-                </li>
-                <li>
-                  <p>Games:</p>
-                  <span>1200+</span>
-                </li>
-              </ul>
-              <router-link to="/subjects/reading" class="vs-btn style-1">
+                </div>
+                <div class="subject-stat">
+                  <i class="fas fa-gamepad"></i>
+                  <span>1200+ Games</span>
+                </div>
+              </div>
+              <router-link to="/subjects/reading" class="subject-card__link subject-link--pink">
                 Explore Reading
-                <i class="fas fa-arrow-right ms-2"></i>
+                <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
           </div>
         </div>
         <!-- Craft & Drawing Subject -->
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-          <div class="class-card">
-            <div class="class-img">
-              <router-link to="/subjects/craft-drawing"><img :src="scienceImage" alt="Craft & Drawing"></router-link>
-              <span class="class-fee" style="background: #00B894;">800+ Activities</span>
+          <div class="subject-card subject-card--green">
+            <div class="subject-card__img">
+              <router-link to="/subjects/craft-drawing">
+                <img :src="scienceImage" alt="Craft & Drawing">
+                <div class="subject-card__overlay">
+                  <span class="subject-card__play"><i class="fas fa-play"></i></span>
+                </div>
+              </router-link>
+              <span class="subject-card__badge subject-badge--green">
+                <i class="fas fa-paint-brush"></i>
+                800+ Activities
+              </span>
             </div>
-            <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/subjects/craft-drawing">Craft & Drawing</router-link></h2>
-              <p class="class-text">Unleash creativity through hands-on crafts, drawing, coloring, and artistic expression.</p>
-              <ul class="class-info">
-                <li>
-                  <p>Grades:</p>
-                  <span>K to 5</span>
-                </li>
-                <li>
-                  <p>Topics:</p>
+            <div class="subject-card__body">
+              <div class="subject-card__grade-tag">Kindergarten to Grade 5</div>
+              <h3 class="subject-card__title">
+                <router-link to="/subjects/craft-drawing">Craft & Drawing</router-link>
+              </h3>
+              <p class="subject-card__text">Unleash creativity through hands-on crafts, drawing, coloring, and artistic expression.</p>
+              <div class="subject-card__stats">
+                <div class="subject-stat">
+                  <i class="fas fa-book-open"></i>
                   <span>10+ Topics</span>
-                </li>
-                <li>
-                  <p>Activities:</p>
-                  <span>800+</span>
-                </li>
-              </ul>
-              <router-link to="/subjects/craft-drawing" class="vs-btn style-1">
+                </div>
+                <div class="subject-stat">
+                  <i class="fas fa-palette"></i>
+                  <span>800+ Activities</span>
+                </div>
+              </div>
+              <router-link to="/subjects/craft-drawing" class="subject-card__link subject-link--green">
                 Explore Craft & Drawing
-                <i class="fas fa-arrow-right ms-2"></i>
+                <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
           </div>
@@ -593,140 +627,237 @@ onBeforeUnmount(() => {
   </section>
   <!--======== / Subjects Section ========-->
 
-  <!--======== Process Section ========-->
-  <section class="process-section bg-smoke-blue space-extra">
+  <!--======== How It Works Section ========-->
+  <section class="how-it-works-section">
     <div class="container">
-      <div class="row gx-150 gy-30 justify-content-center">
-        <!-- Single Item -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="process-card">
-            <span class="process-number">01</span>
-            <img class="process-direction" src="/assets/img/icon/arrow-curve.png" alt="direction">
-            <div class="process-head">
-              <div class="process-icon">
-                <img src="/assets/img/icon/process-1.png" alt="icon">
-              </div>
-              <h4 class="process-title">Expert Instructor</h4>
-            </div>
-            <p class="process-text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            </p>
+      <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+        <span class="section-tag section-tag--center">
+          <i class="fas fa-rocket"></i>
+          How It Works
+        </span>
+        <h2 class="section-heading">Get Started in <span class="title-highlight">4 Simple Steps</span></h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card wow fadeInUp" data-wow-delay="0.1s">
+          <div class="step-number">1</div>
+          <div class="step-icon-wrap step-icon--green">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <h3 class="step-title">Sign Up Free</h3>
+          <p class="step-desc">Create your account in seconds. No credit card required to start.</p>
+        </div>
+
+        <div class="step-connector">
+          <svg width="80" height="2" viewBox="0 0 80 2">
+            <line x1="0" y1="1" x2="80" y2="1" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6 4"/>
+          </svg>
+        </div>
+
+        <div class="step-card wow fadeInUp" data-wow-delay="0.2s">
+          <div class="step-number">2</div>
+          <div class="step-icon-wrap step-icon--pink">
+            <i class="fas fa-th-large"></i>
+          </div>
+          <h3 class="step-title">Choose Your Grade</h3>
+          <p class="step-desc">Select from Pre-K to Grade 5. Pick subjects that interest your child.</p>
+        </div>
+
+        <div class="step-connector">
+          <svg width="80" height="2" viewBox="0 0 80 2">
+            <line x1="0" y1="1" x2="80" y2="1" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6 4"/>
+          </svg>
+        </div>
+
+        <div class="step-card wow fadeInUp" data-wow-delay="0.3s">
+          <div class="step-number">3</div>
+          <div class="step-icon-wrap step-icon--navy">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <h3 class="step-title">Play & Learn</h3>
+          <p class="step-desc">Kids explore 4000+ games. AI adapts difficulty to their level.</p>
+        </div>
+
+        <div class="step-connector">
+          <svg width="80" height="2" viewBox="0 0 80 2">
+            <line x1="0" y1="1" x2="80" y2="1" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6 4"/>
+          </svg>
+        </div>
+
+        <div class="step-card wow fadeInUp" data-wow-delay="0.4s">
+          <div class="step-number">4</div>
+          <div class="step-icon-wrap step-icon--accent">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3 class="step-title">Track Progress</h3>
+          <p class="step-desc">Parents & teachers get real-time insights on learning growth.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-50 wow fadeInUp" data-wow-delay="0.4s">
+        <router-link to="/register" class="vs-btn btn-primary-enhanced">
+          Get Started Free
+          <i class="fas fa-arrow-right ms-2"></i>
+        </router-link>
+      </div>
+    </div>
+  </section>
+  <!--======== / How It Works Section ========-->
+
+  <!--======== Testimonials Section ========-->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="row gy-4 align-items-center">
+        <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="testi-intro">
+            <span class="section-tag">
+              <i class="fas fa-comment-dots"></i>
+              Parent Reviews
+            </span>
+            <h2 class="testi-heading">What Parents & Teachers <span class="title-highlight">Say About Us</span></h2>
+            <p class="testi-desc">Discover how Mind Growup Jr is transforming learning for millions of families worldwide. Real stories from real parents about their children's progress.</p>
+            <router-link to="/pricing" class="testi-cta">
+              Start Free Trial
+              <i class="fas fa-arrow-right"></i>
+            </router-link>
           </div>
         </div>
-        <!-- Single Item -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="process-card">
-            <span class="process-number">02</span>
-            <img class="process-direction" src="/assets/img/icon/arrow-curve.png" alt="direction">
-            <div class="process-head">
-              <div class="process-icon">
-                <img src="/assets/img/icon/process-2.png" alt="icon">
+        <div class="col-lg-8">
+          <div class="testi-slider-area">
+            <div class="row testi-slider vs-carousel" id="homeTesti1" data-slide-show="2">
+              <!-- Single Item -->
+              <div class="col-md-6">
+                <div class="testi-card">
+                  <div class="testi-card-header">
+                    <div class="testi-avatar-icon testi-avatar--green">
+                      <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                      <h5 class="testi-name">Priya Sharma</h5>
+                      <span class="testi-role">Parent, Grade 2</span>
+                    </div>
+                    <div class="testi-quote-icon">
+                      <i class="fas fa-quote-right"></i>
+                    </div>
+                  </div>
+                  <div class="testi-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <h4 class="testi-card-title">My Daughter Loves Math Now!</h4>
+                  <p class="testi-card-text">My 7-year-old used to struggle with math, but since using Mind Jr, she's excited to practice every day. The games make learning fun and she's already ahead of her grade level!</p>
+                </div>
               </div>
-              <h4 class="process-title">Known Everything</h4>
-            </div>
-            <p class="process-text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            </p>
-          </div>
-        </div>
-        <!-- Single Item -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="process-card">
-            <span class="process-number">03</span>
-            <div class="process-head">
-              <div class="process-icon">
-                <img src="/assets/img/icon/process-3.png" alt="icon">
+              <!-- Single Item -->
+              <div class="col-md-6">
+                <div class="testi-card">
+                  <div class="testi-card-header">
+                    <div class="testi-avatar-icon testi-avatar--pink">
+                      <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                      <h5 class="testi-name">Rajesh Patel</h5>
+                      <span class="testi-role">Homeschool Parent</span>
+                    </div>
+                    <div class="testi-quote-icon">
+                      <i class="fas fa-quote-right"></i>
+                    </div>
+                  </div>
+                  <div class="testi-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <h4 class="testi-card-title">Perfect for Homeschooling</h4>
+                  <p class="testi-card-text">As a homeschool parent, Mind Jr has been a game-changer. The curriculum-aligned content covers all subjects and my kids are learning while having fun. Worth every penny!</p>
+                </div>
               </div>
-              <h4 class="process-title">Well Children</h4>
+              <!-- Single Item -->
+              <div class="col-md-6">
+                <div class="testi-card">
+                  <div class="testi-card-header">
+                    <div class="testi-avatar-icon testi-avatar--navy">
+                      <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                      <h5 class="testi-name">Anita Desai</h5>
+                      <span class="testi-role">Elementary Teacher</span>
+                    </div>
+                    <div class="testi-quote-icon">
+                      <i class="fas fa-quote-right"></i>
+                    </div>
+                  </div>
+                  <div class="testi-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <h4 class="testi-card-title">Engaging & Educational</h4>
+                  <p class="testi-card-text">I use Mind Jr in my classroom and the kids absolutely love it. The progress tracking helps me identify areas where students need extra support. Highly recommend!</p>
+                </div>
+              </div>
+            </div> <!-- / Slider End -->
+            <div class="vs-icon-box testi-1 d-none d-xl-block">
+              <button data-slick-prev="#homeTesti1" class="icon-btn style-3 arrow-left mb-15"><i class="far fa-arrow-left"></i></button>
+              <button data-slick-next="#homeTesti1" class="icon-btn style-3 arrow-right"><i class="far fa-arrow-right"></i></button>
             </div>
-            <p class="process-text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="shape-before"><img src="/assets/img/shape/before-shape-2.png" alt="shape"></div>
-    <div class="shape-after"><img src="/assets/img/shape/after-shape-2.png" alt="shape"></div>
-    <div class="shape-mockup z-index-3 d-none d-lg-block" data-top="-18%" data-right="0%"><img
-        src="/assets/img/shape/cloud-1.png" alt="shapes"></div>
-    <div class="shape-mockup z-index-3 d-none d-lg-block" data-bottom="-11%" data-left="0%"><img
-        src="/assets/img/shape/cloud-2.png" alt="shapes"></div>
-
-    <div class="shape-mockup shapePulse d-none d-hd-block" data-top="34%" data-left="6%"><img
-        src="/assets/img/icon/butterfly-3.png" alt="shapes"></div>
-    <div class="shape-mockup shapePulse d-none d-hd-block" data-top="50%" data-right="6%"><img
-        src="/assets/img/icon/rocket.png" alt="shapes"></div>
   </section>
-  <!--======== / Process Section ========-->
-
-  <!--======== Appointment Section ========-->
-  <section class="appointment-section space-bottom space-top-shape-plus">
-    <div class="container">
-      <div class="row gx-60 gy-30 flex-column-reverse flex-lg-row align-items-center">
-        <div class="col-lg-7 wow fadeInLeft" data-wow-delay="0.1s">
-          <form action="https://html.vecurosoft.com/knirpse/demo/mail.php" method="POST"
-            class="appointment-form ajax-contact">
-            <div class="row gx-20">
-              <div class="form-group col-sm-6">
-                <input type="text" class="form-control" name="parent-name" id="gurdian-name" placeholder="Gurdian Name">
-              </div>
-              <div class="form-group col-sm-6">
-                <input type="number" class="form-control" name="number" id="number" placeholder="Phone No">
-              </div>
-              <div class="form-group col-12">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
-              </div>
-              <div class="form-group col-sm-6">
-                <input type="text" class="form-control" name="child-name" id="child-name" placeholder="Child Name">
-              </div>
-              <div class="form-group col-sm-6">
-                <input type="number" class="form-control" name="child-age" id="child-age" placeholder="Age of Child">
-              </div>
-              <div class="form-group col-12">
-                <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="vs-btn wave-btn">Submit</button>
-              </div>
-            </div>
-            <p class="form-messages mb-0 mt-3"></p>
-          </form>
-        </div>
-        <div class="col-lg-5 wow fadeInRight" data-wow-delay="0.1s">
-          <div class="text-center text-lg-start">
-            <span class="sub-title">Make Appointment</span>
-            <h2 class="sec-title big-title">Join Our Fun with Cutie Kids</h2>
-            <p class="fs-md mb-30">Formulate innovative web-readiness and installed base ideas. Distinctively integrate
-              high-payoff paradigms without next generation systems disseminate holistic e-services through customer
-              directed expertise.</p>
-            <router-link to="/about" class="vs-btn wave-btn style-1">Learn More</router-link>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="shape-mockup z-index-3 d-none d-hd-block" data-bottom="-8%" data-right="0%"><img
-        src="/assets/img/shape/rainbow-star.png" alt="shapes"></div>
-
-    <div class="shape-mockup moving d-none d-hd-block" data-top="22%" data-left="7%"><img
-        src="/assets/img/icon/note.png" alt="shapes"></div>
-    <div class="shape-mockup shapePulse d-none d-hd-block" data-bottom="20%" data-left="7%"><img
-        src="/assets/img/icon/bird.png" alt="shapes"></div>
-  </section>
-  <!--======== / Appointment Section ========-->
+  <!--======== / Testimonials Section ========-->
 
   <!--======== CTA Section ========-->
-  <section class="cta-section bg-smoke-blue space">
-    <div class="container text-center">
-      <div class="title-area mb-35 wow fadeInUp" data-wow-delay="0.1s">
-        <span class="sub-title">Join Our New Session</span>
-        <h2 class="sec-title">Call To Enroll Your Child <br> <a class="text-inherit" href="tel:+25621582222">256 2158
-            2222</a></h2>
+  <section class="home-cta-section">
+    <div class="home-cta-bg">
+      <div class="home-cta-particles">
+        <span v-for="n in 8" :key="n" class="home-cta-particle" :style="{ animationDelay: `${n * 0.7}s`, left: `${(n * 12) % 90 + 5}%` }"></span>
       </div>
-      <router-link to="/about" class="vs-btn wave-btn">Learn More</router-link>
     </div>
-    <div class="section-after style-2"><img src="/assets/img/shape/main-shape-after.png" alt="shape"></div>
-    <div class="shape-mockup d-none d-hd-block" data-top="0%" data-left="0%"><img
-        src="/assets/img/icon/rainbow-cloud.png" alt="shapes"></div>
-    <div class="shape-mockup shapePulse d-none d-hd-block" data-top="40%" data-right="14%"><img
-        src="/assets/img/icon/butterfly-4.png" alt="shapes"></div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-10 text-center wow fadeInUp" data-wow-delay="0.1s">
+          <span class="home-cta-badge">
+            <i class="fas fa-rocket"></i>
+            Start Today - It's Free!
+          </span>
+          <h2 class="home-cta-title">Ready to Start Your Child's <br><span class="home-cta-highlight">Learning Adventure?</span></h2>
+          <p class="home-cta-text">Join 50 million kids already learning through play. No credit card needed - get instant access to thousands of educational games.</p>
+          <div class="home-cta-buttons">
+            <router-link to="/register" class="modern-btn btn-primary home-cta-btn-primary">
+              <i class="fas fa-rocket"></i>
+              <span>Start Free Trial</span>
+            </router-link>
+            <router-link to="/subjects" class="modern-btn btn-outline home-cta-btn-outline">
+              <span>Explore Subjects</span>
+              <i class="fas fa-arrow-right"></i>
+            </router-link>
+          </div>
+          <div class="home-cta-trust">
+            <div class="home-cta-trust-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>Safe & Secure</span>
+            </div>
+            <div class="home-cta-trust-item">
+              <i class="fas fa-ban"></i>
+              <span>100% Ad-Free</span>
+            </div>
+            <div class="home-cta-trust-item">
+              <i class="fas fa-credit-card"></i>
+              <span>No Credit Card</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
   <!--======== / CTA Section ========-->
 
@@ -734,94 +865,61 @@ onBeforeUnmount(() => {
   <section class="blog-section space-top space-extra-bottom">
     <div class="container">
       <div class="row text-center justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-        <div class="col-xl-6 col-lg-7 col-md-8 col-sm-9">
+        <div class="col-xl-7 col-lg-8">
           <div class="title-area">
-            <span class="sub-title">Latest News Posts</span>
-            <h2 class="sec-title">Get Know Our Weekly Update News</h2>
+            <span class="sub-title">From Our Blog</span>
+            <h2 class="sec-title">Tips & Resources for <span class="gradient-text">Parents & Teachers</span></h2>
+            <p class="mt-3 text-muted">Expert advice on childhood education, learning activities, and parenting tips</p>
           </div>
         </div>
       </div>
-      <div class="row vs-carousel" data-slide-show="3" data-arrows="true">
-        <!-- Single blog -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="vs-blog blog-card">
-            <div class="blog-img">
-              <router-link to="/blog-details">
-                <img :src="blog1" alt="blog">
-              </router-link>
-            </div>
-            <div class="blog-content">
-              <div class="blog-meta">
-                <router-link to="/blog-details"><i class="fal fa-calendar-alt"></i>10 October, 2024</router-link>
-                <router-link to="/blog-details"><i class="fal fa-comments"></i>02 Comments</router-link>
-              </div>
-              <h4 class="blog-title"><router-link to="/blog-details">Education Always Best For Parent
-                  Develope</router-link></h4>
-              <router-link to="/blog-details" class="link-btn">Read More <i
-                  class="far fa-angle-right"></i></router-link>
+
+      <!-- Loading Skeleton -->
+      <div v-if="blogLoading" class="row gy-30">
+        <div v-for="n in 3" :key="n" class="col-lg-4 col-md-6">
+          <div class="home-blog-skeleton">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-line short"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line medium"></div>
             </div>
           </div>
         </div>
-        <!-- Single blog -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="vs-blog blog-card">
-            <div class="blog-img">
-              <router-link to="/blog-details">
-                <img :src="blog2" alt="blog">
+      </div>
+
+      <!-- Dynamic Blog Posts -->
+      <div v-else-if="blogPosts.length" class="row gy-30">
+        <div v-for="(post, index) in blogPosts" :key="post.id" class="col-lg-4 col-md-6 wow fadeInUp" :data-wow-delay="`${0.1 + index * 0.1}s`">
+          <div class="home-blog-card">
+            <div class="home-blog-img">
+              <router-link :to="`/blog/${post.slug}`">
+                <img :src="getImageUrl(post.featured_image)" :alt="post.title">
               </router-link>
+              <span v-if="post.category" class="home-blog-category">{{ post.category.name }}</span>
             </div>
-            <div class="blog-content">
-              <div class="blog-meta">
-                <router-link to="/blog-details"><i class="fal fa-calendar-alt"></i>12 November, 2024</router-link>
-                <router-link to="/blog-details"><i class="fal fa-comments"></i>05 Comments</router-link>
+            <div class="home-blog-content">
+              <div class="home-blog-meta">
+                <span><i class="fal fa-calendar-alt"></i> {{ formatDate(post.published_at) }}</span>
+                <span><i class="fal fa-eye"></i> {{ post.views_count || 0 }} views</span>
               </div>
-              <h4 class="blog-title"><router-link to="/blog-details">A Happy Learning Process for Your
-                  Child</router-link></h4>
-              <router-link to="/blog-details" class="link-btn">Read More <i
-                  class="far fa-angle-right"></i></router-link>
-            </div>
-          </div>
-        </div>
-        <!-- Single blog -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="vs-blog blog-card">
-            <div class="blog-img">
-              <router-link to="/blog-details">
-                <img :src="blog3" alt="blog">
-              </router-link>
-            </div>
-            <div class="blog-content">
-              <div class="blog-meta">
-                <router-link to="/blog-details"><i class="fal fa-calendar-alt"></i>01 December, 2024</router-link>
-                <router-link to="/blog-details"><i class="fal fa-comments"></i>10 Comments</router-link>
-              </div>
-              <h4 class="blog-title"><router-link to="/blog-details">Best Drawing Practice in Child Age</router-link>
+              <h4 class="home-blog-title">
+                <router-link :to="`/blog/${post.slug}`">{{ post.title }}</router-link>
               </h4>
-              <router-link to="/blog-details" class="link-btn">Read More <i
-                  class="far fa-angle-right"></i></router-link>
-            </div>
-          </div>
-        </div>
-        <!-- Single blog -->
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="vs-blog blog-card">
-            <div class="blog-img">
-              <router-link to="/blog-details">
-                <img :src="blog4" alt="blog">
+              <p class="home-blog-excerpt">{{ stripHtml(post.excerpt || post.content).substring(0, 100) }}...</p>
+              <router-link :to="`/blog/${post.slug}`" class="home-blog-link">
+                Read More <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
-            <div class="blog-content">
-              <div class="blog-meta">
-                <router-link to="/blog-details"><i class="fal fa-calendar-alt"></i>03 October, 2024</router-link>
-                <router-link to="/blog-details"><i class="fal fa-comments"></i>01 Comment</router-link>
-              </div>
-              <h4 class="blog-title"><router-link to="/blog-details">We Provide Best Education For Your
-                  Child</router-link></h4>
-              <router-link to="/blog-details" class="link-btn">Read More <i
-                  class="far fa-angle-right"></i></router-link>
-            </div>
           </div>
         </div>
+      </div>
+
+      <div class="text-center mt-50 wow fadeInUp" data-wow-delay="0.4s">
+        <router-link to="/blog" class="vs-btn btn-primary-enhanced">
+          View All Articles
+          <i class="fas fa-arrow-right ms-2"></i>
+        </router-link>
       </div>
     </div>
     <div class="shape-mockup shapePulse d-none d-md-block" data-top="22%" data-left="8%"><img
@@ -837,26 +935,136 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-/* Hero Section Wrapper */
+/* ========================================
+   Hero Section
+   ======================================== */
 .vs-hero-wrapper {
   position: relative;
   overflow: visible;
+  min-height: auto !important;
+  padding-bottom: 120px;
+  margin-bottom: -120px;
 }
 
-.class-card .class-img img {
-  height: 388px;
+.hero-slider1 {
+  position: relative;
+  z-index: 2;
+}
+
+.vs-hero-inner {
+  position: relative;
+  min-height: 550px !important;
+  height: 65vh;
+  max-height: 700px;
+  display: flex;
+  align-items: center;
+}
+
+.vs-hero-inner .container {
+  position: relative;
+  z-index: 4;
+}
+
+/* Gradient Overlay - covers the background image */
+.hero-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 20, 100, 0.7) 0%,
+    rgba(74, 139, 63, 0.5) 40%,
+    rgba(27, 20, 100, 0.6) 100%
+  );
 }
 
-/* Bottom Wave Curve - Multi-Layer SVG */
+.hero-overlay--blue {
+  background: linear-gradient(
+    135deg,
+    rgba(27, 20, 100, 0.75) 0%,
+    rgba(108, 92, 231, 0.5) 40%,
+    rgba(74, 139, 63, 0.5) 100%
+  );
+}
+
+.hero-overlay--teal {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 139, 63, 0.7) 0%,
+    rgba(0, 184, 148, 0.5) 40%,
+    rgba(27, 20, 100, 0.6) 100%
+  );
+}
+
+/* Floating Particles */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-particle {
+  position: absolute;
+  bottom: -20px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  animation: heroParticleFloat 6s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.25);
+}
+
+.hero-particle:nth-child(2n) {
+  width: 7px;
+  height: 7px;
+  background: rgba(255, 229, 180, 0.4);
+  box-shadow: 0 0 6px rgba(255, 229, 180, 0.3);
+}
+
+.hero-particle:nth-child(3n) {
+  width: 14px;
+  height: 14px;
+  background: rgba(233, 30, 140, 0.25);
+  box-shadow: 0 0 8px rgba(233, 30, 140, 0.2);
+}
+
+.hero-particle:nth-child(5n) {
+  width: 16px;
+  height: 16px;
+  background: rgba(74, 139, 63, 0.22);
+  box-shadow: 0 0 10px rgba(74, 139, 63, 0.2);
+}
+
+@keyframes heroParticleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-10vh) scale(1);
+  }
+  90% {
+    opacity: 0.5;
+    transform: translateY(-85vh) scale(0.7);
+  }
+}
+
+/* Bottom Wave */
 .hero-wave-bottom {
   position: absolute;
   bottom: -1px;
   left: 0;
   width: 100%;
-  height: 150px;
+  height: 120px;
   z-index: 10;
   pointer-events: none;
   line-height: 0;
@@ -871,64 +1079,30 @@ onBeforeUnmount(() => {
   display: block;
 }
 
-/* Layer specific positioning for depth effect */
-.wave-layer-1 {
-  z-index: 1;
-  bottom: 0px;
-}
+.wave-layer-1 { z-index: 1; bottom: 0px; }
+.wave-layer-2 { z-index: 2; bottom: -10px; }
+.wave-layer-3 { z-index: 3; bottom: -20px; }
+.wave-layer-4 { z-index: 4; bottom: -30px; }
 
-.wave-layer-2 {
-  z-index: 2;
-  bottom: -10px;
-}
-
-.wave-layer-3 {
-  z-index: 3;
-  bottom: -20px;
-}
-
-.wave-layer-4 {
-  z-index: 4;
-  bottom: -30px;
-}
-
-/* Hero Background - No Overlay */
-.vs-hero-inner {
-  position: relative;
-}
-
-.vs-hero-inner .container {
-  position: relative;
-  z-index: 2;
-}
-
-/* Hero Section Height Control */
-.vs-hero-wrapper {
-  min-height: auto !important;
-  padding-bottom: 150px;
-  /* Space for bottom wave curve */
-  margin-bottom: -150px;
-  /* Pull next section up */
-}
-
-.hero-slider1 {
-  position: relative;
-  z-index: 2;
-}
-
-.vs-hero-inner {
-  min-height: 80vh !important;
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-/* Modern Hero Content Styling */
+/* Hero Content */
 .modern-hero-content {
   position: relative;
   z-index: 10;
-  padding: 20px 0;
+  padding: 10px 30px 10px 0;
+}
+
+/* Content Backdrop Glow */
+.modern-hero-content::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: -40px;
+  right: -20px;
+  bottom: -30px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, transparent 70%);
+  border-radius: 30px;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Hero Badge */
@@ -936,16 +1110,34 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 18px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 50px;
   font-weight: 600;
   font-size: 13px;
   color: #FFFFFF;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
-  backdrop-filter: blur(10px);
+  margin-bottom: 14px;
+  backdrop-filter: blur(12px);
+}
+
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4A8B3F;
+  box-shadow: 0 0 8px rgba(74, 139, 63, 0.6);
+  animation: heroBadgePulse 2s ease-in-out infinite;
+}
+
+.hero-badge-dot--blue {
+  background: #6C5CE7;
+  box-shadow: 0 0 8px rgba(108, 92, 231, 0.6);
+}
+
+@keyframes heroBadgePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
 }
 
 .hero-badge .badge-icon {
@@ -959,47 +1151,46 @@ onBeforeUnmount(() => {
 }
 
 .hero-badge.badge-teacher {
-  background: linear-gradient(135deg, #00D2A0, #00B894);
+  background: linear-gradient(135deg, rgba(0, 210, 160, 0.8), rgba(0, 184, 148, 0.8));
+  border-color: rgba(0, 184, 148, 0.5);
   color: white;
 }
 
-/* Modern Hero Title */
+/* Hero Title */
 .modern-hero-title {
-  font-size: 48px;
+  font-size: 44px;
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.12;
   color: #FFFFFF;
-  margin-bottom: 20px;
-  text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.3);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
 }
 
 .modern-hero-title .gradient-text {
-  background: linear-gradient(135deg, #FFE5B4 0%, #FFDAB9 100%);
+  background: linear-gradient(135deg, #FFE5B4 0%, #FFD700 50%, #FFDAB9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.1;
   margin: 5px 0;
-  text-shadow: none;
 }
 
-/* Modern Hero Subtitle */
+/* Hero Subtitle */
 .modern-hero-subtitle {
-  font-size: 17px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 25px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 20px;
   font-weight: 400;
-  max-width: 540px;
-  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+  max-width: 520px;
 }
 
-/* Modern Features List */
+/* Features List */
 .modern-features-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 28px;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .modern-features-list .feature-item {
@@ -1007,37 +1198,43 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 7px;
   padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 25px;
   font-weight: 600;
   font-size: 13px;
   color: #FFFFFF;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s;
+}
+
+.modern-features-list .feature-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
 }
 
 .modern-features-list .feature-item i {
-  color: #FFE5B4;
-  font-size: 15px;
+  color: #7CFC00;
+  font-size: 14px;
 }
 
-/* Modern CTA Group */
+/* CTA Group */
 .modern-cta-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 25px;
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
 .modern-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 28px;
+  padding: 12px 24px;
   border-radius: 12px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
   border: 2px solid transparent;
@@ -1049,33 +1246,31 @@ onBeforeUnmount(() => {
 }
 
 .modern-btn.btn-primary {
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
   color: white;
-  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(74, 139, 63, 0.4);
 }
 
 .modern-btn.btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 12px 35px rgba(74, 139, 63, 0.5);
 }
 
 .modern-btn.btn-primary:hover i {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .modern-btn.btn-outline {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   color: #FFFFFF;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
 }
 
 .modern-btn.btn-outline:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .modern-btn.btn-outline:hover i {
@@ -1094,13 +1289,13 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
 }
 
 .trust-item i {
-  font-size: 18px;
-  color: #FFE5B4;
+  font-size: 16px;
+  color: #7CFC00;
 }
 
 /* Teacher Badge */
@@ -1109,45 +1304,47 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 10px;
   padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   font-weight: 700;
   font-size: 14px;
   color: #FFFFFF;
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .teacher-badge i {
   font-size: 20px;
-  color: #FFE5B4;
+  color: #7CFC00;
 }
 
-/* Responsive Design */
+/* ========================================
+   Hero Responsive
+   ======================================== */
 @media (max-width: 1025px) {
   .about-section .shape-slider-area .slick-slider {
     padding: 0px 15px;
   }
 
   .vs-hero-wrapper {
-    padding-bottom: 120px;
-    margin-bottom: -120px;
+    padding-bottom: 100px;
+    margin-bottom: -100px;
     margin-top: -80px;
     padding-top: 80px;
   }
 
   .hero-wave-bottom {
-    height: 120px;
+    height: 100px;
   }
 
   .vs-hero-inner {
-    min-height: 70vh !important;
-    height: 70vh;
+    min-height: 450px !important;
+    height: 55vh;
+    max-height: 560px;
   }
 
   .modern-hero-title {
-    font-size: 38px;
+    font-size: 34px;
   }
 
   .modern-hero-subtitle {
@@ -1157,6 +1354,10 @@ onBeforeUnmount(() => {
   .modern-btn {
     padding: 13px 24px;
     font-size: 14px;
+  }
+
+  .modern-hero-content::before {
+    display: none;
   }
 
   /* Counter Section - Better tablet layout */
@@ -1191,9 +1392,10 @@ onBeforeUnmount(() => {
   }
 
   .vs-hero-inner {
-    min-height: 65vh !important;
+    min-height: auto !important;
     height: auto;
-    padding: 30px 0;
+    max-height: none;
+    padding: 25px 0;
   }
 
   .modern-hero-content {
@@ -1201,8 +1403,8 @@ onBeforeUnmount(() => {
   }
 
   .modern-hero-title {
-    font-size: 32px;
-    margin-bottom: 16px;
+    font-size: 28px;
+    margin-bottom: 14px;
   }
 
   .modern-hero-subtitle {
@@ -1246,6 +1448,10 @@ onBeforeUnmount(() => {
     justify-content: center;
   }
 
+  .hero-particles {
+    display: none;
+  }
+
   /* Counter Section - Mobile layout */
   .counter-section .col-sm-6 {
     flex: 0 0 50%;
@@ -1264,11 +1470,6 @@ onBeforeUnmount(() => {
 @media (max-width: 575px) {
   .about-section .shape-slider-area .slick-slider {
     padding: 0px 10px;
-  }
-  .class-card .class-img img{
-    height: 342px;
-    object-fit: cover;
-    object-position: center;
   }
 
   .vs-hero-wrapper {
@@ -1351,7 +1552,7 @@ onBeforeUnmount(() => {
   height: 100%;
   object-fit: contain;
   animation: rocketWavePath 6s linear forwards;
-  filter: drop-shadow(0 15px 40px rgba(108, 99, 255, 0.5));
+  filter: drop-shadow(0 15px 40px rgba(74, 139, 63, 0.5));
   transform-origin: center center;
 }
 
@@ -1813,5 +2014,1072 @@ onBeforeUnmount(() => {
   .vs-hero-inner:nth-child(2) .vs-hero-bg {
     background-position: 30% center !important;
   }
+}
+
+/* ========== Feature Cards - App Icon Style ========== */
+.feature-card {
+  text-align: center;
+  border-radius: 24px;
+  padding: 40px 28px 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Card background colors */
+.feature-card--pink   { background: #FFF0F0; }
+.feature-card--purple { background: #F8F6FF; }
+.feature-card--yellow { background: #FFF8E7; }
+.feature-card--green  { background: #EDFFF6; }
+
+/* App-icon style */
+.feature-card__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card__icon i {
+  font-size: 28px;
+  color: white;
+}
+
+/* Icon gradient backgrounds */
+.feature-icon--pink   { background: linear-gradient(135deg, #FF6B8A, #EE4466); }
+.feature-icon--purple { background: linear-gradient(135deg, #A78BFA, #7C4DFF); }
+.feature-icon--yellow { background: linear-gradient(135deg, #FBBF24, #F59E0B); }
+.feature-icon--green  { background: linear-gradient(135deg, #34D399, #10B981); }
+
+/* Highlight keyword */
+.feature-card__highlight {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.highlight--pink   { color: #EE4466; }
+.highlight--purple { color: #7C4DFF; }
+.highlight--yellow { color: #F59E0B; }
+.highlight--green  { color: #10B981; }
+
+/* Title */
+.feature-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 12px;
+}
+
+/* Description */
+.feature-card__text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6B7280;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Learn more link */
+.feature-card__link {
+  font-size: 14px;
+  color: #9CA3AF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.feature-card--pink:hover .feature-card__link   { color: #EE4466; }
+.feature-card--purple:hover .feature-card__link  { color: #7C4DFF; }
+.feature-card--yellow:hover .feature-card__link  { color: #F59E0B; }
+.feature-card--green:hover .feature-card__link   { color: #10B981; }
+
+@media (max-width: 767px) {
+  .feature-card {
+    padding: 30px 22px 26px;
+  }
+
+  .feature-card__icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+  }
+
+  .feature-card__icon i {
+    font-size: 24px;
+  }
+
+  .feature-card__highlight {
+    font-size: 24px;
+  }
+
+  .feature-card__title {
+    font-size: 16px;
+  }
+}
+
+/* ========================================
+   Testimonials Section
+   ======================================== */
+.testimonials-section {
+  padding: 80px 0;
+}
+
+.testi-intro {
+  padding-right: 20px;
+}
+
+.testi-heading {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1B1464;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.testi-desc {
+  font-size: 15px;
+  color: #636E72;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.testi-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #4A8B3F, #3a7a30);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(74, 139, 63, 0.3);
+}
+
+.testi-cta:hover {
+  background: linear-gradient(135deg, #3a7a30, #2d6a24);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(74, 139, 63, 0.4);
+  color: white;
+}
+
+.testi-card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #F0F0F0;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.testi-card:hover {
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.testi-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.testi-avatar-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.testi-avatar--green {
+  background: rgba(74, 139, 63, 0.1);
+  color: #4A8B3F;
+}
+
+.testi-avatar--pink {
+  background: rgba(233, 30, 140, 0.1);
+  color: #E91E8C;
+}
+
+.testi-avatar--navy {
+  background: rgba(27, 20, 100, 0.1);
+  color: #1B1464;
+}
+
+.testi-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1B1464;
+  margin: 0;
+}
+
+.testi-role {
+  font-size: 13px;
+  color: #E91E8C;
+  font-weight: 500;
+}
+
+.testi-quote-icon {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(74, 139, 63, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4A8B3F;
+  font-size: 14px;
+}
+
+.testi-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 12px;
+}
+
+.testi-stars i {
+  color: #FFB800;
+  font-size: 13px;
+}
+
+.testi-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1B1464;
+  margin-bottom: 8px;
+}
+
+.testi-card-text {
+  font-size: 14px;
+  color: #636E72;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .testi-intro {
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .testi-heading {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonials-section {
+    padding: 60px 0;
+  }
+
+  .testi-heading {
+    font-size: 26px;
+  }
+
+  .testi-card {
+    padding: 22px;
+  }
+}
+
+/* ========================================
+   How It Works Section
+   ======================================== */
+.how-it-works-section {
+  padding: 80px 0;
+  background: #F8F9FC;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(74, 139, 63, 0.08);
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A8B3F;
+  margin-bottom: 16px;
+}
+
+.section-tag i {
+  font-size: 12px;
+}
+
+.section-tag--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1B1464;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.title-highlight {
+  color: #E91E8C;
+}
+
+.steps-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+}
+
+.step-card {
+  flex: 1;
+  max-width: 280px;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+}
+
+.step-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 800;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #1B1464;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 0 auto 20px;
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover .step-icon-wrap {
+  transform: translateY(-4px);
+}
+
+.step-icon--green {
+  background: rgba(74, 139, 63, 0.1);
+  color: #4A8B3F;
+}
+
+.step-icon--pink {
+  background: rgba(233, 30, 140, 0.1);
+  color: #E91E8C;
+}
+
+.step-icon--navy {
+  background: rgba(27, 20, 100, 0.1);
+  color: #1B1464;
+}
+
+.step-icon--accent {
+  background: rgba(63, 53, 181, 0.1);
+  color: #3F35B5;
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1B1464;
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 14px;
+  color: #636E72;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.step-connector {
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+}
+
+@media (max-width: 991px) {
+  .section-heading {
+    font-size: 36px;
+  }
+
+  .steps-grid {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .step-connector {
+    display: none;
+  }
+
+  .step-card {
+    max-width: 48%;
+    flex: 0 0 48%;
+  }
+}
+
+@media (max-width: 767px) {
+  .how-it-works-section {
+    padding: 60px 0;
+  }
+
+  .section-heading {
+    font-size: 30px;
+  }
+
+  .step-card {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-heading {
+    font-size: 26px;
+  }
+}
+
+/* ========================================
+   CTA Section
+   ======================================== */
+.home-cta-section {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.home-cta-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  z-index: 0;
+}
+
+.home-cta-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.home-cta-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: homeCTAFloat 6s ease-in-out infinite;
+}
+
+@keyframes homeCTAFloat {
+  0%, 100% {
+    transform: translateY(100%) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(60%) scale(1);
+  }
+  80% {
+    opacity: 0.6;
+    transform: translateY(-20%) scale(0.8);
+  }
+}
+
+.home-cta-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.home-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  backdrop-filter: blur(10px);
+}
+
+.home-cta-badge i {
+  font-size: 16px;
+}
+
+.home-cta-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.home-cta-highlight {
+  background: linear-gradient(135deg, #FFE5B4, #FFDAB9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home-cta-text {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 560px;
+  margin: 0 auto 35px;
+  line-height: 1.7;
+}
+
+.home-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.home-cta-btn-primary {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #4A8B3F !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.home-cta-btn-primary:hover {
+  background: #fff !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.home-cta-btn-outline {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.home-cta-trust {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.home-cta-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.home-cta-trust-item i {
+  font-size: 16px;
+  color: #FFE5B4;
+}
+
+@media (max-width: 767px) {
+  .home-cta-section {
+    padding: 60px 0;
+  }
+
+  .home-cta-title {
+    font-size: 28px;
+  }
+
+  .home-cta-text {
+    font-size: 15px;
+  }
+
+  .home-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-cta-buttons .modern-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .home-cta-trust {
+    gap: 15px;
+  }
+}
+
+/* ========================================
+   Blog Section - Modern Cards
+   ======================================== */
+.home-blog-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.home-blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.home-blog-img {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+.home-blog-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.home-blog-card:hover .home-blog-img img {
+  transform: scale(1.05);
+}
+
+.home-blog-category {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 5px 14px;
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.home-blog-content {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.home-blog-meta {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.home-blog-meta span {
+  font-size: 13px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.home-blog-meta i {
+  color: #4A8B3F;
+  font-size: 14px;
+}
+
+.home-blog-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.home-blog-title a {
+  color: #1B1464;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.home-blog-title a:hover {
+  color: #4A8B3F;
+}
+
+.home-blog-excerpt {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.home-blog-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4A8B3F;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.home-blog-link:hover {
+  color: #3a7a30;
+  gap: 10px;
+}
+
+.home-blog-link i {
+  font-size: 12px;
+  transition: transform 0.2s;
+}
+
+/* Blog Skeleton Loading */
+.home-blog-skeleton {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.skeleton-img {
+  height: 220px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-content {
+  padding: 22px 24px;
+}
+
+.skeleton-line {
+  height: 14px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.skeleton-line.short {
+  width: 40%;
+}
+
+.skeleton-line.medium {
+  width: 70%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ========================================
+   Subjects Section - Modern Cards
+   ======================================== */
+.subject-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.subject-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* Image Container */
+.subject-card__img {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+}
+
+.subject-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.subject-card:hover .subject-card__img img {
+  transform: scale(1.08);
+}
+
+/* Hover Overlay with Play Button */
+.subject-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.5) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.subject-card:hover .subject-card__overlay {
+  opacity: 1;
+}
+
+.subject-card__play {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.7);
+  transition: transform 0.3s ease;
+}
+
+.subject-card:hover .subject-card__play {
+  transform: scale(1);
+}
+
+.subject-card--purple .subject-card__play i { color: #6C5CE7; }
+.subject-card--pink .subject-card__play i { color: #E91E8C; }
+.subject-card--green .subject-card__play i { color: #4A8B3F; }
+
+.subject-card__play i {
+  font-size: 20px;
+  margin-left: 3px;
+}
+
+/* Badge */
+.subject-card__badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.subject-badge--purple { background: linear-gradient(135deg, #6C5CE7, #a29bfe); }
+.subject-badge--pink { background: linear-gradient(135deg, #E91E8C, #FD79A8); }
+.subject-badge--green { background: linear-gradient(135deg, #4A8B3F, #00B894); }
+
+.subject-card__badge i {
+  font-size: 13px;
+}
+
+/* Card Body */
+.subject-card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.subject-card__grade-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #f0f7ee;
+  color: #4A8B3F;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.subject-card--purple .subject-card__grade-tag {
+  background: #f0eeff;
+  color: #6C5CE7;
+}
+
+.subject-card--pink .subject-card__grade-tag {
+  background: #fdf0f6;
+  color: #E91E8C;
+}
+
+.subject-card__title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.subject-card__title a {
+  color: #1B1464;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.subject-card--purple:hover .subject-card__title a { color: #6C5CE7; }
+.subject-card--pink:hover .subject-card__title a { color: #E91E8C; }
+.subject-card--green:hover .subject-card__title a { color: #4A8B3F; }
+
+.subject-card__text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.65;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+/* Stats Row */
+.subject-card__stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.subject-stat {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+.subject-stat i {
+  font-size: 14px;
+  color: #999;
+}
+
+.subject-card--purple .subject-stat i { color: #6C5CE7; }
+.subject-card--pink .subject-stat i { color: #E91E8C; }
+.subject-card--green .subject-stat i { color: #4A8B3F; }
+
+/* Link Button */
+.subject-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.subject-card__link i {
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+.subject-card__link:hover i {
+  transform: translateX(4px);
+}
+
+.subject-link--purple {
+  color: #6C5CE7;
+  background: #f0eeff;
+}
+.subject-link--purple:hover {
+  background: #6C5CE7;
+  color: #fff;
+}
+
+.subject-link--pink {
+  color: #E91E8C;
+  background: #fdf0f6;
+}
+.subject-link--pink:hover {
+  background: #E91E8C;
+  color: #fff;
+}
+
+.subject-link--green {
+  color: #4A8B3F;
+  background: #f0f7ee;
+}
+.subject-link--green:hover {
+  background: #4A8B3F;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .subject-card__img {
+    height: 200px;
+  }
+
+  .subject-card__title {
+    font-size: 19px;
+  }
+
+  .subject-card__body {
+    padding: 20px;
+  }
+
+  .subject-card__stats {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .subject-card__img {
+    height: 180px;
+  }
+}
+</style>
+
+<style>
+/* Non-scoped: Hide extra hero slides before Slick initializes to prevent vertical flash */
+.hero-slider1:not(.slick-initialized) > .vs-hero-inner:not(:first-child) {
+  display: none !important;
 }
 </style>

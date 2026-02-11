@@ -137,7 +137,7 @@ const handleLogout = async () => {
   width: 320px;
   max-width: 85vw;
   height: 100vh;
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
   padding: 60px 20px 20px 20px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -318,7 +318,7 @@ const handleLogout = async () => {
 
 .btn-login {
   background: white;
-  color: #6C63FF;
+  color: #4A8B3F;
   border: 2px solid white;
 }
 
@@ -327,7 +327,7 @@ const handleLogout = async () => {
 }
 
 .btn-signup {
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
   color: white;
   box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
 }
@@ -339,7 +339,7 @@ const handleLogout = async () => {
 
 .btn-dashboard {
   background: white;
-  color: #6C63FF;
+  color: #4A8B3F;
   border: 2px solid white;
 }
 

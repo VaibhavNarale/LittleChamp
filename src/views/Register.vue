@@ -376,12 +376,12 @@ const handleRegister = async () => {
 }
 
 .register-form-section::-webkit-scrollbar-thumb {
-  background: #6C63FF;
+  background: #4A8B3F;
   border-radius: 4px;
 }
 
 .register-form-section::-webkit-scrollbar-thumb:hover {
-  background: #5A52D5;
+  background: #3A7032;
 }
 
 .form-container {
@@ -393,7 +393,7 @@ const handleRegister = async () => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #6C63FF;
+  color: #4A8B3F;
   text-decoration: none;
   font-weight: 600;
   margin-bottom: 30px;
@@ -401,7 +401,7 @@ const handleRegister = async () => {
 }
 
 .back-link:hover {
-  color: #5A52D5;
+  color: #3A7032;
   gap: 12px;
 }
 
@@ -463,13 +463,13 @@ const handleRegister = async () => {
 }
 
 .type-btn:hover {
-  border-color: #6C63FF;
+  border-color: #4A8B3F;
   transform: translateY(-2px);
 }
 
 .type-btn.active {
-  border-color: #6C63FF;
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  border-color: #4A8B3F;
+  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
   color: white;
 }
 
@@ -498,8 +498,8 @@ const handleRegister = async () => {
 
 .form-control:focus {
   outline: none;
-  border-color: #6C63FF;
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+  border-color: #4A8B3F;
+  box-shadow: 0 0 0 3px rgba(74, 139, 63, 0.1);
 }
 
 .password-input-wrapper {
@@ -519,7 +519,7 @@ const handleRegister = async () => {
 }
 
 .password-toggle:hover {
-  color: #6C63FF;
+  color: #4A8B3F;
 }
 
 /* Password Strength */
@@ -595,8 +595,8 @@ const handleRegister = async () => {
 }
 
 .custom-checkbox input:checked ~ .checkmark {
-  background: #6C63FF;
-  border-color: #6C63FF;
+  background: #4A8B3F;
+  border-color: #4A8B3F;
 }
 
 .custom-checkbox input:checked ~ .checkmark::after {
@@ -618,7 +618,7 @@ const handleRegister = async () => {
 }
 
 .checkbox-label .link {
-  color: #6C63FF;
+  color: #4A8B3F;
   text-decoration: none;
   font-weight: 600;
 }
@@ -630,7 +630,7 @@ const handleRegister = async () => {
 .btn-submit {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #6C63FF, #A29BFE);
+  background: linear-gradient(135deg, #4A8B3F, #5EA750);
   color: white;
   border: none;
   border-radius: 10px;
@@ -638,13 +638,13 @@ const handleRegister = async () => {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(74, 139, 63, 0.3);
   margin-top: 10px;
 }
 
 .btn-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(74, 139, 63, 0.4);
 }
 
 .btn-submit:disabled {
@@ -665,13 +665,13 @@ const handleRegister = async () => {
 }
 
 .signin-cta {
-  color: #6C63FF;
+  color: #4A8B3F;
   font-weight: 700;
   text-decoration: none;
 }
 
 .signin-cta:hover {
-  color: #5A52D5;
+  color: #3A7032;
   text-decoration: underline;
 }
 

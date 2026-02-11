@@ -78,9 +78,9 @@ Version: 1.0.0
 /*------------------- 1.2. Function -------------------*/
 /*------------------- 1.3. Variable-------------------*/
 :root {
-  --theme-color: #9C29B2;
-  --secondary-color: #88c90d;
-  --title-color: #103741;
+  --theme-color: #4A8B3F;
+  --secondary-color: #3A7032;
+  --title-color: #1B1464;
   --body-color: #74787c;
   --smoke-color: #f9f6ef;
   --smoke-theme: #fef5ff;
@@ -1551,7 +1551,7 @@ textarea.form-control.is-invalid {
 .sub-title {
   font-size: 24px;
   font-weight: 500;
-  color: var(--theme-color);
+  color: #E91E8C;
   display: block;
   margin-bottom: 29px;
   margin-top: -4px;

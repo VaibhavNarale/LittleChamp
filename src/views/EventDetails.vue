@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
 }
 
 .eventdetails-hero-bg {
-  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 45%, #FF6584 100%);
+  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 45%, #FF6584 100%);
   padding: 100px 0 60px;
   position: relative;
   z-index: 1;
