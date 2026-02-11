@@ -1,8 +1,72 @@
 <script setup>
-import { onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import { useBlogStore } from '@/stores/blog'
+
+// Fallback image
+import mathImg from '@/assets/math-gamification.jpg'
+
+const route = useRoute()
+const router = useRouter()
+const blogStore = useBlogStore()
+
+// Computed
+const post = computed(() => blogStore.currentPost)
+const relatedPosts = computed(() => blogStore.relatedPosts)
+const categories = computed(() => blogStore.categories)
+const loading = computed(() => blogStore.loading)
+const error = computed(() => blogStore.error)
+
+// Get image URL
+const getImageUrl = (imagePath) => {
+  if (!imagePath) return mathImg
+  if (imagePath.startsWith('http') || imagePath.startsWith('data:')) return imagePath
+  const storageUrl = import.meta.env.VITE_STORAGE_URL || 'https://ewr1.vultrobjects.com'
+  return `${storageUrl}/${imagePath}`
+}
+
+// Format date
+const formatDate = (dateString) => {
+  if (!dateString) return ''
+  const date = new Date(dateString)
+  return date.toLocaleDateString('en-US', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  })
+}
+
+// Navigate to another post
+const goToPost = (slug) => {
+  router.push({ name: 'BlogDetails', params: { slug } })
+}
+
+// Navigate to blog list with category filter
+const goToCategory = (categoryId) => {
+  router.push({ name: 'Blog', query: { category: categoryId } })
+}
+
+// Get author name
+const authorName = computed(() => {
+  if (!post.value?.author) return 'Anonymous'
+  return `${post.value.author.first_name || ''} ${post.value.author.last_name || ''}`.trim() || 'Anonymous'
+})
+
+// Initialize
+const fetchData = async () => {
+  const slug = route.params.slug
+  if (slug) {
+    await blogStore.fetchPost(slug)
+    // Also fetch categories for sidebar
+    if (blogStore.categories.length === 0) {
+      await blogStore.fetchCategories()
+    }
+  }
+}
 
 onMounted(async () => {
+  await fetchData()
   await nextTick()
   setTimeout(() => {
     initTemplateScripts()
@@ -11,6 +75,18 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   cleanupTemplateScripts()
+  blogStore.clearCurrentPost()
+})
+
+// Watch for route changes (when navigating between blog posts)
+watch(() => route.params.slug, async (newSlug) => {
+  if (newSlug) {
+    await fetchData()
+    await nextTick()
+    setTimeout(() => {
+      initTemplateScripts()
+    }, 100)
+  }
 })
 </script>
 
@@ -25,15 +101,17 @@ onBeforeUnmount(() => {
             <i class="fas fa-chevron-right"></i>
             <router-link to="/blog" class="breadcrumb-link">Blog</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Blog Details</span>
+            <span class="breadcrumb-current">{{ post?.category?.name || 'Article' }}</span>
           </nav>
           <div class="hero-badge">
             <i class="fas fa-newspaper badge-icon"></i>
-            <span>Article</span>
+            <span>{{ post?.category?.name || 'Article' }}</span>
           </div>
-          <h1 class="blogdetails-hero-title">
-            Latest From
-            <span class="gradient-text-light d-block">Our Blog</span>
+          <h1 class="blogdetails-hero-title" v-if="post">
+            {{ post.title }}
+          </h1>
+          <h1 class="blogdetails-hero-title" v-else>
+            Loading...
           </h1>
         </div>
       </div>
@@ -48,216 +126,190 @@ onBeforeUnmount(() => {
   <!--======== Blog Section ========-->
   <section class="vs-blog-wrapper blog-details space-page">
     <div class="container">
-      <div class="row gx-60">
+      <!-- Loading State -->
+      <div v-if="loading" class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3">Loading article...</p>
+      </div>
+
+      <!-- Error State -->
+      <div v-else-if="error && !post" class="text-center py-5">
+        <i class="fas fa-exclamation-circle fa-3x text-danger mb-3"></i>
+        <h4>Article Not Found</h4>
+        <p class="text-muted">The article you're looking for doesn't exist or has been removed.</p>
+        <router-link to="/blog" class="vs-btn wave-btn">
+          Back to Blog
+        </router-link>
+      </div>
+
+      <!-- Post Content -->
+      <div v-else-if="post" class="row gx-60">
         <div class="col-xl-8 col-lg-7">
           <div class="vs-blog blog-single wow fadeInUp" data-wow-delay="0.1s">
+            <!-- Featured Image -->
             <div class="blog-img">
-              <img src="/assets/img/blog/blog-single.jpg" alt="BLog Img">
+              <img :src="getImageUrl(post.featured_image)" :alt="post.title">
+              <a v-if="post.video_url" :href="post.video_url" class="popup-video play-btn style-1">
+                <i class="fas fa-play"></i>
+              </a>
             </div>
+
             <div class="blog-content">
+              <!-- Blog Meta -->
               <div class="blog-meta">
-                <span><i class="fal fa-calendar-alt"></i><a href="#">22 June, 2024</a></span>
-                <span><i class="fal fa-user-tag"></i>by <a href="#">Rodja Hartmann</a></span>
-                <span><i class="fal fa-folder-open"></i><a href="#">Kids</a><a href="#">Education</a><a href="#">Knowledge</a></span>
-                <span><i class="fal fa-comments"></i><a href="#">239 Comments</a></span>
+                <span><i class="fal fa-calendar-alt"></i><a href="#">{{ formatDate(post.published_at) }}</a></span>
+                <span><i class="fal fa-user-tag"></i>by <a href="#">{{ authorName }}</a></span>
+                <span v-if="post.category"><i class="fal fa-folder-open"></i><a href="#" @click.prevent="goToCategory(post.blog_category_id)">{{ post.category.name }}</a></span>
+                <span><i class="fal fa-eye"></i><a href="#">{{ post.views || 0 }} Views</a></span>
               </div>
-              <h2 class="blog-title">We will to make your children's learning better mindset and expert.</h2>
-              <p>Analyzing competing products or services can give you an idea of what already exists in your industry. This can help you find ways to improve your idea. It can also help you target weaknesses in your product or service before you spend time and money creating it. Be sure to note your competitor's prices during this process, which will give you a range of how much customers are currently spending on similar products.</p>
-              <p>Once you've worked hard researching your idea and know it has the potential to last in the market, it's time to take your business to the next level by making it official. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi Rapidiously formulate collaborative platforms with intermandated.</p>
-              <div class="blog-inner-list">
-                <ul>
-                  <li>If you've been asking yourself "what kind of business can I start with no money?" Check out some of these business ideas...</li>
-                  <li>Asking yourself "what kind of business can I start with no money?" Check out some of these business ideas that you can do part time...</li>
-                </ul>
-              </div>
-              <p>This can help you find ways to improve your idea. It can also help you target weaknesses in your product or service before you spend time and money creating it. Be sure to note your competitor's prices during this process. Rapidiously formulate collaborative platforms with intermandated.</p>
-              <blockquote class="block-quote">
-                <p>Analyzing competing products or services can give you idea of what already exists in your industry. This can help find ways to improve your idea on mind...</p>
-                <cite>Angelina D. Smith</cite>
-              </blockquote>
-              <p>It can also help you target weaknesses in your product or service before you spend time and money creating it. Be sure to note your competitor's prices during this process, which will give you a range of how much customers are currently spending on similar products. Enim ad minim veniam, quis nostrud exercitation ullamco laboris during this process, which will give you a range</p>
+
+              <!-- Blog Title -->
+              <h2 class="blog-title">{{ post.title }}</h2>
+
+              <!-- Excerpt -->
+              <p v-if="post.excerpt" class="lead">{{ post.excerpt }}</p>
+
+              <!-- Blog Content -->
+              <div class="blog-full-content" v-html="post.content"></div>
             </div>
+
+            <!-- Tags and Share -->
             <div class="share-links clearfix wow fadeInUp" data-wow-delay="0.1s">
               <div class="row justify-content-between">
                 <div class="col-md-auto">
                   <span class="share-links-title">Tags: </span>
-                  <div class="tagcloud"><a href="#">Education</a> <a href="#">Kids</a> <a href="#">Care</a></div>
+                  <div v-if="post.tags && post.tags.length" class="tagcloud">
+                    <a v-for="tag in post.tags" :key="tag" href="#">{{ tag }}</a>
+                  </div>
+                  <span v-else class="text-muted">No tags</span>
                 </div>
                 <div class="col-md-auto text-md-end">
                   <span class="share-links-title">Share Now:</span>
                   <ul class="multi-social">
                     <li>
-                      <a href="https://www.facebook.com/sharer/sharer.php?u=permalink"><i class="fab fa-facebook-f"></i></a>
+                      <a :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
                     </li>
                     <li>
-                      <a href="#share?url=permalink"><i class="fab fa-twitter"></i></a>
+                      <a :href="`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(post.title)}`" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                      </a>
                     </li>
                     <li>
-                      <a href="#share?url=permalink"><i class="fab fa-linkedin-in"></i></a>
+                      <a :href="`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
                     </li>
                     <li>
-                      <a href="https://instagramcom/share?url=permalink"><i class="fab fa-instagram"></i></a>
+                      <a :href="`https://wa.me/?text=${encodeURIComponent(post.title + ' ' + window.location.href)}`" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                      </a>
                     </li>
                   </ul>
                 </div>
               </div>
-            </div><!-- / Share end -->
-            <div class="blog-author d-md-flex align-items-center wow fadeInUp" data-wow-delay="0.1s">
+            </div>
+
+            <!-- Author Box -->
+            <div v-if="post.author" class="blog-author d-md-flex align-items-center wow fadeInUp" data-wow-delay="0.1s">
               <div class="media-img">
-                <img src="/assets/img/blog/author-1.jpg" alt="Blog Author">
+                <div class="author-avatar">
+                  {{ (post.author.first_name?.[0] || 'A').toUpperCase() }}
+                </div>
               </div>
               <div class="media-body">
                 <p class="author-degi">Written by</p>
-                <h3 class="author-name"><a href="#">Jasmine Yulk</a></h3>
-                <p class="author-text mb-0">Monotonectally procrastinate transparent architectures before robust oppo Progressively parallel task 24/365 mindshare and multimedia online feedback good services</p>
+                <h3 class="author-name"><a href="#">{{ authorName }}</a></h3>
+                <p class="author-text mb-0">
+                  {{ post.author.bio || 'Content creator at Mind Growup Jr, passionate about helping children learn and grow through engaging educational content.' }}
+                </p>
               </div>
             </div>
-            <!-- Comment Start -->
-            <div class="vs-comment-wrap wow fadeInUp" data-wow-delay="0.1s">
-              <h3 class="blog-inner-title">3 Comments</h3>
-              <ul class="comment-list">
-                <li class="vs-comment">
-                  <div class="vs-post-comment">
-                    <div class="comment-avater"><img src="/assets/img/blog/author-2.jpg" alt="Comment Author" ></div>
-                    <div class="comment-content">
-                      <span class="commented-on">22 April, 2024</span>
-                      <h4 class="name">Jeny Jone</h4>
-                      <p class="text">Monotonectally procrastinate transparent architectures before robust oppo Progressively parallel task 24/365 mindshare and multimedia online feedback good services</p>
-                      <div class="reply_and_edit">
-                        <a href="#commentForm" class="reply-btn">Reply</a>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="children">
-                    <li class="vs-comment">
-                      <div class="vs-post-comment">
-                        <div class="comment-avater"><img src="/assets/img/blog/author-1.jpg" alt="Comment Author"></div>
-                        <div class="comment-content">
-                          <span class="commented-on">23 April, 2024</span>
-                          <h4 class="name">Jasmine Yulk</h4>
-                          <p class="text">Competently provide access to fully researched methods of empowerment without sticky models. Credibly morph front-end niche markets.</p>
-                          <div class="reply_and_edit">
-                            <a href="#commentForm" class="reply-btn">Reply</a>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-                <li class="vs-comment">
-                  <div class="vs-post-comment">
-                    <div class="comment-avater"><img src="/assets/img/blog/author-2.jpg" alt="Comment Author"></div>
-                    <div class="comment-content">
-                      <span class="commented-on">22 April, 2024</span>
-                      <h4 class="name">Jeny Jone</h4>
-                      <p class="text">Monotonectally procrastinate transparent architectures before robust oppo Progressively parallel task 24/365 mindshare and multimedia online feedback good services</p>
-                      <div class="reply_and_edit">
-                        <a href="#commentForm" class="reply-btn">Reply</a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- Comment Form -->
-            <div class="vs-comment-form wow fadeInUp" data-wow-delay="0.1s">
-              <div class="form-title">
-                <h3 class="blog-inner-title">Leave a Comment</h3>
-                <p class="form-text">Your email address will not be published. Required fields are marked *</p>
-              </div>
+
+            <!-- Related Posts -->
+            <div v-if="relatedPosts.length > 0" class="related-posts wow fadeInUp" data-wow-delay="0.1s">
+              <h3 class="blog-inner-title">Related Articles</h3>
               <div class="row">
-                <div class="col-12 form-group">
-                  <textarea placeholder="Write a Comment" id="commentForm" class="form-control style2"></textarea>
-                  <i class="far fa-pencil-alt"></i>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="text" placeholder="Your Name" class="form-control style2">
-                  <i class="fal fa-user"></i>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="text" placeholder="Your Email" class="form-control style2">
-                  <i class="fal fa-envelope"></i>
-                </div>
-                <div class="col-12 form-group">
-                  <button class="vs-btn"><i class="fal fa-paper-plane"></i> Post Comment</button>
+                <div v-for="related in relatedPosts" :key="related.id" class="col-md-4">
+                  <div class="related-post-card" @click="goToPost(related.slug)">
+                    <img :src="getImageUrl(related.featured_image)" :alt="related.title">
+                    <h4>{{ related.title }}</h4>
+                    <span class="date">{{ formatDate(related.published_at) }}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div> <!-- / Blog end -->
-        </div> <!-- / col-8 end -->
+          </div>
+        </div>
+
         <!-- Sidebar -->
         <div class="col-xl-4 col-lg-5">
           <aside class="sidebar-area">
+            <!-- Search Widget -->
             <div class="widget widget_search wow fadeInUp" data-wow-delay="0.1s">
               <h4 class="widget_title">Search</h4>
-              <form class="search-form">
+              <form class="search-form" @submit.prevent="router.push({ name: 'Blog', query: { q: $event.target.querySelector('input').value } })">
                 <input type="text" placeholder="Search Here">
                 <button type="submit"><i class="far fa-search"></i></button>
               </form>
             </div>
+
+            <!-- Categories Widget -->
             <div class="widget widget_categories wow fadeInUp" data-wow-delay="0.1s">
               <h4 class="widget_title">Categories</h4>
               <ul>
-                <li><router-link to="/blog">Daycare Kids</router-link> <span>10</span></li>
-                <li><router-link to="/blog">Online Education</router-link> <span>07</span></li>
-                <li><router-link to="/blog">Pre School Jobs</router-link> <span>05</span></li>
-                <li><router-link to="/blog">Outdoor Playing</router-link> <span>02</span></li>
+                <li v-for="cat in categories" :key="cat.id">
+                  <router-link :to="{ name: 'Blog', query: { category: cat.id } }">{{ cat.name }}</router-link>
+                  <span>{{ cat.posts_count || 0 }}</span>
+                </li>
               </ul>
             </div>
-            <div class="widget wow fadeInUp" data-wow-delay="0.1s">
-              <h4 class="widget_title">Popular Posts</h4>
+
+            <!-- Related Posts Widget -->
+            <div v-if="relatedPosts.length > 0" class="widget wow fadeInUp" data-wow-delay="0.1s">
+              <h4 class="widget_title">You May Also Like</h4>
               <div class="recent-post-wrap">
-                <div class="recent-post">
+                <div v-for="related in relatedPosts" :key="related.id" class="recent-post">
                   <div class="media-img">
-                    <router-link to="/blog-details"><img src="/assets/img/blog/thumb-1.jpg" alt="Blog Image"></router-link>
+                    <a href="#" @click.prevent="goToPost(related.slug)">
+                      <img :src="getImageUrl(related.featured_image)" :alt="related.title">
+                    </a>
                   </div>
                   <div class="media-body">
-                    <h4 class="post-title"><router-link to="/blog-details">User's Pepare Using Story Guide Yes</router-link></h4>
-                    <div class="recent-post-meta"><router-link to="/blog"><i class="fal fa-calendar-alt"></i> Dec 12, 2024</router-link></div>
-                  </div>
-                </div>
-                <div class="recent-post">
-                  <div class="media-img">
-                    <router-link to="/blog-details"><img src="/assets/img/blog/thumb-2.jpg" alt="Blog Image"></router-link>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="post-title"><router-link to="/blog-details">How to prepare child for examination</router-link></h4>
-                    <div class="recent-post-meta"><router-link to="/blog"><i class="fal fa-calendar-alt"></i> Dec 12, 2024</router-link></div>
-                  </div>
-                </div>
-                <div class="recent-post">
-                  <div class="media-img">
-                    <router-link to="/blog-details"><img src="/assets/img/blog/thumb-3.jpg" alt="Blog Image"></router-link>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="post-title"><router-link to="/blog-details">Imortance of childcare for your kids</router-link></h4>
-                    <div class="recent-post-meta"><router-link to="/blog"><i class="fal fa-calendar-alt"></i> Dec 12, 2024</router-link></div>
+                    <h4 class="post-title">
+                      <a href="#" @click.prevent="goToPost(related.slug)">{{ related.title }}</a>
+                    </h4>
+                    <div class="recent-post-meta">
+                      <a href="#"><i class="fal fa-calendar-alt"></i> {{ formatDate(related.published_at) }}</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="widget widget_tag_cloud wow fadeInUp" data-wow-delay="0.1s">
-              <h4 class="widget_title">Most Used Tags</h4>
+
+            <!-- Tags Widget -->
+            <div v-if="post.tags && post.tags.length" class="widget widget_tag_cloud wow fadeInUp" data-wow-delay="0.1s">
+              <h4 class="widget_title">Post Tags</h4>
               <div class="tagcloud">
-                <router-link to="/blog">Child</router-link>
-                <router-link to="/blog">Kids</router-link>
-                <router-link to="/blog">Online</router-link>
-                <router-link to="/blog">Education</router-link>
-                <router-link to="/blog">Childcare</router-link>
-                <router-link to="/blog">Care</router-link>
-                <router-link to="/blog">Class</router-link>
-                <router-link to="/blog">Exam</router-link>
+                <a v-for="tag in post.tags" :key="tag" href="#">{{ tag }}</a>
               </div>
             </div>
+
+            <!-- CTA Widget -->
             <div class="widget widget_banner wow fadeInUp" data-wow-delay="0.1s">
-              <div class="banner">
-                <img class="w-100" src="/assets/img/blog/widget-banner.jpg" alt="banner">
+              <div class="modern-cta-widget">
+                <div class="cta-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Start Learning Today!</h3>
+                <p>Join 50M+ kids exploring 4000+ interactive games</p>
+                <router-link to="/pricing" class="vs-btn wave-btn banner-btn">
+                  Try Free Trial
+                </router-link>
               </div>
-              <div class="content">
-                <span class="text-theme">Hurry Up</span>
-                <h3 class="h3">Get 20% Off</h3>
-              </div>
-              <router-link to="/contact" class="vs-btn wave-btn banner-btn">Appointment</router-link>
             </div>
           </aside>
         </div>
@@ -361,19 +413,15 @@ onBeforeUnmount(() => {
 
 /* Hero Title */
 .blogdetails-hero-title {
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.3;
   margin-bottom: 0;
   color: #fff;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.gradient-text-light {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Wave Bottom */
@@ -391,6 +439,156 @@ onBeforeUnmount(() => {
   height: 80px;
 }
 
+/* Blog Content */
+.blog-full-content {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.blog-full-content :deep(h2),
+.blog-full-content :deep(h3),
+.blog-full-content :deep(h4) {
+  color: #333;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.blog-full-content :deep(p) {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.blog-full-content :deep(ul),
+.blog-full-content :deep(ol) {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.blog-full-content :deep(li) {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.blog-full-content :deep(blockquote) {
+  border-left: 4px solid #6C63FF;
+  padding-left: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  color: #666;
+}
+
+.blog-full-content :deep(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.lead {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Author Avatar */
+.author-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: white;
+  font-weight: 700;
+}
+
+/* Related Posts */
+.related-posts {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.related-post-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.related-post-card:hover {
+  transform: translateY(-5px);
+}
+
+.related-post-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.related-post-card h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.related-post-card .date {
+  font-size: 12px;
+  color: #999;
+}
+
+/* CTA Widget */
+.modern-cta-widget {
+  background: linear-gradient(135deg, #6C63FF 0%, #A29BFE 100%);
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+
+.modern-cta-widget .cta-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.modern-cta-widget .cta-icon i {
+  font-size: 40px;
+  color: white;
+}
+
+.modern-cta-widget h3 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.modern-cta-widget p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+.modern-cta-widget .banner-btn {
+  background: white;
+  color: #6C63FF;
+  font-weight: 600;
+}
+
+.modern-cta-widget .banner-btn:hover {
+  background: #FFE5B4;
+  color: #6C63FF;
+}
+
 /* Responsive Design */
 @media (max-width: 991px) {
   .blogdetails-hero-bg {
@@ -398,7 +596,7 @@ onBeforeUnmount(() => {
   }
 
   .blogdetails-hero-title {
-    font-size: 38px;
+    font-size: 30px;
   }
 
   .hero-wave-bottom svg {
@@ -412,7 +610,7 @@ onBeforeUnmount(() => {
   }
 
   .blogdetails-hero-title {
-    font-size: 32px;
+    font-size: 26px;
   }
 
   .modern-breadcrumb {
@@ -441,7 +639,7 @@ onBeforeUnmount(() => {
   }
 
   .blogdetails-hero-title {
-    font-size: 28px;
+    font-size: 22px;
   }
 
   .hero-wave-bottom svg {
