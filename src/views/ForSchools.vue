@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts} from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 
 onMounted(async () => {
   await nextTick()
@@ -34,14 +37,18 @@ onBeforeUnmount(() => {
             <span class="gradient-text-light d-block">with Mind Growup Jr</span>
           </h1>
           <p class="hero-description">
-            Comprehensive learning platform for schools with unlimited students, advanced analytics, and dedicated support
+            Comprehensive learning platform for schools with unlimited students,
+            advanced analytics, and dedicated support
           </p>
         </div>
       </div>
     </div>
     <div class="hero-wave-bottom">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#FFFFFF"
+        />
       </svg>
     </div>
   </section>
@@ -65,7 +72,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">Unlimited Students & Teachers</h3>
             <p class="feature-card-text">
-              Add unlimited students and teachers across multiple grades and classes with no per-user fees.
+              Add unlimited students and teachers across multiple grades and
+              classes with no per-user fees.
             </p>
           </div>
         </div>
@@ -77,7 +85,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">FERPA & COPPA Compliant</h3>
             <p class="feature-card-text">
-              Full compliance with educational data privacy regulations. Student data is secure and never shared.
+              Full compliance with educational data privacy regulations. Student
+              data is secure and never shared.
             </p>
           </div>
         </div>
@@ -89,7 +98,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">School-Wide Analytics</h3>
             <p class="feature-card-text">
-              Comprehensive analytics dashboard for administrators to track performance across grades and classes.
+              Comprehensive analytics dashboard for administrators to track
+              performance across grades and classes.
             </p>
           </div>
         </div>
@@ -101,7 +111,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">Dedicated Account Manager</h3>
             <p class="feature-card-text">
-              Personal account manager to help with setup, training, and ongoing support for your school.
+              Personal account manager to help with setup, training, and ongoing
+              support for your school.
             </p>
           </div>
         </div>
@@ -113,7 +124,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">SSO & LMS Integration</h3>
             <p class="feature-card-text">
-              Single sign-on support and seamless integration with popular LMS platforms like Google Classroom and Canvas.
+              Single sign-on support and seamless integration with popular LMS
+              platforms like Google Classroom and Canvas.
             </p>
           </div>
         </div>
@@ -125,7 +137,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">Professional Development</h3>
             <p class="feature-card-text">
-              Free training sessions and ongoing professional development resources for all teachers and staff.
+              Free training sessions and ongoing professional development
+              resources for all teachers and staff.
             </p>
           </div>
         </div>
@@ -170,28 +183,40 @@ onBeforeUnmount(() => {
               <i class="fas fa-check-circle"></i>
               <div>
                 <h5>Cost-Effective Solution</h5>
-                <p>Significant savings compared to traditional learning resources and software licenses</p>
+                <p>
+                  Significant savings compared to traditional learning resources
+                  and software licenses
+                </p>
               </div>
             </div>
             <div class="benefit-item">
               <i class="fas fa-check-circle"></i>
               <div>
                 <h5>Easy Implementation</h5>
-                <p>Quick setup with minimal IT requirements. Get started in just a few days</p>
+                <p>
+                  Quick setup with minimal IT requirements. Get started in just
+                  a few days
+                </p>
               </div>
             </div>
             <div class="benefit-item">
               <i class="fas fa-check-circle"></i>
               <div>
                 <h5>Flexible Deployment</h5>
-                <p>Works on any device - desktops, tablets, Chromebooks, and interactive whiteboards</p>
+                <p>
+                  Works on any device - desktops, tablets, Chromebooks, and
+                  interactive whiteboards
+                </p>
               </div>
             </div>
             <div class="benefit-item">
               <i class="fas fa-check-circle"></i>
               <div>
                 <h5>24/7 Technical Support</h5>
-                <p>Priority support from our dedicated school support team whenever you need it</p>
+                <p>
+                  Priority support from our dedicated school support team
+                  whenever you need it
+                </p>
               </div>
             </div>
           </div>
@@ -209,7 +234,9 @@ onBeforeUnmount(() => {
           School Pricing
         </span>
         <h2 class="sec-title">Simple, Transparent Pricing</h2>
-        <p class="sec-text">Special pricing for schools with flexible payment options</p>
+        <p class="sec-text">
+          Special pricing for schools with flexible payment options
+        </p>
       </div>
 
       <div class="row justify-content-center mt-5">
@@ -228,7 +255,9 @@ onBeforeUnmount(() => {
               <li><i class="fas fa-check"></i> Email support</li>
               <li><i class="fas fa-check"></i> LMS integration</li>
             </ul>
-            <router-link to="/contact" class="vs-btn style-outline">Contact Sales</router-link>
+            <router-link to="/contact" class="vs-btn style-outline"
+              >Contact Sales</router-link
+            >
           </div>
         </div>
 
@@ -248,7 +277,9 @@ onBeforeUnmount(() => {
               <li><i class="fas fa-check"></i> Professional development</li>
               <li><i class="fas fa-check"></i> Dedicated account manager</li>
             </ul>
-            <router-link to="/contact" class="vs-btn">Contact Sales</router-link>
+            <router-link to="/contact" class="vs-btn"
+              >Contact Sales</router-link
+            >
           </div>
         </div>
 
@@ -268,7 +299,9 @@ onBeforeUnmount(() => {
               <li><i class="fas fa-check"></i> API access</li>
               <li><i class="fas fa-check"></i> Custom content creation</li>
             </ul>
-            <router-link to="/contact" class="vs-btn style-outline">Contact Sales</router-link>
+            <router-link to="/contact" class="vs-btn style-outline"
+              >Contact Sales</router-link
+            >
           </div>
         </div>
       </div>
@@ -281,9 +314,12 @@ onBeforeUnmount(() => {
       <div class="cta-box">
         <div class="row align-items-center">
           <div class="col-lg-8">
-            <h2 class="cta-title">Ready to Bring Mind Growup Jr to Your School?</h2>
+            <h2 class="cta-title">
+              Ready to Bring Mind Growup Jr to Your School?
+            </h2>
             <p class="cta-text">
-              Contact our school sales team for a free demo, pricing information, and custom implementation plan.
+              Contact our school sales team for a free demo, pricing
+              information, and custom implementation plan.
             </p>
           </div>
           <div class="col-lg-4 text-lg-end">
@@ -305,7 +341,7 @@ onBeforeUnmount(() => {
 }
 
 .servicedetails-hero-bg {
-  background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
+  background: linear-gradient(135deg, #1b1464 0%, #4a8b3f 100%);
   padding: 120px 0 80px;
   position: relative;
 }
@@ -348,7 +384,7 @@ onBeforeUnmount(() => {
   border-radius: 50px;
   margin-bottom: 20px;
   backdrop-filter: blur(10px);
-  color: #E91E63;
+  color: #1b1464;
   font-weight: 600;
 }
 
@@ -400,7 +436,9 @@ onBeforeUnmount(() => {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   height: 100%;
 }
 
@@ -412,7 +450,7 @@ onBeforeUnmount(() => {
 .feature-card-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #FF6B9D, #E91E63);
+  background: linear-gradient(135deg, #4a8b3f, #1b1464);
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -426,11 +464,11 @@ onBeforeUnmount(() => {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .feature-card-text {
-  color: #636E72;
+  color: #636e72;
   line-height: 1.6;
   margin: 0;
 }
@@ -452,12 +490,12 @@ onBeforeUnmount(() => {
 .stat-number {
   font-size: 40px;
   font-weight: 800;
-  color: #FF6B9D;
+  color: #4a8b3f;
   margin-bottom: 5px;
 }
 
 .stat-label {
-  color: #636E72;
+  color: #636e72;
   margin: 0;
   font-weight: 600;
 }
@@ -479,7 +517,7 @@ onBeforeUnmount(() => {
 }
 
 .benefit-item i {
-  color: #FF6B9D;
+  color: #4a8b3f;
   font-size: 24px;
   flex-shrink: 0;
   margin-top: 3px;
@@ -489,11 +527,11 @@ onBeforeUnmount(() => {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 5px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .benefit-item p {
-  color: #636E72;
+  color: #636e72;
   margin: 0;
   font-size: 14px;
 }
@@ -516,7 +554,7 @@ onBeforeUnmount(() => {
 }
 
 .pricing-badge {
-  background: #636E72;
+  background: #636e72;
   color: white;
   padding: 5px 15px;
   border-radius: 20px;
@@ -527,14 +565,14 @@ onBeforeUnmount(() => {
 }
 
 .featured-badge {
-  background: linear-gradient(135deg, #FF6B9D, #E91E63);
+  background: linear-gradient(135deg, #4a8b3f, #1b1464);
 }
 
 .pricing-title {
   font-size: 24px;
   font-weight: 800;
   margin-bottom: 20px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .pricing-price {
@@ -544,13 +582,13 @@ onBeforeUnmount(() => {
 .price-amount {
   font-size: 48px;
   font-weight: 800;
-  color: #FF6B9D;
+  color: #4a8b3f;
   display: block;
 }
 
 .price-period {
   font-size: 16px;
-  color: #636E72;
+  color: #636e72;
 }
 
 .pricing-features {
@@ -562,17 +600,17 @@ onBeforeUnmount(() => {
 
 .pricing-features li {
   padding: 12px 0;
-  color: #2D3436;
+  color: #2d3436;
   text-align: left;
 }
 
 .pricing-features i {
-  color: #FF6B9D;
+  color: #4a8b3f;
   margin-right: 10px;
 }
 
 .cta-box {
-  background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #1b1464 100%);
   padding: 50px;
   border-radius: 20px;
   color: white;
@@ -596,7 +634,7 @@ onBeforeUnmount(() => {
 
 .vs-btn.style-white {
   background: white;
-  color: #E91E63;
+  color: #1b1464;
 }
 
 .vs-btn.style-white:hover {
@@ -605,12 +643,12 @@ onBeforeUnmount(() => {
 
 .vs-btn.style-outline {
   background: transparent;
-  border: 2px solid #FF6B9D;
-  color: #FF6B9D;
+  border: 2px solid #4a8b3f;
+  color: #4a8b3f;
 }
 
 .vs-btn.style-outline:hover {
-  background: #FF6B9D;
+  background: #4a8b3f;
   color: white;
 }
 

@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 
 onMounted(async () => {
   await nextTick()
@@ -19,7 +22,12 @@ onBeforeUnmount(() => {
   <section class="contact-hero-section">
     <div class="contact-hero-bg">
       <div class="contact-hero-particles">
-        <span v-for="n in 6" :key="n" class="particle" :style="{ animationDelay: `${n * 0.5}s` }"></span>
+        <span
+          v-for="n in 6"
+          :key="n"
+          class="particle"
+          :style="{ animationDelay: `${n * 0.5}s` }"
+        ></span>
       </div>
       <div class="container">
         <div class="contact-hero-content">
@@ -44,7 +52,8 @@ onBeforeUnmount(() => {
 
           <!-- Hero Description -->
           <p class="contact-hero-description">
-            Have questions? We're here to help! Reach out to our friendly team anytime
+            Have questions? We're here to help! Reach out to our friendly team
+            anytime
           </p>
         </div>
       </div>
@@ -52,8 +61,15 @@ onBeforeUnmount(() => {
 
     <!-- Wave Bottom -->
     <div class="hero-wave-bottom">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+      <svg
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#FFFFFF"
+        />
       </svg>
     </div>
   </section>
@@ -64,13 +80,19 @@ onBeforeUnmount(() => {
     <div class="container">
       <div class="split-contact-wrapper wow fadeInUp" data-wow-delay="0.1s">
         <div class="row g-0">
-
           <!-- Left: Green Gradient Info Panel -->
           <div class="col-lg-5">
             <div class="contact-panel">
-              <h2 class="panel-title">Let's Start a <br>Conversation</h2>
-              <p class="panel-brand">with <span class="brand-mind">Mind</span> <span class="brand-growup">Growup</span> <span class="brand-jr">Jr.</span></p>
-              <p class="panel-desc">We're happy to help parents, teachers, and schools. Reach out anytime!</p>
+              <h2 class="panel-title">Let's Start a <br />Conversation</h2>
+              <p class="panel-brand">
+                with <span class="brand-mind">Mind</span>
+                <span class="brand-growup">Growup</span>
+                <span class="brand-jr">Jr.</span>
+              </p>
+              <p class="panel-desc">
+                We're happy to help parents, teachers, and schools. Reach out
+                anytime!
+              </p>
 
               <div class="panel-items">
                 <a href="tel:+919821749524" class="panel-item">
@@ -99,16 +121,26 @@ onBeforeUnmount(() => {
                   </div>
                   <div>
                     <span class="panel-item-label">Working Hours</span>
-                    <span class="panel-item-value">Mon - Sat, 9am - 6pm IST</span>
+                    <span class="panel-item-value"
+                      >Mon - Sat, 9am - 6pm IST</span
+                    >
                   </div>
                 </div>
               </div>
 
               <div class="panel-socials">
-                <a href="#" class="panel-social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="panel-social"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="panel-social"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="panel-social"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="panel-social panel-social--facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="panel-social panel-social--instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="panel-social panel-social--twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="panel-social panel-social--youtube"
+                  ><i class="fab fa-youtube"></i
+                ></a>
               </div>
 
               <!-- Decorative circles -->
@@ -121,26 +153,44 @@ onBeforeUnmount(() => {
           <div class="col-lg-7">
             <div class="form-panel">
               <h2 class="form-panel-title">Send Us a Message</h2>
-              <p class="form-panel-desc">Fill the form below and we'll get back to you within 24 hours.</p>
+              <p class="form-panel-desc">
+                Fill the form below and we'll get back to you within 24 hours.
+              </p>
 
               <form class="contact-form-modern">
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label class="field-label">Full Name</label>
-                    <input type="text" class="field-input" placeholder="John Doe" required>
+                    <input
+                      type="text"
+                      class="field-input"
+                      placeholder="John Doe"
+                      required
+                    />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label">Email Address</label>
-                    <input type="email" class="field-input" placeholder="john@example.com" required>
+                    <input
+                      type="email"
+                      class="field-input"
+                      placeholder="john@example.com"
+                      required
+                    />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label">Phone Number</label>
-                    <input type="tel" class="field-input" placeholder="+91 00000 00000">
+                    <input
+                      type="tel"
+                      class="field-input"
+                      placeholder="+91 00000 00000"
+                    />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label">I am a...</label>
                     <select class="field-input">
-                      <option value="" disabled selected>Select your role</option>
+                      <option value="" disabled selected>
+                        Select your role
+                      </option>
                       <option>Parent</option>
                       <option>Teacher</option>
                       <option>School Administrator</option>
@@ -149,11 +199,21 @@ onBeforeUnmount(() => {
                   </div>
                   <div class="col-12">
                     <label class="field-label">Subject</label>
-                    <input type="text" class="field-input" placeholder="How can we help?" required>
+                    <input
+                      type="text"
+                      class="field-input"
+                      placeholder="How can we help?"
+                      required
+                    />
                   </div>
                   <div class="col-12">
                     <label class="field-label">Your Message</label>
-                    <textarea class="field-input field-textarea" placeholder="Tell us more about your question..." rows="5" required></textarea>
+                    <textarea
+                      class="field-input field-textarea"
+                      placeholder="Tell us more about your question..."
+                      rows="5"
+                      required
+                    ></textarea>
                   </div>
                   <div class="col-12 mt-2">
                     <button type="submit" class="send-btn">
@@ -165,7 +225,6 @@ onBeforeUnmount(() => {
               </form>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -182,7 +241,7 @@ onBeforeUnmount(() => {
 
 .contact-hero-bg {
   position: relative;
-  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #3a7a30 40%, #1b1464 100%);
   padding: 70px 0 80px;
   min-height: auto;
 }
@@ -203,16 +262,47 @@ onBeforeUnmount(() => {
   animation: float-particle 8s ease-in-out infinite;
 }
 
-.particle:nth-child(1) { top: 20%; left: 10%; }
-.particle:nth-child(2) { top: 60%; left: 25%; width: 8px; height: 8px; }
-.particle:nth-child(3) { top: 30%; left: 70%; }
-.particle:nth-child(4) { top: 70%; left: 80%; width: 4px; height: 4px; }
-.particle:nth-child(5) { top: 15%; left: 50%; width: 5px; height: 5px; }
-.particle:nth-child(6) { top: 80%; left: 45%; }
+.particle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+}
+.particle:nth-child(2) {
+  top: 60%;
+  left: 25%;
+  width: 8px;
+  height: 8px;
+}
+.particle:nth-child(3) {
+  top: 30%;
+  left: 70%;
+}
+.particle:nth-child(4) {
+  top: 70%;
+  left: 80%;
+  width: 4px;
+  height: 4px;
+}
+.particle:nth-child(5) {
+  top: 15%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+}
+.particle:nth-child(6) {
+  top: 80%;
+  left: 45%;
+}
 
 @keyframes float-particle {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
-  50% { transform: translateY(-30px) scale(1.5); opacity: 0.7; }
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.5);
+    opacity: 0.7;
+  }
 }
 
 .contact-hero-content {
@@ -245,7 +335,7 @@ onBeforeUnmount(() => {
 }
 
 .breadcrumb-link:hover {
-  color: #FFE5B4;
+  color: #ffe5b4;
 }
 
 .modern-breadcrumb i {
@@ -274,7 +364,7 @@ onBeforeUnmount(() => {
 }
 
 .hero-badge i {
-  color: #FFE5B4;
+  color: #ffe5b4;
   font-size: 14px;
 }
 
@@ -296,7 +386,7 @@ onBeforeUnmount(() => {
 }
 
 .gradient-text-light {
-  background: linear-gradient(135deg, #FFE5B4, #FFDAB9);
+  background: linear-gradient(135deg, #ffe5b4, #ffdab9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -332,8 +422,13 @@ onBeforeUnmount(() => {
 
 /* Animations */
 @keyframes float-badge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 /* Responsive Styles */
@@ -409,7 +504,7 @@ onBeforeUnmount(() => {
 
 /* Left Panel */
 .contact-panel {
-  background: #3F35B5;
+  background: #3f35b5;
   padding: 48px 36px;
   height: 100%;
   display: flex;
@@ -434,9 +529,18 @@ onBeforeUnmount(() => {
   margin-bottom: 20px;
 }
 
-.brand-mind { color: #4A8B3F; font-weight: 800; }
-.brand-growup { color: white; font-weight: 800; }
-.brand-jr { color: #E91E8C; font-weight: 800; }
+.brand-mind {
+  color: #4a8b3f;
+  font-weight: 800;
+}
+.brand-growup {
+  color: white;
+  font-weight: 800;
+}
+.brand-jr {
+  color: #e91e8c;
+  font-weight: 800;
+}
 
 .panel-desc {
   font-size: 15px;
@@ -506,9 +610,11 @@ a.panel-item:hover {
 .panel-social {
   width: 40px;
   height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.12);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: white;
@@ -517,9 +623,35 @@ a.panel-item:hover {
   transition: all 0.3s;
 }
 
+.panel-social--facebook {
+  background: #1877f2;
+}
+
+.panel-social--instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+.panel-social--instagram i {
+  font-size: 18px;
+}
+
+.panel-social--twitter {
+  background: #1da1f2;
+}
+
+.panel-social--youtube {
+  background: #ff0000;
+}
+
 .panel-social:hover {
-  background: white;
-  color: #1B1464;
+  filter: brightness(1.2);
   transform: translateY(-3px);
 }
 
@@ -554,13 +686,13 @@ a.panel-item:hover {
 .form-panel-title {
   font-size: 26px;
   font-weight: 800;
-  color: #1B1464;
+  color: #1b1464;
   margin-bottom: 8px;
 }
 
 .form-panel-desc {
   font-size: 15px;
-  color: #6B7280;
+  color: #6b7280;
   margin-bottom: 28px;
 }
 
@@ -568,18 +700,18 @@ a.panel-item:hover {
   display: block;
   font-size: 13px;
   font-weight: 600;
-  color: #1B1464;
+  color: #1b1464;
   margin-bottom: 6px;
 }
 
 .field-input {
   width: 100%;
   padding: 13px 16px;
-  border: 2px solid #E5E7EB;
+  border: 2px solid #e5e7eb;
   border-radius: 12px;
   font-size: 14px;
-  color: #1F2937;
-  background: #FAFAFA;
+  color: #1f2937;
+  background: #fafafa;
   transition: all 0.3s ease;
   outline: none;
   appearance: none;
@@ -587,13 +719,13 @@ a.panel-item:hover {
 }
 
 .field-input:focus {
-  border-color: #4A8B3F;
+  border-color: #4a8b3f;
   background: white;
   box-shadow: 0 0 0 4px rgba(74, 139, 63, 0.08);
 }
 
 .field-input::placeholder {
-  color: #B0B7BF;
+  color: #b0b7bf;
 }
 
 .field-textarea {
@@ -603,11 +735,11 @@ a.panel-item:hover {
 
 select.field-input {
   cursor: pointer;
-  color: #B0B7BF;
+  color: #b0b7bf;
 }
 
 select.field-input option {
-  color: #1F2937;
+  color: #1f2937;
 }
 
 .send-btn {
@@ -615,7 +747,7 @@ select.field-input option {
   align-items: center;
   gap: 8px;
   padding: 14px 32px;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   border: none;
   border-radius: 12px;

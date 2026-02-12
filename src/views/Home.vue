@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, onBeforeUnmount, nextTick, ref, computed } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 import { useBlogStore } from '@/stores/blog'
 
 // Import new images (WebP optimized)
@@ -14,7 +17,8 @@ import scienceImage from '@/assets/new-images/Kids_hands_creating_on_card_arches
 // Blog store for dynamic blog posts
 const blogStore = useBlogStore()
 const blogLoading = ref(true)
-const storageUrl = import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
+const storageUrl =
+  import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
 
 const blogPosts = computed(() => blogStore.posts.slice(0, 3))
 
@@ -27,7 +31,11 @@ function getImageUrl(path) {
 function formatDate(dateStr) {
   if (!dateStr) return ''
   const date = new Date(dateStr)
-  return date.toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })
+  return date.toLocaleDateString('en-US', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  })
 }
 
 function stripHtml(html) {
@@ -63,10 +71,24 @@ onBeforeUnmount(() => {
   <section class="vs-hero-wrapper position-relative">
     <!-- Floating Particles (visible across all slides) -->
     <div class="hero-particles">
-      <span v-for="n in 12" :key="n" class="hero-particle" :style="{ animationDelay: `${n * 0.5}s`, left: `${(n * 7.8 + 3) % 94 + 3}%`, animationDuration: `${5 + (n % 3) * 1.5}s` }"></span>
+      <span
+        v-for="n in 12"
+        :key="n"
+        class="hero-particle"
+        :style="{
+          animationDelay: `${n * 0.5}s`,
+          left: `${((n * 7.8 + 3) % 94) + 3}%`,
+          animationDuration: `${5 + (n % 3) * 1.5}s`,
+        }"
+      ></span>
     </div>
 
-    <div class="hero-slider1 vs-carousel" data-slide-show="1" data-md-slide-show="1" data-fade="true">
+    <div
+      class="hero-slider1 vs-carousel"
+      data-slide-show="1"
+      data-md-slide-show="1"
+      data-fade="true"
+    >
       <!-- Hero Slide 1: Main Value Proposition -->
       <div class="vs-hero-inner">
         <div class="vs-hero-bg" :data-bg-src="heroImage1"></div>
@@ -75,23 +97,39 @@ onBeforeUnmount(() => {
           <div class="row align-items-center justify-content-end h-100">
             <div class="col-lg-6 col-md-8">
               <div class="modern-hero-content">
-                <div class="hero-badge" data-ani="slideinup" data-ani-delay="0s">
+                <div
+                  class="hero-badge"
+                  data-ani="slideinup"
+                  data-ani-delay="0s"
+                >
                   <span class="hero-badge-dot"></span>
                   <span>Learn • Play • Grow</span>
                 </div>
 
-                <h1 class="modern-hero-title" data-ani="slideinup" data-ani-delay="0.1s">
+                <h1
+                  class="modern-hero-title"
+                  data-ani="slideinup"
+                  data-ani-delay="0.1s"
+                >
                   Make Learning
                   <span class="gradient-text d-block">Magical & Fun</span>
                   for Your Child!
                 </h1>
 
-                <p class="modern-hero-subtitle" data-ani="slideinup" data-ani-delay="0.2s">
-                  Join 50M+ kids worldwide exploring 4000+ interactive educational games. Perfect for Pre-K to Grade 5
-                  learners.
+                <p
+                  class="modern-hero-subtitle"
+                  data-ani="slideinup"
+                  data-ani-delay="0.2s"
+                >
+                  Join 50M+ kids worldwide exploring 4000+ interactive
+                  educational games. Perfect for Pre-K to Grade 5 learners.
                 </p>
 
-                <div class="modern-features-list" data-ani="slideinup" data-ani-delay="0.3s">
+                <div
+                  class="modern-features-list"
+                  data-ani="slideinup"
+                  data-ani-delay="0.3s"
+                >
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
                     <span>4000+ Interactive Games</span>
@@ -106,7 +144,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
 
-                <div class="modern-cta-group" data-ani="slideinup" data-ani-delay="0.4s">
+                <div
+                  class="modern-cta-group"
+                  data-ani="slideinup"
+                  data-ani-delay="0.4s"
+                >
                   <router-link to="/register" class="modern-btn btn-primary">
                     <i class="fas fa-rocket"></i>
                     <span>Start Free Trial</span>
@@ -117,7 +159,11 @@ onBeforeUnmount(() => {
                   </router-link>
                 </div>
 
-                <div class="trust-indicators" data-ani="slideinup" data-ani-delay="0.5s">
+                <div
+                  class="trust-indicators"
+                  data-ani="slideinup"
+                  data-ani-delay="0.5s"
+                >
                   <div class="trust-item">
                     <i class="fas fa-shield-alt"></i>
                     <span>Safe & Secure</span>
@@ -137,17 +183,52 @@ onBeforeUnmount(() => {
         </div>
         <!-- Brand Wave Bottom -->
         <div class="hero-wave-bottom">
-          <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#4A8B3F" opacity="0.15"/>
+          <svg
+            class="wave-layer wave-layer-1"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z"
+              fill="#4A8B3F"
+              opacity="0.15"
+            />
           </svg>
-          <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#E91E8C" opacity="0.12"/>
+          <svg
+            class="wave-layer wave-layer-2"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z"
+              fill="#E91E8C"
+              opacity="0.12"
+            />
           </svg>
-          <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#f5f5f5" opacity="0.8"/>
+          <svg
+            class="wave-layer wave-layer-3"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z"
+              fill="#f5f5f5"
+              opacity="0.8"
+            />
           </svg>
-          <svg class="wave-layer wave-layer-4" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#ffffff"/>
+          <svg
+            class="wave-layer wave-layer-4"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z"
+              fill="#ffffff"
+            />
           </svg>
         </div>
       </div>
@@ -160,22 +241,41 @@ onBeforeUnmount(() => {
           <div class="row align-items-center justify-content-end h-100">
             <div class="col-lg-6 col-md-8">
               <div class="modern-hero-content">
-                <div class="hero-badge" data-ani="slideinup" data-ani-delay="0s">
+                <div
+                  class="hero-badge"
+                  data-ani="slideinup"
+                  data-ani-delay="0s"
+                >
                   <span class="hero-badge-dot hero-badge-dot--blue"></span>
                   <span>Adapt • Grow • Excel</span>
                 </div>
 
-                <h1 class="modern-hero-title" data-ani="slideinup" data-ani-delay="0.1s">
-                  <span class="gradient-text d-block">Personalized Learning</span>
+                <h1
+                  class="modern-hero-title"
+                  data-ani="slideinup"
+                  data-ani-delay="0.1s"
+                >
+                  <span class="gradient-text d-block"
+                    >Personalized Learning</span
+                  >
                   Paths for Every Child
                 </h1>
 
-                <p class="modern-hero-subtitle" data-ani="slideinup" data-ani-delay="0.2s">
-                  Our adaptive platform automatically adjusts to your child's skill level, ensuring they're always
-                  challenged but never frustrated.
+                <p
+                  class="modern-hero-subtitle"
+                  data-ani="slideinup"
+                  data-ani-delay="0.2s"
+                >
+                  Our adaptive platform automatically adjusts to your child's
+                  skill level, ensuring they're always challenged but never
+                  frustrated.
                 </p>
 
-                <div class="modern-features-list" data-ani="slideinup" data-ani-delay="0.3s">
+                <div
+                  class="modern-features-list"
+                  data-ani="slideinup"
+                  data-ani-delay="0.3s"
+                >
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
                     <span>Adaptive Difficulty</span>
@@ -190,7 +290,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
 
-                <div class="modern-cta-group" data-ani="slideinup" data-ani-delay="0.4s">
+                <div
+                  class="modern-cta-group"
+                  data-ani="slideinup"
+                  data-ani-delay="0.4s"
+                >
                   <router-link to="/features" class="modern-btn btn-primary">
                     <i class="fas fa-lightbulb"></i>
                     <span>See How It Works</span>
@@ -206,17 +310,52 @@ onBeforeUnmount(() => {
         </div>
         <!-- Brand Wave Bottom -->
         <div class="hero-wave-bottom">
-          <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#4A8B3F" opacity="0.15"/>
+          <svg
+            class="wave-layer wave-layer-1"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z"
+              fill="#4A8B3F"
+              opacity="0.15"
+            />
           </svg>
-          <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#E91E8C" opacity="0.12"/>
+          <svg
+            class="wave-layer wave-layer-2"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z"
+              fill="#E91E8C"
+              opacity="0.12"
+            />
           </svg>
-          <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#f5f5f5" opacity="0.8"/>
+          <svg
+            class="wave-layer wave-layer-3"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z"
+              fill="#f5f5f5"
+              opacity="0.8"
+            />
           </svg>
-          <svg class="wave-layer wave-layer-4" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#ffffff"/>
+          <svg
+            class="wave-layer wave-layer-4"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z"
+              fill="#ffffff"
+            />
           </svg>
         </div>
       </div>
@@ -229,21 +368,38 @@ onBeforeUnmount(() => {
           <div class="row align-items-center justify-content-end h-100">
             <div class="col-lg-6 col-md-8">
               <div class="modern-hero-content">
-                <div class="hero-badge badge-teacher" data-ani="slideinup" data-ani-delay="0s">
+                <div
+                  class="hero-badge badge-teacher"
+                  data-ani="slideinup"
+                  data-ani-delay="0s"
+                >
                   <i class="fas fa-graduation-cap"></i>
                   <span>For Educators</span>
                 </div>
 
-                <h1 class="modern-hero-title" data-ani="slideinup" data-ani-delay="0.1s">
+                <h1
+                  class="modern-hero-title"
+                  data-ani="slideinup"
+                  data-ani-delay="0.1s"
+                >
                   <span class="gradient-text d-block">100% Free</span>
                   for Teachers Forever!
                 </h1>
 
-                <p class="modern-hero-subtitle" data-ani="slideinup" data-ani-delay="0.2s">
-                  Join 100,000+ educators using Mind Growup Jr to engage students and track progress in their classrooms.
+                <p
+                  class="modern-hero-subtitle"
+                  data-ani="slideinup"
+                  data-ani-delay="0.2s"
+                >
+                  Join 100,000+ educators using Mind Growup Jr to engage
+                  students and track progress in their classrooms.
                 </p>
 
-                <div class="modern-features-list" data-ani="slideinup" data-ani-delay="0.3s">
+                <div
+                  class="modern-features-list"
+                  data-ani="slideinup"
+                  data-ani-delay="0.3s"
+                >
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
                     <span>Classroom Management</span>
@@ -258,18 +414,29 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
 
-                <div class="modern-cta-group" data-ani="slideinup" data-ani-delay="0.4s">
+                <div
+                  class="modern-cta-group"
+                  data-ani="slideinup"
+                  data-ani-delay="0.4s"
+                >
                   <router-link to="/register" class="modern-btn btn-primary">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>Sign Up Free</span>
                   </router-link>
-                  <router-link to="/for-teachers" class="modern-btn btn-outline">
+                  <router-link
+                    to="/for-teachers"
+                    class="modern-btn btn-outline"
+                  >
                     <span>Learn More</span>
                     <i class="fas fa-arrow-right"></i>
                   </router-link>
                 </div>
 
-                <div class="teacher-badge" data-ani="slideinup" data-ani-delay="0.5s">
+                <div
+                  class="teacher-badge"
+                  data-ani="slideinup"
+                  data-ani-delay="0.5s"
+                >
                   <i class="fas fa-infinity"></i>
                   <span>Forever Free • No Trials • No Credit Card</span>
                 </div>
@@ -279,21 +446,55 @@ onBeforeUnmount(() => {
         </div>
         <!-- Brand Wave Bottom -->
         <div class="hero-wave-bottom">
-          <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z" fill="#4A8B3F" opacity="0.15"/>
+          <svg
+            class="wave-layer wave-layer-1"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,96 C240,140 480,160 720,120 C960,80 1200,100 1440,120 L1440,200 L0,200 Z"
+              fill="#4A8B3F"
+              opacity="0.15"
+            />
           </svg>
-          <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z" fill="#E91E8C" opacity="0.12"/>
+          <svg
+            class="wave-layer wave-layer-2"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,120 C320,160 640,140 960,110 C1200,90 1320,100 1440,130 L1440,200 L0,200 Z"
+              fill="#E91E8C"
+              opacity="0.12"
+            />
           </svg>
-          <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z" fill="#f5f5f5" opacity="0.8"/>
+          <svg
+            class="wave-layer wave-layer-3"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,140 C360,170 720,150 1080,135 C1260,125 1350,140 1440,150 L1440,200 L0,200 Z"
+              fill="#f5f5f5"
+              opacity="0.8"
+            />
           </svg>
-          <svg class="wave-layer wave-layer-4" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z" fill="#ffffff"/>
+          <svg
+            class="wave-layer wave-layer-4"
+            viewBox="0 0 1440 200"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,160 C400,180 800,175 1200,165 C1320,160 1380,170 1440,175 L1440,200 L0,200 Z"
+              fill="#ffffff"
+            />
           </svg>
         </div>
       </div>
-
     </div>
   </section>
   <!--======== / Hero Section ========-->
@@ -301,13 +502,20 @@ onBeforeUnmount(() => {
   <!--======== Features Section ========-->
   <section class="service-section space">
     <div class="container">
-      <div class="row text-center justify-content-center wow fadeInUp" data-wow-delay="0.1s">
+      <div
+        class="row text-center justify-content-center wow fadeInUp"
+        data-wow-delay="0.1s"
+      >
         <div class="col-xl-8 col-lg-9">
           <div class="title-area">
             <span class="sub-title">Why Choose Mind Growup Jr</span>
-            <h2 class="sec-title">Powerful Features That Make Learning <span class="gradient-text">Irresistible</span>
+            <h2 class="sec-title">
+              Powerful Features That Make Learning
+              <span class="gradient-text">Irresistible</span>
             </h2>
-            <p class="mt-3 text-muted">Everything your child needs to excel in Math, Reading, and Science</p>
+            <p class="mt-3 text-muted">
+              Everything your child needs to excel in Math, Reading, and Science
+            </p>
           </div>
         </div>
       </div>
@@ -320,8 +528,13 @@ onBeforeUnmount(() => {
             </div>
             <span class="feature-card__highlight highlight--pink">4000+</span>
             <h3 class="feature-card__title">4000+ Interactive Games</h3>
-            <p class="feature-card__text">Kids learn through play with curriculum-aligned games that adapt to their level</p>
-            <router-link to="/features" class="feature-card__link">Click to learn more</router-link>
+            <p class="feature-card__text">
+              Kids learn through play with curriculum-aligned games that adapt
+              to their level
+            </p>
+            <router-link to="/features" class="feature-card__link"
+              >Click to learn more</router-link
+            >
           </div>
         </div>
         <!-- Feature 2: Personalized Learning -->
@@ -332,8 +545,13 @@ onBeforeUnmount(() => {
             </div>
             <span class="feature-card__highlight highlight--purple">AI</span>
             <h3 class="feature-card__title">Personalized Learning</h3>
-            <p class="feature-card__text">Adaptive technology that adjusts difficulty and pace to match each child's needs</p>
-            <router-link to="/features" class="feature-card__link">Click to learn more</router-link>
+            <p class="feature-card__text">
+              Adaptive technology that adjusts difficulty and pace to match each
+              child's needs
+            </p>
+            <router-link to="/features" class="feature-card__link"
+              >Click to learn more</router-link
+            >
           </div>
         </div>
         <!-- Feature 3: Progress Tracking -->
@@ -344,8 +562,13 @@ onBeforeUnmount(() => {
             </div>
             <span class="feature-card__highlight highlight--yellow">24/7</span>
             <h3 class="feature-card__title">Detailed Progress Reports</h3>
-            <p class="feature-card__text">Track your child's learning journey with detailed analytics and weekly reports</p>
-            <router-link to="/features" class="feature-card__link">Click to learn more</router-link>
+            <p class="feature-card__text">
+              Track your child's learning journey with detailed analytics and
+              weekly reports
+            </p>
+            <router-link to="/features" class="feature-card__link"
+              >Click to learn more</router-link
+            >
           </div>
         </div>
         <!-- Feature 4: Free for Teachers -->
@@ -356,8 +579,13 @@ onBeforeUnmount(() => {
             </div>
             <span class="feature-card__highlight highlight--green">FREE</span>
             <h3 class="feature-card__title">Free For Teachers</h3>
-            <p class="feature-card__text">Classroom management, assignments, and progress tracking - completely free forever</p>
-            <router-link to="/for-teachers" class="feature-card__link">Click to learn more</router-link>
+            <p class="feature-card__text">
+              Classroom management, assignments, and progress tracking -
+              completely free forever
+            </p>
+            <router-link to="/for-teachers" class="feature-card__link"
+              >Click to learn more</router-link
+            >
           </div>
         </div>
       </div>
@@ -368,12 +596,27 @@ onBeforeUnmount(() => {
         </router-link>
       </div>
     </div>
-    <div class="shape-mockup shapePulse z-index-negative d-none d-xl-block" data-top="27%" data-left="9%"><img
-        src="/assets/img/icon/lolypop.png" alt="shapes"></div>
-    <div class="shape-mockup shapePulse rotate z-index-negative" data-top="19%" data-right="21%"><img
-        src="/assets/img/icon/star-sm.png" alt="shapes"></div>
-    <div class="shape-mockup shapePulse rotate z-index-negative" data-bottom="20%" data-right="10%"><img
-        src="/assets/img/icon/star.png" alt="shapes"></div>
+    <div
+      class="shape-mockup shapePulse z-index-negative d-none d-xl-block"
+      data-top="27%"
+      data-left="9%"
+    >
+      <img src="/assets/img/icon/lolypop.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup shapePulse rotate z-index-negative"
+      data-top="19%"
+      data-right="21%"
+    >
+      <img src="/assets/img/icon/star-sm.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup shapePulse rotate z-index-negative"
+      data-bottom="20%"
+      data-right="10%"
+    >
+      <img src="/assets/img/icon/star.png" alt="shapes" />
+    </div>
   </section>
   <!--======== / Service Section ========-->
 
@@ -381,16 +624,27 @@ onBeforeUnmount(() => {
   <section class="about-section bg-smoke space">
     <div class="container">
       <div class="row flex-column-reverse flex-lg-row align-items-center gy-30">
-        <div class="col-sm-12 col-md-12 col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div
+          class="col-sm-12 col-md-12 col-xl-5 wow fadeInUp"
+          data-wow-delay="0.1s"
+        >
           <div class="text-center text-lg-start">
             <span class="sub-title">Why Mind Growup Jr</span>
-            <h2 class="sec-title big-title">Transforming Learning Into An <span class="gradient-text">Adventure</span>
+            <h2 class="sec-title big-title">
+              Transforming Learning Into An
+              <span class="gradient-text">Adventure</span>
             </h2>
-            <p class="fs-md mb-30">At Mind Growup Jr, we believe every child deserves to discover the joy of learning.
-              Our platform combines cutting-edge adaptive technology with engaging games to create personalized learning
-              experiences for Math, Reading, and Science.</p>
-            <p class="fs-md mb-30">Trusted by 50 million kids and 100,000+ teachers worldwide, we're on a mission to
-              make quality education accessible, engaging, and effective for every child.</p>
+            <p class="fs-md mb-30">
+              At Mind Growup Jr, we believe every child deserves to discover the
+              joy of learning. Our platform combines cutting-edge adaptive
+              technology with engaging games to create personalized learning
+              experiences for Math, Reading, and Science.
+            </p>
+            <p class="fs-md mb-30">
+              Trusted by 50 million kids and 100,000+ teachers worldwide, we're
+              on a mission to make quality education accessible, engaging, and
+              effective for every child.
+            </p>
             <router-link to="/about" class="vs-btn wave-btn style-1">
               Discover Our Story
               <i class="fas fa-arrow-right ms-2"></i>
@@ -399,43 +653,105 @@ onBeforeUnmount(() => {
         </div>
         <div class="col-lg-7">
           <div class="shape-slider-area">
-            <button data-slick-prev="#sliderOne" class="simple-arrow arrow-left"><i
-                class="far fa-chevron-left"></i></button>
-            <button data-slick-next="#sliderOne" class="simple-arrow arrow-right"><i
-                class="far fa-chevron-right"></i></button>
-            <div class="shape-slider vs-carousel" id="sliderOne" data-slide-show="1" data-md-slide-show="1">
+            <button
+              data-slick-prev="#sliderOne"
+              class="simple-arrow arrow-left"
+            >
+              <i class="far fa-chevron-left"></i>
+            </button>
+            <button
+              data-slick-next="#sliderOne"
+              class="simple-arrow arrow-right"
+            >
+              <i class="far fa-chevron-right"></i>
+            </button>
+            <div
+              id="sliderOne"
+              class="shape-slider vs-carousel"
+              data-slide-show="1"
+              data-md-slide-show="1"
+            >
               <div class="slide-item">
-                <img class="line-1" data-ani="slideinup" data-ani-delay=".2s" src="/assets/img/shape/line-1.png"
-                  alt="shape">
-                <img class="line-2" data-ani="slideinup" data-ani-delay=".5s" src="/assets/img/shape/line-2.png"
-                  alt="shape">
-                <img src="/assets/img/shape/shape-slide-1.png" alt="shape">
+                <img
+                  class="line-1"
+                  data-ani="slideinup"
+                  data-ani-delay=".2s"
+                  src="/assets/img/shape/line-1.png"
+                  alt="shape"
+                />
+                <img
+                  class="line-2"
+                  data-ani="slideinup"
+                  data-ani-delay=".5s"
+                  src="/assets/img/shape/line-2.png"
+                  alt="shape"
+                />
+                <img src="/assets/img/shape/shape-slide-1.png" alt="shape" />
               </div>
               <div class="slide-item">
-                <img class="line-1" data-ani="slideinup" data-ani-delay=".2s" src="/assets/img/shape/line-1.png"
-                  alt="shape">
-                <img class="line-2" data-ani="slideinup" data-ani-delay=".5s" src="/assets/img/shape/line-2.png"
-                  alt="shape">
-                <img src="/assets/img/shape/shape-slide-2.png" alt="shape">
+                <img
+                  class="line-1"
+                  data-ani="slideinup"
+                  data-ani-delay=".2s"
+                  src="/assets/img/shape/line-1.png"
+                  alt="shape"
+                />
+                <img
+                  class="line-2"
+                  data-ani="slideinup"
+                  data-ani-delay=".5s"
+                  src="/assets/img/shape/line-2.png"
+                  alt="shape"
+                />
+                <img src="/assets/img/shape/shape-slide-2.png" alt="shape" />
               </div>
               <div class="slide-item">
-                <img class="line-1" data-ani="slideinup" data-ani-delay=".2s" src="/assets/img/shape/line-1.png"
-                  alt="shape">
-                <img class="line-2" data-ani="slideinup" data-ani-delay=".5s" src="/assets/img/shape/line-2.png"
-                  alt="shape">
-                <img src="/assets/img/shape/shape-slide-3.png" alt="shape" style="width: 90%">
+                <img
+                  class="line-1"
+                  data-ani="slideinup"
+                  data-ani-delay=".2s"
+                  src="/assets/img/shape/line-1.png"
+                  alt="shape"
+                />
+                <img
+                  class="line-2"
+                  data-ani="slideinup"
+                  data-ani-delay=".5s"
+                  src="/assets/img/shape/line-2.png"
+                  alt="shape"
+                />
+                <img
+                  src="/assets/img/shape/shape-slide-3.png"
+                  alt="shape"
+                  style="width: 90%"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="shape-mockup shapePulse d-none d-lg-block rotate" data-bottom="22%" data-right="5%"><img
-        src="/assets/img/icon/star.png" alt="shapes"></div>
-    <div class="shape-mockup shapePulse d-none d-hd-block" data-top="17%" data-left="6%"><img
-        src="/assets/img/icon/cap-plane.png" alt="shapes"></div>
-    <div class="shape-mockup rotate d-none d-sm-block z-index-2" data-bottom="-7%" data-left="6%"><img
-        src="/assets/img/icon/busket-ball.png" alt="shapes"></div>
+    <div
+      class="shape-mockup shapePulse d-none d-lg-block rotate"
+      data-bottom="22%"
+      data-right="5%"
+    >
+      <img src="/assets/img/icon/star.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup shapePulse d-none d-hd-block"
+      data-top="17%"
+      data-left="6%"
+    >
+      <img src="/assets/img/icon/cap-plane.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup rotate d-none d-sm-block z-index-2"
+      data-bottom="-7%"
+      data-left="6%"
+    >
+      <img src="/assets/img/icon/busket-ball.png" alt="shapes" />
+    </div>
   </section>
   <!--======== / About Section ========-->
 
@@ -462,7 +778,9 @@ onBeforeUnmount(() => {
         <!-- Single Item: Teachers -->
         <div class="col-lg-auto col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="counter-item text-center">
-            <div class="connter_icon"><i class="fa-light fa-chalkboard-user"></i></div>
+            <div class="connter_icon">
+              <i class="fa-light fa-chalkboard-user"></i>
+            </div>
             <span class="counter-number">100</span><span class="h2">K+</span>
             <p class="counter-text h4">Teachers Trust Us</p>
           </div>
@@ -477,19 +795,29 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </div>
-    <div class="section-after style-2"><img src="/assets/img/shape/main-shape-after.png" alt="shape"></div>
+    <div class="section-after style-2">
+      <img src="/assets/img/shape/main-shape-after.png" alt="shape" />
+    </div>
   </div>
   <!--======== / counter Section ========-->
 
   <!--======== Subjects Section ========-->
   <section class="subjects-section space">
     <div class="container">
-      <div class="row text-center justify-content-center wow fadeInUp" data-wow-delay="0.1s">
+      <div
+        class="row text-center justify-content-center wow fadeInUp"
+        data-wow-delay="0.1s"
+      >
         <div class="col-xl-7 col-lg-8">
           <div class="title-area">
             <span class="sub-title">Learning Subjects</span>
-            <h2 class="sec-title">Explore <span class="gradient-text">Subjects</span> Your Child Will Master</h2>
-            <p class="mt-3 text-muted">Curriculum-aligned content for Pre-K through Grade 5</p>
+            <h2 class="sec-title">
+              Explore <span class="gradient-text">Subjects</span> Your Child
+              Will Master
+            </h2>
+            <p class="mt-3 text-muted">
+              Curriculum-aligned content for Pre-K through Grade 5
+            </p>
           </div>
         </div>
       </div>
@@ -499,9 +827,11 @@ onBeforeUnmount(() => {
           <div class="subject-card subject-card--purple">
             <div class="subject-card__img">
               <router-link to="/subjects/math">
-                <img :src="mathImage" alt="Mathematics">
+                <img :src="mathImage" alt="Mathematics" />
                 <div class="subject-card__overlay">
-                  <span class="subject-card__play"><i class="fas fa-play"></i></span>
+                  <span class="subject-card__play"
+                    ><i class="fas fa-play"></i
+                  ></span>
                 </div>
               </router-link>
               <span class="subject-card__badge subject-badge--purple">
@@ -514,7 +844,10 @@ onBeforeUnmount(() => {
               <h3 class="subject-card__title">
                 <router-link to="/subjects/math">Mathematics</router-link>
               </h3>
-              <p class="subject-card__text">Build number sense, master arithmetic, explore geometry, and solve real-world math problems.</p>
+              <p class="subject-card__text">
+                Build number sense, master arithmetic, explore geometry, and
+                solve real-world math problems.
+              </p>
               <div class="subject-card__stats">
                 <div class="subject-stat">
                   <i class="fas fa-book-open"></i>
@@ -525,7 +858,10 @@ onBeforeUnmount(() => {
                   <span>1000+ Games</span>
                 </div>
               </div>
-              <router-link to="/subjects/math" class="subject-card__link subject-link--purple">
+              <router-link
+                to="/subjects/math"
+                class="subject-card__link subject-link--purple"
+              >
                 Explore Math
                 <i class="fas fa-arrow-right"></i>
               </router-link>
@@ -537,9 +873,11 @@ onBeforeUnmount(() => {
           <div class="subject-card subject-card--pink">
             <div class="subject-card__img">
               <router-link to="/subjects/reading">
-                <img :src="readingImage" alt="Reading & ELA">
+                <img :src="readingImage" alt="Reading & ELA" />
                 <div class="subject-card__overlay">
-                  <span class="subject-card__play"><i class="fas fa-play"></i></span>
+                  <span class="subject-card__play"
+                    ><i class="fas fa-play"></i
+                  ></span>
                 </div>
               </router-link>
               <span class="subject-card__badge subject-badge--pink">
@@ -552,7 +890,10 @@ onBeforeUnmount(() => {
               <h3 class="subject-card__title">
                 <router-link to="/subjects/reading">Reading & ELA</router-link>
               </h3>
-              <p class="subject-card__text">Develop phonics, vocabulary, reading comprehension, grammar, and writing skills through engaging activities.</p>
+              <p class="subject-card__text">
+                Develop phonics, vocabulary, reading comprehension, grammar, and
+                writing skills through engaging activities.
+              </p>
               <div class="subject-card__stats">
                 <div class="subject-stat">
                   <i class="fas fa-book-open"></i>
@@ -563,7 +904,10 @@ onBeforeUnmount(() => {
                   <span>1200+ Games</span>
                 </div>
               </div>
-              <router-link to="/subjects/reading" class="subject-card__link subject-link--pink">
+              <router-link
+                to="/subjects/reading"
+                class="subject-card__link subject-link--pink"
+              >
                 Explore Reading
                 <i class="fas fa-arrow-right"></i>
               </router-link>
@@ -575,9 +919,11 @@ onBeforeUnmount(() => {
           <div class="subject-card subject-card--green">
             <div class="subject-card__img">
               <router-link to="/subjects/craft-drawing">
-                <img :src="scienceImage" alt="Craft & Drawing">
+                <img :src="scienceImage" alt="Craft & Drawing" />
                 <div class="subject-card__overlay">
-                  <span class="subject-card__play"><i class="fas fa-play"></i></span>
+                  <span class="subject-card__play"
+                    ><i class="fas fa-play"></i
+                  ></span>
                 </div>
               </router-link>
               <span class="subject-card__badge subject-badge--green">
@@ -588,9 +934,14 @@ onBeforeUnmount(() => {
             <div class="subject-card__body">
               <div class="subject-card__grade-tag">Kindergarten to Grade 5</div>
               <h3 class="subject-card__title">
-                <router-link to="/subjects/craft-drawing">Craft & Drawing</router-link>
+                <router-link to="/subjects/craft-drawing"
+                  >Craft & Drawing</router-link
+                >
               </h3>
-              <p class="subject-card__text">Unleash creativity through hands-on crafts, drawing, coloring, and artistic expression.</p>
+              <p class="subject-card__text">
+                Unleash creativity through hands-on crafts, drawing, coloring,
+                and artistic expression.
+              </p>
               <div class="subject-card__stats">
                 <div class="subject-stat">
                   <i class="fas fa-book-open"></i>
@@ -601,7 +952,10 @@ onBeforeUnmount(() => {
                   <span>800+ Activities</span>
                 </div>
               </div>
-              <router-link to="/subjects/craft-drawing" class="subject-card__link subject-link--green">
+              <router-link
+                to="/subjects/craft-drawing"
+                class="subject-card__link subject-link--green"
+              >
                 Explore Craft & Drawing
                 <i class="fas fa-arrow-right"></i>
               </router-link>
@@ -616,14 +970,34 @@ onBeforeUnmount(() => {
         </router-link>
       </div>
     </div>
-    <div class="shape-mockup shapePulse d-none d-xl-block" data-top="15%" data-left="7%"><img
-        src="/assets/img/icon/dog.png" alt="shapes"></div>
-    <div class="shape-mockup rotate d-none d-hd-block" data-bottom="17%" data-left="7%"><img
-        src="/assets/img/icon/curve-line.png" alt="shapes"></div>
-    <div class="shape-mockup rotate z-index-negative" data-top="32%" data-right="9%"><img
-        src="/assets/img/icon/star-3.png" alt="shapes"></div>
-    <div class="shape-mockup shapePulse d-none d-hd-block" data-bottom="16%" data-right="9%"><img
-        src="/assets/img/icon/triangle.png" alt="shapes"></div>
+    <div
+      class="shape-mockup shapePulse d-none d-xl-block"
+      data-top="15%"
+      data-left="7%"
+    >
+      <img src="/assets/img/icon/dog.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup rotate d-none d-hd-block"
+      data-bottom="17%"
+      data-left="7%"
+    >
+      <img src="/assets/img/icon/curve-line.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup rotate z-index-negative"
+      data-top="32%"
+      data-right="9%"
+    >
+      <img src="/assets/img/icon/star-3.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup shapePulse d-none d-hd-block"
+      data-bottom="16%"
+      data-right="9%"
+    >
+      <img src="/assets/img/icon/triangle.png" alt="shapes" />
+    </div>
   </section>
   <!--======== / Subjects Section ========-->
 
@@ -635,7 +1009,9 @@ onBeforeUnmount(() => {
           <i class="fas fa-rocket"></i>
           How It Works
         </span>
-        <h2 class="section-heading">Get Started in <span class="title-highlight">4 Simple Steps</span></h2>
+        <h2 class="section-heading">
+          Get Started in <span class="title-highlight">4 Simple Steps</span>
+        </h2>
       </div>
 
       <div class="steps-grid">
@@ -645,12 +1021,22 @@ onBeforeUnmount(() => {
             <i class="fas fa-user-plus"></i>
           </div>
           <h3 class="step-title">Sign Up Free</h3>
-          <p class="step-desc">Create your account in seconds. No credit card required to start.</p>
+          <p class="step-desc">
+            Create your account in seconds. No credit card required to start.
+          </p>
         </div>
 
         <div class="step-connector">
           <svg width="80" height="2" viewBox="0 0 80 2">
-            <line x1="0" y1="1" x2="80" y2="1" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6 4"/>
+            <line
+              x1="0"
+              y1="1"
+              x2="80"
+              y2="1"
+              stroke="#E5E7EB"
+              stroke-width="2"
+              stroke-dasharray="6 4"
+            />
           </svg>
         </div>
 
@@ -660,12 +1046,23 @@ onBeforeUnmount(() => {
             <i class="fas fa-th-large"></i>
           </div>
           <h3 class="step-title">Choose Your Grade</h3>
-          <p class="step-desc">Select from Pre-K to Grade 5. Pick subjects that interest your child.</p>
+          <p class="step-desc">
+            Select from Pre-K to Grade 5. Pick subjects that interest your
+            child.
+          </p>
         </div>
 
         <div class="step-connector">
           <svg width="80" height="2" viewBox="0 0 80 2">
-            <line x1="0" y1="1" x2="80" y2="1" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6 4"/>
+            <line
+              x1="0"
+              y1="1"
+              x2="80"
+              y2="1"
+              stroke="#E5E7EB"
+              stroke-width="2"
+              stroke-dasharray="6 4"
+            />
           </svg>
         </div>
 
@@ -675,12 +1072,22 @@ onBeforeUnmount(() => {
             <i class="fas fa-play-circle"></i>
           </div>
           <h3 class="step-title">Play & Learn</h3>
-          <p class="step-desc">Kids explore 4000+ games. AI adapts difficulty to their level.</p>
+          <p class="step-desc">
+            Kids explore 4000+ games. AI adapts difficulty to their level.
+          </p>
         </div>
 
         <div class="step-connector">
           <svg width="80" height="2" viewBox="0 0 80 2">
-            <line x1="0" y1="1" x2="80" y2="1" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6 4"/>
+            <line
+              x1="0"
+              y1="1"
+              x2="80"
+              y2="1"
+              stroke="#E5E7EB"
+              stroke-width="2"
+              stroke-dasharray="6 4"
+            />
           </svg>
         </div>
 
@@ -690,7 +1097,9 @@ onBeforeUnmount(() => {
             <i class="fas fa-chart-bar"></i>
           </div>
           <h3 class="step-title">Track Progress</h3>
-          <p class="step-desc">Parents & teachers get real-time insights on learning growth.</p>
+          <p class="step-desc">
+            Parents & teachers get real-time insights on learning growth.
+          </p>
         </div>
       </div>
 
@@ -714,8 +1123,15 @@ onBeforeUnmount(() => {
               <i class="fas fa-comment-dots"></i>
               Parent Reviews
             </span>
-            <h2 class="testi-heading">What Parents & Teachers <span class="title-highlight">Say About Us</span></h2>
-            <p class="testi-desc">Discover how Mind Growup Jr is transforming learning for millions of families worldwide. Real stories from real parents about their children's progress.</p>
+            <h2 class="testi-heading">
+              What Parents & Teachers
+              <span class="title-highlight">Say About Us</span>
+            </h2>
+            <p class="testi-desc">
+              Discover how Mind Growup Jr is transforming learning for millions
+              of families worldwide. Real stories from real parents about their
+              children's progress.
+            </p>
             <router-link to="/pricing" class="testi-cta">
               Start Free Trial
               <i class="fas fa-arrow-right"></i>
@@ -724,7 +1140,11 @@ onBeforeUnmount(() => {
         </div>
         <div class="col-lg-8">
           <div class="testi-slider-area">
-            <div class="row testi-slider vs-carousel" id="homeTesti1" data-slide-show="2">
+            <div
+              id="homeTesti1"
+              class="row testi-slider vs-carousel"
+              data-slide-show="2"
+            >
               <!-- Single Item -->
               <div class="col-md-6">
                 <div class="testi-card">
@@ -748,7 +1168,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                   </div>
                   <h4 class="testi-card-title">My Daughter Loves Math Now!</h4>
-                  <p class="testi-card-text">My 7-year-old used to struggle with math, but since using Mind Jr, she's excited to practice every day. The games make learning fun and she's already ahead of her grade level!</p>
+                  <p class="testi-card-text">
+                    My 7-year-old used to struggle with math, but since using
+                    Mind Jr, she's excited to practice every day. The games make
+                    learning fun and she's already ahead of her grade level!
+                  </p>
                 </div>
               </div>
               <!-- Single Item -->
@@ -774,7 +1198,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                   </div>
                   <h4 class="testi-card-title">Perfect for Homeschooling</h4>
-                  <p class="testi-card-text">As a homeschool parent, Mind Jr has been a game-changer. The curriculum-aligned content covers all subjects and my kids are learning while having fun. Worth every penny!</p>
+                  <p class="testi-card-text">
+                    As a homeschool parent, Mind Jr has been a game-changer. The
+                    curriculum-aligned content covers all subjects and my kids
+                    are learning while having fun. Worth every penny!
+                  </p>
                 </div>
               </div>
               <!-- Single Item -->
@@ -800,13 +1228,28 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                   </div>
                   <h4 class="testi-card-title">Engaging & Educational</h4>
-                  <p class="testi-card-text">I use Mind Jr in my classroom and the kids absolutely love it. The progress tracking helps me identify areas where students need extra support. Highly recommend!</p>
+                  <p class="testi-card-text">
+                    I use Mind Jr in my classroom and the kids absolutely love
+                    it. The progress tracking helps me identify areas where
+                    students need extra support. Highly recommend!
+                  </p>
                 </div>
               </div>
-            </div> <!-- / Slider End -->
+            </div>
+            <!-- / Slider End -->
             <div class="vs-icon-box testi-1 d-none d-xl-block">
-              <button data-slick-prev="#homeTesti1" class="icon-btn style-3 arrow-left mb-15"><i class="far fa-arrow-left"></i></button>
-              <button data-slick-next="#homeTesti1" class="icon-btn style-3 arrow-right"><i class="far fa-arrow-right"></i></button>
+              <button
+                data-slick-prev="#homeTesti1"
+                class="icon-btn style-3 arrow-left mb-15"
+              >
+                <i class="far fa-arrow-left"></i>
+              </button>
+              <button
+                data-slick-next="#homeTesti1"
+                class="icon-btn style-3 arrow-right"
+              >
+                <i class="far fa-arrow-right"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -819,24 +1262,48 @@ onBeforeUnmount(() => {
   <section class="home-cta-section">
     <div class="home-cta-bg">
       <div class="home-cta-particles">
-        <span v-for="n in 8" :key="n" class="home-cta-particle" :style="{ animationDelay: `${n * 0.7}s`, left: `${(n * 12) % 90 + 5}%` }"></span>
+        <span
+          v-for="n in 8"
+          :key="n"
+          class="home-cta-particle"
+          :style="{
+            animationDelay: `${n * 0.7}s`,
+            left: `${((n * 12) % 90) + 5}%`,
+          }"
+        ></span>
       </div>
     </div>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-xl-8 col-lg-10 text-center wow fadeInUp" data-wow-delay="0.1s">
+        <div
+          class="col-xl-8 col-lg-10 text-center wow fadeInUp"
+          data-wow-delay="0.1s"
+        >
           <span class="home-cta-badge">
             <i class="fas fa-rocket"></i>
             Start Today - It's Free!
           </span>
-          <h2 class="home-cta-title">Ready to Start Your Child's <br><span class="home-cta-highlight">Learning Adventure?</span></h2>
-          <p class="home-cta-text">Join 50 million kids already learning through play. No credit card needed - get instant access to thousands of educational games.</p>
+          <h2 class="home-cta-title">
+            Ready to Start Your Child's <br /><span class="home-cta-highlight"
+              >Learning Adventure?</span
+            >
+          </h2>
+          <p class="home-cta-text">
+            Join 50 million kids already learning through play. No credit card
+            needed - get instant access to thousands of educational games.
+          </p>
           <div class="home-cta-buttons">
-            <router-link to="/register" class="modern-btn btn-primary home-cta-btn-primary">
+            <router-link
+              to="/register"
+              class="modern-btn btn-primary home-cta-btn-primary"
+            >
               <i class="fas fa-rocket"></i>
               <span>Start Free Trial</span>
             </router-link>
-            <router-link to="/subjects" class="modern-btn btn-outline home-cta-btn-outline">
+            <router-link
+              to="/subjects"
+              class="modern-btn btn-outline home-cta-btn-outline"
+            >
               <span>Explore Subjects</span>
               <i class="fas fa-arrow-right"></i>
             </router-link>
@@ -864,12 +1331,21 @@ onBeforeUnmount(() => {
   <!--======== Blog Section ========-->
   <section class="blog-section space-top space-extra-bottom">
     <div class="container">
-      <div class="row text-center justify-content-center wow fadeInUp" data-wow-delay="0.1s">
+      <div
+        class="row text-center justify-content-center wow fadeInUp"
+        data-wow-delay="0.1s"
+      >
         <div class="col-xl-7 col-lg-8">
           <div class="title-area">
             <span class="sub-title">From Our Blog</span>
-            <h2 class="sec-title">Tips & Resources for <span class="gradient-text">Parents & Teachers</span></h2>
-            <p class="mt-3 text-muted">Expert advice on childhood education, learning activities, and parenting tips</p>
+            <h2 class="sec-title">
+              Tips & Resources for
+              <span class="gradient-text">Parents & Teachers</span>
+            </h2>
+            <p class="mt-3 text-muted">
+              Expert advice on childhood education, learning activities, and
+              parenting tips
+            </p>
           </div>
         </div>
       </div>
@@ -890,23 +1366,45 @@ onBeforeUnmount(() => {
 
       <!-- Dynamic Blog Posts -->
       <div v-else-if="blogPosts.length" class="row gy-30">
-        <div v-for="(post, index) in blogPosts" :key="post.id" class="col-lg-4 col-md-6 wow fadeInUp" :data-wow-delay="`${0.1 + index * 0.1}s`">
+        <div
+          v-for="(post, index) in blogPosts"
+          :key="post.id"
+          class="col-lg-4 col-md-6 wow fadeInUp"
+          :data-wow-delay="`${0.1 + index * 0.1}s`"
+        >
           <div class="home-blog-card">
             <div class="home-blog-img">
               <router-link :to="`/blog/${post.slug}`">
-                <img :src="getImageUrl(post.featured_image)" :alt="post.title">
+                <img
+                  :src="getImageUrl(post.featured_image)"
+                  :alt="post.title"
+                />
               </router-link>
-              <span v-if="post.category" class="home-blog-category">{{ post.category.name }}</span>
+              <span v-if="post.category" class="home-blog-category">{{
+                post.category.name
+              }}</span>
             </div>
             <div class="home-blog-content">
               <div class="home-blog-meta">
-                <span><i class="fal fa-calendar-alt"></i> {{ formatDate(post.published_at) }}</span>
-                <span><i class="fal fa-eye"></i> {{ post.views_count || 0 }} views</span>
+                <span
+                  ><i class="fal fa-calendar-alt"></i>
+                  {{ formatDate(post.published_at) }}</span
+                >
+                <span
+                  ><i class="fal fa-eye"></i>
+                  {{ post.views_count || 0 }} views</span
+                >
               </div>
               <h4 class="home-blog-title">
-                <router-link :to="`/blog/${post.slug}`">{{ post.title }}</router-link>
+                <router-link :to="`/blog/${post.slug}`">{{
+                  post.title
+                }}</router-link>
               </h4>
-              <p class="home-blog-excerpt">{{ stripHtml(post.excerpt || post.content).substring(0, 100) }}...</p>
+              <p class="home-blog-excerpt">
+                {{
+                  stripHtml(post.excerpt || post.content).substring(0, 100)
+                }}...
+              </p>
               <router-link :to="`/blog/${post.slug}`" class="home-blog-link">
                 Read More <i class="fas fa-arrow-right"></i>
               </router-link>
@@ -922,14 +1420,34 @@ onBeforeUnmount(() => {
         </router-link>
       </div>
     </div>
-    <div class="shape-mockup shapePulse d-none d-md-block" data-top="22%" data-left="8%"><img
-        src="/assets/img/icon/apple.png" alt="shapes"></div>
-    <div class="shape-mockup moving d-none d-hd-block" data-bottom="22%" data-left="4%"><img
-        src="/assets/img/icon/ruler.png" alt="shapes"></div>
-    <div class="shape-mockup movingX d-none d-xl-block" data-top="17%" data-right="6%"><img
-        src="/assets/img/icon/cloud-3.png" alt="shapes"></div>
-    <div class="shape-mockup rotate d-none d-hd-block" data-bottom="24%" data-right="6%"><img
-        src="/assets/img/icon/math-2.png" alt="shapes"></div>
+    <div
+      class="shape-mockup shapePulse d-none d-md-block"
+      data-top="22%"
+      data-left="8%"
+    >
+      <img src="/assets/img/icon/apple.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup moving d-none d-hd-block"
+      data-bottom="22%"
+      data-left="4%"
+    >
+      <img src="/assets/img/icon/ruler.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup movingX d-none d-xl-block"
+      data-top="17%"
+      data-right="6%"
+    >
+      <img src="/assets/img/icon/cloud-3.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup rotate d-none d-hd-block"
+      data-bottom="24%"
+      data-right="6%"
+    >
+      <img src="/assets/img/icon/math-2.png" alt="shapes" />
+    </div>
   </section>
   <!--======== / Blog Section ========-->
 </template>
@@ -975,27 +1493,27 @@ onBeforeUnmount(() => {
   z-index: 1;
   background: linear-gradient(
     135deg,
-    rgba(27, 20, 100, 0.7) 0%,
-    rgba(74, 139, 63, 0.5) 40%,
-    rgba(27, 20, 100, 0.6) 100%
+    rgba(27, 20, 100, 0.25) 0%,
+    rgba(74, 139, 63, 0.15) 40%,
+    rgba(27, 20, 100, 0.2) 100%
   );
 }
 
 .hero-overlay--blue {
   background: linear-gradient(
     135deg,
-    rgba(27, 20, 100, 0.75) 0%,
-    rgba(108, 92, 231, 0.5) 40%,
-    rgba(74, 139, 63, 0.5) 100%
+    rgba(27, 20, 100, 0.3) 0%,
+    rgba(108, 92, 231, 0.15) 40%,
+    rgba(74, 139, 63, 0.15) 100%
   );
 }
 
 .hero-overlay--teal {
   background: linear-gradient(
     135deg,
-    rgba(74, 139, 63, 0.7) 0%,
-    rgba(0, 184, 148, 0.5) 40%,
-    rgba(27, 20, 100, 0.6) 100%
+    rgba(74, 139, 63, 0.25) 0%,
+    rgba(0, 184, 148, 0.15) 40%,
+    rgba(27, 20, 100, 0.2) 100%
   );
 }
 
@@ -1044,7 +1562,8 @@ onBeforeUnmount(() => {
 }
 
 @keyframes heroParticleFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) scale(0);
     opacity: 0;
   }
@@ -1079,10 +1598,22 @@ onBeforeUnmount(() => {
   display: block;
 }
 
-.wave-layer-1 { z-index: 1; bottom: 0px; }
-.wave-layer-2 { z-index: 2; bottom: -10px; }
-.wave-layer-3 { z-index: 3; bottom: -20px; }
-.wave-layer-4 { z-index: 4; bottom: -30px; }
+.wave-layer-1 {
+  z-index: 1;
+  bottom: 0px;
+}
+.wave-layer-2 {
+  z-index: 2;
+  bottom: -10px;
+}
+.wave-layer-3 {
+  z-index: 3;
+  bottom: -20px;
+}
+.wave-layer-4 {
+  z-index: 4;
+  bottom: -30px;
+}
 
 /* Hero Content */
 .modern-hero-content {
@@ -1099,7 +1630,11 @@ onBeforeUnmount(() => {
   left: -40px;
   right: -20px;
   bottom: -30px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.25) 0%,
+    transparent 70%
+  );
   border-radius: 30px;
   z-index: -1;
   pointer-events: none;
@@ -1116,7 +1651,7 @@ onBeforeUnmount(() => {
   border-radius: 50px;
   font-weight: 600;
   font-size: 13px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 14px;
   backdrop-filter: blur(12px);
 }
@@ -1125,19 +1660,26 @@ onBeforeUnmount(() => {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #4A8B3F;
+  background: #4a8b3f;
   box-shadow: 0 0 8px rgba(74, 139, 63, 0.6);
   animation: heroBadgePulse 2s ease-in-out infinite;
 }
 
 .hero-badge-dot--blue {
-  background: #6C5CE7;
+  background: #6c5ce7;
   box-shadow: 0 0 8px rgba(108, 92, 231, 0.6);
 }
 
 @keyframes heroBadgePulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.3); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.3);
+  }
 }
 
 .hero-badge .badge-icon {
@@ -1151,7 +1693,11 @@ onBeforeUnmount(() => {
 }
 
 .hero-badge.badge-teacher {
-  background: linear-gradient(135deg, rgba(0, 210, 160, 0.8), rgba(0, 184, 148, 0.8));
+  background: linear-gradient(
+    135deg,
+    rgba(0, 210, 160, 0.8),
+    rgba(0, 184, 148, 0.8)
+  );
   border-color: rgba(0, 184, 148, 0.5);
   color: white;
 }
@@ -1161,13 +1707,13 @@ onBeforeUnmount(() => {
   font-size: 44px;
   font-weight: 900;
   line-height: 1.12;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
 }
 
 .modern-hero-title .gradient-text {
-  background: linear-gradient(135deg, #FFE5B4 0%, #FFD700 50%, #FFDAB9 100%);
+  background: linear-gradient(135deg, #ffe5b4 0%, #ffd700 50%, #ffdab9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1203,7 +1749,7 @@ onBeforeUnmount(() => {
   border-radius: 25px;
   font-weight: 600;
   font-size: 13px;
-  color: #FFFFFF;
+  color: #ffffff;
   backdrop-filter: blur(8px);
   transition: all 0.3s;
 }
@@ -1215,7 +1761,7 @@ onBeforeUnmount(() => {
 }
 
 .modern-features-list .feature-item i {
-  color: #7CFC00;
+  color: #7cfc00;
   font-size: 14px;
 }
 
@@ -1246,7 +1792,7 @@ onBeforeUnmount(() => {
 }
 
 .modern-btn.btn-primary {
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #5ea750 100%);
   color: white;
   box-shadow: 0 8px 25px rgba(74, 139, 63, 0.4);
 }
@@ -1262,7 +1808,7 @@ onBeforeUnmount(() => {
 
 .modern-btn.btn-outline {
   background: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
+  color: #ffffff;
   border: 2px solid rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(8px);
 }
@@ -1295,7 +1841,7 @@ onBeforeUnmount(() => {
 
 .trust-item i {
   font-size: 16px;
-  color: #7CFC00;
+  color: #7cfc00;
 }
 
 /* Teacher Badge */
@@ -1309,13 +1855,13 @@ onBeforeUnmount(() => {
   border-radius: 10px;
   font-weight: 700;
   font-size: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
   backdrop-filter: blur(10px);
 }
 
 .teacher-badge i {
   font-size: 20px;
-  color: #7CFC00;
+  color: #7cfc00;
 }
 
 /* ========================================
@@ -1558,107 +2104,336 @@ onBeforeUnmount(() => {
 
 /* Simple Wave Pattern - Ultra Smooth with No Stuttering */
 @keyframes rocketWavePath {
-  0% { transform: translate(-50vw, 0vh) rotate(0deg) scale(0.6); opacity: 0; }
-  1% { transform: translate(-48vw, 0vh) rotate(-1deg) scale(0.62); opacity: 0.2; }
-  2% { transform: translate(-46vw, 0vh) rotate(-2deg) scale(0.64); opacity: 0.4; }
-  3% { transform: translate(-44vw, 0vh) rotate(-3deg) scale(0.66); opacity: 0.6; }
-  4% { transform: translate(-42vw, 0vh) rotate(-4deg) scale(0.68); opacity: 0.8; }
-  5% { transform: translate(-40vw, 0vh) rotate(-5deg) scale(0.7); opacity: 1; }
-  6% { transform: translate(-38vw, -1.6vh) rotate(-9deg) scale(0.72); }
-  7% { transform: translate(-36vw, -3.2vh) rotate(-13deg) scale(0.74); }
-  8% { transform: translate(-34vw, -4.8vh) rotate(-17deg) scale(0.76); }
-  9% { transform: translate(-32vw, -6.4vh) rotate(-21deg) scale(0.78); }
-  10% { transform: translate(-30vw, -8vh) rotate(-25deg) scale(0.8); }
-  11% { transform: translate(-28.33vw, -8.67vh) rotate(-23.33deg) scale(0.808); }
-  12% { transform: translate(-26.67vw, -9.33vh) rotate(-21.67deg) scale(0.817); }
-  13% { transform: translate(-25vw, -10vh) rotate(-20deg) scale(0.825); }
-  14% { transform: translate(-23.25vw, -10.5vh) rotate(-17.5deg) scale(0.836); }
-  15% { transform: translate(-21.5vw, -11vh) rotate(-15deg) scale(0.848); }
-  16% { transform: translate(-19.75vw, -11.25vh) rotate(-12.5deg) scale(0.859); }
-  17% { transform: translate(-18vw, -11.5vh) rotate(-10deg) scale(0.87); }
-  18% { transform: translate(-15.33vw, -11.67vh) rotate(-6.67deg) scale(0.88); }
-  19% { transform: translate(-12.67vw, -11.83vh) rotate(-3.33deg) scale(0.89); }
-  20% { transform: translate(-10vw, -12vh) rotate(0deg) scale(0.9); }
-  21% { transform: translate(-7.67vw, -11.33vh) rotate(3.33deg) scale(0.908); }
-  22% { transform: translate(-5.33vw, -10.67vh) rotate(6.67deg) scale(0.917); }
-  23% { transform: translate(-3vw, -10vh) rotate(10deg) scale(0.925); }
-  24% { transform: translate(-1.25vw, -9vh) rotate(13.33deg) scale(0.936); }
-  25% { transform: translate(0.5vw, -8vh) rotate(16.67deg) scale(0.948); }
-  26% { transform: translate(2.25vw, -7.5vh) rotate(18.33deg) scale(0.959); }
-  27% { transform: translate(3vw, -7vh) rotate(20deg) scale(0.97); }
-  28% { transform: translate(5.33vw, -4.67vh) rotate(21.67deg) scale(0.98); }
-  29% { transform: translate(7.67vw, -2.33vh) rotate(23.33deg) scale(0.99); }
-  30% { transform: translate(10vw, 0vh) rotate(25deg) scale(1); }
-  31% { transform: translate(12vw, 1.6vh) rotate(25deg) scale(1.006); }
-  32% { transform: translate(14vw, 3.2vh) rotate(25deg) scale(1.012); }
-  33% { transform: translate(16vw, 4.8vh) rotate(25deg) scale(1.018); }
-  34% { transform: translate(18vw, 6.4vh) rotate(25deg) scale(1.024); }
-  35% { transform: translate(20vw, 8vh) rotate(25deg) scale(1.03); }
-  36% { transform: translate(21.67vw, 8.67vh) rotate(23.33deg) scale(1.035); }
-  37% { transform: translate(23.33vw, 9.33vh) rotate(21.67deg) scale(1.04); }
-  38% { transform: translate(25vw, 10vh) rotate(20deg) scale(1.045); }
-  39% { transform: translate(27vw, 10.5vh) rotate(15deg) scale(1.052); }
-  40% { transform: translate(29vw, 11vh) rotate(10deg) scale(1.058); }
-  41% { transform: translate(31vw, 11.25vh) rotate(7.5deg) scale(1.064); }
-  42% { transform: translate(33vw, 11.5vh) rotate(5deg) scale(1.07); }
-  43% { transform: translate(35.67vw, 10.5vh) rotate(1.67deg) scale(1.077); }
-  44% { transform: translate(37.83vw, 9.25vh) rotate(-1.67deg) scale(1.083); }
-  45% { transform: translate(40vw, 8vh) rotate(-5deg) scale(1.09); }
-  46% { transform: translate(42vw, 6.5vh) rotate(-8deg) scale(1.095); }
-  47% { transform: translate(44vw, 5vh) rotate(-12deg) scale(1.1); }
-  48% { transform: translate(46vw, 3.5vh) rotate(-16deg) scale(1.105); }
-  49% { transform: translate(48vw, 2vh) rotate(-20deg) scale(1.11); }
-  50% { transform: translate(50vw, 0vh) rotate(-25deg) scale(1.12); }
-  51% { transform: translate(52vw, -1.5vh) rotate(-26deg) scale(1.125); }
-  52% { transform: translate(54vw, -3vh) rotate(-26deg) scale(1.13); }
-  53% { transform: translate(56vw, -4.5vh) rotate(-26deg) scale(1.135); }
-  54% { transform: translate(58vw, -6vh) rotate(-26deg) scale(1.14); }
-  55% { transform: translate(60vw, -8vh) rotate(-25deg) scale(1.15); }
-  56% { transform: translate(61.67vw, -8.67vh) rotate(-23.33deg) scale(1.155); }
-  57% { transform: translate(63.33vw, -9.33vh) rotate(-21.67deg) scale(1.16); }
-  58% { transform: translate(65vw, -10vh) rotate(-20deg) scale(1.165); }
-  59% { transform: translate(67vw, -10.5vh) rotate(-15deg) scale(1.171); }
-  60% { transform: translate(69vw, -11vh) rotate(-12.5deg) scale(1.177); }
-  61% { transform: translate(71vw, -11.25vh) rotate(-8.75deg) scale(1.183); }
-  62% { transform: translate(73vw, -11.5vh) rotate(-5deg) scale(1.19); }
-  63% { transform: translate(75.33vw, -11vh) rotate(-1.67deg) scale(1.197); }
-  64% { transform: translate(77.67vw, -10.5vh) rotate(1.67deg) scale(1.203); }
-  65% { transform: translate(80vw, -10vh) rotate(5deg) scale(1.21); }
-  66% { transform: translate(81.67vw, -9vh) rotate(8.33deg) scale(1.215); }
-  67% { transform: translate(83.33vw, -8vh) rotate(11.67deg) scale(1.22); }
-  68% { transform: translate(85vw, -7vh) rotate(15deg) scale(1.225); }
-  69% { transform: translate(87.5vw, -6vh) rotate(17.5deg) scale(1.233); }
-  70% { transform: translate(90vw, -5vh) rotate(20deg) scale(1.24); }
-  71% { transform: translate(92vw, -4vh) rotate(19.6deg) scale(1.246); }
-  72% { transform: translate(94vw, -3vh) rotate(19.2deg) scale(1.252); }
-  73% { transform: translate(96vw, -2vh) rotate(18.8deg) scale(1.258); }
-  74% { transform: translate(98vw, -1vh) rotate(18.4deg) scale(1.264); }
-  75% { transform: translate(100vw, 0vh) rotate(18deg) scale(1.27); }
-  76% { transform: translate(102vw, 0.4vh) rotate(16deg) scale(1.276); }
-  77% { transform: translate(104vw, 0.8vh) rotate(14deg) scale(1.282); }
-  78% { transform: translate(106vw, 1.2vh) rotate(12deg) scale(1.288); }
-  79% { transform: translate(108vw, 1.6vh) rotate(10deg) scale(1.294); }
-  80% { transform: translate(110vw, 2vh) rotate(8deg) scale(1.3); opacity: 1; }
-  81% { transform: translate(112vw, 2.2vh) rotate(7.2deg) scale(1.306); opacity: 0.98; }
-  82% { transform: translate(114vw, 2.4vh) rotate(6.4deg) scale(1.312); opacity: 0.96; }
-  83% { transform: translate(116vw, 2.6vh) rotate(6deg) scale(1.318); opacity: 0.94; }
-  84% { transform: translate(118vw, 2.8vh) rotate(5.4deg) scale(1.324); opacity: 0.92; }
-  85% { transform: translate(120vw, 3vh) rotate(5deg) scale(1.33); opacity: 0.9; }
-  86% { transform: translate(122vw, 3.2vh) rotate(4.4deg) scale(1.336); opacity: 0.86; }
-  87% { transform: translate(124vw, 3.4vh) rotate(3.8deg) scale(1.342); opacity: 0.82; }
-  88% { transform: translate(126vw, 3.6vh) rotate(3.4deg) scale(1.348); opacity: 0.78; }
-  89% { transform: translate(128vw, 3.8vh) rotate(3.2deg) scale(1.354); opacity: 0.74; }
-  90% { transform: translate(130vw, 4vh) rotate(3deg) scale(1.36); opacity: 0.7; }
-  91% { transform: translate(132vw, 4.2vh) rotate(2.6deg) scale(1.366); opacity: 0.64; }
-  92% { transform: translate(134vw, 4.4vh) rotate(2.4deg) scale(1.372); opacity: 0.58; }
-  93% { transform: translate(136vw, 4.6vh) rotate(2.2deg) scale(1.378); opacity: 0.52; }
-  94% { transform: translate(138vw, 4.8vh) rotate(2.1deg) scale(1.384); opacity: 0.46; }
-  95% { transform: translate(140vw, 5vh) rotate(2deg) scale(1.39); opacity: 0.4; }
-  96% { transform: translate(142vw, 5vh) rotate(1.6deg) scale(1.396); opacity: 0.32; }
-  97% { transform: translate(144vw, 5vh) rotate(1.2deg) scale(1.402); opacity: 0.24; }
-  98% { transform: translate(146vw, 5vh) rotate(0.8deg) scale(1.408); opacity: 0.16; }
-  99% { transform: translate(148vw, 5vh) rotate(0.4deg) scale(1.414); opacity: 0.08; }
-  100% { transform: translate(150vw, 5vh) rotate(0deg) scale(1.42); opacity: 0; }
+  0% {
+    transform: translate(-50vw, 0vh) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  1% {
+    transform: translate(-48vw, 0vh) rotate(-1deg) scale(0.62);
+    opacity: 0.2;
+  }
+  2% {
+    transform: translate(-46vw, 0vh) rotate(-2deg) scale(0.64);
+    opacity: 0.4;
+  }
+  3% {
+    transform: translate(-44vw, 0vh) rotate(-3deg) scale(0.66);
+    opacity: 0.6;
+  }
+  4% {
+    transform: translate(-42vw, 0vh) rotate(-4deg) scale(0.68);
+    opacity: 0.8;
+  }
+  5% {
+    transform: translate(-40vw, 0vh) rotate(-5deg) scale(0.7);
+    opacity: 1;
+  }
+  6% {
+    transform: translate(-38vw, -1.6vh) rotate(-9deg) scale(0.72);
+  }
+  7% {
+    transform: translate(-36vw, -3.2vh) rotate(-13deg) scale(0.74);
+  }
+  8% {
+    transform: translate(-34vw, -4.8vh) rotate(-17deg) scale(0.76);
+  }
+  9% {
+    transform: translate(-32vw, -6.4vh) rotate(-21deg) scale(0.78);
+  }
+  10% {
+    transform: translate(-30vw, -8vh) rotate(-25deg) scale(0.8);
+  }
+  11% {
+    transform: translate(-28.33vw, -8.67vh) rotate(-23.33deg) scale(0.808);
+  }
+  12% {
+    transform: translate(-26.67vw, -9.33vh) rotate(-21.67deg) scale(0.817);
+  }
+  13% {
+    transform: translate(-25vw, -10vh) rotate(-20deg) scale(0.825);
+  }
+  14% {
+    transform: translate(-23.25vw, -10.5vh) rotate(-17.5deg) scale(0.836);
+  }
+  15% {
+    transform: translate(-21.5vw, -11vh) rotate(-15deg) scale(0.848);
+  }
+  16% {
+    transform: translate(-19.75vw, -11.25vh) rotate(-12.5deg) scale(0.859);
+  }
+  17% {
+    transform: translate(-18vw, -11.5vh) rotate(-10deg) scale(0.87);
+  }
+  18% {
+    transform: translate(-15.33vw, -11.67vh) rotate(-6.67deg) scale(0.88);
+  }
+  19% {
+    transform: translate(-12.67vw, -11.83vh) rotate(-3.33deg) scale(0.89);
+  }
+  20% {
+    transform: translate(-10vw, -12vh) rotate(0deg) scale(0.9);
+  }
+  21% {
+    transform: translate(-7.67vw, -11.33vh) rotate(3.33deg) scale(0.908);
+  }
+  22% {
+    transform: translate(-5.33vw, -10.67vh) rotate(6.67deg) scale(0.917);
+  }
+  23% {
+    transform: translate(-3vw, -10vh) rotate(10deg) scale(0.925);
+  }
+  24% {
+    transform: translate(-1.25vw, -9vh) rotate(13.33deg) scale(0.936);
+  }
+  25% {
+    transform: translate(0.5vw, -8vh) rotate(16.67deg) scale(0.948);
+  }
+  26% {
+    transform: translate(2.25vw, -7.5vh) rotate(18.33deg) scale(0.959);
+  }
+  27% {
+    transform: translate(3vw, -7vh) rotate(20deg) scale(0.97);
+  }
+  28% {
+    transform: translate(5.33vw, -4.67vh) rotate(21.67deg) scale(0.98);
+  }
+  29% {
+    transform: translate(7.67vw, -2.33vh) rotate(23.33deg) scale(0.99);
+  }
+  30% {
+    transform: translate(10vw, 0vh) rotate(25deg) scale(1);
+  }
+  31% {
+    transform: translate(12vw, 1.6vh) rotate(25deg) scale(1.006);
+  }
+  32% {
+    transform: translate(14vw, 3.2vh) rotate(25deg) scale(1.012);
+  }
+  33% {
+    transform: translate(16vw, 4.8vh) rotate(25deg) scale(1.018);
+  }
+  34% {
+    transform: translate(18vw, 6.4vh) rotate(25deg) scale(1.024);
+  }
+  35% {
+    transform: translate(20vw, 8vh) rotate(25deg) scale(1.03);
+  }
+  36% {
+    transform: translate(21.67vw, 8.67vh) rotate(23.33deg) scale(1.035);
+  }
+  37% {
+    transform: translate(23.33vw, 9.33vh) rotate(21.67deg) scale(1.04);
+  }
+  38% {
+    transform: translate(25vw, 10vh) rotate(20deg) scale(1.045);
+  }
+  39% {
+    transform: translate(27vw, 10.5vh) rotate(15deg) scale(1.052);
+  }
+  40% {
+    transform: translate(29vw, 11vh) rotate(10deg) scale(1.058);
+  }
+  41% {
+    transform: translate(31vw, 11.25vh) rotate(7.5deg) scale(1.064);
+  }
+  42% {
+    transform: translate(33vw, 11.5vh) rotate(5deg) scale(1.07);
+  }
+  43% {
+    transform: translate(35.67vw, 10.5vh) rotate(1.67deg) scale(1.077);
+  }
+  44% {
+    transform: translate(37.83vw, 9.25vh) rotate(-1.67deg) scale(1.083);
+  }
+  45% {
+    transform: translate(40vw, 8vh) rotate(-5deg) scale(1.09);
+  }
+  46% {
+    transform: translate(42vw, 6.5vh) rotate(-8deg) scale(1.095);
+  }
+  47% {
+    transform: translate(44vw, 5vh) rotate(-12deg) scale(1.1);
+  }
+  48% {
+    transform: translate(46vw, 3.5vh) rotate(-16deg) scale(1.105);
+  }
+  49% {
+    transform: translate(48vw, 2vh) rotate(-20deg) scale(1.11);
+  }
+  50% {
+    transform: translate(50vw, 0vh) rotate(-25deg) scale(1.12);
+  }
+  51% {
+    transform: translate(52vw, -1.5vh) rotate(-26deg) scale(1.125);
+  }
+  52% {
+    transform: translate(54vw, -3vh) rotate(-26deg) scale(1.13);
+  }
+  53% {
+    transform: translate(56vw, -4.5vh) rotate(-26deg) scale(1.135);
+  }
+  54% {
+    transform: translate(58vw, -6vh) rotate(-26deg) scale(1.14);
+  }
+  55% {
+    transform: translate(60vw, -8vh) rotate(-25deg) scale(1.15);
+  }
+  56% {
+    transform: translate(61.67vw, -8.67vh) rotate(-23.33deg) scale(1.155);
+  }
+  57% {
+    transform: translate(63.33vw, -9.33vh) rotate(-21.67deg) scale(1.16);
+  }
+  58% {
+    transform: translate(65vw, -10vh) rotate(-20deg) scale(1.165);
+  }
+  59% {
+    transform: translate(67vw, -10.5vh) rotate(-15deg) scale(1.171);
+  }
+  60% {
+    transform: translate(69vw, -11vh) rotate(-12.5deg) scale(1.177);
+  }
+  61% {
+    transform: translate(71vw, -11.25vh) rotate(-8.75deg) scale(1.183);
+  }
+  62% {
+    transform: translate(73vw, -11.5vh) rotate(-5deg) scale(1.19);
+  }
+  63% {
+    transform: translate(75.33vw, -11vh) rotate(-1.67deg) scale(1.197);
+  }
+  64% {
+    transform: translate(77.67vw, -10.5vh) rotate(1.67deg) scale(1.203);
+  }
+  65% {
+    transform: translate(80vw, -10vh) rotate(5deg) scale(1.21);
+  }
+  66% {
+    transform: translate(81.67vw, -9vh) rotate(8.33deg) scale(1.215);
+  }
+  67% {
+    transform: translate(83.33vw, -8vh) rotate(11.67deg) scale(1.22);
+  }
+  68% {
+    transform: translate(85vw, -7vh) rotate(15deg) scale(1.225);
+  }
+  69% {
+    transform: translate(87.5vw, -6vh) rotate(17.5deg) scale(1.233);
+  }
+  70% {
+    transform: translate(90vw, -5vh) rotate(20deg) scale(1.24);
+  }
+  71% {
+    transform: translate(92vw, -4vh) rotate(19.6deg) scale(1.246);
+  }
+  72% {
+    transform: translate(94vw, -3vh) rotate(19.2deg) scale(1.252);
+  }
+  73% {
+    transform: translate(96vw, -2vh) rotate(18.8deg) scale(1.258);
+  }
+  74% {
+    transform: translate(98vw, -1vh) rotate(18.4deg) scale(1.264);
+  }
+  75% {
+    transform: translate(100vw, 0vh) rotate(18deg) scale(1.27);
+  }
+  76% {
+    transform: translate(102vw, 0.4vh) rotate(16deg) scale(1.276);
+  }
+  77% {
+    transform: translate(104vw, 0.8vh) rotate(14deg) scale(1.282);
+  }
+  78% {
+    transform: translate(106vw, 1.2vh) rotate(12deg) scale(1.288);
+  }
+  79% {
+    transform: translate(108vw, 1.6vh) rotate(10deg) scale(1.294);
+  }
+  80% {
+    transform: translate(110vw, 2vh) rotate(8deg) scale(1.3);
+    opacity: 1;
+  }
+  81% {
+    transform: translate(112vw, 2.2vh) rotate(7.2deg) scale(1.306);
+    opacity: 0.98;
+  }
+  82% {
+    transform: translate(114vw, 2.4vh) rotate(6.4deg) scale(1.312);
+    opacity: 0.96;
+  }
+  83% {
+    transform: translate(116vw, 2.6vh) rotate(6deg) scale(1.318);
+    opacity: 0.94;
+  }
+  84% {
+    transform: translate(118vw, 2.8vh) rotate(5.4deg) scale(1.324);
+    opacity: 0.92;
+  }
+  85% {
+    transform: translate(120vw, 3vh) rotate(5deg) scale(1.33);
+    opacity: 0.9;
+  }
+  86% {
+    transform: translate(122vw, 3.2vh) rotate(4.4deg) scale(1.336);
+    opacity: 0.86;
+  }
+  87% {
+    transform: translate(124vw, 3.4vh) rotate(3.8deg) scale(1.342);
+    opacity: 0.82;
+  }
+  88% {
+    transform: translate(126vw, 3.6vh) rotate(3.4deg) scale(1.348);
+    opacity: 0.78;
+  }
+  89% {
+    transform: translate(128vw, 3.8vh) rotate(3.2deg) scale(1.354);
+    opacity: 0.74;
+  }
+  90% {
+    transform: translate(130vw, 4vh) rotate(3deg) scale(1.36);
+    opacity: 0.7;
+  }
+  91% {
+    transform: translate(132vw, 4.2vh) rotate(2.6deg) scale(1.366);
+    opacity: 0.64;
+  }
+  92% {
+    transform: translate(134vw, 4.4vh) rotate(2.4deg) scale(1.372);
+    opacity: 0.58;
+  }
+  93% {
+    transform: translate(136vw, 4.6vh) rotate(2.2deg) scale(1.378);
+    opacity: 0.52;
+  }
+  94% {
+    transform: translate(138vw, 4.8vh) rotate(2.1deg) scale(1.384);
+    opacity: 0.46;
+  }
+  95% {
+    transform: translate(140vw, 5vh) rotate(2deg) scale(1.39);
+    opacity: 0.4;
+  }
+  96% {
+    transform: translate(142vw, 5vh) rotate(1.6deg) scale(1.396);
+    opacity: 0.32;
+  }
+  97% {
+    transform: translate(144vw, 5vh) rotate(1.2deg) scale(1.402);
+    opacity: 0.24;
+  }
+  98% {
+    transform: translate(146vw, 5vh) rotate(0.8deg) scale(1.408);
+    opacity: 0.16;
+  }
+  99% {
+    transform: translate(148vw, 5vh) rotate(0.4deg) scale(1.414);
+    opacity: 0.08;
+  }
+  100% {
+    transform: translate(150vw, 5vh) rotate(0deg) scale(1.42);
+    opacity: 0;
+  }
 }
 
 /* Colorful sparkling trail effect - Follows rocket */
@@ -1670,7 +2445,8 @@ onBeforeUnmount(() => {
   transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
-  background: radial-gradient(ellipse at center,
+  background: radial-gradient(
+    ellipse at center,
     rgba(255, 215, 0, 0.8) 0%,
     rgba(255, 140, 0, 0.6) 20%,
     rgba(255, 69, 0, 0.5) 40%,
@@ -1692,7 +2468,8 @@ onBeforeUnmount(() => {
   transform: translate(-50%, -50%);
   width: 180px;
   height: 180px;
-  background: radial-gradient(ellipse at center,
+  background: radial-gradient(
+    ellipse at center,
     rgba(255, 255, 255, 0.9) 0%,
     rgba(220, 220, 255, 0.6) 25%,
     rgba(180, 180, 255, 0.4) 50%,
@@ -1785,107 +2562,336 @@ onBeforeUnmount(() => {
   }
 
   @keyframes rocketWavePath {
-    0% { transform: translate(-50vw, 0vh) rotate(0deg) scale(0.5); opacity: 0; }
-    1% { transform: translate(-48vw, 0vh) rotate(-1deg) scale(0.52); opacity: 0.2; }
-    2% { transform: translate(-46vw, 0vh) rotate(-2deg) scale(0.54); opacity: 0.4; }
-    3% { transform: translate(-44vw, 0vh) rotate(-3deg) scale(0.56); opacity: 0.6; }
-    4% { transform: translate(-42vw, 0vh) rotate(-4deg) scale(0.58); opacity: 0.8; }
-    5% { transform: translate(-40vw, 0vh) rotate(-5deg) scale(0.6); opacity: 1; }
-    6% { transform: translate(-38vw, -2vh) rotate(-10.6deg) scale(0.62); }
-    7% { transform: translate(-36vw, -4vh) rotate(-16.2deg) scale(0.64); }
-    8% { transform: translate(-34vw, -6vh) rotate(-21.8deg) scale(0.66); }
-    9% { transform: translate(-32vw, -8vh) rotate(-24.9deg) scale(0.68); }
-    10% { transform: translate(-30vw, -10vh) rotate(-28deg) scale(0.7); }
-    11% { transform: translate(-28.33vw, -10.67vh) rotate(-26.67deg) scale(0.72); }
-    12% { transform: translate(-26.67vw, -11.33vh) rotate(-24.33deg) scale(0.723); }
-    13% { transform: translate(-25vw, -12vh) rotate(-22deg) scale(0.73); }
-    14% { transform: translate(-23vw, -12.5vh) rotate(-19.5deg) scale(0.74); }
-    15% { transform: translate(-21vw, -13vh) rotate(-17deg) scale(0.75); }
-    16% { transform: translate(-19.5vw, -13.5vh) rotate(-14.5deg) scale(0.76); }
-    17% { transform: translate(-18vw, -14vh) rotate(-12deg) scale(0.77); }
-    18% { transform: translate(-15.33vw, -14.33vh) rotate(-8deg) scale(0.783); }
-    19% { transform: translate(-12.67vw, -14.67vh) rotate(-4deg) scale(0.79); }
-    20% { transform: translate(-10vw, -15vh) rotate(0deg) scale(0.8); }
-    21% { transform: translate(-7.67vw, -14vh) rotate(4deg) scale(0.808); }
-    22% { transform: translate(-5.33vw, -13vh) rotate(8deg) scale(0.817); }
-    23% { transform: translate(-3vw, -12vh) rotate(12deg) scale(0.825); }
-    24% { transform: translate(-1vw, -11vh) rotate(15.33deg) scale(0.84); }
-    25% { transform: translate(1vw, -10vh) rotate(18.67deg) scale(0.855); }
-    26% { transform: translate(2vw, -9.5vh) rotate(20.33deg) scale(0.863); }
-    27% { transform: translate(3vw, -9vh) rotate(22deg) scale(0.87); }
-    28% { transform: translate(5.33vw, -6vh) rotate(24deg) scale(0.88); }
-    29% { transform: translate(7.67vw, -3vh) rotate(26deg) scale(0.89); }
-    30% { transform: translate(10vw, 0vh) rotate(28deg) scale(0.9); }
-    31% { transform: translate(12vw, 2vh) rotate(28deg) scale(0.91); }
-    32% { transform: translate(14vw, 4vh) rotate(28deg) scale(0.92); }
-    33% { transform: translate(16vw, 6vh) rotate(28deg) scale(0.93); }
-    34% { transform: translate(18vw, 8vh) rotate(28deg) scale(0.94); }
-    35% { transform: translate(20vw, 10vh) rotate(28deg) scale(0.95); }
-    36% { transform: translate(21.67vw, 10.67vh) rotate(26.67deg) scale(0.958); }
-    37% { transform: translate(23.33vw, 11.33vh) rotate(24.33deg) scale(0.967); }
-    38% { transform: translate(25vw, 12vh) rotate(22deg) scale(0.975); }
-    39% { transform: translate(27vw, 12.5vh) rotate(18deg) scale(0.985); }
-    40% { transform: translate(29vw, 13vh) rotate(14deg) scale(0.995); }
-    41% { transform: translate(31vw, 13.5vh) rotate(11deg) scale(1.005); }
-    42% { transform: translate(33vw, 14vh) rotate(8deg) scale(1.015); }
-    43% { transform: translate(36.33vw, 12.67vh) rotate(3deg) scale(1.022); }
-    44% { transform: translate(38.17vw, 11.33vh) rotate(-1deg) scale(1.026); }
-    45% { transform: translate(40vw, 10vh) rotate(-5deg) scale(1.03); }
-    46% { transform: translate(42vw, 8.5vh) rotate(-8deg) scale(1.0375); }
-    47% { transform: translate(44vw, 7vh) rotate(-12deg) scale(1.045); }
-    48% { transform: translate(46vw, 5.5vh) rotate(-16deg) scale(1.0525); }
-    49% { transform: translate(48vw, 3vh) rotate(-20deg) scale(1.06); }
-    50% { transform: translate(50vw, 0vh) rotate(-28deg) scale(1.06); }
-    51% { transform: translate(52vw, -2vh) rotate(-29deg) scale(1.065); }
-    52% { transform: translate(54vw, -4vh) rotate(-29deg) scale(1.07); }
-    53% { transform: translate(56vw, -6vh) rotate(-29deg) scale(1.075); }
-    54% { transform: translate(58vw, -8vh) rotate(-29deg) scale(1.08); }
-    55% { transform: translate(60vw, -10vh) rotate(-28deg) scale(1.09); }
-    56% { transform: translate(61.67vw, -10.67vh) rotate(-26.67deg) scale(1.095); }
-    57% { transform: translate(63.33vw, -11.33vh) rotate(-24.33deg) scale(1.1); }
-    58% { transform: translate(65vw, -12vh) rotate(-22deg) scale(1.105); }
-    59% { transform: translate(67vw, -12.5vh) rotate(-18deg) scale(1.111); }
-    60% { transform: translate(69vw, -13vh) rotate(-15deg) scale(1.117); }
-    61% { transform: translate(71vw, -13.5vh) rotate(-11.5deg) scale(1.123); }
-    62% { transform: translate(73vw, -14vh) rotate(-8deg) scale(1.13); }
-    63% { transform: translate(75.33vw, -13.33vh) rotate(-2.67deg) scale(1.137); }
-    64% { transform: translate(77.67vw, -12.67vh) rotate(2.67deg) scale(1.143); }
-    65% { transform: translate(80vw, -12vh) rotate(8deg) scale(1.15); }
-    66% { transform: translate(81.67vw, -10.67vh) rotate(11.33deg) scale(1.155); }
-    67% { transform: translate(83.33vw, -9.33vh) rotate(14.67deg) scale(1.16); }
-    68% { transform: translate(85vw, -8vh) rotate(18deg) scale(1.165); }
-    69% { transform: translate(87.5vw, -7vh) rotate(20deg) scale(1.173); }
-    70% { transform: translate(90vw, -6vh) rotate(22deg) scale(1.18); }
-    71% { transform: translate(92vw, -4.8vh) rotate(21.6deg) scale(1.186); }
-    72% { transform: translate(94vw, -3.6vh) rotate(21.2deg) scale(1.192); }
-    73% { transform: translate(96vw, -2.4vh) rotate(20.8deg) scale(1.198); }
-    74% { transform: translate(98vw, -1.2vh) rotate(20.4deg) scale(1.204); }
-    75% { transform: translate(100vw, 0vh) rotate(20deg) scale(1.21); }
-    76% { transform: translate(102vw, 0.4vh) rotate(17.6deg) scale(1.216); }
-    77% { transform: translate(104vw, 0.8vh) rotate(15.2deg) scale(1.222); }
-    78% { transform: translate(106vw, 1.2vh) rotate(12.8deg) scale(1.228); }
-    79% { transform: translate(108vw, 1.6vh) rotate(10.4deg) scale(1.234); }
-    80% { transform: translate(110vw, 2vh) rotate(8deg) scale(1.24); opacity: 1; }
-    81% { transform: translate(112vw, 2.2vh) rotate(7.4deg) scale(1.246); opacity: 0.98; }
-    82% { transform: translate(114vw, 2.4vh) rotate(6.6deg) scale(1.252); opacity: 0.96; }
-    83% { transform: translate(116vw, 2.6vh) rotate(6deg) scale(1.258); opacity: 0.94; }
-    84% { transform: translate(118vw, 2.8vh) rotate(5.4deg) scale(1.264); opacity: 0.92; }
-    85% { transform: translate(120vw, 3vh) rotate(5deg) scale(1.27); opacity: 0.9; }
-    86% { transform: translate(122vw, 3.2vh) rotate(4.4deg) scale(1.276); opacity: 0.86; }
-    87% { transform: translate(124vw, 3.4vh) rotate(3.8deg) scale(1.282); opacity: 0.82; }
-    88% { transform: translate(126vw, 3.6vh) rotate(3.4deg) scale(1.288); opacity: 0.78; }
-    89% { transform: translate(128vw, 3.8vh) rotate(3.2deg) scale(1.294); opacity: 0.74; }
-    90% { transform: translate(130vw, 4vh) rotate(3deg) scale(1.3); opacity: 0.7; }
-    91% { transform: translate(132vw, 4.2vh) rotate(2.6deg) scale(1.306); opacity: 0.64; }
-    92% { transform: translate(134vw, 4.4vh) rotate(2.4deg) scale(1.312); opacity: 0.58; }
-    93% { transform: translate(136vw, 4.6vh) rotate(2.2deg) scale(1.318); opacity: 0.52; }
-    94% { transform: translate(138vw, 4.8vh) rotate(2.1deg) scale(1.324); opacity: 0.46; }
-    95% { transform: translate(140vw, 5vh) rotate(2deg) scale(1.33); opacity: 0.4; }
-    96% { transform: translate(142vw, 5vh) rotate(1.6deg) scale(1.336); opacity: 0.32; }
-    97% { transform: translate(144vw, 5vh) rotate(1.2deg) scale(1.342); opacity: 0.24; }
-    98% { transform: translate(146vw, 5vh) rotate(0.8deg) scale(1.348); opacity: 0.16; }
-    99% { transform: translate(148vw, 5vh) rotate(0.4deg) scale(1.354); opacity: 0.08; }
-    100% { transform: translate(150vw, 5vh) rotate(0deg) scale(1.36); opacity: 0; }
+    0% {
+      transform: translate(-50vw, 0vh) rotate(0deg) scale(0.5);
+      opacity: 0;
+    }
+    1% {
+      transform: translate(-48vw, 0vh) rotate(-1deg) scale(0.52);
+      opacity: 0.2;
+    }
+    2% {
+      transform: translate(-46vw, 0vh) rotate(-2deg) scale(0.54);
+      opacity: 0.4;
+    }
+    3% {
+      transform: translate(-44vw, 0vh) rotate(-3deg) scale(0.56);
+      opacity: 0.6;
+    }
+    4% {
+      transform: translate(-42vw, 0vh) rotate(-4deg) scale(0.58);
+      opacity: 0.8;
+    }
+    5% {
+      transform: translate(-40vw, 0vh) rotate(-5deg) scale(0.6);
+      opacity: 1;
+    }
+    6% {
+      transform: translate(-38vw, -2vh) rotate(-10.6deg) scale(0.62);
+    }
+    7% {
+      transform: translate(-36vw, -4vh) rotate(-16.2deg) scale(0.64);
+    }
+    8% {
+      transform: translate(-34vw, -6vh) rotate(-21.8deg) scale(0.66);
+    }
+    9% {
+      transform: translate(-32vw, -8vh) rotate(-24.9deg) scale(0.68);
+    }
+    10% {
+      transform: translate(-30vw, -10vh) rotate(-28deg) scale(0.7);
+    }
+    11% {
+      transform: translate(-28.33vw, -10.67vh) rotate(-26.67deg) scale(0.72);
+    }
+    12% {
+      transform: translate(-26.67vw, -11.33vh) rotate(-24.33deg) scale(0.723);
+    }
+    13% {
+      transform: translate(-25vw, -12vh) rotate(-22deg) scale(0.73);
+    }
+    14% {
+      transform: translate(-23vw, -12.5vh) rotate(-19.5deg) scale(0.74);
+    }
+    15% {
+      transform: translate(-21vw, -13vh) rotate(-17deg) scale(0.75);
+    }
+    16% {
+      transform: translate(-19.5vw, -13.5vh) rotate(-14.5deg) scale(0.76);
+    }
+    17% {
+      transform: translate(-18vw, -14vh) rotate(-12deg) scale(0.77);
+    }
+    18% {
+      transform: translate(-15.33vw, -14.33vh) rotate(-8deg) scale(0.783);
+    }
+    19% {
+      transform: translate(-12.67vw, -14.67vh) rotate(-4deg) scale(0.79);
+    }
+    20% {
+      transform: translate(-10vw, -15vh) rotate(0deg) scale(0.8);
+    }
+    21% {
+      transform: translate(-7.67vw, -14vh) rotate(4deg) scale(0.808);
+    }
+    22% {
+      transform: translate(-5.33vw, -13vh) rotate(8deg) scale(0.817);
+    }
+    23% {
+      transform: translate(-3vw, -12vh) rotate(12deg) scale(0.825);
+    }
+    24% {
+      transform: translate(-1vw, -11vh) rotate(15.33deg) scale(0.84);
+    }
+    25% {
+      transform: translate(1vw, -10vh) rotate(18.67deg) scale(0.855);
+    }
+    26% {
+      transform: translate(2vw, -9.5vh) rotate(20.33deg) scale(0.863);
+    }
+    27% {
+      transform: translate(3vw, -9vh) rotate(22deg) scale(0.87);
+    }
+    28% {
+      transform: translate(5.33vw, -6vh) rotate(24deg) scale(0.88);
+    }
+    29% {
+      transform: translate(7.67vw, -3vh) rotate(26deg) scale(0.89);
+    }
+    30% {
+      transform: translate(10vw, 0vh) rotate(28deg) scale(0.9);
+    }
+    31% {
+      transform: translate(12vw, 2vh) rotate(28deg) scale(0.91);
+    }
+    32% {
+      transform: translate(14vw, 4vh) rotate(28deg) scale(0.92);
+    }
+    33% {
+      transform: translate(16vw, 6vh) rotate(28deg) scale(0.93);
+    }
+    34% {
+      transform: translate(18vw, 8vh) rotate(28deg) scale(0.94);
+    }
+    35% {
+      transform: translate(20vw, 10vh) rotate(28deg) scale(0.95);
+    }
+    36% {
+      transform: translate(21.67vw, 10.67vh) rotate(26.67deg) scale(0.958);
+    }
+    37% {
+      transform: translate(23.33vw, 11.33vh) rotate(24.33deg) scale(0.967);
+    }
+    38% {
+      transform: translate(25vw, 12vh) rotate(22deg) scale(0.975);
+    }
+    39% {
+      transform: translate(27vw, 12.5vh) rotate(18deg) scale(0.985);
+    }
+    40% {
+      transform: translate(29vw, 13vh) rotate(14deg) scale(0.995);
+    }
+    41% {
+      transform: translate(31vw, 13.5vh) rotate(11deg) scale(1.005);
+    }
+    42% {
+      transform: translate(33vw, 14vh) rotate(8deg) scale(1.015);
+    }
+    43% {
+      transform: translate(36.33vw, 12.67vh) rotate(3deg) scale(1.022);
+    }
+    44% {
+      transform: translate(38.17vw, 11.33vh) rotate(-1deg) scale(1.026);
+    }
+    45% {
+      transform: translate(40vw, 10vh) rotate(-5deg) scale(1.03);
+    }
+    46% {
+      transform: translate(42vw, 8.5vh) rotate(-8deg) scale(1.0375);
+    }
+    47% {
+      transform: translate(44vw, 7vh) rotate(-12deg) scale(1.045);
+    }
+    48% {
+      transform: translate(46vw, 5.5vh) rotate(-16deg) scale(1.0525);
+    }
+    49% {
+      transform: translate(48vw, 3vh) rotate(-20deg) scale(1.06);
+    }
+    50% {
+      transform: translate(50vw, 0vh) rotate(-28deg) scale(1.06);
+    }
+    51% {
+      transform: translate(52vw, -2vh) rotate(-29deg) scale(1.065);
+    }
+    52% {
+      transform: translate(54vw, -4vh) rotate(-29deg) scale(1.07);
+    }
+    53% {
+      transform: translate(56vw, -6vh) rotate(-29deg) scale(1.075);
+    }
+    54% {
+      transform: translate(58vw, -8vh) rotate(-29deg) scale(1.08);
+    }
+    55% {
+      transform: translate(60vw, -10vh) rotate(-28deg) scale(1.09);
+    }
+    56% {
+      transform: translate(61.67vw, -10.67vh) rotate(-26.67deg) scale(1.095);
+    }
+    57% {
+      transform: translate(63.33vw, -11.33vh) rotate(-24.33deg) scale(1.1);
+    }
+    58% {
+      transform: translate(65vw, -12vh) rotate(-22deg) scale(1.105);
+    }
+    59% {
+      transform: translate(67vw, -12.5vh) rotate(-18deg) scale(1.111);
+    }
+    60% {
+      transform: translate(69vw, -13vh) rotate(-15deg) scale(1.117);
+    }
+    61% {
+      transform: translate(71vw, -13.5vh) rotate(-11.5deg) scale(1.123);
+    }
+    62% {
+      transform: translate(73vw, -14vh) rotate(-8deg) scale(1.13);
+    }
+    63% {
+      transform: translate(75.33vw, -13.33vh) rotate(-2.67deg) scale(1.137);
+    }
+    64% {
+      transform: translate(77.67vw, -12.67vh) rotate(2.67deg) scale(1.143);
+    }
+    65% {
+      transform: translate(80vw, -12vh) rotate(8deg) scale(1.15);
+    }
+    66% {
+      transform: translate(81.67vw, -10.67vh) rotate(11.33deg) scale(1.155);
+    }
+    67% {
+      transform: translate(83.33vw, -9.33vh) rotate(14.67deg) scale(1.16);
+    }
+    68% {
+      transform: translate(85vw, -8vh) rotate(18deg) scale(1.165);
+    }
+    69% {
+      transform: translate(87.5vw, -7vh) rotate(20deg) scale(1.173);
+    }
+    70% {
+      transform: translate(90vw, -6vh) rotate(22deg) scale(1.18);
+    }
+    71% {
+      transform: translate(92vw, -4.8vh) rotate(21.6deg) scale(1.186);
+    }
+    72% {
+      transform: translate(94vw, -3.6vh) rotate(21.2deg) scale(1.192);
+    }
+    73% {
+      transform: translate(96vw, -2.4vh) rotate(20.8deg) scale(1.198);
+    }
+    74% {
+      transform: translate(98vw, -1.2vh) rotate(20.4deg) scale(1.204);
+    }
+    75% {
+      transform: translate(100vw, 0vh) rotate(20deg) scale(1.21);
+    }
+    76% {
+      transform: translate(102vw, 0.4vh) rotate(17.6deg) scale(1.216);
+    }
+    77% {
+      transform: translate(104vw, 0.8vh) rotate(15.2deg) scale(1.222);
+    }
+    78% {
+      transform: translate(106vw, 1.2vh) rotate(12.8deg) scale(1.228);
+    }
+    79% {
+      transform: translate(108vw, 1.6vh) rotate(10.4deg) scale(1.234);
+    }
+    80% {
+      transform: translate(110vw, 2vh) rotate(8deg) scale(1.24);
+      opacity: 1;
+    }
+    81% {
+      transform: translate(112vw, 2.2vh) rotate(7.4deg) scale(1.246);
+      opacity: 0.98;
+    }
+    82% {
+      transform: translate(114vw, 2.4vh) rotate(6.6deg) scale(1.252);
+      opacity: 0.96;
+    }
+    83% {
+      transform: translate(116vw, 2.6vh) rotate(6deg) scale(1.258);
+      opacity: 0.94;
+    }
+    84% {
+      transform: translate(118vw, 2.8vh) rotate(5.4deg) scale(1.264);
+      opacity: 0.92;
+    }
+    85% {
+      transform: translate(120vw, 3vh) rotate(5deg) scale(1.27);
+      opacity: 0.9;
+    }
+    86% {
+      transform: translate(122vw, 3.2vh) rotate(4.4deg) scale(1.276);
+      opacity: 0.86;
+    }
+    87% {
+      transform: translate(124vw, 3.4vh) rotate(3.8deg) scale(1.282);
+      opacity: 0.82;
+    }
+    88% {
+      transform: translate(126vw, 3.6vh) rotate(3.4deg) scale(1.288);
+      opacity: 0.78;
+    }
+    89% {
+      transform: translate(128vw, 3.8vh) rotate(3.2deg) scale(1.294);
+      opacity: 0.74;
+    }
+    90% {
+      transform: translate(130vw, 4vh) rotate(3deg) scale(1.3);
+      opacity: 0.7;
+    }
+    91% {
+      transform: translate(132vw, 4.2vh) rotate(2.6deg) scale(1.306);
+      opacity: 0.64;
+    }
+    92% {
+      transform: translate(134vw, 4.4vh) rotate(2.4deg) scale(1.312);
+      opacity: 0.58;
+    }
+    93% {
+      transform: translate(136vw, 4.6vh) rotate(2.2deg) scale(1.318);
+      opacity: 0.52;
+    }
+    94% {
+      transform: translate(138vw, 4.8vh) rotate(2.1deg) scale(1.324);
+      opacity: 0.46;
+    }
+    95% {
+      transform: translate(140vw, 5vh) rotate(2deg) scale(1.33);
+      opacity: 0.4;
+    }
+    96% {
+      transform: translate(142vw, 5vh) rotate(1.6deg) scale(1.336);
+      opacity: 0.32;
+    }
+    97% {
+      transform: translate(144vw, 5vh) rotate(1.2deg) scale(1.342);
+      opacity: 0.24;
+    }
+    98% {
+      transform: translate(146vw, 5vh) rotate(0.8deg) scale(1.348);
+      opacity: 0.16;
+    }
+    99% {
+      transform: translate(148vw, 5vh) rotate(0.4deg) scale(1.354);
+      opacity: 0.08;
+    }
+    100% {
+      transform: translate(150vw, 5vh) rotate(0deg) scale(1.36);
+      opacity: 0;
+    }
   }
 }
 
@@ -1896,107 +2902,336 @@ onBeforeUnmount(() => {
   }
 
   @keyframes rocketWavePath {
-    0% { transform: translate(-50vw, 0vh) rotate(0deg) scale(0.45); opacity: 0; }
-    1% { transform: translate(-48vw, 0vh) rotate(-1deg) scale(0.47); opacity: 0.2; }
-    2% { transform: translate(-46vw, 0vh) rotate(-2deg) scale(0.49); opacity: 0.4; }
-    3% { transform: translate(-44vw, 0vh) rotate(-3deg) scale(0.51); opacity: 0.6; }
-    4% { transform: translate(-42vw, 0vh) rotate(-4deg) scale(0.53); opacity: 0.8; }
-    5% { transform: translate(-40vw, 0vh) rotate(-5deg) scale(0.55); opacity: 1; }
-    6% { transform: translate(-38vw, -2.4vh) rotate(-11.6deg) scale(0.57); }
-    7% { transform: translate(-36vw, -4.8vh) rotate(-18.2deg) scale(0.59); }
-    8% { transform: translate(-34vw, -7.2vh) rotate(-24.8deg) scale(0.61); }
-    9% { transform: translate(-32vw, -9.6vh) rotate(-31.4deg) scale(0.63); }
-    10% { transform: translate(-30vw, -12vh) rotate(-38deg) scale(0.65); }
-    11% { transform: translate(-28.33vw, -13vh) rotate(-36deg) scale(0.658); }
-    12% { transform: translate(-26.67vw, -14vh) rotate(-33deg) scale(0.667); }
-    13% { transform: translate(-25vw, -15vh) rotate(-30deg) scale(0.675); }
-    14% { transform: translate(-23vw, -15.5vh) rotate(-27deg) scale(0.684); }
-    15% { transform: translate(-21vw, -16vh) rotate(-24deg) scale(0.692); }
-    16% { transform: translate(-19.5vw, -16.5vh) rotate(-21deg) scale(0.701); }
-    17% { transform: translate(-18vw, -17vh) rotate(-18deg) scale(0.71); }
-    18% { transform: translate(-15.33vw, -17.33vh) rotate(-12deg) scale(0.723); }
-    19% { transform: translate(-12.67vw, -17.67vh) rotate(-6deg) scale(0.737); }
-    20% { transform: translate(-10vw, -18vh) rotate(0deg) scale(0.75); }
-    21% { transform: translate(-7.67vw, -17vh) rotate(5deg) scale(0.758); }
-    22% { transform: translate(-5.33vw, -16vh) rotate(10deg) scale(0.767); }
-    23% { transform: translate(-3vw, -15vh) rotate(15deg) scale(0.775); }
-    24% { transform: translate(-0.75vw, -13vh) rotate(20deg) scale(0.786); }
-    25% { transform: translate(1.5vw, -11vh) rotate(25deg) scale(0.798); }
-    26% { transform: translate(2.75vw, -10vh) rotate(27.5deg) scale(0.804); }
-    27% { transform: translate(4vw, -9vh) rotate(30deg) scale(0.81); }
-    28% { transform: translate(6vw, -6vh) rotate(32.67deg) scale(0.823); }
-    29% { transform: translate(8vw, -3vh) rotate(35.33deg) scale(0.837); }
-    30% { transform: translate(10vw, 0vh) rotate(38deg) scale(0.85); }
-    31% { transform: translate(12vw, 2.4vh) rotate(38deg) scale(0.86); }
-    32% { transform: translate(14vw, 4.8vh) rotate(38deg) scale(0.87); }
-    33% { transform: translate(16vw, 7.2vh) rotate(38deg) scale(0.88); }
-    34% { transform: translate(18vw, 9.6vh) rotate(38deg) scale(0.89); }
-    35% { transform: translate(20vw, 12vh) rotate(38deg) scale(0.9); }
-    36% { transform: translate(21.67vw, 13vh) rotate(36deg) scale(0.908); }
-    37% { transform: translate(23.33vw, 14vh) rotate(33deg) scale(0.917); }
-    38% { transform: translate(25vw, 15vh) rotate(30deg) scale(0.925); }
-    39% { transform: translate(27vw, 15.67vh) rotate(26deg) scale(0.936); }
-    40% { transform: translate(29vw, 16.33vh) rotate(22deg) scale(0.948); }
-    41% { transform: translate(30.5vw, 16.67vh) rotate(20deg) scale(0.954); }
-    42% { transform: translate(32vw, 17vh) rotate(18deg) scale(0.96); }
-    43% { transform: translate(35vw, 15.67vh) rotate(10deg) scale(0.973); }
-    44% { transform: translate(37.5vw, 13.83vh) rotate(2.5deg) scale(0.987); }
-    45% { transform: translate(40vw, 12vh) rotate(-5deg) scale(1); }
-    46% { transform: translate(42vw, 10vh) rotate(-10deg) scale(1.0075); }
-    47% { transform: translate(44vw, 8vh) rotate(-15deg) scale(1.015); }
-    48% { transform: translate(46vw, 6vh) rotate(-20deg) scale(1.0225); }
-    49% { transform: translate(48vw, 3vh) rotate(-28deg) scale(1.03); }
-    50% { transform: translate(50vw, 0vh) rotate(-38deg) scale(1.03); }
-    51% { transform: translate(52vw, -2.5vh) rotate(-39deg) scale(1.0375); }
-    52% { transform: translate(54vw, -5vh) rotate(-39deg) scale(1.045); }
-    53% { transform: translate(56vw, -7.5vh) rotate(-39deg) scale(1.0525); }
-    54% { transform: translate(58vw, -10vh) rotate(-39deg) scale(1.06); }
-    55% { transform: translate(60vw, -12vh) rotate(-38deg) scale(1.06); }
-    56% { transform: translate(61.67vw, -13vh) rotate(-36deg) scale(1.065); }
-    57% { transform: translate(63.33vw, -14vh) rotate(-33deg) scale(1.07); }
-    58% { transform: translate(65vw, -15vh) rotate(-30deg) scale(1.075); }
-    59% { transform: translate(67vw, -15.67vh) rotate(-26deg) scale(1.081); }
-    60% { transform: translate(69vw, -16.33vh) rotate(-22deg) scale(1.086); }
-    61% { transform: translate(70.5vw, -16.67vh) rotate(-20deg) scale(1.091); }
-    62% { transform: translate(72vw, -17vh) rotate(-18deg) scale(1.095); }
-    63% { transform: translate(74.67vw, -16.67vh) rotate(-11.33deg) scale(1.102); }
-    64% { transform: translate(77.33vw, -15.83vh) rotate(-3.67deg) scale(1.111); }
-    65% { transform: translate(80vw, -15vh) rotate(5deg) scale(1.12); }
-    66% { transform: translate(81.67vw, -13.67vh) rotate(10deg) scale(1.125); }
-    67% { transform: translate(83.33vw, -12.33vh) rotate(15deg) scale(1.13); }
-    68% { transform: translate(85vw, -11vh) rotate(20deg) scale(1.135); }
-    69% { transform: translate(87.5vw, -9.5vh) rotate(24deg) scale(1.143); }
-    70% { transform: translate(90vw, -8vh) rotate(28deg) scale(1.15); }
-    71% { transform: translate(92vw, -6.4vh) rotate(26deg) scale(1.156); }
-    72% { transform: translate(94vw, -4.8vh) rotate(24deg) scale(1.162); }
-    73% { transform: translate(96vw, -3.2vh) rotate(22deg) scale(1.168); }
-    74% { transform: translate(98vw, -1.6vh) rotate(20deg) scale(1.174); }
-    75% { transform: translate(100vw, 0vh) rotate(18deg) scale(1.18); }
-    76% { transform: translate(102vw, 0.4vh) rotate(16.2deg) scale(1.186); }
-    77% { transform: translate(104vw, 0.8vh) rotate(14.4deg) scale(1.192); }
-    78% { transform: translate(106vw, 1.2vh) rotate(12.6deg) scale(1.198); }
-    79% { transform: translate(108vw, 1.6vh) rotate(10.8deg) scale(1.204); }
-    80% { transform: translate(110vw, 2vh) rotate(9deg) scale(1.21); opacity: 1; }
-    81% { transform: translate(112vw, 2.2vh) rotate(8.2deg) scale(1.216); opacity: 0.98; }
-    82% { transform: translate(114vw, 2.4vh) rotate(7.2deg) scale(1.222); opacity: 0.96; }
-    83% { transform: translate(116vw, 2.6vh) rotate(6.4deg) scale(1.228); opacity: 0.94; }
-    84% { transform: translate(118vw, 2.8vh) rotate(5.6deg) scale(1.234); opacity: 0.92; }
-    85% { transform: translate(120vw, 3vh) rotate(5deg) scale(1.24); opacity: 0.9; }
-    86% { transform: translate(122vw, 3.2vh) rotate(5deg) scale(1.246); opacity: 0.86; }
-    87% { transform: translate(124vw, 3.4vh) rotate(5deg) scale(1.252); opacity: 0.82; }
-    88% { transform: translate(126vw, 3.6vh) rotate(5deg) scale(1.258); opacity: 0.78; }
-    89% { transform: translate(128vw, 3.8vh) rotate(5deg) scale(1.264); opacity: 0.74; }
-    90% { transform: translate(130vw, 4vh) rotate(5deg) scale(1.27); opacity: 0.7; }
-    91% { transform: translate(132vw, 4.2vh) rotate(4deg) scale(1.276); opacity: 0.64; }
-    92% { transform: translate(134vw, 4.4vh) rotate(3.5deg) scale(1.282); opacity: 0.58; }
-    93% { transform: translate(136vw, 4.6vh) rotate(3deg) scale(1.288); opacity: 0.52; }
-    94% { transform: translate(138vw, 4.8vh) rotate(2.5deg) scale(1.294); opacity: 0.46; }
-    95% { transform: translate(140vw, 5vh) rotate(2deg) scale(1.3); opacity: 0.4; }
-    96% { transform: translate(142vw, 5vh) rotate(1.6deg) scale(1.306); opacity: 0.32; }
-    97% { transform: translate(144vw, 5vh) rotate(1.2deg) scale(1.312); opacity: 0.24; }
-    98% { transform: translate(146vw, 5vh) rotate(0.8deg) scale(1.318); opacity: 0.16; }
-    99% { transform: translate(148vw, 5vh) rotate(0.4deg) scale(1.324); opacity: 0.08; }
-    100% { transform: translate(150vw, 5vh) rotate(0deg) scale(1.33); opacity: 0; }
+    0% {
+      transform: translate(-50vw, 0vh) rotate(0deg) scale(0.45);
+      opacity: 0;
+    }
+    1% {
+      transform: translate(-48vw, 0vh) rotate(-1deg) scale(0.47);
+      opacity: 0.2;
+    }
+    2% {
+      transform: translate(-46vw, 0vh) rotate(-2deg) scale(0.49);
+      opacity: 0.4;
+    }
+    3% {
+      transform: translate(-44vw, 0vh) rotate(-3deg) scale(0.51);
+      opacity: 0.6;
+    }
+    4% {
+      transform: translate(-42vw, 0vh) rotate(-4deg) scale(0.53);
+      opacity: 0.8;
+    }
+    5% {
+      transform: translate(-40vw, 0vh) rotate(-5deg) scale(0.55);
+      opacity: 1;
+    }
+    6% {
+      transform: translate(-38vw, -2.4vh) rotate(-11.6deg) scale(0.57);
+    }
+    7% {
+      transform: translate(-36vw, -4.8vh) rotate(-18.2deg) scale(0.59);
+    }
+    8% {
+      transform: translate(-34vw, -7.2vh) rotate(-24.8deg) scale(0.61);
+    }
+    9% {
+      transform: translate(-32vw, -9.6vh) rotate(-31.4deg) scale(0.63);
+    }
+    10% {
+      transform: translate(-30vw, -12vh) rotate(-38deg) scale(0.65);
+    }
+    11% {
+      transform: translate(-28.33vw, -13vh) rotate(-36deg) scale(0.658);
+    }
+    12% {
+      transform: translate(-26.67vw, -14vh) rotate(-33deg) scale(0.667);
+    }
+    13% {
+      transform: translate(-25vw, -15vh) rotate(-30deg) scale(0.675);
+    }
+    14% {
+      transform: translate(-23vw, -15.5vh) rotate(-27deg) scale(0.684);
+    }
+    15% {
+      transform: translate(-21vw, -16vh) rotate(-24deg) scale(0.692);
+    }
+    16% {
+      transform: translate(-19.5vw, -16.5vh) rotate(-21deg) scale(0.701);
+    }
+    17% {
+      transform: translate(-18vw, -17vh) rotate(-18deg) scale(0.71);
+    }
+    18% {
+      transform: translate(-15.33vw, -17.33vh) rotate(-12deg) scale(0.723);
+    }
+    19% {
+      transform: translate(-12.67vw, -17.67vh) rotate(-6deg) scale(0.737);
+    }
+    20% {
+      transform: translate(-10vw, -18vh) rotate(0deg) scale(0.75);
+    }
+    21% {
+      transform: translate(-7.67vw, -17vh) rotate(5deg) scale(0.758);
+    }
+    22% {
+      transform: translate(-5.33vw, -16vh) rotate(10deg) scale(0.767);
+    }
+    23% {
+      transform: translate(-3vw, -15vh) rotate(15deg) scale(0.775);
+    }
+    24% {
+      transform: translate(-0.75vw, -13vh) rotate(20deg) scale(0.786);
+    }
+    25% {
+      transform: translate(1.5vw, -11vh) rotate(25deg) scale(0.798);
+    }
+    26% {
+      transform: translate(2.75vw, -10vh) rotate(27.5deg) scale(0.804);
+    }
+    27% {
+      transform: translate(4vw, -9vh) rotate(30deg) scale(0.81);
+    }
+    28% {
+      transform: translate(6vw, -6vh) rotate(32.67deg) scale(0.823);
+    }
+    29% {
+      transform: translate(8vw, -3vh) rotate(35.33deg) scale(0.837);
+    }
+    30% {
+      transform: translate(10vw, 0vh) rotate(38deg) scale(0.85);
+    }
+    31% {
+      transform: translate(12vw, 2.4vh) rotate(38deg) scale(0.86);
+    }
+    32% {
+      transform: translate(14vw, 4.8vh) rotate(38deg) scale(0.87);
+    }
+    33% {
+      transform: translate(16vw, 7.2vh) rotate(38deg) scale(0.88);
+    }
+    34% {
+      transform: translate(18vw, 9.6vh) rotate(38deg) scale(0.89);
+    }
+    35% {
+      transform: translate(20vw, 12vh) rotate(38deg) scale(0.9);
+    }
+    36% {
+      transform: translate(21.67vw, 13vh) rotate(36deg) scale(0.908);
+    }
+    37% {
+      transform: translate(23.33vw, 14vh) rotate(33deg) scale(0.917);
+    }
+    38% {
+      transform: translate(25vw, 15vh) rotate(30deg) scale(0.925);
+    }
+    39% {
+      transform: translate(27vw, 15.67vh) rotate(26deg) scale(0.936);
+    }
+    40% {
+      transform: translate(29vw, 16.33vh) rotate(22deg) scale(0.948);
+    }
+    41% {
+      transform: translate(30.5vw, 16.67vh) rotate(20deg) scale(0.954);
+    }
+    42% {
+      transform: translate(32vw, 17vh) rotate(18deg) scale(0.96);
+    }
+    43% {
+      transform: translate(35vw, 15.67vh) rotate(10deg) scale(0.973);
+    }
+    44% {
+      transform: translate(37.5vw, 13.83vh) rotate(2.5deg) scale(0.987);
+    }
+    45% {
+      transform: translate(40vw, 12vh) rotate(-5deg) scale(1);
+    }
+    46% {
+      transform: translate(42vw, 10vh) rotate(-10deg) scale(1.0075);
+    }
+    47% {
+      transform: translate(44vw, 8vh) rotate(-15deg) scale(1.015);
+    }
+    48% {
+      transform: translate(46vw, 6vh) rotate(-20deg) scale(1.0225);
+    }
+    49% {
+      transform: translate(48vw, 3vh) rotate(-28deg) scale(1.03);
+    }
+    50% {
+      transform: translate(50vw, 0vh) rotate(-38deg) scale(1.03);
+    }
+    51% {
+      transform: translate(52vw, -2.5vh) rotate(-39deg) scale(1.0375);
+    }
+    52% {
+      transform: translate(54vw, -5vh) rotate(-39deg) scale(1.045);
+    }
+    53% {
+      transform: translate(56vw, -7.5vh) rotate(-39deg) scale(1.0525);
+    }
+    54% {
+      transform: translate(58vw, -10vh) rotate(-39deg) scale(1.06);
+    }
+    55% {
+      transform: translate(60vw, -12vh) rotate(-38deg) scale(1.06);
+    }
+    56% {
+      transform: translate(61.67vw, -13vh) rotate(-36deg) scale(1.065);
+    }
+    57% {
+      transform: translate(63.33vw, -14vh) rotate(-33deg) scale(1.07);
+    }
+    58% {
+      transform: translate(65vw, -15vh) rotate(-30deg) scale(1.075);
+    }
+    59% {
+      transform: translate(67vw, -15.67vh) rotate(-26deg) scale(1.081);
+    }
+    60% {
+      transform: translate(69vw, -16.33vh) rotate(-22deg) scale(1.086);
+    }
+    61% {
+      transform: translate(70.5vw, -16.67vh) rotate(-20deg) scale(1.091);
+    }
+    62% {
+      transform: translate(72vw, -17vh) rotate(-18deg) scale(1.095);
+    }
+    63% {
+      transform: translate(74.67vw, -16.67vh) rotate(-11.33deg) scale(1.102);
+    }
+    64% {
+      transform: translate(77.33vw, -15.83vh) rotate(-3.67deg) scale(1.111);
+    }
+    65% {
+      transform: translate(80vw, -15vh) rotate(5deg) scale(1.12);
+    }
+    66% {
+      transform: translate(81.67vw, -13.67vh) rotate(10deg) scale(1.125);
+    }
+    67% {
+      transform: translate(83.33vw, -12.33vh) rotate(15deg) scale(1.13);
+    }
+    68% {
+      transform: translate(85vw, -11vh) rotate(20deg) scale(1.135);
+    }
+    69% {
+      transform: translate(87.5vw, -9.5vh) rotate(24deg) scale(1.143);
+    }
+    70% {
+      transform: translate(90vw, -8vh) rotate(28deg) scale(1.15);
+    }
+    71% {
+      transform: translate(92vw, -6.4vh) rotate(26deg) scale(1.156);
+    }
+    72% {
+      transform: translate(94vw, -4.8vh) rotate(24deg) scale(1.162);
+    }
+    73% {
+      transform: translate(96vw, -3.2vh) rotate(22deg) scale(1.168);
+    }
+    74% {
+      transform: translate(98vw, -1.6vh) rotate(20deg) scale(1.174);
+    }
+    75% {
+      transform: translate(100vw, 0vh) rotate(18deg) scale(1.18);
+    }
+    76% {
+      transform: translate(102vw, 0.4vh) rotate(16.2deg) scale(1.186);
+    }
+    77% {
+      transform: translate(104vw, 0.8vh) rotate(14.4deg) scale(1.192);
+    }
+    78% {
+      transform: translate(106vw, 1.2vh) rotate(12.6deg) scale(1.198);
+    }
+    79% {
+      transform: translate(108vw, 1.6vh) rotate(10.8deg) scale(1.204);
+    }
+    80% {
+      transform: translate(110vw, 2vh) rotate(9deg) scale(1.21);
+      opacity: 1;
+    }
+    81% {
+      transform: translate(112vw, 2.2vh) rotate(8.2deg) scale(1.216);
+      opacity: 0.98;
+    }
+    82% {
+      transform: translate(114vw, 2.4vh) rotate(7.2deg) scale(1.222);
+      opacity: 0.96;
+    }
+    83% {
+      transform: translate(116vw, 2.6vh) rotate(6.4deg) scale(1.228);
+      opacity: 0.94;
+    }
+    84% {
+      transform: translate(118vw, 2.8vh) rotate(5.6deg) scale(1.234);
+      opacity: 0.92;
+    }
+    85% {
+      transform: translate(120vw, 3vh) rotate(5deg) scale(1.24);
+      opacity: 0.9;
+    }
+    86% {
+      transform: translate(122vw, 3.2vh) rotate(5deg) scale(1.246);
+      opacity: 0.86;
+    }
+    87% {
+      transform: translate(124vw, 3.4vh) rotate(5deg) scale(1.252);
+      opacity: 0.82;
+    }
+    88% {
+      transform: translate(126vw, 3.6vh) rotate(5deg) scale(1.258);
+      opacity: 0.78;
+    }
+    89% {
+      transform: translate(128vw, 3.8vh) rotate(5deg) scale(1.264);
+      opacity: 0.74;
+    }
+    90% {
+      transform: translate(130vw, 4vh) rotate(5deg) scale(1.27);
+      opacity: 0.7;
+    }
+    91% {
+      transform: translate(132vw, 4.2vh) rotate(4deg) scale(1.276);
+      opacity: 0.64;
+    }
+    92% {
+      transform: translate(134vw, 4.4vh) rotate(3.5deg) scale(1.282);
+      opacity: 0.58;
+    }
+    93% {
+      transform: translate(136vw, 4.6vh) rotate(3deg) scale(1.288);
+      opacity: 0.52;
+    }
+    94% {
+      transform: translate(138vw, 4.8vh) rotate(2.5deg) scale(1.294);
+      opacity: 0.46;
+    }
+    95% {
+      transform: translate(140vw, 5vh) rotate(2deg) scale(1.3);
+      opacity: 0.4;
+    }
+    96% {
+      transform: translate(142vw, 5vh) rotate(1.6deg) scale(1.306);
+      opacity: 0.32;
+    }
+    97% {
+      transform: translate(144vw, 5vh) rotate(1.2deg) scale(1.312);
+      opacity: 0.24;
+    }
+    98% {
+      transform: translate(146vw, 5vh) rotate(0.8deg) scale(1.318);
+      opacity: 0.16;
+    }
+    99% {
+      transform: translate(148vw, 5vh) rotate(0.4deg) scale(1.324);
+      opacity: 0.08;
+    }
+    100% {
+      transform: translate(150vw, 5vh) rotate(0deg) scale(1.33);
+      opacity: 0;
+    }
   }
 }
 
@@ -2035,10 +3270,18 @@ onBeforeUnmount(() => {
 }
 
 /* Card background colors */
-.feature-card--pink   { background: #FFF0F0; }
-.feature-card--purple { background: #F8F6FF; }
-.feature-card--yellow { background: #FFF8E7; }
-.feature-card--green  { background: #EDFFF6; }
+.feature-card--pink {
+  background: #fff0f0;
+}
+.feature-card--purple {
+  background: #f8f6ff;
+}
+.feature-card--yellow {
+  background: #fff8e7;
+}
+.feature-card--green {
+  background: #edfff6;
+}
 
 /* App-icon style */
 .feature-card__icon {
@@ -2058,53 +3301,77 @@ onBeforeUnmount(() => {
 }
 
 /* Icon gradient backgrounds */
-.feature-icon--pink   { background: linear-gradient(135deg, #FF6B8A, #EE4466); }
-.feature-icon--purple { background: linear-gradient(135deg, #A78BFA, #7C4DFF); }
-.feature-icon--yellow { background: linear-gradient(135deg, #FBBF24, #F59E0B); }
-.feature-icon--green  { background: linear-gradient(135deg, #34D399, #10B981); }
+.feature-icon--pink {
+  background: linear-gradient(135deg, #ff6b8a, #ee4466);
+}
+.feature-icon--purple {
+  background: linear-gradient(135deg, #a78bfa, #7c4dff);
+}
+.feature-icon--yellow {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+.feature-icon--green {
+  background: linear-gradient(135deg, #34d399, #10b981);
+}
 
 /* Highlight keyword */
 .feature-card__highlight {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 900;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
 
-.highlight--pink   { color: #EE4466; }
-.highlight--purple { color: #7C4DFF; }
-.highlight--yellow { color: #F59E0B; }
-.highlight--green  { color: #10B981; }
+.highlight--pink {
+  color: #ee4466;
+}
+.highlight--purple {
+  color: #7c4dff;
+}
+.highlight--yellow {
+  color: #f59e0b;
+}
+.highlight--green {
+  color: #10b981;
+}
 
 /* Title */
 .feature-card__title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  color: #1F2937;
+  color: #1f2937;
   margin-bottom: 12px;
 }
 
 /* Description */
 .feature-card__text {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #6B7280;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #6b7280;
   margin-bottom: 20px;
   flex-grow: 1;
 }
 
 /* Learn more link */
 .feature-card__link {
-  font-size: 14px;
-  color: #9CA3AF;
+  font-size: 15px;
+  color: #9ca3af;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.feature-card--pink:hover .feature-card__link   { color: #EE4466; }
-.feature-card--purple:hover .feature-card__link  { color: #7C4DFF; }
-.feature-card--yellow:hover .feature-card__link  { color: #F59E0B; }
-.feature-card--green:hover .feature-card__link   { color: #10B981; }
+.feature-card--pink:hover .feature-card__link {
+  color: #ee4466;
+}
+.feature-card--purple:hover .feature-card__link {
+  color: #7c4dff;
+}
+.feature-card--yellow:hover .feature-card__link {
+  color: #f59e0b;
+}
+.feature-card--green:hover .feature-card__link {
+  color: #10b981;
+}
 
 @media (max-width: 767px) {
   .feature-card {
@@ -2144,14 +3411,14 @@ onBeforeUnmount(() => {
 .testi-heading {
   font-size: 36px;
   font-weight: 800;
-  color: #1B1464;
+  color: #1b1464;
   line-height: 1.25;
   margin-bottom: 16px;
 }
 
 .testi-desc {
   font-size: 15px;
-  color: #636E72;
+  color: #636e72;
   line-height: 1.7;
   margin-bottom: 28px;
 }
@@ -2161,7 +3428,7 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 8px;
   padding: 12px 28px;
-  background: linear-gradient(135deg, #4A8B3F, #3a7a30);
+  background: linear-gradient(135deg, #4a8b3f, #3a7a30);
   color: white;
   font-size: 15px;
   font-weight: 600;
@@ -2183,7 +3450,7 @@ onBeforeUnmount(() => {
   border-radius: 20px;
   padding: 28px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  border: 1px solid #F0F0F0;
+  border: 1px solid #f0f0f0;
   transition: all 0.3s ease;
   height: 100%;
 }
@@ -2213,29 +3480,29 @@ onBeforeUnmount(() => {
 
 .testi-avatar--green {
   background: rgba(74, 139, 63, 0.1);
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .testi-avatar--pink {
   background: rgba(233, 30, 140, 0.1);
-  color: #E91E8C;
+  color: #e91e8c;
 }
 
 .testi-avatar--navy {
   background: rgba(27, 20, 100, 0.1);
-  color: #1B1464;
+  color: #1b1464;
 }
 
 .testi-name {
   font-size: 15px;
   font-weight: 700;
-  color: #1B1464;
+  color: #1b1464;
   margin: 0;
 }
 
 .testi-role {
   font-size: 13px;
-  color: #E91E8C;
+  color: #e91e8c;
   font-weight: 500;
 }
 
@@ -2248,7 +3515,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-size: 14px;
 }
 
@@ -2259,20 +3526,20 @@ onBeforeUnmount(() => {
 }
 
 .testi-stars i {
-  color: #FFB800;
+  color: #ffb800;
   font-size: 13px;
 }
 
 .testi-card-title {
   font-size: 16px;
   font-weight: 700;
-  color: #1B1464;
+  color: #1b1464;
   margin-bottom: 8px;
 }
 
 .testi-card-text {
   font-size: 14px;
-  color: #636E72;
+  color: #636e72;
   line-height: 1.65;
   margin: 0;
 }
@@ -2308,7 +3575,7 @@ onBeforeUnmount(() => {
    ======================================== */
 .how-it-works-section {
   padding: 80px 0;
-  background: #F8F9FC;
+  background: #f8f9fc;
 }
 
 .section-tag {
@@ -2320,7 +3587,7 @@ onBeforeUnmount(() => {
   border-radius: 50px;
   font-size: 14px;
   font-weight: 600;
-  color: #4A8B3F;
+  color: #4a8b3f;
   margin-bottom: 16px;
 }
 
@@ -2336,13 +3603,13 @@ onBeforeUnmount(() => {
 .section-heading {
   font-size: 42px;
   font-weight: 800;
-  color: #1B1464;
+  color: #1b1464;
   line-height: 1.2;
   margin-bottom: 16px;
 }
 
 .title-highlight {
-  color: #E91E8C;
+  color: #e91e8c;
 }
 
 .steps-grid {
@@ -2370,7 +3637,7 @@ onBeforeUnmount(() => {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #1B1464;
+  background: #1b1464;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2394,35 +3661,35 @@ onBeforeUnmount(() => {
 
 .step-icon--green {
   background: rgba(74, 139, 63, 0.1);
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .step-icon--pink {
   background: rgba(233, 30, 140, 0.1);
-  color: #E91E8C;
+  color: #e91e8c;
 }
 
 .step-icon--navy {
   background: rgba(27, 20, 100, 0.1);
-  color: #1B1464;
+  color: #1b1464;
 }
 
 .step-icon--accent {
   background: rgba(63, 53, 181, 0.1);
-  color: #3F35B5;
+  color: #3f35b5;
 }
 
 .step-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  color: #1B1464;
+  color: #1b1464;
   margin-bottom: 8px;
 }
 
 .step-desc {
-  font-size: 14px;
-  color: #636E72;
-  line-height: 1.6;
+  font-size: 15px;
+  color: #636e72;
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -2488,7 +3755,7 @@ onBeforeUnmount(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #3a7a30 40%, #1b1464 100%);
   z-index: 0;
 }
 
@@ -2511,7 +3778,8 @@ onBeforeUnmount(() => {
 }
 
 @keyframes homeCTAFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(100%) scale(0);
     opacity: 0;
   }
@@ -2558,7 +3826,7 @@ onBeforeUnmount(() => {
 }
 
 .home-cta-highlight {
-  background: linear-gradient(135deg, #FFE5B4, #FFDAB9);
+  background: linear-gradient(135deg, #ffe5b4, #ffdab9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -2582,7 +3850,7 @@ onBeforeUnmount(() => {
 
 .home-cta-btn-primary {
   background: rgba(255, 255, 255, 0.95) !important;
-  color: #4A8B3F !important;
+  color: #4a8b3f !important;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2) !important;
 }
 
@@ -2613,7 +3881,7 @@ onBeforeUnmount(() => {
 
 .home-cta-trust-item i {
   font-size: 16px;
-  color: #FFE5B4;
+  color: #ffe5b4;
 }
 
 @media (max-width: 767px) {
@@ -2687,7 +3955,7 @@ onBeforeUnmount(() => {
   top: 15px;
   left: 15px;
   padding: 5px 14px;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   font-size: 12px;
   font-weight: 600;
@@ -2718,7 +3986,7 @@ onBeforeUnmount(() => {
 }
 
 .home-blog-meta i {
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-size: 14px;
 }
 
@@ -2730,13 +3998,13 @@ onBeforeUnmount(() => {
 }
 
 .home-blog-title a {
-  color: #1B1464;
+  color: #1b1464;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .home-blog-title a:hover {
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .home-blog-excerpt {
@@ -2750,7 +4018,7 @@ onBeforeUnmount(() => {
 .home-blog-link {
   font-size: 14px;
   font-weight: 700;
-  color: #4A8B3F;
+  color: #4a8b3f;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -2805,8 +4073,12 @@ onBeforeUnmount(() => {
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* ========================================
@@ -2883,9 +4155,15 @@ onBeforeUnmount(() => {
   transform: scale(1);
 }
 
-.subject-card--purple .subject-card__play i { color: #6C5CE7; }
-.subject-card--pink .subject-card__play i { color: #E91E8C; }
-.subject-card--green .subject-card__play i { color: #4A8B3F; }
+.subject-card--purple .subject-card__play i {
+  color: #6c5ce7;
+}
+.subject-card--pink .subject-card__play i {
+  color: #e91e8c;
+}
+.subject-card--green .subject-card__play i {
+  color: #4a8b3f;
+}
 
 .subject-card__play i {
   font-size: 20px;
@@ -2910,9 +4188,15 @@ onBeforeUnmount(() => {
   backdrop-filter: blur(10px);
 }
 
-.subject-badge--purple { background: linear-gradient(135deg, #6C5CE7, #a29bfe); }
-.subject-badge--pink { background: linear-gradient(135deg, #E91E8C, #FD79A8); }
-.subject-badge--green { background: linear-gradient(135deg, #4A8B3F, #00B894); }
+.subject-badge--purple {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+}
+.subject-badge--pink {
+  background: linear-gradient(135deg, #e91e8c, #fd79a8);
+}
+.subject-badge--green {
+  background: linear-gradient(135deg, #4a8b3f, #00b894);
+}
 
 .subject-card__badge i {
   font-size: 13px;
@@ -2928,10 +4212,10 @@ onBeforeUnmount(() => {
 
 .subject-card__grade-tag {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 5px 14px;
   background: #f0f7ee;
-  color: #4A8B3F;
-  font-size: 11px;
+  color: #4a8b3f;
+  font-size: 12px;
   font-weight: 700;
   border-radius: 20px;
   text-transform: uppercase;
@@ -2942,34 +4226,40 @@ onBeforeUnmount(() => {
 
 .subject-card--purple .subject-card__grade-tag {
   background: #f0eeff;
-  color: #6C5CE7;
+  color: #6c5ce7;
 }
 
 .subject-card--pink .subject-card__grade-tag {
   background: #fdf0f6;
-  color: #E91E8C;
+  color: #e91e8c;
 }
 
 .subject-card__title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   margin-bottom: 10px;
 }
 
 .subject-card__title a {
-  color: #1B1464;
+  color: #1b1464;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.subject-card--purple:hover .subject-card__title a { color: #6C5CE7; }
-.subject-card--pink:hover .subject-card__title a { color: #E91E8C; }
-.subject-card--green:hover .subject-card__title a { color: #4A8B3F; }
+.subject-card--purple:hover .subject-card__title a {
+  color: #6c5ce7;
+}
+.subject-card--pink:hover .subject-card__title a {
+  color: #e91e8c;
+}
+.subject-card--green:hover .subject-card__title a {
+  color: #4a8b3f;
+}
 
 .subject-card__text {
-  font-size: 14px;
+  font-size: 15px;
   color: #666;
-  line-height: 1.65;
+  line-height: 1.7;
   margin-bottom: 18px;
   flex: 1;
 }
@@ -2987,7 +4277,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: #555;
 }
@@ -2997,19 +4287,25 @@ onBeforeUnmount(() => {
   color: #999;
 }
 
-.subject-card--purple .subject-stat i { color: #6C5CE7; }
-.subject-card--pink .subject-stat i { color: #E91E8C; }
-.subject-card--green .subject-stat i { color: #4A8B3F; }
+.subject-card--purple .subject-stat i {
+  color: #6c5ce7;
+}
+.subject-card--pink .subject-stat i {
+  color: #e91e8c;
+}
+.subject-card--green .subject-stat i {
+  color: #4a8b3f;
+}
 
 /* Link Button */
 .subject-card__link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  padding: 10px 22px;
+  padding: 11px 24px;
   border-radius: 10px;
   transition: all 0.3s ease;
   width: fit-content;
@@ -3025,29 +4321,29 @@ onBeforeUnmount(() => {
 }
 
 .subject-link--purple {
-  color: #6C5CE7;
+  color: #6c5ce7;
   background: #f0eeff;
 }
 .subject-link--purple:hover {
-  background: #6C5CE7;
+  background: #6c5ce7;
   color: #fff;
 }
 
 .subject-link--pink {
-  color: #E91E8C;
+  color: #e91e8c;
   background: #fdf0f6;
 }
 .subject-link--pink:hover {
-  background: #E91E8C;
+  background: #e91e8c;
   color: #fff;
 }
 
 .subject-link--green {
-  color: #4A8B3F;
+  color: #4a8b3f;
   background: #f0f7ee;
 }
 .subject-link--green:hover {
-  background: #4A8B3F;
+  background: #4a8b3f;
   color: #fff;
 }
 
