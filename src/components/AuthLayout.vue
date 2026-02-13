@@ -1,21 +1,23 @@
 <script setup>
+import authLogo from '@/assets/auth-logo.png'
+
 defineProps({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   subtitle: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    default: ''
+    default: '',
   },
   features: {
     type: Array,
-    default: () => []
-  }
+    default: () => [],
+  },
 })
 </script>
 
@@ -29,10 +31,10 @@ defineProps({
     </div>
 
     <div class="branding-content">
-      <h1 class="display-4 text-white fw-bold mb-4">
-        {{ title }}<br>
-        <span class="gradient-text-light">{{ subtitle }}</span>
+      <h1 class="display-4 text-white fw-bold mb-3">
+        {{ title }}
       </h1>
+      <img :src="authLogo" alt="Mind Growup Jr" class="auth-logo mb-4" />
 
       <p v-if="description" class="lead text-white opacity-90 mb-5">
         {{ description }}
@@ -56,7 +58,11 @@ defineProps({
 
       <!-- Custom Features -->
       <div v-else class="security-features">
-        <div v-for="(feature, index) in features" :key="index" class="feature-item">
+        <div
+          v-for="(feature, index) in features"
+          :key="index"
+          class="feature-item"
+        >
           <i :class="feature.icon"></i>
           <div>
             <strong>{{ feature.title }}</strong>
@@ -71,7 +77,7 @@ defineProps({
 <style scoped>
 /* Auth Branding */
 .auth-branding {
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
+  background: linear-gradient(135deg, #5ea750 0%, #7bc46a 100%);
   position: relative;
   overflow: hidden;
   padding: 60px;
@@ -85,11 +91,11 @@ defineProps({
   max-width: 600px;
 }
 
-.gradient-text-light {
-  background: linear-gradient(135deg, #FFE5B4, #FFDAB9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.auth-logo {
+  max-width: 240px;
+  height: auto;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 /* Stats Grid */
@@ -133,7 +139,7 @@ defineProps({
 
 .feature-item i {
   font-size: 28px;
-  color: #FFE5B4;
+  color: #ffe5b4;
   flex-shrink: 0;
   margin-top: 5px;
 }
@@ -193,8 +199,15 @@ defineProps({
 }
 
 @keyframes float {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(30px, -30px) rotate(120deg); }
-  66% { transform: translate(-20px, 20px) rotate(240deg); }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
 }
 </style>
