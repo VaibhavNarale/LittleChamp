@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 
 onMounted(async () => {
   await nextTick()
@@ -19,7 +22,12 @@ onBeforeUnmount(() => {
   <section class="about-hero-section">
     <div class="about-hero-bg">
       <div class="about-hero-particles">
-        <span v-for="n in 6" :key="n" class="particle" :style="{ animationDelay: `${n * 0.5}s` }"></span>
+        <span
+          v-for="n in 6"
+          :key="n"
+          class="particle"
+          :style="{ animationDelay: `${n * 0.5}s` }"
+        ></span>
       </div>
       <div class="container">
         <div class="about-hero-content">
@@ -45,7 +53,8 @@ onBeforeUnmount(() => {
 
           <!-- Hero Description -->
           <p class="about-hero-description">
-            We're on a mission to help 100 million kids fall in love with learning through play-based education
+            We're on a mission to help 100 million kids fall in love with
+            learning through play-based education
           </p>
         </div>
       </div>
@@ -53,8 +62,15 @@ onBeforeUnmount(() => {
 
     <!-- Wave Bottom -->
     <div class="hero-wave-bottom">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+      <svg
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#FFFFFF"
+        />
       </svg>
     </div>
   </section>
@@ -67,10 +83,16 @@ onBeforeUnmount(() => {
         <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
           <div class="mission-images">
             <div class="mission-img-main">
-              <img src="/assets/img/normal/square-1.png" alt="Kids learning with Mind Growup Jr">
+              <img
+                src="/assets/img/normal/square-1.png"
+                alt="Kids learning with Mind Growup Jr"
+              />
             </div>
             <div class="mission-img-small">
-              <img src="/assets/img/normal/square-2.png" alt="Interactive educational games">
+              <img
+                src="/assets/img/normal/square-2.png"
+                alt="Interactive educational games"
+              />
             </div>
             <div class="mission-badge">
               <span class="mission-badge-number">50M+</span>
@@ -84,8 +106,17 @@ onBeforeUnmount(() => {
               <i class="fas fa-star"></i>
               About Mind Growup Jr
             </span>
-            <h2 class="mission-title">Making Learning Fun Through <span class="title-highlight">Interactive Games</span></h2>
-            <p class="mission-desc">Mind Growup Jr is a leading educational technology platform that transforms how children learn. With over 4,000 interactive games covering Math, Reading, and Science for Pre-K through Grade 5, we make learning feel like play while delivering curriculum-aligned content that builds essential skills.</p>
+            <h2 class="mission-title">
+              Making Learning Fun Through
+              <span class="title-highlight">Interactive Games</span>
+            </h2>
+            <p class="mission-desc">
+              Mind Growup Jr is a leading educational technology platform that
+              transforms how children learn. With over 4,000 interactive games
+              covering Math, Reading, and Science for Pre-K through Grade 5, we
+              make learning feel like play while delivering curriculum-aligned
+              content that builds essential skills.
+            </p>
 
             <div class="mission-features">
               <div class="mission-feature">
@@ -94,7 +125,9 @@ onBeforeUnmount(() => {
                 </div>
                 <div>
                   <h4 class="feature-name">Play-Based Learning</h4>
-                  <p class="feature-desc">4000+ games that make education exciting</p>
+                  <p class="feature-desc">
+                    4000+ games that make education exciting
+                  </p>
                 </div>
               </div>
               <div class="mission-feature">
@@ -103,7 +136,9 @@ onBeforeUnmount(() => {
                 </div>
                 <div>
                   <h4 class="feature-name">AI-Powered Paths</h4>
-                  <p class="feature-desc">Personalized learning for every child</p>
+                  <p class="feature-desc">
+                    Personalized learning for every child
+                  </p>
                 </div>
               </div>
               <div class="mission-feature">
@@ -112,7 +147,9 @@ onBeforeUnmount(() => {
                 </div>
                 <div>
                   <h4 class="feature-name">Progress Tracking</h4>
-                  <p class="feature-desc">Real-time insights for parents & teachers</p>
+                  <p class="feature-desc">
+                    Real-time insights for parents & teachers
+                  </p>
                 </div>
               </div>
             </div>
@@ -134,8 +171,12 @@ onBeforeUnmount(() => {
       <div class="row g-4">
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="stat-card">
-            <div class="stat-icon stat-icon--green">
-              <i class="fas fa-users"></i>
+            <div class="stat-icon stat-icon--transparent">
+              <img
+                src="@/assets/kids-learning.png"
+                alt="Kids Learning"
+                class="stat-icon-img"
+              />
             </div>
             <h3 class="stat-number stat-number--green">50M+</h3>
             <p class="stat-label">Kids Learning</p>
@@ -144,8 +185,12 @@ onBeforeUnmount(() => {
         </div>
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
           <div class="stat-card">
-            <div class="stat-icon stat-icon--pink">
-              <i class="fas fa-gamepad"></i>
+            <div class="stat-icon stat-icon--transparent">
+              <img
+                src="@/assets/game-controllers.png"
+                alt="Interactive Games"
+                class="stat-icon-img"
+              />
             </div>
             <h3 class="stat-number stat-number--pink">4000+</h3>
             <p class="stat-label">Interactive Games</p>
@@ -154,8 +199,12 @@ onBeforeUnmount(() => {
         </div>
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="stat-card">
-            <div class="stat-icon stat-icon--navy">
-              <i class="fas fa-chalkboard-teacher"></i>
+            <div class="stat-icon stat-icon--transparent">
+              <img
+                src="@/assets/free-teachers.png"
+                alt="Teachers Trust Us"
+                class="stat-icon-img"
+              />
             </div>
             <h3 class="stat-number stat-number--navy">100K+</h3>
             <p class="stat-label">Teachers Trust Us</p>
@@ -164,8 +213,12 @@ onBeforeUnmount(() => {
         </div>
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
           <div class="stat-card">
-            <div class="stat-icon stat-icon--accent">
-              <i class="fas fa-globe-americas"></i>
+            <div class="stat-icon stat-icon--transparent">
+              <img
+                src="@/assets/countries-worldwide.png"
+                alt="Countries Worldwide"
+                class="stat-icon-img"
+              />
             </div>
             <h3 class="stat-number stat-number--accent">150+</h3>
             <p class="stat-label">Countries Worldwide</p>
@@ -185,62 +238,113 @@ onBeforeUnmount(() => {
           <i class="fas fa-rocket"></i>
           How It Works
         </span>
-        <h2 class="section-heading">Get Started in <span class="title-highlight">4 Simple Steps</span></h2>
+        <h2 class="section-heading">
+          Get Started in <span class="title-highlight">4 Simple Steps</span>
+        </h2>
       </div>
 
       <div class="steps-grid">
         <div class="step-card wow fadeInUp" data-wow-delay="0.1s">
           <div class="step-number">1</div>
-          <div class="step-icon-wrap step-icon--green">
-            <i class="fas fa-user-plus"></i>
+          <div class="step-icon-wrap step-icon--transparent">
+            <img
+              src="@/assets/signup-button.png"
+              alt="Sign Up Free"
+              class="step-icon-img"
+            />
           </div>
           <h3 class="step-title">Sign Up Free</h3>
-          <p class="step-desc">Create your account in seconds. No credit card required to start.</p>
+          <p class="step-desc">
+            Create your account in seconds. No credit card required to start.
+          </p>
         </div>
 
         <div class="step-connector">
           <svg width="80" height="2" viewBox="0 0 80 2">
-            <line x1="0" y1="1" x2="80" y2="1" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6 4"/>
+            <line
+              x1="0"
+              y1="1"
+              x2="80"
+              y2="1"
+              stroke="#E5E7EB"
+              stroke-width="2"
+              stroke-dasharray="6 4"
+            />
           </svg>
         </div>
 
         <div class="step-card wow fadeInUp" data-wow-delay="0.2s">
           <div class="step-number">2</div>
-          <div class="step-icon-wrap step-icon--pink">
-            <i class="fas fa-th-large"></i>
+          <div class="step-icon-wrap step-icon--transparent">
+            <img
+              src="@/assets/choose-grade.png"
+              alt="Choose Your Grade"
+              class="step-icon-img"
+            />
           </div>
           <h3 class="step-title">Choose Your Grade</h3>
-          <p class="step-desc">Select from Pre-K to Grade 5. Pick subjects that interest your child.</p>
+          <p class="step-desc">
+            Select from Pre-K to Grade 5. Pick subjects that interest your
+            child.
+          </p>
         </div>
 
         <div class="step-connector">
           <svg width="80" height="2" viewBox="0 0 80 2">
-            <line x1="0" y1="1" x2="80" y2="1" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6 4"/>
+            <line
+              x1="0"
+              y1="1"
+              x2="80"
+              y2="1"
+              stroke="#E5E7EB"
+              stroke-width="2"
+              stroke-dasharray="6 4"
+            />
           </svg>
         </div>
 
         <div class="step-card wow fadeInUp" data-wow-delay="0.3s">
           <div class="step-number">3</div>
-          <div class="step-icon-wrap step-icon--navy">
-            <i class="fas fa-play-circle"></i>
+          <div class="step-icon-wrap step-icon--transparent">
+            <img
+              src="@/assets/play-learn.png"
+              alt="Play & Learn"
+              class="step-icon-img"
+            />
           </div>
           <h3 class="step-title">Play & Learn</h3>
-          <p class="step-desc">Kids explore 4000+ games. AI adapts difficulty to their level.</p>
+          <p class="step-desc">
+            Kids explore 4000+ games. AI adapts difficulty to their level.
+          </p>
         </div>
 
         <div class="step-connector">
           <svg width="80" height="2" viewBox="0 0 80 2">
-            <line x1="0" y1="1" x2="80" y2="1" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6 4"/>
+            <line
+              x1="0"
+              y1="1"
+              x2="80"
+              y2="1"
+              stroke="#E5E7EB"
+              stroke-width="2"
+              stroke-dasharray="6 4"
+            />
           </svg>
         </div>
 
         <div class="step-card wow fadeInUp" data-wow-delay="0.4s">
           <div class="step-number">4</div>
-          <div class="step-icon-wrap step-icon--accent">
-            <i class="fas fa-chart-bar"></i>
+          <div class="step-icon-wrap step-icon--transparent">
+            <img
+              src="@/assets/track-progress.png"
+              alt="Track Progress"
+              class="step-icon-img step-icon-img--larger"
+            />
           </div>
           <h3 class="step-title">Track Progress</h3>
-          <p class="step-desc">Parents & teachers get real-time insights on learning growth.</p>
+          <p class="step-desc">
+            Parents & teachers get real-time insights on learning growth.
+          </p>
         </div>
       </div>
     </div>
@@ -257,8 +361,15 @@ onBeforeUnmount(() => {
               <i class="fas fa-comment-dots"></i>
               Parent Reviews
             </span>
-            <h2 class="testi-heading">What Parents & Teachers <span class="title-highlight">Say About Us</span></h2>
-            <p class="testi-desc">Discover how Mind Growup Jr is transforming learning for millions of families worldwide. Real stories from real parents about their children's progress.</p>
+            <h2 class="testi-heading">
+              What Parents & Teachers
+              <span class="title-highlight">Say About Us</span>
+            </h2>
+            <p class="testi-desc">
+              Discover how Mind Growup Jr is transforming learning for millions
+              of families worldwide. Real stories from real parents about their
+              children's progress.
+            </p>
             <router-link to="/pricing" class="mission-cta">
               Start Free Trial
               <i class="fas fa-arrow-right"></i>
@@ -267,7 +378,11 @@ onBeforeUnmount(() => {
         </div>
         <div class="col-lg-8">
           <div class="testi-slider-area">
-            <div class="row testi-slider vs-carousel" id="testi1" data-slide-show="2">
+            <div
+              id="testi1"
+              class="row testi-slider vs-carousel"
+              data-slide-show="2"
+            >
               <!-- Single Item -->
               <div class="col-md-6">
                 <div class="testi-card">
@@ -291,7 +406,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                   </div>
                   <h4 class="testi-card-title">My Daughter Loves Math Now!</h4>
-                  <p class="testi-card-text">My 7-year-old used to struggle with math, but since using Mind Jr, she's excited to practice every day. The games make learning fun and she's already ahead of her grade level!</p>
+                  <p class="testi-card-text">
+                    My 7-year-old used to struggle with math, but since using
+                    Mind Jr, she's excited to practice every day. The games make
+                    learning fun and she's already ahead of her grade level!
+                  </p>
                 </div>
               </div>
               <!-- Single Item -->
@@ -317,7 +436,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                   </div>
                   <h4 class="testi-card-title">Perfect for Homeschooling</h4>
-                  <p class="testi-card-text">As a homeschool parent, Mind Jr has been a game-changer. The curriculum-aligned content covers all subjects and my kids are learning while having fun. Worth every penny!</p>
+                  <p class="testi-card-text">
+                    As a homeschool parent, Mind Jr has been a game-changer. The
+                    curriculum-aligned content covers all subjects and my kids
+                    are learning while having fun. Worth every penny!
+                  </p>
                 </div>
               </div>
               <!-- Single Item -->
@@ -343,13 +466,28 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                   </div>
                   <h4 class="testi-card-title">Engaging & Educational</h4>
-                  <p class="testi-card-text">I use Mind Jr in my classroom and the kids absolutely love it. The progress tracking helps me identify areas where students need extra support. Highly recommend!</p>
+                  <p class="testi-card-text">
+                    I use Mind Jr in my classroom and the kids absolutely love
+                    it. The progress tracking helps me identify areas where
+                    students need extra support. Highly recommend!
+                  </p>
                 </div>
               </div>
-            </div> <!-- / Slider End -->
+            </div>
+            <!-- / Slider End -->
             <div class="vs-icon-box testi-1 d-none d-xl-block">
-              <button data-slick-prev="#testi1" class="icon-btn style-3 arrow-left mb-15"><i class="far fa-arrow-left"></i></button>
-              <button data-slick-next="#testi1" class="icon-btn style-3 arrow-right"><i class="far fa-arrow-right"></i></button>
+              <button
+                data-slick-prev="#testi1"
+                class="icon-btn style-3 arrow-left mb-15"
+              >
+                <i class="far fa-arrow-left"></i>
+              </button>
+              <button
+                data-slick-next="#testi1"
+                class="icon-btn style-3 arrow-right"
+              >
+                <i class="far fa-arrow-right"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -368,7 +506,7 @@ onBeforeUnmount(() => {
 
 .about-hero-bg {
   position: relative;
-  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #3a7a30 40%, #1b1464 100%);
   padding: 70px 0 80px;
   min-height: auto;
 }
@@ -389,16 +527,47 @@ onBeforeUnmount(() => {
   animation: float-particle 8s ease-in-out infinite;
 }
 
-.particle:nth-child(1) { top: 20%; left: 10%; }
-.particle:nth-child(2) { top: 60%; left: 25%; width: 8px; height: 8px; }
-.particle:nth-child(3) { top: 30%; left: 70%; }
-.particle:nth-child(4) { top: 70%; left: 80%; width: 4px; height: 4px; }
-.particle:nth-child(5) { top: 15%; left: 50%; width: 5px; height: 5px; }
-.particle:nth-child(6) { top: 80%; left: 45%; }
+.particle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+}
+.particle:nth-child(2) {
+  top: 60%;
+  left: 25%;
+  width: 8px;
+  height: 8px;
+}
+.particle:nth-child(3) {
+  top: 30%;
+  left: 70%;
+}
+.particle:nth-child(4) {
+  top: 70%;
+  left: 80%;
+  width: 4px;
+  height: 4px;
+}
+.particle:nth-child(5) {
+  top: 15%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+}
+.particle:nth-child(6) {
+  top: 80%;
+  left: 45%;
+}
 
 @keyframes float-particle {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
-  50% { transform: translateY(-30px) scale(1.5); opacity: 0.7; }
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.5);
+    opacity: 0.7;
+  }
 }
 
 .about-hero-content {
@@ -431,7 +600,7 @@ onBeforeUnmount(() => {
 }
 
 .breadcrumb-link:hover {
-  color: #FFE5B4;
+  color: #ffe5b4;
 }
 
 .modern-breadcrumb i {
@@ -460,7 +629,7 @@ onBeforeUnmount(() => {
 }
 
 .hero-badge i {
-  color: #FFE5B4;
+  color: #ffe5b4;
   font-size: 14px;
 }
 
@@ -482,7 +651,7 @@ onBeforeUnmount(() => {
 }
 
 .gradient-text-light {
-  background: linear-gradient(135deg, #FFE5B4, #FFDAB9);
+  background: linear-gradient(135deg, #ffe5b4, #ffdab9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -517,8 +686,13 @@ onBeforeUnmount(() => {
 }
 
 @keyframes float-badge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 /* ========== Section Tag (reusable) ========== */
@@ -531,7 +705,7 @@ onBeforeUnmount(() => {
   border-radius: 50px;
   font-size: 14px;
   font-weight: 600;
-  color: #4A8B3F;
+  color: #4a8b3f;
   margin-bottom: 16px;
 }
 
@@ -547,13 +721,13 @@ onBeforeUnmount(() => {
 .section-heading {
   font-size: 42px;
   font-weight: 800;
-  color: #1B1464;
+  color: #1b1464;
   line-height: 1.2;
   margin-bottom: 16px;
 }
 
 .title-highlight {
-  color: #E91E8C;
+  color: #e91e8c;
 }
 
 /* ========== Mission Section ========== */
@@ -601,7 +775,7 @@ onBeforeUnmount(() => {
   position: absolute;
   top: 0;
   left: 0;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   padding: 18px 24px;
   border-radius: 16px;
@@ -631,7 +805,7 @@ onBeforeUnmount(() => {
 .mission-title {
   font-size: 38px;
   font-weight: 800;
-  color: #1B1464;
+  color: #1b1464;
   line-height: 1.25;
   margin-bottom: 18px;
 }
@@ -639,7 +813,7 @@ onBeforeUnmount(() => {
 .mission-desc {
   font-size: 16px;
   line-height: 1.7;
-  color: #636E72;
+  color: #636e72;
   margin-bottom: 30px;
 }
 
@@ -669,29 +843,29 @@ onBeforeUnmount(() => {
 
 .feature-icon--green {
   background: rgba(74, 139, 63, 0.1);
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .feature-icon--pink {
   background: rgba(233, 30, 140, 0.1);
-  color: #E91E8C;
+  color: #e91e8c;
 }
 
 .feature-icon--navy {
   background: rgba(27, 20, 100, 0.1);
-  color: #1B1464;
+  color: #1b1464;
 }
 
 .feature-name {
   font-size: 16px;
   font-weight: 700;
-  color: #1B1464;
+  color: #1b1464;
   margin-bottom: 2px;
 }
 
 .feature-desc {
   font-size: 14px;
-  color: #636E72;
+  color: #636e72;
   margin: 0;
 }
 
@@ -700,7 +874,7 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 10px;
   padding: 14px 32px;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   border-radius: 50px;
   font-size: 15px;
@@ -736,7 +910,7 @@ onBeforeUnmount(() => {
   padding: 36px 28px;
   text-align: center;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  border: 1px solid #F0F0F0;
+  border: 1px solid #f0f0f0;
   transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
@@ -760,22 +934,36 @@ onBeforeUnmount(() => {
 
 .stat-icon--green {
   background: rgba(74, 139, 63, 0.1);
-  color: #4A8B3F !important;
+  color: #4a8b3f !important;
 }
 
 .stat-icon--pink {
   background: rgba(233, 30, 140, 0.1);
-  color: #E91E8C !important;
+  color: #e91e8c !important;
 }
 
 .stat-icon--navy {
   background: rgba(27, 20, 100, 0.1);
-  color: #1B1464 !important;
+  color: #1b1464 !important;
 }
 
 .stat-icon--accent {
   background: rgba(63, 53, 181, 0.1);
-  color: #3F35B5 !important;
+  color: #3f35b5 !important;
+}
+
+.stat-icon--transparent {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  width: 80px;
+  height: 80px;
+}
+
+.stat-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .stat-number {
@@ -785,15 +973,23 @@ onBeforeUnmount(() => {
   line-height: 1;
 }
 
-.stat-number--green { color: #4A8B3F !important; }
-.stat-number--pink { color: #E91E8C !important; }
-.stat-number--navy { color: #1B1464 !important; }
-.stat-number--accent { color: #3F35B5 !important; }
+.stat-number--green {
+  color: #4a8b3f !important;
+}
+.stat-number--pink {
+  color: #e91e8c !important;
+}
+.stat-number--navy {
+  color: #1b1464 !important;
+}
+.stat-number--accent {
+  color: #3f35b5 !important;
+}
 
 .stat-label {
   font-size: 14px;
   font-weight: 600;
-  color: #636E72 !important;
+  color: #636e72 !important;
   margin: 0 0 16px;
 }
 
@@ -804,15 +1000,23 @@ onBeforeUnmount(() => {
   margin: 0 auto;
 }
 
-.stat-bar--green { background: #4A8B3F; }
-.stat-bar--pink { background: #E91E8C; }
-.stat-bar--navy { background: #1B1464; }
-.stat-bar--accent { background: #3F35B5; }
+.stat-bar--green {
+  background: #4a8b3f;
+}
+.stat-bar--pink {
+  background: #e91e8c;
+}
+.stat-bar--navy {
+  background: #1b1464;
+}
+.stat-bar--accent {
+  background: #3f35b5;
+}
 
 /* ========== How It Works Section ========== */
 .how-it-works-section {
   padding: 80px 0;
-  background: #F8F9FC;
+  background: #f8f9fc;
 }
 
 .steps-grid {
@@ -840,7 +1044,7 @@ onBeforeUnmount(() => {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #1B1464;
+  background: #1b1464;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -864,34 +1068,55 @@ onBeforeUnmount(() => {
 
 .step-icon--green {
   background: rgba(74, 139, 63, 0.1);
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .step-icon--pink {
   background: rgba(233, 30, 140, 0.1);
-  color: #E91E8C;
+  color: #e91e8c;
 }
 
 .step-icon--navy {
   background: rgba(27, 20, 100, 0.1);
-  color: #1B1464;
+  color: #1b1464;
 }
 
 .step-icon--accent {
   background: rgba(63, 53, 181, 0.1);
-  color: #3F35B5;
+  color: #3f35b5;
+}
+
+.step-icon--transparent {
+  background: transparent;
+  box-shadow: none;
+  width: 100px;
+  height: 100px;
+  border-radius: 0;
+}
+
+.step-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.step-icon-img--larger {
+  width: 140%;
+  height: 140%;
+  margin-top: -15px;
+  margin-bottom: -5px;
 }
 
 .step-title {
   font-size: 18px;
   font-weight: 700;
-  color: #1B1464;
+  color: #1b1464;
   margin-bottom: 8px;
 }
 
 .step-desc {
   font-size: 14px;
-  color: #636E72;
+  color: #636e72;
   line-height: 1.6;
   margin: 0;
 }
@@ -914,14 +1139,14 @@ onBeforeUnmount(() => {
 .testi-heading {
   font-size: 36px;
   font-weight: 800;
-  color: #1B1464;
+  color: #1b1464;
   line-height: 1.25;
   margin-bottom: 16px;
 }
 
 .testi-desc {
   font-size: 15px;
-  color: #636E72;
+  color: #636e72;
   line-height: 1.7;
   margin-bottom: 28px;
 }
@@ -931,7 +1156,7 @@ onBeforeUnmount(() => {
   border-radius: 20px;
   padding: 28px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  border: 1px solid #F0F0F0;
+  border: 1px solid #f0f0f0;
   transition: all 0.3s ease;
   height: 100%;
 }
@@ -961,29 +1186,29 @@ onBeforeUnmount(() => {
 
 .testi-avatar--green {
   background: rgba(74, 139, 63, 0.1);
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .testi-avatar--pink {
   background: rgba(233, 30, 140, 0.1);
-  color: #E91E8C;
+  color: #e91e8c;
 }
 
 .testi-avatar--navy {
   background: rgba(27, 20, 100, 0.1);
-  color: #1B1464;
+  color: #1b1464;
 }
 
 .testi-name {
   font-size: 15px;
   font-weight: 700;
-  color: #1B1464;
+  color: #1b1464;
   margin: 0;
 }
 
 .testi-role {
   font-size: 13px;
-  color: #E91E8C;
+  color: #e91e8c;
   font-weight: 500;
 }
 
@@ -996,7 +1221,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-size: 14px;
 }
 
@@ -1007,20 +1232,20 @@ onBeforeUnmount(() => {
 }
 
 .testi-stars i {
-  color: #FFB800;
+  color: #ffb800;
   font-size: 13px;
 }
 
 .testi-card-title {
   font-size: 16px;
   font-weight: 700;
-  color: #1B1464;
+  color: #1b1464;
   margin-bottom: 8px;
 }
 
 .testi-card-text {
   font-size: 14px;
-  color: #636E72;
+  color: #636e72;
   line-height: 1.65;
   margin: 0;
 }

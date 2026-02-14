@@ -82,6 +82,17 @@ onBeforeUnmount(() => {
         }"
       ></span>
     </div>
+    <!-- Shining Stars -->
+    <div class="hero-stars">
+      <span class="hero-star hero-star--1">&#10022;</span>
+      <span class="hero-star hero-star--2">&#10022;</span>
+      <span class="hero-star hero-star--3">&#10022;</span>
+      <span class="hero-star hero-star--4">&#10022;</span>
+      <span class="hero-star hero-star--5">&#10022;</span>
+      <span class="hero-star hero-star--6">&#10022;</span>
+      <span class="hero-star hero-star--7">&#10022;</span>
+      <span class="hero-star hero-star--8">&#10022;</span>
+    </div>
 
     <div
       class="hero-slider1 vs-carousel"
@@ -523,8 +534,12 @@ onBeforeUnmount(() => {
         <!-- Feature 1: Interactive Games -->
         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="feature-card feature-card--pink">
-            <div class="feature-card__icon feature-icon--pink">
-              <i class="fas fa-gamepad"></i>
+            <div class="feature-card__icon feature-icon--transparent">
+              <img
+                src="@/assets/game-controllers.png"
+                alt="Interactive Games"
+                class="feature-icon-img"
+              />
             </div>
             <span class="feature-card__highlight highlight--pink">4000+</span>
             <h3 class="feature-card__title">4000+ Interactive Games</h3>
@@ -540,8 +555,12 @@ onBeforeUnmount(() => {
         <!-- Feature 2: Personalized Learning -->
         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
           <div class="feature-card feature-card--purple">
-            <div class="feature-card__icon feature-icon--purple">
-              <i class="fas fa-chart-line"></i>
+            <div class="feature-card__icon feature-icon--transparent">
+              <img
+                src="@/assets/personalized-learning.png"
+                alt="Personalized Learning"
+                class="feature-icon-img"
+              />
             </div>
             <span class="feature-card__highlight highlight--purple">AI</span>
             <h3 class="feature-card__title">Personalized Learning</h3>
@@ -557,8 +576,14 @@ onBeforeUnmount(() => {
         <!-- Feature 3: Progress Tracking -->
         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="feature-card feature-card--yellow">
-            <div class="feature-card__icon feature-icon--yellow">
-              <i class="fas fa-chart-pie"></i>
+            <div
+              class="feature-card__icon feature-icon--transparent feature-icon--larger"
+            >
+              <img
+                src="@/assets/progress-reports.png"
+                alt="Detailed Progress Reports"
+                class="feature-icon-img"
+              />
             </div>
             <span class="feature-card__highlight highlight--yellow">24/7</span>
             <h3 class="feature-card__title">Detailed Progress Reports</h3>
@@ -574,8 +599,14 @@ onBeforeUnmount(() => {
         <!-- Feature 4: Free for Teachers -->
         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
           <div class="feature-card feature-card--green">
-            <div class="feature-card__icon feature-icon--green">
-              <i class="fas fa-chalkboard-teacher"></i>
+            <div
+              class="feature-card__icon feature-icon--transparent feature-icon--teacher"
+            >
+              <img
+                src="@/assets/free-teachers.png"
+                alt="Free For Teachers"
+                class="feature-icon-img"
+              />
             </div>
             <span class="feature-card__highlight highlight--green">FREE</span>
             <h3 class="feature-card__title">Free For Teachers</h3>
@@ -1017,8 +1048,12 @@ onBeforeUnmount(() => {
       <div class="steps-grid">
         <div class="step-card wow fadeInUp" data-wow-delay="0.1s">
           <div class="step-number">1</div>
-          <div class="step-icon-wrap step-icon--green">
-            <i class="fas fa-user-plus"></i>
+          <div class="step-icon-wrap step-icon--transparent">
+            <img
+              src="@/assets/signup-button.png"
+              alt="Sign Up Free"
+              class="step-icon-img"
+            />
           </div>
           <h3 class="step-title">Sign Up Free</h3>
           <p class="step-desc">
@@ -1042,8 +1077,12 @@ onBeforeUnmount(() => {
 
         <div class="step-card wow fadeInUp" data-wow-delay="0.2s">
           <div class="step-number">2</div>
-          <div class="step-icon-wrap step-icon--pink">
-            <i class="fas fa-th-large"></i>
+          <div class="step-icon-wrap step-icon--transparent">
+            <img
+              src="@/assets/choose-grade.png"
+              alt="Choose Your Grade"
+              class="step-icon-img"
+            />
           </div>
           <h3 class="step-title">Choose Your Grade</h3>
           <p class="step-desc">
@@ -1068,8 +1107,12 @@ onBeforeUnmount(() => {
 
         <div class="step-card wow fadeInUp" data-wow-delay="0.3s">
           <div class="step-number">3</div>
-          <div class="step-icon-wrap step-icon--navy">
-            <i class="fas fa-play-circle"></i>
+          <div class="step-icon-wrap step-icon--transparent">
+            <img
+              src="@/assets/play-learn.png"
+              alt="Play & Learn"
+              class="step-icon-img"
+            />
           </div>
           <h3 class="step-title">Play & Learn</h3>
           <p class="step-desc">
@@ -1093,8 +1136,12 @@ onBeforeUnmount(() => {
 
         <div class="step-card wow fadeInUp" data-wow-delay="0.4s">
           <div class="step-number">4</div>
-          <div class="step-icon-wrap step-icon--accent">
-            <i class="fas fa-chart-bar"></i>
+          <div class="step-icon-wrap step-icon--transparent">
+            <img
+              src="@/assets/track-progress.png"
+              alt="Track Progress"
+              class="step-icon-img step-icon-img--larger"
+            />
           </div>
           <h3 class="step-title">Track Progress</h3>
           <p class="step-desc">
@@ -1112,6 +1159,68 @@ onBeforeUnmount(() => {
     </div>
   </section>
   <!--======== / How It Works Section ========-->
+
+  <!--======== Learning Journey Section ========-->
+  <section class="learning-journey-section">
+    <div class="container">
+      <div class="text-center mb-4 wow fadeInUp">
+        <h2 class="journey-title">
+          Make effective independent learning
+          <span class="journey-title-highlight">a reality</span>
+        </h2>
+        <p class="journey-subtitle">
+          The learning path is your child's personalized learning journey
+          divided into meaningful daily milestones.
+        </p>
+      </div>
+
+      <div
+        class="journey-visual-img text-center wow fadeInUp"
+        data-wow-delay="0.2s"
+      >
+        <img
+          src="@/assets/learning-path.webp"
+          alt="Learning Journey Path"
+          class="learning-path-img"
+        />
+      </div>
+
+      <!-- Benefits -->
+      <div
+        class="journey-benefits text-center wow fadeInUp"
+        data-wow-delay="0.3s"
+      >
+        <p class="journey-benefit">
+          <i class="fas fa-check-circle journey-benefit-icon"></i>
+          Saves the hassle of hunting for
+          <span class="benefit-highlight benefit-highlight--purple"
+            >learning plans</span
+          >
+        </p>
+        <p class="journey-benefit">
+          <i class="fas fa-check-circle journey-benefit-icon"></i>
+          <span class="benefit-highlight benefit-highlight--green">Adapts</span>
+          to your child's learning needs
+        </p>
+        <p class="journey-benefit">
+          <i class="fas fa-check-circle journey-benefit-icon"></i>
+          Leads to
+          <span class="benefit-highlight benefit-highlight--pink"
+            >curriculum mastery,</span
+          >
+          one day at a time
+        </p>
+      </div>
+    </div>
+
+    <!-- Floating decorations -->
+    <div class="journey-decoration journey-deco--star-1">&#9733;</div>
+    <div class="journey-decoration journey-deco--star-2">&#9733;</div>
+    <div class="journey-decoration journey-deco--dot-1"></div>
+    <div class="journey-decoration journey-deco--dot-2"></div>
+    <div class="journey-decoration journey-deco--dot-3"></div>
+  </section>
+  <!--======== / Learning Journey Section ========-->
 
   <!--======== Testimonials Section ========-->
   <section class="testimonials-section">
@@ -1532,33 +1641,54 @@ onBeforeUnmount(() => {
 .hero-particle {
   position: absolute;
   bottom: -20px;
-  width: 10px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.35);
+  width: 14px;
+  height: 14px;
+  background: #ff6b6b;
   border-radius: 50%;
   animation: heroParticleFloat 6s ease-in-out infinite;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
 }
 
 .hero-particle:nth-child(2n) {
-  width: 7px;
-  height: 7px;
-  background: rgba(255, 229, 180, 0.4);
-  box-shadow: 0 0 6px rgba(255, 229, 180, 0.3);
+  width: 10px;
+  height: 10px;
+  background: #ffd93d;
+  box-shadow: 0 0 8px rgba(255, 217, 61, 0.5);
 }
 
 .hero-particle:nth-child(3n) {
-  width: 14px;
-  height: 14px;
-  background: rgba(233, 30, 140, 0.25);
-  box-shadow: 0 0 8px rgba(233, 30, 140, 0.2);
+  width: 18px;
+  height: 18px;
+  background: #ff6fb7;
+  box-shadow: 0 0 10px rgba(255, 111, 183, 0.5);
+}
+
+.hero-particle:nth-child(4n) {
+  width: 12px;
+  height: 12px;
+  background: #4d96ff;
+  box-shadow: 0 0 8px rgba(77, 150, 255, 0.5);
 }
 
 .hero-particle:nth-child(5n) {
+  width: 20px;
+  height: 20px;
+  background: #6bcb77;
+  box-shadow: 0 0 12px rgba(107, 203, 119, 0.5);
+}
+
+.hero-particle:nth-child(6n) {
   width: 16px;
   height: 16px;
-  background: rgba(74, 139, 63, 0.22);
-  box-shadow: 0 0 10px rgba(74, 139, 63, 0.2);
+  background: #a66cff;
+  box-shadow: 0 0 10px rgba(166, 108, 255, 0.5);
+}
+
+.hero-particle:nth-child(7n) {
+  width: 11px;
+  height: 11px;
+  background: #5eead4;
+  box-shadow: 0 0 8px rgba(94, 234, 212, 0.5);
 }
 
 @keyframes heroParticleFloat {
@@ -1575,6 +1705,114 @@ onBeforeUnmount(() => {
     opacity: 0.5;
     transform: translateY(-85vh) scale(0.7);
   }
+}
+
+/* Shining Stars */
+.hero-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-star {
+  position: absolute;
+  opacity: 0;
+  animation: heroStarShine 3s ease-in-out infinite;
+}
+
+@keyframes heroStarShine {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.3) rotate(20deg);
+    text-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor;
+  }
+  40% {
+    opacity: 0.2;
+    transform: scale(0.7) rotate(-10deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2) rotate(15deg);
+    text-shadow:
+      0 0 15px currentColor,
+      0 0 30px currentColor;
+  }
+  80% {
+    opacity: 0.1;
+    transform: scale(0.6) rotate(-5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+}
+
+.hero-star--1 {
+  top: 12%;
+  left: 6%;
+  font-size: 18px;
+  animation-delay: 0s;
+  color: #ffd93d;
+}
+.hero-star--2 {
+  top: 28%;
+  left: 18%;
+  font-size: 24px;
+  animation-delay: 0.8s;
+  color: #ffffff;
+}
+.hero-star--3 {
+  top: 8%;
+  left: 38%;
+  font-size: 14px;
+  animation-delay: 1.5s;
+  color: #ff6fb7;
+}
+.hero-star--4 {
+  top: 48%;
+  left: 52%;
+  font-size: 22px;
+  animation-delay: 2.2s;
+  color: #ffd93d;
+}
+.hero-star--5 {
+  top: 18%;
+  left: 68%;
+  font-size: 20px;
+  animation-delay: 0.5s;
+  color: #ffffff;
+}
+.hero-star--6 {
+  top: 42%;
+  left: 82%;
+  font-size: 26px;
+  animation-delay: 1.8s;
+  color: #ffd93d;
+}
+.hero-star--7 {
+  top: 58%;
+  left: 10%;
+  font-size: 16px;
+  animation-delay: 3s;
+  color: #5eead4;
+}
+.hero-star--8 {
+  top: 32%;
+  left: 90%;
+  font-size: 15px;
+  animation-delay: 2.5s;
+  color: #ffffff;
 }
 
 /* Bottom Wave */
@@ -1821,6 +2059,23 @@ onBeforeUnmount(() => {
 
 .modern-btn.btn-outline:hover i {
   transform: translateX(4px);
+}
+
+.modern-btn.btn-image {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.modern-btn.btn-image:hover {
+  transform: translateY(-3px);
+}
+
+.signup-btn-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Trust Indicators */
@@ -3313,6 +3568,36 @@ onBeforeUnmount(() => {
 .feature-icon--green {
   background: linear-gradient(135deg, #34d399, #10b981);
 }
+.feature-icon--transparent {
+  background: transparent;
+  width: 120px;
+  height: 120px;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  overflow: visible;
+}
+
+.feature-icon--teacher {
+  width: 150px;
+  height: 150px;
+  margin-top: -20px;
+  margin-bottom: 0px;
+}
+
+.feature-icon--larger {
+  width: 140px;
+  height: 140px;
+  margin-top: -15px;
+  margin-bottom: 11px;
+}
+
+/* Feature icon image */
+.feature-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 /* Highlight keyword */
 .feature-card__highlight {
@@ -3384,6 +3669,11 @@ onBeforeUnmount(() => {
     border-radius: 16px;
   }
 
+  .feature-icon--transparent {
+    width: 120px;
+    height: 120px;
+  }
+
   .feature-card__icon i {
     font-size: 24px;
   }
@@ -3394,6 +3684,735 @@ onBeforeUnmount(() => {
 
   .feature-card__title {
     font-size: 16px;
+  }
+}
+
+/* ========================================
+   Learning Journey Section
+   ======================================== */
+.learning-journey-section {
+  padding: 80px 0 60px;
+  background: #fefcf8;
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #2d3436;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.journey-title-highlight {
+  background: linear-gradient(135deg, #ff6fb7, #a66cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.journey-subtitle {
+  font-size: 17px;
+  color: #636e72;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.journey-visual-img {
+  padding: 20px 0 40px;
+}
+
+.learning-path-img {
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Visual Journey Row */
+.journey-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 30px 0 50px;
+  position: relative;
+}
+
+.journey-path {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 55%;
+  width: 80%;
+  height: 8px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.journey-path-line {
+  stroke-dashoffset: 100;
+  animation: dashDraw 3s ease-in-out infinite alternate;
+}
+
+@keyframes dashDraw {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.journey-item {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+/* Mascot Character */
+.journey-character {
+  margin-right: 10px;
+}
+
+.journey-mascot {
+  position: relative;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mascot-flag {
+  background: #7c6ae8;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 4px;
+  animation: flagWave 2s ease-in-out infinite;
+  box-shadow: 0 3px 10px rgba(124, 106, 232, 0.3);
+}
+
+.mascot-flag::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #7c6ae8;
+}
+
+@keyframes flagWave {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.mascot-body {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ffd93d, #ffb830);
+  border-radius: 50% 50% 45% 45%;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(255, 184, 48, 0.4);
+  animation: mascotBounce 2s ease-in-out infinite;
+}
+
+@keyframes mascotBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.mascot-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.mascot-eyes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.mascot-eye {
+  width: 8px;
+  height: 8px;
+  background: #2d3436;
+  border-radius: 50%;
+  animation: blink 3s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+.mascot-mouth {
+  width: 14px;
+  height: 7px;
+  border-bottom: 3px solid #e17055;
+  border-radius: 0 0 10px 10px;
+  margin: 4px auto 0;
+}
+
+.mascot-hands {
+  position: absolute;
+  width: 100%;
+  top: 18px;
+}
+
+.mascot-hand {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #ffd93d;
+  border-radius: 50%;
+}
+
+.mascot-hand--left {
+  left: -6px;
+  animation: handWaveLeft 1.5s ease-in-out infinite;
+}
+
+.mascot-hand--right {
+  right: -6px;
+  animation: handWaveRight 1.5s ease-in-out infinite;
+}
+
+@keyframes handWaveLeft {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-20deg) translateY(-5px);
+  }
+}
+
+@keyframes handWaveRight {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(20deg) translateY(-5px);
+  }
+}
+
+.mascot-wagon {
+  position: relative;
+  margin-top: -2px;
+}
+
+.wagon-body {
+  width: 56px;
+  height: 22px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border-radius: 6px 6px 8px 8px;
+  margin: 0 auto;
+  box-shadow: 0 3px 10px rgba(238, 90, 36, 0.3);
+}
+
+.wagon-wheels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+  margin-top: -2px;
+}
+
+.wagon-wheel {
+  width: 14px;
+  height: 14px;
+  background: #ff9f43;
+  border-radius: 50%;
+  border: 2px solid #f8a540;
+  animation: wheelSpin 2s linear infinite;
+}
+
+@keyframes wheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Game Cards */
+.journey-card {
+  margin: 0 12px;
+}
+
+.journey-card-inner {
+  width: 140px;
+  height: 140px;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-card-inner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 60%
+  );
+  animation: cardShimmer 3s ease-in-out infinite;
+}
+
+@keyframes cardShimmer {
+  0%,
+  100% {
+    transform: translate(-30%, -30%);
+  }
+  50% {
+    transform: translate(10%, 10%);
+  }
+}
+
+.journey-card:hover .journey-card-inner {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.journey-card--purple .journey-card-inner {
+  background: linear-gradient(135deg, #7c6ae8, #5b4acf);
+}
+
+.journey-card--pink .journey-card-inner {
+  background: linear-gradient(135deg, #ff6fb7, #e84393);
+}
+
+.journey-card--green .journey-card-inner {
+  background: linear-gradient(135deg, #00d2a0, #00b894);
+}
+
+.journey-card-icon {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 6px;
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.journey-card-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.journey-card-numbers,
+.journey-card-characters,
+.journey-card-shapes {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.journey-card-numbers span,
+.journey-card-characters span {
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+}
+
+.shape {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.shape--circle {
+  background: #ffeaa7;
+  border-radius: 50%;
+}
+
+.shape--triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #74b9ff;
+  background: transparent;
+}
+
+.shape--square {
+  background: #ff7675;
+  border-radius: 4px;
+}
+
+/* Gift Box */
+.journey-gift {
+  margin-left: 10px;
+  position: relative;
+}
+
+.gift-box {
+  width: 60px;
+  animation: giftBounce 2s ease-in-out infinite;
+}
+
+@keyframes giftBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(3deg);
+  }
+}
+
+.gift-lid {
+  width: 64px;
+  height: 18px;
+  background: linear-gradient(135deg, #ff9ff3, #f368e0);
+  border-radius: 6px 6px 0 0;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 -2px 8px rgba(243, 104, 224, 0.3);
+}
+
+.gift-bow {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 12px;
+  background: #ff6b6b;
+  border-radius: 50% 50% 0 0;
+}
+
+.gift-bow::before,
+.gift-bow::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 10px;
+  background: #ff6b6b;
+  border-radius: 50%;
+  top: 2px;
+}
+
+.gift-bow::before {
+  left: -4px;
+}
+.gift-bow::after {
+  right: -4px;
+}
+
+.gift-body {
+  width: 56px;
+  height: 40px;
+  background: linear-gradient(135deg, #ffb8e0, #ff9ff3);
+  border-radius: 0 0 8px 8px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 6px 15px rgba(255, 159, 243, 0.3);
+}
+
+.gift-body::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.gift-sparkles {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+}
+
+.sparkle {
+  position: absolute;
+  color: #ffd93d;
+  animation: sparkleShine 2s ease-in-out infinite;
+}
+
+.sparkle--1 {
+  top: 0;
+  left: 10%;
+  font-size: 14px;
+  animation-delay: 0s;
+}
+.sparkle--2 {
+  top: -5px;
+  right: 10%;
+  font-size: 10px;
+  animation-delay: 0.7s;
+}
+.sparkle--3 {
+  top: 15px;
+  left: 50%;
+  font-size: 12px;
+  animation-delay: 1.4s;
+}
+
+@keyframes sparkleShine {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    text-shadow: 0 0 8px #ffd93d;
+  }
+}
+
+/* Benefits */
+.journey-benefits {
+  padding-top: 20px;
+}
+
+.journey-benefit {
+  font-size: 17px;
+  color: #2d3436;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.journey-benefit-icon {
+  color: #00b894;
+  font-size: 18px;
+}
+
+.benefit-highlight {
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.benefit-highlight--purple {
+  background: rgba(124, 106, 232, 0.12);
+  color: #7c6ae8;
+  text-decoration: underline;
+  text-decoration-color: #7c6ae8;
+  text-underline-offset: 3px;
+}
+
+.benefit-highlight--green {
+  background: rgba(0, 184, 148, 0.12);
+  color: #00b894;
+  text-decoration: underline;
+  text-decoration-color: #00b894;
+  text-underline-offset: 3px;
+}
+
+.benefit-highlight--pink {
+  background: rgba(233, 30, 140, 0.12);
+  color: #e91e8c;
+  text-decoration: underline;
+  text-decoration-color: #e91e8c;
+  text-underline-offset: 3px;
+}
+
+/* Floating Decorations */
+.journey-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.journey-deco--star-1 {
+  top: 15%;
+  left: 5%;
+  font-size: 24px;
+  color: #ffd93d;
+  animation: decoFloat 4s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+.journey-deco--star-2 {
+  bottom: 20%;
+  right: 5%;
+  font-size: 18px;
+  color: #ff6fb7;
+  animation: decoFloat 5s ease-in-out infinite;
+  animation-delay: 1s;
+  opacity: 0.4;
+}
+
+.journey-deco--dot-1 {
+  top: 25%;
+  right: 8%;
+  width: 12px;
+  height: 12px;
+  background: #a66cff;
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: decoFloat 3.5s ease-in-out infinite;
+}
+
+.journey-deco--dot-2 {
+  bottom: 30%;
+  left: 8%;
+  width: 8px;
+  height: 8px;
+  background: #00b894;
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: decoFloat 4.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.journey-deco--dot-3 {
+  top: 50%;
+  left: 3%;
+  width: 16px;
+  height: 16px;
+  background: #ffb830;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: decoFloat 5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes decoFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(10deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .journey-title {
+    font-size: 32px;
+  }
+  .journey-visual {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0 40px;
+  }
+  .journey-path {
+    display: none;
+  }
+  .journey-card-inner {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .learning-journey-section {
+    padding: 50px 0 40px;
+  }
+  .journey-title {
+    font-size: 26px;
+  }
+  .journey-subtitle {
+    font-size: 15px;
+  }
+  .journey-visual {
+    gap: 15px;
+  }
+  .journey-card-inner {
+    width: 100px;
+    height: 100px;
+  }
+  .journey-card-icon {
+    font-size: 22px;
+  }
+  .journey-card-numbers span,
+  .journey-card-characters span {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+  .journey-benefit {
+    font-size: 14px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .journey-character {
+    display: none;
+  }
+  .journey-gift .gift-box {
+    width: 45px;
+  }
+  .gift-lid {
+    width: 50px;
+    height: 14px;
+  }
+  .gift-body {
+    width: 42px;
+    height: 30px;
   }
 }
 
@@ -3677,6 +4696,27 @@ onBeforeUnmount(() => {
 .step-icon--accent {
   background: rgba(63, 53, 181, 0.1);
   color: #3f35b5;
+}
+
+.step-icon--transparent {
+  background: transparent;
+  box-shadow: none;
+  width: 100px;
+  height: 100px;
+  border-radius: 0;
+}
+
+.step-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.step-icon-img--larger {
+  width: 140%;
+  height: 140%;
+  margin-top: -15px;
+  margin-bottom: -5px;
 }
 
 .step-title {

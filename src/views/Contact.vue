@@ -530,7 +530,7 @@ onBeforeUnmount(() => {
 }
 
 .brand-mind {
-  color: #4a8b3f;
+  color: white;
   font-weight: 800;
 }
 .brand-growup {
@@ -538,7 +538,7 @@ onBeforeUnmount(() => {
   font-weight: 800;
 }
 .brand-jr {
-  color: #e91e8c;
+  color: white;
   font-weight: 800;
 }
 

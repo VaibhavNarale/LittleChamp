@@ -1,6 +1,9 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 
 const activeGrade = ref('all')
 
@@ -26,12 +29,72 @@ onBeforeUnmount(() => {
     <div class="subjects-hero-bg">
       <!-- Floating Particles -->
       <div class="hero-particles">
-        <span class="particle" style="left: 8%; top: 20%; width: 10px; height: 10px; animation-delay: 0s; animation-duration: 7s;"></span>
-        <span class="particle" style="left: 85%; top: 30%; width: 8px; height: 8px; animation-delay: 1.5s; animation-duration: 9s;"></span>
-        <span class="particle" style="left: 25%; top: 65%; width: 12px; height: 12px; animation-delay: 3s; animation-duration: 8s;"></span>
-        <span class="particle" style="left: 70%; top: 15%; width: 7px; height: 7px; animation-delay: 2s; animation-duration: 10s;"></span>
-        <span class="particle" style="left: 50%; top: 75%; width: 9px; height: 9px; animation-delay: 4s; animation-duration: 7.5s;"></span>
-        <span class="particle" style="left: 92%; top: 55%; width: 11px; height: 11px; animation-delay: 1s; animation-duration: 8.5s;"></span>
+        <span
+          class="particle"
+          style="
+            left: 8%;
+            top: 20%;
+            width: 10px;
+            height: 10px;
+            animation-delay: 0s;
+            animation-duration: 7s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 85%;
+            top: 30%;
+            width: 8px;
+            height: 8px;
+            animation-delay: 1.5s;
+            animation-duration: 9s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 25%;
+            top: 65%;
+            width: 12px;
+            height: 12px;
+            animation-delay: 3s;
+            animation-duration: 8s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 70%;
+            top: 15%;
+            width: 7px;
+            height: 7px;
+            animation-delay: 2s;
+            animation-duration: 10s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 50%;
+            top: 75%;
+            width: 9px;
+            height: 9px;
+            animation-delay: 4s;
+            animation-duration: 7.5s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 92%;
+            top: 55%;
+            width: 11px;
+            height: 11px;
+            animation-delay: 1s;
+            animation-duration: 8.5s;
+          "
+        ></span>
       </div>
 
       <div class="container">
@@ -57,7 +120,8 @@ onBeforeUnmount(() => {
 
           <!-- Hero Description -->
           <p class="subjects-hero-description">
-            Curriculum-aligned content for Pre-K through Grade 5 • 4000+ Games • 10,000+ Worksheets
+            Curriculum-aligned content for Pre-K through Grade 5 • 4000+ Games •
+            10,000+ Worksheets
           </p>
         </div>
       </div>
@@ -65,8 +129,15 @@ onBeforeUnmount(() => {
 
     <!-- Wave Bottom -->
     <div class="hero-wave-bottom">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+      <svg
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#FFFFFF"
+        />
       </svg>
     </div>
   </section>
@@ -75,65 +146,38 @@ onBeforeUnmount(() => {
   <!--======== Subjects Section ========-->
   <section class="space-top">
     <div class="container">
-
       <!--  Grade Selector Pills -->
       <div class="text-center mb-50 wow fadeInUp" data-wow-delay="0.2s">
-        <div class="grade-pills d-inline-flex flex-wrap gap-2 bg-white p-3 rounded-pill shadow-sm">
+        <div
+          class="grade-pills d-inline-flex flex-wrap gap-2 bg-white p-3 rounded-pill shadow-sm"
+        >
           <button
             class="grade-pill"
-            :class="{ 'active': activeGrade === 'all' }"
+            :class="{ active: activeGrade === 'all' }"
             @click="gradeFilter('all')"
           >
             All Grades
           </button>
           <button
             class="grade-pill"
-            :class="{ 'active': activeGrade === 'prek' }"
-            @click="gradeFilter('prek')"
+            :class="{ active: activeGrade === '3-6' }"
+            @click="gradeFilter('3-6')"
           >
-            Pre-K
+            3 to 6
           </button>
           <button
             class="grade-pill"
-            :class="{ 'active': activeGrade === 'k' }"
-            @click="gradeFilter('k')"
+            :class="{ active: activeGrade === '7-8' }"
+            @click="gradeFilter('7-8')"
           >
-            K
+            7 and 8
           </button>
           <button
             class="grade-pill"
-            :class="{ 'active': activeGrade === '1' }"
-            @click="gradeFilter('1')"
+            :class="{ active: activeGrade === '8-12' }"
+            @click="gradeFilter('8-12')"
           >
-            1st
-          </button>
-          <button
-            class="grade-pill"
-            :class="{ 'active': activeGrade === '2' }"
-            @click="gradeFilter('2')"
-          >
-            2nd
-          </button>
-          <button
-            class="grade-pill"
-            :class="{ 'active': activeGrade === '3' }"
-            @click="gradeFilter('3')"
-          >
-            3rd
-          </button>
-          <button
-            class="grade-pill"
-            :class="{ 'active': activeGrade === '4' }"
-            @click="gradeFilter('4')"
-          >
-            4th
-          </button>
-          <button
-            class="grade-pill"
-            :class="{ 'active': activeGrade === '5' }"
-            @click="gradeFilter('5')"
-          >
-            5th
+            8 to 12
           </button>
         </div>
       </div>
@@ -147,11 +191,18 @@ onBeforeUnmount(() => {
         <div class="row align-items-center gy-40">
           <div class="col-lg-5">
             <div class="subject-header">
-              <div class="subject-icon-large mb-4" style="background: linear-gradient(135deg, #6C5CE7, #5EA750);">
-                <i class="fas fa-calculator fa-4x text-white"></i>
+              <div class="subject-icon-large subject-icon-img-wrap mb-4">
+                <img
+                  src="@/assets/math-icon.png"
+                  alt="Mathematics"
+                  class="subject-icon-img"
+                />
               </div>
               <h2 class="sec-title mb-3">Mathematics</h2>
-              <p class="fs-md mb-3">Build number sense, master arithmetic, explore geometry, and solve real-world problems through engaging games and activities.</p>
+              <p class="fs-md mb-3">
+                Build number sense, master arithmetic, explore geometry, and
+                solve real-world problems through engaging games and activities.
+              </p>
               <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                 <div class="meta-badge">
                   <i class="fas fa-gamepad text-primary"></i>
@@ -180,7 +231,7 @@ onBeforeUnmount(() => {
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #6C5CE7;">
+                    <div class="topic-icon" style="background: #6c5ce7">
                       <i class="fas fa-hashtag text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -191,7 +242,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #6C5CE7;">
+                    <div class="topic-icon" style="background: #6c5ce7">
                       <i class="fas fa-plus text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -202,7 +253,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #6C5CE7;">
+                    <div class="topic-icon" style="background: #6c5ce7">
                       <i class="fas fa-minus text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -213,7 +264,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #6C5CE7;">
+                    <div class="topic-icon" style="background: #6c5ce7">
                       <i class="fas fa-times text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -224,7 +275,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #6C5CE7;">
+                    <div class="topic-icon" style="background: #6c5ce7">
                       <i class="fas fa-divide text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -235,7 +286,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #6C5CE7;">
+                    <div class="topic-icon" style="background: #6c5ce7">
                       <i class="fas fa-shapes text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -246,7 +297,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #6C5CE7;">
+                    <div class="topic-icon" style="background: #6c5ce7">
                       <i class="fas fa-percentage text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -257,7 +308,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #6C5CE7;">
+                    <div class="topic-icon" style="background: #6c5ce7">
                       <i class="fas fa-question-circle text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -288,11 +339,18 @@ onBeforeUnmount(() => {
         <div class="row align-items-center flex-row-reverse gy-40">
           <div class="col-lg-5">
             <div class="subject-header">
-              <div class="subject-icon-large mb-4" style="background: linear-gradient(135deg, #FD79A8, #E84393);">
-                <i class="fas fa-book-open fa-4x text-white"></i>
+              <div class="subject-icon-large subject-icon-img-wrap mb-4">
+                <img
+                  src="@/assets/reading-icon.png"
+                  alt="Reading & ELA"
+                  class="subject-icon-img"
+                />
               </div>
               <h2 class="sec-title mb-3">Reading & ELA</h2>
-              <p class="fs-md mb-3">Develop phonics, vocabulary, reading comprehension, grammar, and writing skills through interactive stories and activities.</p>
+              <p class="fs-md mb-3">
+                Develop phonics, vocabulary, reading comprehension, grammar, and
+                writing skills through interactive stories and activities.
+              </p>
               <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                 <div class="meta-badge">
                   <i class="fas fa-gamepad text-primary"></i>
@@ -321,7 +379,7 @@ onBeforeUnmount(() => {
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #FD79A8;">
+                    <div class="topic-icon" style="background: #fd79a8">
                       <i class="fas fa-font text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -332,7 +390,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #FD79A8;">
+                    <div class="topic-icon" style="background: #fd79a8">
                       <i class="fas fa-spell-check text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -343,7 +401,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #FD79A8;">
+                    <div class="topic-icon" style="background: #fd79a8">
                       <i class="fas fa-book-reader text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -354,7 +412,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #FD79A8;">
+                    <div class="topic-icon" style="background: #fd79a8">
                       <i class="fas fa-language text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -365,7 +423,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #FD79A8;">
+                    <div class="topic-icon" style="background: #fd79a8">
                       <i class="fas fa-grammar text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -376,7 +434,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #FD79A8;">
+                    <div class="topic-icon" style="background: #fd79a8">
                       <i class="fas fa-pen-fancy text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -387,7 +445,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #FD79A8;">
+                    <div class="topic-icon" style="background: #fd79a8">
                       <i class="fas fa-comment-dots text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -398,7 +456,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #FD79A8;">
+                    <div class="topic-icon" style="background: #fd79a8">
                       <i class="fas fa-quote-left text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -429,11 +487,19 @@ onBeforeUnmount(() => {
         <div class="row align-items-center gy-40">
           <div class="col-lg-5">
             <div class="subject-header">
-              <div class="subject-icon-large mb-4" style="background: linear-gradient(135deg, #00B894, #00D2A0);">
-                <i class="fas fa-flask fa-4x text-white"></i>
+              <div class="subject-icon-large subject-icon-img-wrap mb-4">
+                <img
+                  src="@/assets/science-icon.png"
+                  alt="Science"
+                  class="subject-icon-img"
+                />
               </div>
               <h2 class="sec-title mb-3">Science</h2>
-              <p class="fs-md mb-3">Discover the wonders of the natural world through experiments, observations, and interactive science games covering biology, physics, and earth science.</p>
+              <p class="fs-md mb-3">
+                Discover the wonders of the natural world through experiments,
+                observations, and interactive science games covering biology,
+                physics, and earth science.
+              </p>
               <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                 <div class="meta-badge">
                   <i class="fas fa-gamepad text-primary"></i>
@@ -462,7 +528,7 @@ onBeforeUnmount(() => {
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #00B894;">
+                    <div class="topic-icon" style="background: #00b894">
                       <i class="fas fa-paw text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -473,7 +539,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #00B894;">
+                    <div class="topic-icon" style="background: #00b894">
                       <i class="fas fa-seedling text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -484,7 +550,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #00B894;">
+                    <div class="topic-icon" style="background: #00b894">
                       <i class="fas fa-cloud-sun-rain text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -495,7 +561,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #00B894;">
+                    <div class="topic-icon" style="background: #00b894">
                       <i class="fas fa-globe-americas text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -506,7 +572,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #00B894;">
+                    <div class="topic-icon" style="background: #00b894">
                       <i class="fas fa-atom text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -517,7 +583,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="col-md-6">
                   <div class="topic-item">
-                    <div class="topic-icon" style="background: #00B894;">
+                    <div class="topic-icon" style="background: #00b894">
                       <i class="fas fa-microscope text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -542,20 +608,31 @@ onBeforeUnmount(() => {
   </section>
 
   <!--======== CTA Section ========-->
-  <section class="cta-section space-shape-plus" data-bg-src="/assets/img/bg/cta-4.jpg" data-opacity="8" data-overlay="custom">
+  <section
+    class="cta-section space-shape-plus"
+    data-bg-src="/assets/img/bg/cta-4.jpg"
+    data-opacity="8"
+    data-overlay="custom"
+  >
     <div class="container text-center z-index-common">
       <div class="title-area mb-35 wow fadeInUp" data-wow-delay="0.1s">
         <span class="sub-title text-white">Start Learning Today</span>
         <h2 class="sec-title text-white">Ready to Help Your Child Excel?</h2>
-        <p class="text-white fs-md mt-3">Join 50M+ kids learning through play</p>
+        <p class="text-white fs-md mt-3">
+          Join 50M+ kids learning through play
+        </p>
       </div>
       <router-link to="/pricing" class="vs-btn wave-btn">
         View Pricing Plans
         <i class="fas fa-arrow-right ms-2"></i>
       </router-link>
     </div>
-    <div class="section-before style-2"><img src="/assets/img/shape/main-shape-before.png" alt="shape"></div>
-    <div class="section-after style-2"><img src="/assets/img/shape/main-shape-after.png" alt="shape"></div>
+    <div class="section-before style-2">
+      <img src="/assets/img/shape/main-shape-before.png" alt="shape" />
+    </div>
+    <div class="section-after style-2">
+      <img src="/assets/img/shape/main-shape-after.png" alt="shape" />
+    </div>
   </section>
 </template>
 
@@ -567,26 +644,26 @@ onBeforeUnmount(() => {
 
 .grade-pill {
   padding: 10px 20px;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   background: white;
   border-radius: 25px;
   font-weight: 600;
-  color: #636E72;
+  color: #636e72;
   cursor: pointer;
   transition: all 0.3s;
   font-size: 15px;
 }
 
 .grade-pill:hover {
-  border-color: #4A8B3F;
-  color: #4A8B3F;
+  border-color: #4a8b3f;
+  color: #4a8b3f;
   transform: translateY(-2px);
 }
 
 .grade-pill.active {
-  background: linear-gradient(135deg, #4A8B3F, #3A7032);
+  background: linear-gradient(135deg, #4a8b3f, #3a7032);
   color: white;
-  border-color: #4A8B3F;
+  border-color: #4a8b3f;
 }
 
 /* Subject Card Large */
@@ -594,7 +671,7 @@ onBeforeUnmount(() => {
   background: white;
   padding: 50px 40px;
   border-radius: 24px;
-  box-shadow: 0 15px 60px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
 }
 
 .subject-icon-large {
@@ -604,22 +681,35 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.subject-icon-img-wrap {
+  background: transparent !important;
+  box-shadow: none;
+  border-radius: 0;
+  width: 140px;
+  height: 140px;
+}
+
+.subject-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .subject-meta {
-
 }
 
 .meta-badge {
-  background: #F7F8FA;
+  background: #f7f8fa;
   padding: 10px 20px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .meta-badge i {
@@ -641,27 +731,26 @@ onBeforeUnmount(() => {
 }
 
 .badge-pill.beginner {
-  background: #D4EDDA;
+  background: #d4edda;
   color: #155724;
 }
 
 .badge-pill.intermediate {
-  background: #FFF3CD;
+  background: #fff3cd;
   color: #856404;
 }
 
 .badge-pill.advanced {
-  background: #F8D7DA;
-  color: #721C24;
+  background: #f8d7da;
+  color: #721c24;
 }
 
 /* Topic Grid */
 .topic-grid {
-
 }
 
 .topic-item {
-  background: #F7F8FA;
+  background: #f7f8fa;
   padding: 15px;
   border-radius: 12px;
   display: flex;
@@ -671,7 +760,7 @@ onBeforeUnmount(() => {
 }
 
 .topic-item:hover {
-  background: #ECEDF0;
+  background: #ecedf0;
   transform: translateX(5px);
 }
 
@@ -688,7 +777,7 @@ onBeforeUnmount(() => {
 .topic-info h6 {
   margin: 0;
   font-weight: 700;
-  color: #2D3436;
+  color: #2d3436;
   font-size: 15px;
 }
 
@@ -716,7 +805,7 @@ onBeforeUnmount(() => {
 
 .subjects-hero-bg {
   position: relative;
-  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #3a7a30 40%, #1b1464 100%);
   padding: 70px 0 80px;
 }
 
@@ -747,9 +836,18 @@ onBeforeUnmount(() => {
 }
 
 @keyframes float-particle {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
-  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.4; }
-  100% { transform: translateY(0) rotate(360deg); opacity: 0.25; }
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+    opacity: 0.25;
+  }
 }
 
 /* Breadcrumb */
@@ -774,7 +872,7 @@ onBeforeUnmount(() => {
 }
 
 .breadcrumb-link:hover {
-  color: #FFE5B4;
+  color: #ffe5b4;
 }
 
 .modern-breadcrumb i {
@@ -803,7 +901,7 @@ onBeforeUnmount(() => {
 }
 
 .hero-badge i {
-  color: #FFE5B4;
+  color: #ffe5b4;
   font-size: 14px;
 }
 
@@ -825,7 +923,7 @@ onBeforeUnmount(() => {
 }
 
 .gradient-text-light {
-  background: linear-gradient(135deg, #FFE5B4, #FFDAB9);
+  background: linear-gradient(135deg, #ffe5b4, #ffdab9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -861,8 +959,13 @@ onBeforeUnmount(() => {
 
 /* Animations */
 @keyframes float-badge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 /* Responsive */

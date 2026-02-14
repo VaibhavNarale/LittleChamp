@@ -1,7 +1,9 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
-
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 
 // Billing toggle state
 const isYearly = ref(true)
@@ -31,12 +33,72 @@ onBeforeUnmount(() => {
     <div class="pricing-hero-bg">
       <!-- Floating Particles -->
       <div class="hero-particles">
-        <span class="particle" style="left: 8%; top: 20%; width: 10px; height: 10px; animation-delay: 0s; animation-duration: 7s;"></span>
-        <span class="particle" style="left: 85%; top: 30%; width: 8px; height: 8px; animation-delay: 1.5s; animation-duration: 9s;"></span>
-        <span class="particle" style="left: 25%; top: 65%; width: 12px; height: 12px; animation-delay: 3s; animation-duration: 8s;"></span>
-        <span class="particle" style="left: 70%; top: 15%; width: 7px; height: 7px; animation-delay: 2s; animation-duration: 10s;"></span>
-        <span class="particle" style="left: 50%; top: 75%; width: 9px; height: 9px; animation-delay: 4s; animation-duration: 7.5s;"></span>
-        <span class="particle" style="left: 92%; top: 55%; width: 11px; height: 11px; animation-delay: 1s; animation-duration: 8.5s;"></span>
+        <span
+          class="particle"
+          style="
+            left: 8%;
+            top: 20%;
+            width: 10px;
+            height: 10px;
+            animation-delay: 0s;
+            animation-duration: 7s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 85%;
+            top: 30%;
+            width: 8px;
+            height: 8px;
+            animation-delay: 1.5s;
+            animation-duration: 9s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 25%;
+            top: 65%;
+            width: 12px;
+            height: 12px;
+            animation-delay: 3s;
+            animation-duration: 8s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 70%;
+            top: 15%;
+            width: 7px;
+            height: 7px;
+            animation-delay: 2s;
+            animation-duration: 10s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 50%;
+            top: 75%;
+            width: 9px;
+            height: 9px;
+            animation-delay: 4s;
+            animation-duration: 7.5s;
+          "
+        ></span>
+        <span
+          class="particle"
+          style="
+            left: 92%;
+            top: 55%;
+            width: 11px;
+            height: 11px;
+            animation-delay: 1s;
+            animation-duration: 8.5s;
+          "
+        ></span>
       </div>
 
       <div class="container">
@@ -56,22 +118,25 @@ onBeforeUnmount(() => {
 
           <!-- Hero Description -->
           <p class="pricing-hero-description">
-            Flexible pricing for families, teachers, and schools. No hidden fees, cancel anytime.
+            Flexible pricing for families, teachers, and schools. No hidden
+            fees, cancel anytime.
           </p>
 
           <!-- Billing Toggle -->
           <div class="hero-billing-toggle">
-            <div class="billing-toggle d-inline-flex align-items-center gap-3 p-2 rounded-pill">
+            <div
+              class="billing-toggle d-inline-flex align-items-center gap-3 p-2 rounded-pill"
+            >
               <button
                 class="billing-option"
-                :class="{ 'active': !isYearly }"
+                :class="{ active: !isYearly }"
                 @click="isYearly = false"
               >
                 Monthly
               </button>
               <button
                 class="billing-option"
-                :class="{ 'active': isYearly }"
+                :class="{ active: isYearly }"
                 @click="isYearly = true"
               >
                 <span>Yearly</span>
@@ -85,8 +150,15 @@ onBeforeUnmount(() => {
 
     <!-- Wave Bottom -->
     <div class="hero-wave-bottom">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+      <svg
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#FFFFFF"
+        />
       </svg>
     </div>
   </section>
@@ -96,13 +168,15 @@ onBeforeUnmount(() => {
   <section class="space-extra-bottom mt-12">
     <div class="container">
       <div class="row gy-40 justify-content-center">
-
         <!-- Free Trial Card -->
-        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
+          data-wow-delay="0.1s"
+        >
           <div class="pricing-card">
             <div class="pricing-card-header">
               <div class="plan-icon mb-3">
-                <i class="fas fa-gift fa-2x" style="color: #FFB800;"></i>
+                <i class="fas fa-gift fa-2x" style="color: #ffb800"></i>
               </div>
               <h3 class="plan-title">Free Trial</h3>
               <p class="plan-subtitle">Try before you buy</p>
@@ -140,18 +214,23 @@ onBeforeUnmount(() => {
             <a href="/register?trial=true" class="vs-btn w-100">
               Start Free Trial
             </a>
-            <p class="trial-note text-center mt-3 small">No credit card required</p>
+            <p class="trial-note text-center mt-3 small">
+              No credit card required
+            </p>
           </div>
         </div>
 
         <!-- For Parents Card (Featured) -->
-        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
+          data-wow-delay="0.2s"
+        >
           <div class="pricing-card featured">
             <div class="popular-badge">Most Popular</div>
 
             <div class="pricing-card-header">
               <div class="plan-icon mb-3">
-                <i class="fas fa-users fa-2x" style="color: #4A8B3F;"></i>
+                <i class="fas fa-users fa-2x" style="color: #4a8b3f"></i>
               </div>
               <h3 class="plan-title">For Parents</h3>
               <p class="plan-subtitle">Perfect for families</p>
@@ -198,18 +277,26 @@ onBeforeUnmount(() => {
               Start 7-Day Free Trial
               <i class="fas fa-arrow-right ms-2"></i>
             </a>
-            <p class="trial-note text-center mt-3 small">No credit card required</p>
+            <p class="trial-note text-center mt-3 small">
+              No credit card required
+            </p>
           </div>
         </div>
 
         <!-- For Teachers Card (Free) -->
-        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
+          data-wow-delay="0.3s"
+        >
           <div class="pricing-card">
             <div class="free-badge">Free Forever</div>
 
             <div class="pricing-card-header">
               <div class="plan-icon mb-3">
-                <i class="fas fa-chalkboard-teacher fa-2x" style="color: #00D2A0;"></i>
+                <i
+                  class="fas fa-chalkboard-teacher fa-2x"
+                  style="color: #00d2a0"
+                ></i>
               </div>
               <h3 class="plan-title">For Teachers</h3>
               <p class="plan-subtitle">Always free for educators</p>
@@ -256,16 +343,21 @@ onBeforeUnmount(() => {
               Sign Up Free
               <i class="fas fa-arrow-right ms-2"></i>
             </a>
-            <p class="trial-note text-center mt-3 small">Verify your teacher status</p>
+            <p class="trial-note text-center mt-3 small">
+              Verify your teacher status
+            </p>
           </div>
         </div>
 
         <!-- For Schools Card -->
-        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
+          data-wow-delay="0.4s"
+        >
           <div class="pricing-card">
             <div class="pricing-card-header">
               <div class="plan-icon mb-3">
-                <i class="fas fa-school fa-2x" style="color: #FF6584;"></i>
+                <i class="fas fa-school fa-2x" style="color: #ff6584"></i>
               </div>
               <h3 class="plan-title">For Schools</h3>
               <p class="plan-subtitle">Custom solutions</p>
@@ -318,7 +410,6 @@ onBeforeUnmount(() => {
             </router-link>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -326,11 +417,16 @@ onBeforeUnmount(() => {
   <!--======== Comparison Table ========-->
   <section class="space bg-smoke">
     <div class="container">
-      <div class="row text-center justify-content-center mb-50 wow fadeInUp" data-wow-delay="0.1s">
+      <div
+        class="row text-center justify-content-center mb-50 wow fadeInUp"
+        data-wow-delay="0.1s"
+      >
         <div class="col-xl-8">
           <div class="title-area">
             <span class="sub-title">Detailed Comparison</span>
-            <h2 class="sec-title">Compare All <span class="gradient-text">Features</span></h2>
+            <h2 class="sec-title">
+              Compare All <span class="gradient-text">Features</span>
+            </h2>
           </div>
         </div>
       </div>
@@ -348,7 +444,9 @@ onBeforeUnmount(() => {
           </thead>
           <tbody>
             <tr>
-              <td class="feature-name"><strong>Number of Students/Children</strong></td>
+              <td class="feature-name">
+                <strong>Number of Students/Children</strong>
+              </td>
               <td>1 child</td>
               <td>Up to 3 children</td>
               <td>Up to 100 students</td>
@@ -362,7 +460,9 @@ onBeforeUnmount(() => {
               <td><i class="fas fa-infinity text-success"></i> Unlimited</td>
             </tr>
             <tr>
-              <td class="feature-name">All Subjects (Math, Reading, Science)</td>
+              <td class="feature-name">
+                All Subjects (Math, Reading, Science)
+              </td>
               <td><i class="fas fa-check text-success"></i></td>
               <td><i class="fas fa-check text-success"></i></td>
               <td><i class="fas fa-check text-success"></i></td>
@@ -404,7 +504,9 @@ onBeforeUnmount(() => {
               <td>Web, iOS, Android</td>
             </tr>
             <tr>
-              <td class="feature-name"><strong>Classroom Management</strong></td>
+              <td class="feature-name">
+                <strong>Classroom Management</strong>
+              </td>
               <td><i class="fas fa-times text-muted"></i></td>
               <td><i class="fas fa-times text-muted"></i></td>
               <td><i class="fas fa-check text-success"></i></td>
@@ -461,11 +563,16 @@ onBeforeUnmount(() => {
   <!--======== FAQ Section ========-->
   <section class="space-extra">
     <div class="container">
-      <div class="row text-center justify-content-center mb-50 wow fadeInUp" data-wow-delay="0.1s">
+      <div
+        class="row text-center justify-content-center mb-50 wow fadeInUp"
+        data-wow-delay="0.1s"
+      >
         <div class="col-xl-8">
           <div class="title-area">
             <span class="sub-title">Got Questions?</span>
-            <h2 class="sec-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            <h2 class="sec-title">
+              Frequently Asked <span class="gradient-text">Questions</span>
+            </h2>
           </div>
         </div>
       </div>
@@ -473,19 +580,22 @@ onBeforeUnmount(() => {
       <div class="row justify-content-center">
         <div class="col-xl-10">
           <div class="accordion-wrapper">
-
             <!-- FAQ 1 -->
             <div class="faq-item wow fadeInUp" data-wow-delay="0.1s">
               <button
                 class="faq-question"
-                :class="{ 'active': activeFaq === 1 }"
+                :class="{ active: activeFaq === 1 }"
                 @click="toggleFaq(1)"
               >
                 <span>Can I cancel my subscription anytime?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
-              <div class="faq-answer" :class="{ 'show': activeFaq === 1 }">
-                <p>Yes! You can cancel your subscription at any time with no questions asked. You'll continue to have access until the end of your current billing period.</p>
+              <div class="faq-answer" :class="{ show: activeFaq === 1 }">
+                <p>
+                  Yes! You can cancel your subscription at any time with no
+                  questions asked. You'll continue to have access until the end
+                  of your current billing period.
+                </p>
               </div>
             </div>
 
@@ -493,14 +603,18 @@ onBeforeUnmount(() => {
             <div class="faq-item wow fadeInUp" data-wow-delay="0.2s">
               <button
                 class="faq-question"
-                :class="{ 'active': activeFaq === 2 }"
+                :class="{ active: activeFaq === 2 }"
                 @click="toggleFaq(2)"
               >
                 <span>Is the 7-day free trial really free?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
-              <div class="faq-answer" :class="{ 'show': activeFaq === 2 }">
-                <p>Absolutely! No credit card required. You get full access to all features for 7 days with no commitment. If you decide not to continue, your trial simply expires with no charges.</p>
+              <div class="faq-answer" :class="{ show: activeFaq === 2 }">
+                <p>
+                  Absolutely! No credit card required. You get full access to
+                  all features for 7 days with no commitment. If you decide not
+                  to continue, your trial simply expires with no charges.
+                </p>
               </div>
             </div>
 
@@ -508,14 +622,20 @@ onBeforeUnmount(() => {
             <div class="faq-item wow fadeInUp" data-wow-delay="0.3s">
               <button
                 class="faq-question"
-                :class="{ 'active': activeFaq === 3 }"
+                :class="{ active: activeFaq === 3 }"
                 @click="toggleFaq(3)"
               >
                 <span>How does the teacher plan verification work?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
-              <div class="faq-answer" :class="{ 'show': activeFaq === 3 }">
-                <p>After signing up for the free teacher plan, you'll need to verify your educator status with a school email address or provide documentation such as a teacher ID or school employment letter. Verification typically takes 1-2 business days.</p>
+              <div class="faq-answer" :class="{ show: activeFaq === 3 }">
+                <p>
+                  After signing up for the free teacher plan, you'll need to
+                  verify your educator status with a school email address or
+                  provide documentation such as a teacher ID or school
+                  employment letter. Verification typically takes 1-2 business
+                  days.
+                </p>
               </div>
             </div>
 
@@ -523,14 +643,19 @@ onBeforeUnmount(() => {
             <div class="faq-item wow fadeInUp" data-wow-delay="0.4s">
               <button
                 class="faq-question"
-                :class="{ 'active': activeFaq === 4 }"
+                :class="{ active: activeFaq === 4 }"
                 @click="toggleFaq(4)"
               >
                 <span>Can I switch plans later?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
-              <div class="faq-answer" :class="{ 'show': activeFaq === 4 }">
-                <p>Yes! You can upgrade or downgrade your plan at any time. If you upgrade, you'll be charged the prorated difference immediately. If you downgrade, the change will take effect at the start of your next billing cycle.</p>
+              <div class="faq-answer" :class="{ show: activeFaq === 4 }">
+                <p>
+                  Yes! You can upgrade or downgrade your plan at any time. If
+                  you upgrade, you'll be charged the prorated difference
+                  immediately. If you downgrade, the change will take effect at
+                  the start of your next billing cycle.
+                </p>
               </div>
             </div>
 
@@ -538,14 +663,19 @@ onBeforeUnmount(() => {
             <div class="faq-item wow fadeInUp" data-wow-delay="0.5s">
               <button
                 class="faq-question"
-                :class="{ 'active': activeFaq === 5 }"
+                :class="{ active: activeFaq === 5 }"
                 @click="toggleFaq(5)"
               >
                 <span>Do you offer refunds?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
-              <div class="faq-answer" :class="{ 'show': activeFaq === 5 }">
-                <p>Yes! We offer a 30-day money-back guarantee on all paid plans. If you're not completely satisfied within the first 30 days, contact our support team for a full refund, no questions asked.</p>
+              <div class="faq-answer" :class="{ show: activeFaq === 5 }">
+                <p>
+                  Yes! We offer a 30-day money-back guarantee on all paid plans.
+                  If you're not completely satisfied within the first 30 days,
+                  contact our support team for a full refund, no questions
+                  asked.
+                </p>
               </div>
             </div>
 
@@ -553,14 +683,18 @@ onBeforeUnmount(() => {
             <div class="faq-item wow fadeInUp" data-wow-delay="0.6s">
               <button
                 class="faq-question"
-                :class="{ 'active': activeFaq === 6 }"
+                :class="{ active: activeFaq === 6 }"
                 @click="toggleFaq(6)"
               >
                 <span>What payment methods do you accept?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
-              <div class="faq-answer" :class="{ 'show': activeFaq === 6 }">
-                <p>We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, and for school plans, we can arrange invoicing and purchase orders.</p>
+              <div class="faq-answer" :class="{ show: activeFaq === 6 }">
+                <p>
+                  We accept all major credit cards (Visa, Mastercard, American
+                  Express, Discover), PayPal, and for school plans, we can
+                  arrange invoicing and purchase orders.
+                </p>
               </div>
             </div>
 
@@ -568,14 +702,19 @@ onBeforeUnmount(() => {
             <div class="faq-item wow fadeInUp" data-wow-delay="0.7s">
               <button
                 class="faq-question"
-                :class="{ 'active': activeFaq === 7 }"
+                :class="{ active: activeFaq === 7 }"
                 @click="toggleFaq(7)"
               >
                 <span>Is my child's data safe and private?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
-              <div class="faq-answer" :class="{ 'show': activeFaq === 7 }">
-                <p>Absolutely. We are fully COPPA and FERPA compliant. We never sell student data to third parties, and all data is encrypted and stored securely. We take privacy and security very seriously.</p>
+              <div class="faq-answer" :class="{ show: activeFaq === 7 }">
+                <p>
+                  Absolutely. We are fully COPPA and FERPA compliant. We never
+                  sell student data to third parties, and all data is encrypted
+                  and stored securely. We take privacy and security very
+                  seriously.
+                </p>
               </div>
             </div>
 
@@ -583,17 +722,21 @@ onBeforeUnmount(() => {
             <div class="faq-item wow fadeInUp" data-wow-delay="0.8s">
               <button
                 class="faq-question"
-                :class="{ 'active': activeFaq === 8 }"
+                :class="{ active: activeFaq === 8 }"
                 @click="toggleFaq(8)"
               >
                 <span>Can I add more children to my parent plan?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
-              <div class="faq-answer" :class="{ 'show': activeFaq === 8 }">
-                <p>The parent plan includes up to 3 children. If you need to add more children, please contact our support team and we can provide you with a customized family plan at a discounted rate.</p>
+              <div class="faq-answer" :class="{ show: activeFaq === 8 }">
+                <p>
+                  The parent plan includes up to 3 children. If you need to add
+                  more children, please contact our support team and we can
+                  provide you with a customized family plan at a discounted
+                  rate.
+                </p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -607,11 +750,17 @@ onBeforeUnmount(() => {
         <div class="col-xl-8 col-lg-10 wow fadeInUp" data-wow-delay="0.1s">
           <div class="guarantee-card text-center">
             <div class="guarantee-icon mb-4">
-              <i class="fas fa-shield-check fa-5x" style="color: #00D2A0;"></i>
+              <i class="fas fa-shield-check fa-5x" style="color: #00d2a0"></i>
             </div>
             <h2 class="sec-title mb-3">30-Day Money-Back Guarantee</h2>
-            <p class="fs-md mb-4">Try Mind Growup Jr risk-free! If you're not completely satisfied with your subscription within the first 30 days, we'll give you a full refund. No questions asked, no hassle.</p>
-            <div class="guarantee-features d-flex flex-wrap justify-content-center gap-4 mt-4">
+            <p class="fs-md mb-4">
+              Try Mind Growup Jr risk-free! If you're not completely satisfied
+              with your subscription within the first 30 days, we'll give you a
+              full refund. No questions asked, no hassle.
+            </p>
+            <div
+              class="guarantee-features d-flex flex-wrap justify-content-center gap-4 mt-4"
+            >
               <div class="guarantee-feature">
                 <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
                 <p class="mb-0"><strong>100% Refund</strong></p>
@@ -637,11 +786,18 @@ onBeforeUnmount(() => {
   <!--======== Final CTA ========-->
   <section class="space">
     <div class="container">
-      <div class="row text-center justify-content-center wow fadeInUp" data-wow-delay="0.1s">
+      <div
+        class="row text-center justify-content-center wow fadeInUp"
+        data-wow-delay="0.1s"
+      >
         <div class="col-xl-8">
           <div class="cta-content">
-            <h2 class="sec-title mb-3">Ready to Make Learning <span class="gradient-text">Magical</span>?</h2>
-            <p class="fs-md mb-4">Join 50 million kids and 100,000+ teachers worldwide</p>
+            <h2 class="sec-title mb-3">
+              Ready to Make Learning <span class="gradient-text">Magical</span>?
+            </h2>
+            <p class="fs-md mb-4">
+              Join 50 million kids and 100,000+ teachers worldwide
+            </p>
             <div class="d-flex gap-3 justify-content-center flex-wrap">
               <a href="/register" class="vs-btn style2">
                 Start Your Free Trial
@@ -651,7 +807,10 @@ onBeforeUnmount(() => {
                 Contact Sales
               </router-link>
             </div>
-            <p class="small text-muted mt-3">No credit card required • Cancel anytime • 30-day money-back guarantee</p>
+            <p class="small text-muted mt-3">
+              No credit card required • Cancel anytime • 30-day money-back
+              guarantee
+            </p>
           </div>
         </div>
       </div>
@@ -671,18 +830,18 @@ onBeforeUnmount(() => {
   background: transparent;
   border-radius: 25px;
   font-weight: 600;
-  color: #636E72;
+  color: #636e72;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .billing-option.active {
-  background: linear-gradient(135deg, #4A8B3F, #3A7032);
+  background: linear-gradient(135deg, #4a8b3f, #3a7032);
   color: white;
 }
 
 .save-badge {
-  background: #FFB800;
+  background: #ffb800;
   color: white;
   padding: 4px 10px;
   border-radius: 12px;
@@ -695,7 +854,7 @@ onBeforeUnmount(() => {
   background: white;
   border-radius: 24px;
   padding: 40px 30px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   position: relative;
   transition: all 0.4s;
   border: 2px solid transparent;
@@ -706,11 +865,11 @@ onBeforeUnmount(() => {
 
 .pricing-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
 .pricing-card.featured {
-  border-color: #4A8B3F;
+  border-color: #4a8b3f;
   transform: scale(1.05);
   box-shadow: 0 20px 80px rgba(74, 139, 63, 0.25);
 }
@@ -729,16 +888,16 @@ onBeforeUnmount(() => {
   border-radius: 20px;
   font-size: 14px;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .popular-badge {
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
 }
 
 .free-badge {
-  background: linear-gradient(135deg, #00D2A0, #00B894);
+  background: linear-gradient(135deg, #00d2a0, #00b894);
   color: white;
 }
 
@@ -751,11 +910,11 @@ onBeforeUnmount(() => {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 8px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .plan-subtitle {
-  color: #636E72;
+  color: #636e72;
   font-size: 14px;
 }
 
@@ -766,32 +925,33 @@ onBeforeUnmount(() => {
 }
 
 .currency {
-  font-size: 24px;
+  font-size: 30px;
+  font-weight: 700;
   vertical-align: super;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .amount {
   font-size: 48px;
   font-weight: 800;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .amount-custom {
   font-size: 36px;
   font-weight: 800;
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .period {
   font-size: 18px;
-  color: #636E72;
+  color: #636e72;
   font-weight: 400;
 }
 
 .billing-cycle {
   text-align: center;
-  color: #636E72;
+  color: #636e72;
   font-size: 14px;
   margin-bottom: 30px;
 }
@@ -818,7 +978,7 @@ onBeforeUnmount(() => {
 }
 
 .trial-note {
-  color: #636E72;
+  color: #636e72;
 }
 
 /* Comparison Table */
@@ -827,11 +987,11 @@ onBeforeUnmount(() => {
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 }
 
 .pricing-comparison-table thead {
-  background: linear-gradient(135deg, #4A8B3F, #3A7032);
+  background: linear-gradient(135deg, #4a8b3f, #3a7032);
   color: white;
 }
 
@@ -847,13 +1007,13 @@ onBeforeUnmount(() => {
 }
 
 .pricing-comparison-table th.featured-col {
-  background: linear-gradient(135deg, #FF6584, #FF4568);
+  background: linear-gradient(135deg, #ff6584, #ff4568);
 }
 
 .pricing-comparison-table td {
   padding: 16px 20px;
   text-align: center;
-  border-bottom: 1px solid #F0F0F0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .pricing-comparison-table td.feature-name {
@@ -862,7 +1022,7 @@ onBeforeUnmount(() => {
 }
 
 .pricing-comparison-table tbody tr:hover {
-  background: #F7F8FA;
+  background: #f7f8fa;
 }
 
 /* FAQ Accordion */
@@ -875,7 +1035,7 @@ onBeforeUnmount(() => {
   background: white;
   border-radius: 12px;
   margin-bottom: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   overflow: hidden;
 }
 
@@ -887,7 +1047,7 @@ onBeforeUnmount(() => {
   text-align: left;
   font-size: 18px;
   font-weight: 600;
-  color: #2D3436;
+  color: #2d3436;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -896,16 +1056,16 @@ onBeforeUnmount(() => {
 }
 
 .faq-question:hover {
-  background: #F7F8FA;
+  background: #f7f8fa;
 }
 
 .faq-question.active {
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .faq-question i {
   transition: transform 0.3s;
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .faq-question.active i {
@@ -925,7 +1085,7 @@ onBeforeUnmount(() => {
 }
 
 .faq-answer p {
-  color: #636E72;
+  color: #636e72;
   line-height: 1.7;
   margin: 0;
 }
@@ -935,7 +1095,7 @@ onBeforeUnmount(() => {
   background: white;
   padding: 60px 40px;
   border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 
 .guarantee-feature {
@@ -961,7 +1121,7 @@ onBeforeUnmount(() => {
 
 .pricing-hero-bg {
   position: relative;
-  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #3a7a30 40%, #1b1464 100%);
   padding: 70px 0 80px;
 }
 
@@ -992,9 +1152,18 @@ onBeforeUnmount(() => {
 }
 
 @keyframes float-particle {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
-  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.4; }
-  100% { transform: translateY(0) rotate(360deg); opacity: 0.25; }
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+    opacity: 0.25;
+  }
 }
 
 /* Hero Badge */
@@ -1012,7 +1181,7 @@ onBeforeUnmount(() => {
 }
 
 .hero-badge i {
-  color: #FFE5B4;
+  color: #ffe5b4;
   font-size: 14px;
 }
 
@@ -1034,7 +1203,7 @@ onBeforeUnmount(() => {
 }
 
 .gradient-text-light {
-  background: linear-gradient(135deg, #FFE5B4, #FFDAB9);
+  background: linear-gradient(135deg, #ffe5b4, #ffdab9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1071,11 +1240,11 @@ onBeforeUnmount(() => {
 
 .hero-billing-toggle .billing-option.active {
   background: rgba(255, 255, 255, 0.95);
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .hero-billing-toggle .save-badge {
-  background: #FFB800;
+  background: #ffb800;
   color: white;
 }
 
@@ -1097,8 +1266,13 @@ onBeforeUnmount(() => {
 
 /* Animations */
 @keyframes float-badge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 /* Responsive Styles */

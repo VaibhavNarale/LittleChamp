@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 
 onMounted(async () => {
   await nextTick()
@@ -34,14 +37,18 @@ onBeforeUnmount(() => {
             <span class="gradient-text-light d-block">with Mind Growup Jr</span>
           </h1>
           <p class="hero-description">
-            Free premium access for teachers! Engage your students with interactive learning games and track their progress in real-time
+            Free premium access for teachers! Engage your students with
+            interactive learning games and track their progress in real-time
           </p>
         </div>
       </div>
     </div>
     <div class="hero-wave-bottom">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#FFFFFF"
+        />
       </svg>
     </div>
   </section>
@@ -56,7 +63,8 @@ onBeforeUnmount(() => {
           </div>
           <h3 class="banner-title">100% Free Premium Access for Teachers!</h3>
           <p class="banner-text">
-            We believe in supporting educators. Get full access to all premium features at no cost when you register as a teacher.
+            We believe in supporting educators. Get full access to all premium
+            features at no cost when you register as a teacher.
           </p>
         </div>
         <div class="col-lg-4 text-lg-end">
@@ -88,7 +96,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">Manage Multiple Classes</h3>
             <p class="feature-card-text">
-              Create and manage unlimited classes with up to 40 students per class. Perfect for all grade levels.
+              Create and manage unlimited classes with up to 40 students per
+              class. Perfect for all grade levels.
             </p>
           </div>
         </div>
@@ -100,7 +109,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">Assign Activities</h3>
             <p class="feature-card-text">
-              Easily assign specific games and activities to individuals, groups, or your entire class with one click.
+              Easily assign specific games and activities to individuals,
+              groups, or your entire class with one click.
             </p>
           </div>
         </div>
@@ -112,7 +122,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">Real-Time Progress</h3>
             <p class="feature-card-text">
-              Monitor student progress in real-time with detailed analytics and insights on individual performance.
+              Monitor student progress in real-time with detailed analytics and
+              insights on individual performance.
             </p>
           </div>
         </div>
@@ -124,7 +135,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">Standards-Aligned</h3>
             <p class="feature-card-text">
-              All content is curriculum-aligned and mapped to educational standards for easy integration.
+              All content is curriculum-aligned and mapped to educational
+              standards for easy integration.
             </p>
           </div>
         </div>
@@ -136,7 +148,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">Automated Reports</h3>
             <p class="feature-card-text">
-              Generate comprehensive reports for students, parents, and administrators with just a few clicks.
+              Generate comprehensive reports for students, parents, and
+              administrators with just a few clicks.
             </p>
           </div>
         </div>
@@ -148,7 +161,8 @@ onBeforeUnmount(() => {
             </div>
             <h3 class="box-title">Interactive Whiteboard</h3>
             <p class="feature-card-text">
-              Display activities on your interactive whiteboard for whole-class instruction and engagement.
+              Display activities on your interactive whiteboard for whole-class
+              instruction and engagement.
             </p>
           </div>
         </div>
@@ -230,7 +244,9 @@ onBeforeUnmount(() => {
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "Mind Growup Jr has transformed how I teach mathematics. My students are more engaged and their test scores have improved significantly!"
+              "Mind Growup Jr has transformed how I teach mathematics. My
+              students are more engaged and their test scores have improved
+              significantly!"
             </p>
             <div class="testimonial-author">
               <h5>Sarah Johnson</h5>
@@ -249,7 +265,9 @@ onBeforeUnmount(() => {
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "The progress tracking tools are incredible. I can easily see which students need extra help and tailor my instruction accordingly."
+              "The progress tracking tools are incredible. I can easily see
+              which students need extra help and tailor my instruction
+              accordingly."
             </p>
             <div class="testimonial-author">
               <h5>Michael Chen</h5>
@@ -268,7 +286,9 @@ onBeforeUnmount(() => {
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "My students love earning rewards and competing with each other. It's made learning fun and my classroom is more productive than ever!"
+              "My students love earning rewards and competing with each other.
+              It's made learning fun and my classroom is more productive than
+              ever!"
             </p>
             <div class="testimonial-author">
               <h5>Emily Rodriguez</h5>
@@ -288,7 +308,8 @@ onBeforeUnmount(() => {
           <div class="col-lg-8">
             <h2 class="cta-title">Ready to Transform Your Classroom?</h2>
             <p class="cta-text">
-              Join thousands of teachers using Mind Growup Jr. Register now and get instant access to all premium features for free!
+              Join thousands of teachers using Mind Growup Jr. Register now and
+              get instant access to all premium features for free!
             </p>
           </div>
           <div class="col-lg-4 text-lg-end">
@@ -310,9 +331,10 @@ onBeforeUnmount(() => {
 }
 
 .servicedetails-hero-bg {
-  background: linear-gradient(135deg, #00D2A0 0%, #00B894 100%);
+  background: linear-gradient(135deg, #00d2a0 0%, #00b894 100%);
   padding: 120px 0 80px;
   position: relative;
+  overflow: hidden;
 }
 
 .servicedetails-hero-content {
@@ -353,7 +375,7 @@ onBeforeUnmount(() => {
   border-radius: 50px;
   margin-bottom: 20px;
   backdrop-filter: blur(10px);
-  color: #00B894;
+  color: #00b894;
   font-weight: 600;
 }
 
@@ -401,7 +423,7 @@ onBeforeUnmount(() => {
 }
 
 .free-teacher-banner {
-  background: linear-gradient(135deg, #FFD93D 0%, #FFC107 100%);
+  background: linear-gradient(135deg, #ffd93d 0%, #ffc107 100%);
   padding: 40px 0;
   margin-top: -1px;
 }
@@ -423,13 +445,13 @@ onBeforeUnmount(() => {
   font-size: 28px;
   font-weight: 800;
   margin-bottom: 10px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .banner-text {
   font-size: 16px;
   margin: 0;
-  color: #2D3436;
+  color: #2d3436;
   opacity: 0.9;
 }
 
@@ -438,7 +460,9 @@ onBeforeUnmount(() => {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   height: 100%;
 }
 
@@ -450,7 +474,7 @@ onBeforeUnmount(() => {
 .feature-card-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #00D2A0, #00B894);
+  background: linear-gradient(135deg, #00d2a0, #00b894);
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -464,11 +488,11 @@ onBeforeUnmount(() => {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .feature-card-text {
-  color: #636E72;
+  color: #636e72;
   line-height: 1.6;
   margin: 0;
 }
@@ -485,7 +509,7 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 15px;
   padding: 15px 0;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .feature-item:last-child {
@@ -493,14 +517,14 @@ onBeforeUnmount(() => {
 }
 
 .feature-item i {
-  color: #00D2A0;
+  color: #00d2a0;
   font-size: 24px;
   flex-shrink: 0;
 }
 
 .feature-item span {
   font-size: 16px;
-  color: #2D3436;
+  color: #2d3436;
   font-weight: 500;
 }
 
@@ -513,12 +537,12 @@ onBeforeUnmount(() => {
 }
 
 .testimonial-rating {
-  color: #FFD93D;
+  color: #ffd93d;
   margin-bottom: 15px;
 }
 
 .testimonial-text {
-  color: #636E72;
+  color: #636e72;
   font-style: italic;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -527,17 +551,17 @@ onBeforeUnmount(() => {
 .testimonial-author h5 {
   font-size: 18px;
   font-weight: 700;
-  color: #2D3436;
+  color: #2d3436;
   margin-bottom: 5px;
 }
 
 .testimonial-author span {
-  color: #636E72;
+  color: #636e72;
   font-size: 14px;
 }
 
 .cta-box {
-  background: linear-gradient(135deg, #00D2A0 0%, #00B894 100%);
+  background: linear-gradient(135deg, #00d2a0 0%, #00b894 100%);
   padding: 50px;
   border-radius: 20px;
   color: white;
@@ -561,7 +585,7 @@ onBeforeUnmount(() => {
 
 .vs-btn.style-white {
   background: white;
-  color: #00B894;
+  color: #00b894;
 }
 
 .vs-btn.style-white:hover {
