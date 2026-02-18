@@ -191,7 +191,7 @@ const subjectsData = {
     description:
       'AI-powered feature combines friendly interaction, communication skills, general knowledge, and guides children on exploring the outside world — creating a fun, engaging, and educational experience all in one place.',
     stats: {
-      games: '1200+',
+      games: '500+',
       worksheets: '4000+',
       grades: 'Pre-K to 5',
     },

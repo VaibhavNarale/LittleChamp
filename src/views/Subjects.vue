@@ -380,7 +380,7 @@ onBeforeUnmount(() => {
               <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                 <div class="meta-badge">
                   <i class="fas fa-gamepad text-primary"></i>
-                  <strong>1200+</strong> Games
+                  <strong>500+</strong> Games
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-file-alt text-success"></i>

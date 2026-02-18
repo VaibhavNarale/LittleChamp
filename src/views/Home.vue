@@ -662,19 +662,14 @@ onBeforeUnmount(() => {
           <div class="text-center text-lg-start">
             <span class="sub-title">Why Mind Growup Jr</span>
             <h2 class="sec-title big-title">
-              Transforming Learning Into An
+              Transform Learning into an
               <span class="gradient-text">Adventure</span>
             </h2>
             <p class="fs-md mb-30">
-              At Mind Growup Jr, we believe every child deserves to discover the
-              joy of learning. Our platform combines cutting-edge adaptive
-              technology with engaging games to create personalized learning
-              experiences for Math, Reading, and Science.
-            </p>
-            <p class="fs-md mb-30">
-              Trusted by 50 million kids and 100,000+ teachers worldwide, we're
-              on a mission to make quality education accessible, engaging, and
-              effective for every child.
+              At Mind Growup Jr, every child can discover the joy of learning.
+              Our platform uses adaptive AI technology and fun games to create
+              personalized experiences in Math, Manners, Brain Activities, and
+              the Ability to think out of the box.
             </p>
             <router-link to="/about" class="vs-btn wave-btn style-1">
               Discover Our Story
@@ -802,7 +797,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-auto col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
           <div class="counter-item text-center">
             <div class="connter_icon"><i class="fa-light fa-gamepad"></i></div>
-            <span class="counter-number">4000</span><span class="h2">+</span>
+            <span class="counter-number">500</span><span class="h2">+</span>
             <p class="counter-text h4">Interactive Games</p>
           </div>
         </div>
@@ -820,8 +815,12 @@ onBeforeUnmount(() => {
         <div class="col-lg-auto col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
           <div class="counter-item text-center">
             <div class="connter_icon"><i class="fa-light fa-globe"></i></div>
-            <span class="counter-number">150</span><span class="h2">+</span>
-            <p class="counter-text h4">Countries Worldwide</p>
+            <span
+              class="h2"
+              style="font-size: 50px; font-weight: 900; color: #1b1464"
+              >India</span
+            ><span class="h2"> +</span>
+            <p class="counter-text h4">Other Countries</p>
           </div>
         </div>
       </div>
@@ -899,12 +898,12 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <!-- Reading & ELA Subject -->
+        <!-- Your AI-Buddy Subject -->
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
           <div class="subject-card subject-card--pink">
             <div class="subject-card__img">
               <router-link to="/subjects/reading">
-                <img :src="readingImage" alt="Reading & ELA" />
+                <img :src="readingImage" alt="Your AI-Buddy" />
                 <div class="subject-card__overlay">
                   <span class="subject-card__play"
                     ><i class="fas fa-play"></i
@@ -913,17 +912,19 @@ onBeforeUnmount(() => {
               </router-link>
               <span class="subject-card__badge subject-badge--pink">
                 <i class="fas fa-book-reader"></i>
-                1200+ Games
+                500+ Games
               </span>
             </div>
             <div class="subject-card__body">
               <div class="subject-card__grade-tag">Pre-K to Grade 5</div>
               <h3 class="subject-card__title">
-                <router-link to="/subjects/reading">Reading & ELA</router-link>
+                <router-link to="/subjects/reading">Your AI-Buddy</router-link>
               </h3>
               <p class="subject-card__text">
-                Develop phonics, vocabulary, reading comprehension, grammar, and
-                writing skills through engaging activities.
+                AI-powered feature combines friendly interaction, communication
+                skills, general knowledge, and guides children on exploring the
+                outside world — creating a fun, engaging, and educational
+                experience all in one place.
               </p>
               <div class="subject-card__stats">
                 <div class="subject-stat">
@@ -932,7 +933,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="subject-stat">
                   <i class="fas fa-gamepad"></i>
-                  <span>1200+ Games</span>
+                  <span>500+ Games</span>
                 </div>
               </div>
               <router-link
