@@ -4,6 +4,12 @@ import {
   initTemplateScripts,
   cleanupTemplateScripts,
 } from '@/utils/initScripts'
+import manageClassesImg from '@/assets/manage-classes.png'
+import assignActivitiesImg from '@/assets/assign-activities.png'
+import realtimeProgressImg from '@/assets/realtime-progress.png'
+import standardsAlignedImg from '@/assets/standards-aligned.png'
+import automatedReportsImg from '@/assets/automated-reports.png'
+import interactiveWhiteboardImg from '@/assets/interactive-whiteboard.png'
 
 onMounted(async () => {
   await nextTick()
@@ -91,8 +97,12 @@ onBeforeUnmount(() => {
       <div class="row gy-4 mt-5">
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-users-class"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="manageClassesImg"
+                alt="Manage Multiple Classes"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Manage Multiple Classes</h3>
             <p class="feature-card-text">
@@ -104,8 +114,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-tasks"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="assignActivitiesImg"
+                alt="Assign Activities"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Assign Activities</h3>
             <p class="feature-card-text">
@@ -117,8 +131,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-chart-line"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="realtimeProgressImg"
+                alt="Real-Time Progress"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Real-Time Progress</h3>
             <p class="feature-card-text">
@@ -130,8 +148,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-clipboard-list"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="standardsAlignedImg"
+                alt="Standards-Aligned"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Standards-Aligned</h3>
             <p class="feature-card-text">
@@ -143,8 +165,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-file-alt"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="automatedReportsImg"
+                alt="Automated Reports"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Automated Reports</h3>
             <p class="feature-card-text">
@@ -156,8 +182,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-desktop"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="interactiveWhiteboardImg"
+                alt="Interactive Whiteboard"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Interactive Whiteboard</h3>
             <p class="feature-card-text">
@@ -482,6 +512,36 @@ onBeforeUnmount(() => {
   color: white;
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+.feature-card-icon-wrap {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.feature-card-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: teacher-float 3s ease-in-out infinite;
+}
+
+.feature-card:hover .feature-card-img {
+  transform: scale(1.1) rotate(3deg);
+  animation: none;
+}
+
+@keyframes teacher-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .box-title {

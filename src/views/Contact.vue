@@ -164,7 +164,7 @@ onBeforeUnmount(() => {
                     <input
                       type="text"
                       class="field-input"
-                      placeholder="John Doe"
+                      placeholder="Aarav Sharma"
                       required
                     />
                   </div>
@@ -173,7 +173,7 @@ onBeforeUnmount(() => {
                     <input
                       type="email"
                       class="field-input"
-                      placeholder="john@example.com"
+                      placeholder="aarav@example.com"
                       required
                     />
                   </div>

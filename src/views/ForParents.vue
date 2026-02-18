@@ -1,6 +1,15 @@
 <script setup>
 import { onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
+import safeVaultImg from '@/assets/safe-vault.png'
+import trackProgressImg from '@/assets/track-progress.png'
+import chooseGradeImg from '@/assets/choose-grade.png'
+import kidsLearningImg from '@/assets/kids-learning.png'
+import learnAnywhereImg from '@/assets/learn-anywhere.png'
+import rewardsTrophyImg from '@/assets/rewards-trophy.png'
 
 onMounted(async () => {
   await nextTick()
@@ -31,17 +40,23 @@ onBeforeUnmount(() => {
           </div>
           <h1 class="servicedetails-hero-title">
             Help Your Child
-            <span class="gradient-text-light d-block">Succeed with Mind Growup Jr</span>
+            <span class="gradient-text-light d-block"
+              >Succeed with Mind Growup Jr</span
+            >
           </h1>
           <p class="hero-description">
-            Give your child the gift of learning through play with 4000+ educational games and activities designed by experts
+            Give your child the gift of learning through play with 4000+
+            educational games and activities designed by experts
           </p>
         </div>
       </div>
     </div>
     <div class="hero-wave-bottom">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#FFFFFF"
+        />
       </svg>
     </div>
   </section>
@@ -60,72 +75,102 @@ onBeforeUnmount(() => {
       <div class="row gy-4 mt-5">
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-shield-alt"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="safeVaultImg"
+                alt="Safe & Ad-Free"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Safe & Ad-Free</h3>
             <p class="feature-card-text">
-              100% safe environment with no ads, external links, or in-app purchases. Your child's privacy is our priority.
+              100% safe environment with no ads, external links, or in-app
+              purchases. Your child's privacy is our priority.
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-chart-line"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="trackProgressImg"
+                alt="Track Progress"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Track Progress</h3>
             <p class="feature-card-text">
-              Monitor your child's learning journey with detailed progress reports and insights into their strengths.
+              Monitor your child's learning journey with detailed progress
+              reports and insights into their strengths.
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-graduation-cap"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="chooseGradeImg"
+                alt="Expert Curriculum"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Expert Curriculum</h3>
             <p class="feature-card-text">
-              Content aligned with educational standards and designed by certified teachers and child development experts.
+              Content aligned with educational standards and designed by
+              certified teachers and child development experts.
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-users"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="kidsLearningImg"
+                alt="Multiple Children"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Multiple Children</h3>
             <p class="feature-card-text">
-              Create profiles for up to 3 children with one account. Each child gets personalized learning experience.
+              Create profiles for up to 3 children with one account. Each child
+              gets personalized learning experience.
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-mobile-alt"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="learnAnywhereImg"
+                alt="Learn Anywhere"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Learn Anywhere</h3>
             <p class="feature-card-text">
-              Access on any device - tablet, computer, or smartphone. Learn at home, on the go, or anywhere with internet.
+              Access on any device - tablet, computer, or smartphone. Learn at
+              home, on the go, or anywhere with internet.
             </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-trophy"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="rewardsTrophyImg"
+                alt="Rewards & Motivation"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Rewards & Motivation</h3>
             <p class="feature-card-text">
-              Keep kids engaged with points, badges, and rewards that celebrate their achievements and progress.
+              Keep kids engaged with points, badges, and rewards that celebrate
+              their achievements and progress.
             </p>
           </div>
         </div>
@@ -208,7 +253,8 @@ onBeforeUnmount(() => {
           <div class="col-lg-8">
             <h2 class="cta-title">Start Your Free Trial Today</h2>
             <p class="cta-text">
-              Join thousands of parents who trust Mind Growup Jr for their children's education. No credit card required.
+              Join thousands of parents who trust Mind Growup Jr for their
+              children's education. No credit card required.
             </p>
           </div>
           <div class="col-lg-4 text-lg-end">
@@ -230,7 +276,7 @@ onBeforeUnmount(() => {
 }
 
 .servicedetails-hero-bg {
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #5ea750 100%);
   padding: 120px 0 80px;
   position: relative;
 }
@@ -273,7 +319,7 @@ onBeforeUnmount(() => {
   border-radius: 50px;
   margin-bottom: 20px;
   backdrop-filter: blur(10px);
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-weight: 600;
 }
 
@@ -325,7 +371,9 @@ onBeforeUnmount(() => {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   height: 100%;
 }
 
@@ -334,28 +382,45 @@ onBeforeUnmount(() => {
   box-shadow: 0 10px 30px rgba(74, 139, 63, 0.15);
 }
 
-.feature-card-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
-  border-radius: 15px;
+.feature-card-icon-wrap {
+  height: 90px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 24px;
   margin-bottom: 20px;
+}
+
+.feature-card-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: parent-float 3s ease-in-out infinite;
+}
+
+.feature-card:hover .feature-card-img {
+  transform: scale(1.1) rotate(3deg);
+  animation: none;
+}
+
+@keyframes parent-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .box-title {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .feature-card-text {
-  color: #636E72;
+  color: #636e72;
   line-height: 1.6;
   margin: 0;
 }
@@ -371,7 +436,7 @@ onBeforeUnmount(() => {
   right: 20px;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -389,7 +454,7 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-size: 32px;
   margin-bottom: 20px;
 }
@@ -398,16 +463,16 @@ onBeforeUnmount(() => {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .process-text {
-  color: #636E72;
+  color: #636e72;
   margin: 0;
 }
 
 .cta-box {
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #5ea750 100%);
   padding: 50px;
   border-radius: 20px;
   color: white;
