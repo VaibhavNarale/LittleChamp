@@ -23,53 +23,20 @@ jobs:
         run: |
           echo '${{ secrets.DEPLOYMENT_CONFIG }}' | jq '.' > deployment-config.json
 
-      - name: Install npm dependencies
+      - name: Install npm dependencies and build
         run: |
-          apiPath=$(jq -r '.[0].apiPath' deployment-config.json)
-          mediaPath=$(jq -r '.[0].mediaPath' deployment-config.json)
-          basePath=$(jq -r '.[0].basePath' deployment-config.json)
-          echo $apiPath
-          echo $mediaPath
-          echo $basePath
-
-          cd src
-          touch axios.js
-          echo "
-              import store from '@/store'
-              import axios from 'axios'
-
-              axios.defaults.baseURL = '"$apiPath"';
-              store.dispatch('settings/setMediaUrl', '"$mediaPath"')
-              store.dispatch('settings/setBaseUrl', '"$basePath"')
-
-              axios.interceptors.request.use(config => {
-                  store.dispatch('errors/setErrors', {})
-                  store.dispatch('errors/setStatus', {})
-                  return config
-              }, error => {
-                  return Promise.reject(error)
-              })
-              
-              axios.interceptors.response.use((response) => {
-                  return response
-              }, error => {
-                  const errors = error.response.data.errors
-                  Object.keys(errors).forEach((key) => {
-                      errors[key] = errors[key][0]
-                  })
-                  store.dispatch('errors/setErrors', errors)
-                  store.dispatch('errors/setStatus', error.response.status)
-                  return Promise.reject(error)
-              })" > axios.js
-          cd ..
-          npm install --force
-          npm i apexcharts
+          apiPath=$(jq -r '.[0].apiPath // empty' deployment-config.json)
+          if [ -n "$apiPath" ]; then
+            echo "VITE_API_URL=$apiPath" >> mgu-client/.env
+          fi
+          cd mgu-client
+          npm install
           npm run build
 
       - name: Create deployment artifacts
         env:
           GITHUB_SHA: ${{ github.sha }}
-        run: tar -czf "${GITHUB_SHA}".tar.gz dist .htaccess
+        run: tar -czf "${GITHUB_SHA}".tar.gz -C mgu-client dist .htaccess
 
       - name: Store artifacts for distribution
         uses: actions/upload-artifact@v4
