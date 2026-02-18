@@ -27,16 +27,15 @@ jobs:
         run: |
           apiPath=$(jq -r '.[0].apiPath // empty' deployment-config.json)
           if [ -n "$apiPath" ]; then
-            echo "VITE_API_URL=$apiPath" >> mgu-client/.env
+            echo "VITE_API_URL=$apiPath" >> .env
           fi
-          cd mgu-client
           npm install
           npm run build
 
       - name: Create deployment artifacts
         env:
           GITHUB_SHA: ${{ github.sha }}
-        run: tar -czf "${GITHUB_SHA}".tar.gz -C mgu-client dist .htaccess
+        run: tar -czf "${GITHUB_SHA}".tar.gz dist .htaccess
 
       - name: Store artifacts for distribution
         uses: actions/upload-artifact@v4
