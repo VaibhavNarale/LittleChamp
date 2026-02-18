@@ -107,8 +107,8 @@ onBeforeUnmount(() => {
               About Mind Growup Jr
             </span>
             <h2 class="mission-title">
-              Making Learning Fun Through
-              <span class="title-highlight">Interactive Games</span>
+              Mind Growup Jr's
+              <span class="title-highlight">Features</span>
             </h2>
             <p class="mission-desc">
               Mind Growup Jr is a leading educational technology platform that
@@ -164,6 +164,211 @@ onBeforeUnmount(() => {
     </div>
   </section>
   <!--======== / Mission Section ========-->
+
+  <!--======== About Us Pillars Section ========-->
+  <section class="pillars-section">
+    <!-- Decorative background shapes -->
+    <div class="pillars-bg-shapes">
+      <span class="pillar-shape pillar-shape--1"></span>
+      <span class="pillar-shape pillar-shape--2"></span>
+      <span class="pillar-shape pillar-shape--3"></span>
+    </div>
+
+    <div class="container">
+      <!-- Section Header -->
+      <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+        <span class="section-tag section-tag--center">
+          <i class="fas fa-cubes"></i>
+          What We Offer
+        </span>
+        <div class="heading-with-kids">
+          <div class="heading-kid heading-kid--left">
+            <img
+              src="@/assets/kids-football.png"
+              alt="Kid kicking football"
+              class="heading-kid-img heading-kid-img--left"
+            />
+          </div>
+          <h2 class="section-heading section-heading--kids">
+            Our Three Pillars of
+            <span class="title-highlight">Growth</span>
+          </h2>
+          <div class="heading-kid heading-kid--right">
+            <img
+              src="@/assets/kids-football.png"
+              alt="Kid receiving football"
+              class="heading-kid-img heading-kid-img--right"
+            />
+          </div>
+        </div>
+        <p class="pillars-intro">
+          Mind Growup Jr. is a child-focused development center dedicated to
+          nurturing young minds through innovation, creativity, and expert
+          guidance. We believe every child grows best in a supportive, engaging,
+          and inspiring environment.
+        </p>
+      </div>
+
+      <!-- Three Pillar Cards -->
+      <div class="row g-4">
+        <!-- Card 1: AI Learning -->
+        <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="pillar-card pillar-card--green">
+            <div class="pillar-number pillar-number--green">1</div>
+            <div class="pillar-icon-wrap">
+              <div class="pillar-icon pillar-icon--green pillar-icon--img">
+                <img
+                  src="@/assets/ai-robot-icon.png"
+                  alt="AI Learning"
+                  class="pillar-icon-img"
+                />
+              </div>
+            </div>
+            <h3 class="pillar-title">
+              AI Learning &amp;<br />Child Development
+            </h3>
+            <p class="pillar-desc">
+              At Mind Growup Jr., we introduce AI-assisted learning in a
+              child-friendly way to build curiosity and smart thinking.
+            </p>
+            <ul class="pillar-list pillar-list--green">
+              <li>
+                <i class="fas fa-check-circle"></i>AI as a learning companion
+                and interactive friend
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Improving general knowledge
+                and academic learning
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Enhancing communication
+                skills
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Developing positive behavior
+                and emotional growth
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Strengthening language
+                development and vocabulary
+              </li>
+            </ul>
+            <div class="pillar-highlight pillar-highlight--green">
+              <i class="fas fa-star"></i>
+              Grow confidently &amp; think independently
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Mind Activities -->
+        <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+          <div class="pillar-card pillar-card--pink">
+            <div class="pillar-number pillar-number--pink">2</div>
+            <div class="pillar-icon-wrap">
+              <div class="pillar-icon pillar-icon--pink pillar-icon--img">
+                <img
+                  src="@/assets/gaming-bunny-icon.png"
+                  alt="Mind Activities & Gaming"
+                  class="pillar-icon-img"
+                />
+              </div>
+            </div>
+            <h3 class="pillar-title">
+              Mind Activities,<br />Gaming &amp; Creativity
+            </h3>
+            <p class="pillar-desc">
+              Learning becomes powerful when it is fun and engaging. We provide:
+            </p>
+            <ul class="pillar-list pillar-list--pink">
+              <li>
+                <i class="fas fa-check-circle"></i>Brain-boosting games to
+                improve focus and logical thinking
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Mind activity sessions for
+                memory and problem-solving
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Drawing classes to enhance
+                creativity
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Craft activities to develop
+                fine motor skills and imagination
+              </li>
+            </ul>
+            <div class="pillar-highlight pillar-highlight--pink">
+              <i class="fas fa-star"></i>
+              Enjoy learning while building life skills
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Pediatric Guidance -->
+        <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="pillar-card pillar-card--navy">
+            <div class="pillar-number pillar-number--navy">3</div>
+            <div class="pillar-icon-wrap">
+              <div class="pillar-icon pillar-icon--navy pillar-icon--img">
+                <img
+                  src="@/assets/parent-support-icon.png"
+                  alt="Pediatric Guidance & Parent Support"
+                  class="pillar-icon-img pillar-icon-img--larger"
+                />
+              </div>
+            </div>
+            <h3 class="pillar-title">
+              Pediatric Guidance<br />&amp; Parent Support
+            </h3>
+            <p class="pillar-desc">
+              We care about complete child development. That's why we include:
+            </p>
+            <ul class="pillar-list pillar-list--navy">
+              <li>
+                <i class="fas fa-check-circle"></i>Interactive sessions with
+                experienced pediatric doctors
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Appointment booking for
+                one-on-one guidance
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Monthly parent meetings with
+                doctors
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>Expert advice on healthy
+                physical, mental, and emotional growth
+              </li>
+            </ul>
+            <div class="pillar-highlight pillar-highlight--navy">
+              <i class="fas fa-star"></i>
+              Supporting every step of your child's growth
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Closing Tagline Banner -->
+      <div class="pillars-closing wow fadeInUp" data-wow-delay="0.4s">
+        <div class="closing-banner">
+          <div class="closing-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <p class="closing-text">
+            At Mind Growup Jr., we combine <strong>technology</strong>,
+            <strong>creativity</strong>, and
+            <strong>medical guidance</strong>
+            to build confident, intelligent, and happy children.
+          </p>
+          <h3 class="closing-tagline">
+            Growing Young Minds for a Brighter Future
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--======== / About Us Pillars Section ========-->
 
   <!--======== Stats Section ========-->
   <section class="stats-section">
@@ -899,6 +1104,415 @@ onBeforeUnmount(() => {
   transform: translateX(4px);
 }
 
+/* ========== About Us Pillars Section ========== */
+.pillars-section {
+  padding: 80px 0;
+  background: #f8f9fc;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillars-bg-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.pillar-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+}
+
+.pillar-shape--1 {
+  width: 300px;
+  height: 300px;
+  background: #4a8b3f;
+  top: -80px;
+  left: -60px;
+}
+
+.pillar-shape--2 {
+  width: 250px;
+  height: 250px;
+  background: #e91e8c;
+  top: 40%;
+  right: -80px;
+}
+
+.pillar-shape--3 {
+  width: 200px;
+  height: 200px;
+  background: #1b1464;
+  bottom: -60px;
+  left: 30%;
+}
+
+/* Heading with kids */
+.heading-with-kids {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 16px;
+}
+
+.section-heading--kids {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.heading-kid {
+  width: 120px;
+  height: 100px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.heading-kid-img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+.heading-kid--left {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heading-kid-img--left {
+  object-position: left;
+  clip-path: inset(0 25% 0 0);
+  margin-right: -30px;
+}
+
+.heading-kid--right {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.heading-kid-img--right {
+  object-position: right;
+  clip-path: inset(0 0 0 50%);
+  margin-left: -60px;
+}
+
+.pillars-intro {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #636e72;
+}
+
+/* Pillar Card */
+.pillar-card {
+  background: white;
+  border-radius: 20px;
+  padding: 36px 28px 28px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  border-top: 4px solid transparent;
+  position: relative;
+  transition: all 0.35s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+.pillar-card--green {
+  border-top-color: #4a8b3f;
+}
+
+.pillar-card--pink {
+  border-top-color: #e91e8c;
+}
+
+.pillar-card--navy {
+  border-top-color: #1b1464;
+}
+
+/* Pillar Number Badge */
+.pillar-number {
+  position: absolute;
+  top: -16px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pillar-number--green {
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
+}
+
+.pillar-number--pink {
+  background: linear-gradient(135deg, #e91e8c, #f04da0);
+}
+
+.pillar-number--navy {
+  background: linear-gradient(135deg, #1b1464, #2d2494);
+}
+
+/* Pillar Icon */
+.pillar-icon-wrap {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pillar-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  border: 3px solid white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  animation: pillar-float 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.pillar-card:hover .pillar-icon {
+  transform: scale(1.1);
+}
+
+.pillar-icon--green {
+  background: rgba(74, 139, 63, 0.1);
+  color: #4a8b3f;
+}
+
+.pillar-icon--pink {
+  background: rgba(233, 30, 140, 0.1);
+  color: #e91e8c;
+}
+
+.pillar-icon--navy {
+  background: rgba(27, 20, 100, 0.1);
+  color: #1b1464;
+}
+
+.pillar-icon--img {
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  width: 90px;
+  height: 90px;
+}
+
+.pillar-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pillar-icon-img--larger {
+  width: 130px;
+  height: 130px;
+  margin: -30px auto -55px;
+  display: block;
+}
+
+.pillar-card--navy .pillar-icon-wrap {
+  margin-bottom: 0;
+}
+
+@keyframes pillar-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.pillar-card:hover .pillar-icon {
+  animation: none;
+  transform: scale(1.1);
+}
+
+/* Pillar Title */
+.pillar-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1b1464;
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+/* Pillar Description */
+.pillar-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #636e72;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Pillar List */
+.pillar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.pillar-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  padding: 6px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.pillar-list li:last-child {
+  border-bottom: none;
+}
+
+.pillar-list li i {
+  font-size: 14px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.pillar-list--green li i {
+  color: #4a8b3f;
+}
+
+.pillar-list--pink li i {
+  color: #e91e8c;
+}
+
+.pillar-list--navy li i {
+  color: #1b1464;
+}
+
+/* Pillar Highlight Tag */
+.pillar-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+.pillar-highlight i {
+  font-size: 12px;
+}
+
+.pillar-highlight--green {
+  background: rgba(74, 139, 63, 0.08);
+  color: #4a8b3f;
+}
+
+.pillar-highlight--pink {
+  background: rgba(233, 30, 140, 0.08);
+  color: #e91e8c;
+}
+
+.pillar-highlight--navy {
+  background: rgba(27, 20, 100, 0.08);
+  color: #1b1464;
+}
+
+/* Closing Tagline Banner */
+.pillars-closing {
+  margin-top: 48px;
+}
+
+.closing-banner {
+  background: linear-gradient(135deg, #4a8b3f 0%, #2a6d2a 40%, #1b1464 100%);
+  border-radius: 20px;
+  padding: 40px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.closing-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+.closing-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #ffe5b4;
+  margin-bottom: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.closing-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 650px;
+  margin: 0 auto 12px;
+  position: relative;
+}
+
+.closing-text strong {
+  color: #ffe5b4;
+  font-weight: 700;
+}
+
+.closing-tagline {
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  position: relative;
+  background: linear-gradient(135deg, #ffe5b4, #ffdab9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* ========== Stats Section ========== */
 .stats-section {
   padding: 0 0 80px;
@@ -1295,6 +1909,27 @@ onBeforeUnmount(() => {
     flex: 0 0 48%;
   }
 
+  .pillars-section {
+    padding: 60px 0;
+  }
+
+  .heading-kid {
+    width: 100px;
+    height: 80px;
+  }
+
+  .pillar-title {
+    font-size: 18px;
+  }
+
+  .closing-banner {
+    padding: 32px 28px;
+  }
+
+  .closing-tagline {
+    font-size: 20px;
+  }
+
   .testi-intro {
     padding-right: 0;
     text-align: center;
@@ -1368,6 +2003,42 @@ onBeforeUnmount(() => {
     flex: 0 0 100%;
   }
 
+  .pillars-section {
+    padding: 40px 0;
+  }
+
+  .heading-kid {
+    display: none;
+  }
+
+  .section-heading--kids {
+    white-space: normal;
+  }
+
+  .pillars-intro {
+    font-size: 14px;
+  }
+
+  .pillar-card {
+    padding: 30px 22px 22px;
+  }
+
+  .pillar-title {
+    font-size: 17px;
+  }
+
+  .closing-banner {
+    padding: 28px 20px;
+  }
+
+  .closing-text {
+    font-size: 14px;
+  }
+
+  .closing-tagline {
+    font-size: 18px;
+  }
+
   .testimonials-section {
     padding: 60px 0;
   }
@@ -1427,6 +2098,35 @@ onBeforeUnmount(() => {
     width: 48px;
     height: 48px;
     font-size: 20px;
+  }
+
+  .pillar-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .pillar-highlight {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  .pillars-closing {
+    margin-top: 32px;
+  }
+
+  .closing-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+  }
+
+  .closing-text {
+    font-size: 13px;
+  }
+
+  .closing-tagline {
+    font-size: 17px;
   }
 
   .testi-card {

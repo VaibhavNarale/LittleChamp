@@ -9,7 +9,8 @@ const searchQuery = ref('')
 const showUserMenu = ref(false)
 
 // Admin Client URL for sign up/login links
-const adminClientUrl = import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
+const adminClientUrl =
+  import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
 
 defineEmits(['toggle-mobile-menu', 'toggle-side-menu'])
 
@@ -88,7 +89,9 @@ const handleLogout = async () => {
         <div class="sticky-active">
           <div class="header-menu-area">
             <v-container class="position-relative pa-0">
-              <v-row class="gx-20 align-center justify-space-between flex-nowrap">
+              <v-row
+                class="gx-20 align-center justify-space-between flex-nowrap"
+              >
                 <v-col cols="auto" class="flex-shrink-0">
                   <div class="header-logo">
                     <router-link to="/">
@@ -96,7 +99,7 @@ const handleLogout = async () => {
                     </router-link>
                   </div>
                 </v-col>
-                <v-col cols="auto"  class="flex-grow-1 d-flex justify-end">
+                <v-col cols="auto" class="flex-grow-1 d-flex justify-end">
                   <nav class="main-menu menu-style1 d-none d-lg-inline-block">
                     <ul>
                       <li>
@@ -105,10 +108,27 @@ const handleLogout = async () => {
                       <li class="menu-item-has-children">
                         <router-link to="/subjects">Subjects</router-link>
                         <ul class="sub-menu">
-                          <li><router-link to="/subjects">All Subjects</router-link></li>
-                          <li><router-link to="/subjects/math">Mathematics</router-link></li>
-                          <li><router-link to="/subjects/reading">Reading & ELA</router-link></li>
-                          <li><router-link to="/subjects/science">Science</router-link></li>
+                          <li>
+                            <router-link to="/subjects"
+                              >All Subjects</router-link
+                            >
+                          </li>
+                          <li>
+                            <router-link to="/subjects/math"
+                              >Mathematics</router-link
+                            >
+                          </li>
+                          <li>
+                            <router-link to="/subjects/reading"
+                              >Your AI-Buddy</router-link
+                            >
+                          </li>
+                          <!-- <li><router-link to="/subjects/science">Science</router-link></li> -->
+                          <li>
+                            <router-link to="/subjects/craft-drawing"
+                              >Craft &amp; Drawing</router-link
+                            >
+                          </li>
                         </ul>
                       </li>
                       <li>
@@ -120,9 +140,21 @@ const handleLogout = async () => {
                       <li class="menu-item-has-children">
                         <a href="#">For You</a>
                         <ul class="sub-menu">
-                          <li><router-link to="/for-parents">For Parents</router-link></li>
-                          <li><router-link to="/for-teachers">For Teachers</router-link></li>
-                          <li><router-link to="/for-schools">For Schools</router-link></li>
+                          <li>
+                            <router-link to="/for-parents"
+                              >For Parents</router-link
+                            >
+                          </li>
+                          <li>
+                            <router-link to="/for-teachers"
+                              >For Teachers</router-link
+                            >
+                          </li>
+                          <li>
+                            <router-link to="/for-schools"
+                              >For Schools</router-link
+                            >
+                          </li>
                         </ul>
                       </li>
                       <li>
@@ -136,7 +168,11 @@ const handleLogout = async () => {
                       </li>
                     </ul>
                   </nav>
-                  <button type="button" class="vs-menu-toggle d-block d-lg-none" @click="$emit('toggle-mobile-menu')">
+                  <button
+                    type="button"
+                    class="vs-menu-toggle d-block d-lg-none"
+                    @click="$emit('toggle-mobile-menu')"
+                  >
                     <i class="far fa-bars"></i> Menu
                   </button>
                 </v-col>
@@ -156,22 +192,36 @@ const handleLogout = async () => {
 
                     <!-- Show when logged in -->
                     <template v-else>
-                      <button type="button" class="btn-dashboard" @click="goToDashboard">
+                      <button
+                        type="button"
+                        class="btn-dashboard"
+                        @click="goToDashboard"
+                      >
                         <i class="fas fa-th-large"></i>
                         <span class="btn-text">Dashboard</span>
                       </button>
                       <div class="user-dropdown">
-                        <button type="button" class="user-btn" @click="showUserMenu = !showUserMenu">
+                        <button
+                          type="button"
+                          class="user-btn"
+                          @click="showUserMenu = !showUserMenu"
+                        >
                           <div class="user-avatar">{{ userInitials }}</div>
                           <span class="user-name">{{ userName }}</span>
                           <i class="fas fa-chevron-down"></i>
                         </button>
-                        <div class="dropdown-menu" :class="{ show: showUserMenu }">
-                          <button @click="goToDashboard" class="dropdown-item">
+                        <div
+                          class="dropdown-menu"
+                          :class="{ show: showUserMenu }"
+                        >
+                          <button class="dropdown-item" @click="goToDashboard">
                             <i class="fas fa-th-large"></i>
                             <span>Dashboard</span>
                           </button>
-                          <button @click="handleLogout" class="dropdown-item logout">
+                          <button
+                            class="dropdown-item logout"
+                            @click="handleLogout"
+                          >
                             <i class="fas fa-sign-out-alt"></i>
                             <span>Logout</span>
                           </button>
@@ -179,7 +229,11 @@ const handleLogout = async () => {
                       </div>
                     </template>
 
-                    <button type="button" class="icon-btn-modern" @click="toggleSearch">
+                    <button
+                      type="button"
+                      class="icon-btn-modern"
+                      @click="toggleSearch"
+                    >
                       <i class="far fa-search"></i>
                     </button>
                   </div>
@@ -192,12 +246,20 @@ const handleLogout = async () => {
     </header>
 
     <!-- Search Box -->
-    <div class="popup-search-box d-none d-lg-block" :class="{ 'show': showSearch }">
+    <div
+      class="popup-search-box d-none d-lg-block"
+      :class="{ show: showSearch }"
+    >
       <button class="searchClose border-theme text-theme" @click="toggleSearch">
         <i class="fal fa-times"></i>
       </button>
       <form @submit.prevent="handleSearch">
-        <input type="text" class="border-theme" placeholder="What are you looking for" v-model="searchQuery">
+        <input
+          v-model="searchQuery"
+          type="text"
+          class="border-theme"
+          placeholder="What are you looking for"
+        />
         <button type="submit"><i class="fal fa-search"></i></button>
       </form>
     </div>
@@ -220,13 +282,13 @@ const handleLogout = async () => {
   font-size: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 2px solid #4A8B3F;
-  color: #4A8B3F;
+  border: 2px solid #4a8b3f;
+  color: #4a8b3f;
   background: white;
 }
 
 .btn-login:hover {
-  background: #4A8B3F;
+  background: #4a8b3f;
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(74, 139, 63, 0.3);
@@ -242,7 +304,7 @@ const handleLogout = async () => {
   font-size: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   border: none;
   box-shadow: 0 4px 15px rgba(74, 139, 63, 0.3);
@@ -251,7 +313,7 @@ const handleLogout = async () => {
 .btn-signup:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(74, 139, 63, 0.4);
-  background: linear-gradient(135deg, #3A7032, #4A8B3F);
+  background: linear-gradient(135deg, #3a7032, #4a8b3f);
 }
 
 .btn-signup i {
@@ -259,8 +321,13 @@ const handleLogout = async () => {
 }
 
 @keyframes rocket {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
 }
 
 /* Dashboard Button */
@@ -274,14 +341,14 @@ const handleLogout = async () => {
   font-size: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 2px solid #4A8B3F;
-  color: #4A8B3F;
+  border: 2px solid #4a8b3f;
+  color: #4a8b3f;
   background: white;
   cursor: pointer;
 }
 
 .btn-dashboard:hover {
-  background: #4A8B3F;
+  background: #4a8b3f;
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(74, 139, 63, 0.3);
@@ -298,14 +365,14 @@ const handleLogout = async () => {
   gap: 10px;
   padding: 6px 12px 6px 6px;
   border-radius: 50px;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   background: white;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .user-btn:hover {
-  border-color: #E91E8C;
+  border-color: #e91e8c;
   box-shadow: 0 4px 15px rgba(233, 30, 140, 0.2);
 }
 
@@ -313,7 +380,7 @@ const handleLogout = async () => {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   display: flex;
   align-items: center;
@@ -325,7 +392,7 @@ const handleLogout = async () => {
 .user-name {
   font-weight: 600;
   font-size: 14px;
-  color: #2D3436;
+  color: #2d3436;
   max-width: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -334,7 +401,7 @@ const handleLogout = async () => {
 
 .user-btn i {
   font-size: 12px;
-  color: #636E72;
+  color: #636e72;
   transition: transform 0.3s;
 }
 
@@ -373,7 +440,7 @@ const handleLogout = async () => {
   border: none;
   background: transparent;
   border-radius: 8px;
-  color: #2D3436;
+  color: #2d3436;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
@@ -382,13 +449,13 @@ const handleLogout = async () => {
 }
 
 .dropdown-item:hover {
-  background: #F7F8FA;
-  color: #E91E8C;
+  background: #f7f8fa;
+  color: #e91e8c;
 }
 
 .dropdown-item.logout:hover {
-  background: #FEE;
-  color: #C00;
+  background: #fee;
+  color: #c00;
 }
 
 .dropdown-item i {
@@ -401,8 +468,8 @@ const handleLogout = async () => {
   height: 42px;
   border-radius: 10px;
   border: none;
-  background: #F7F8FA;
-  color: #2D3436;
+  background: #f7f8fa;
+  color: #2d3436;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -411,13 +478,13 @@ const handleLogout = async () => {
 }
 
 .icon-btn-modern:hover {
-  background: #4A8B3F;
+  background: #4a8b3f;
   color: white;
   transform: translateY(-2px);
 }
 
 .vs-menu-toggle {
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   border: none;
   padding: 12px 20px;
@@ -447,7 +514,8 @@ const handleLogout = async () => {
 
 <style>
 /* Global Header Fixed Styles (non-scoped) */
-html, body {
+html,
+body {
   overflow-x: hidden;
   max-width: 100vw;
 }
@@ -570,14 +638,14 @@ html, body {
   left: 0;
   width: 0;
   height: 3px;
-  background: linear-gradient(135deg, #E91E8C, #F04DA3);
+  background: linear-gradient(135deg, #e91e8c, #f04da3);
   transition: width 0.3s ease;
   border-radius: 2px;
   margin-top: 2px;
 }
 
 .vs-header .main-menu > ul > li > a:hover {
-  color: #E91E8C !important;
+  color: #e91e8c !important;
   background: transparent !important;
 }
 
@@ -588,7 +656,7 @@ html, body {
 /* Active menu item */
 .vs-header .main-menu > ul > li.active > a,
 .vs-header .main-menu > ul > li > a.router-link-active {
-  color: #E91E8C !important;
+  color: #e91e8c !important;
   background: transparent !important;
 }
 
@@ -599,7 +667,7 @@ html, body {
 
 /* Dropdown menu hover */
 .vs-header .main-menu > ul > li.menu-item-has-children:hover > a {
-  color: #E91E8C !important;
+  color: #e91e8c !important;
   background: transparent !important;
 }
 
@@ -620,7 +688,7 @@ html, body {
   position: absolute !important;
   min-width: 200px !important;
   opacity: 0 !important;
-  visibility: hidden  !important;
+  visibility: hidden !important;
   transform: translateY(-10px) !important;
   transition: all 0.3s ease !important;
   list-style-type: none !important;
@@ -664,7 +732,7 @@ html, body {
   transition: all 0.3s ease !important;
   border-radius: 8px !important;
   display: block !important;
-  color: #2D3436 !important;
+  color: #2d3436 !important;
   background: transparent !important;
   font-size: 14px !important;
   white-space: nowrap !important;
@@ -679,8 +747,12 @@ html, body {
 }
 
 .vs-header .main-menu .sub-menu li a:hover {
-  background: linear-gradient(135deg, rgba(233, 30, 140, 0.08), rgba(240, 77, 163, 0.08)) !important;
-  color: #E91E8C !important;
+  background: linear-gradient(
+    135deg,
+    rgba(233, 30, 140, 0.08),
+    rgba(240, 77, 163, 0.08)
+  ) !important;
+  color: #e91e8c !important;
   padding-left: 20px !important;
 }
 

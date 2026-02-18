@@ -2,10 +2,8 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
-import Logo from './Logo.vue'
-
-const props = defineProps({
-  show: Boolean
+defineProps({
+  show: Boolean,
 })
 
 const emit = defineEmits(['close'])
@@ -27,7 +25,8 @@ const toggleSubmenu = (menuName) => {
 
 const goToDashboard = () => {
   const token = authStore.token
-  const adminClientUrl = import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
+  const adminClientUrl =
+    import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
   if (token) {
     window.location.href = `${adminClientUrl}?token=${encodeURIComponent(token)}`
   } else {
@@ -59,15 +58,22 @@ const handleLinkClick = () => {
       <i class="fas fa-times"></i>
     </button> -->
 
-
     <!-- Auth Section -->
     <div class="auth-section mt-3">
       <template v-if="!isLoggedIn">
-        <router-link to="/login" class="auth-btn login-btn" @click="handleLinkClick">
+        <router-link
+          to="/login"
+          class="auth-btn login-btn"
+          @click="handleLinkClick"
+        >
           <i class="fas fa-sign-in-alt"></i>
           <span>Login</span>
         </router-link>
-        <router-link to="/register" class="auth-btn signup-btn" @click="handleLinkClick">
+        <router-link
+          to="/register"
+          class="auth-btn signup-btn"
+          @click="handleLinkClick"
+        >
           <i class="fas fa-rocket"></i>
           <span>Start Free Trial</span>
         </router-link>
@@ -77,11 +83,15 @@ const handleLinkClick = () => {
           <i class="fas fa-user-circle"></i>
           <span>{{ userName }}</span>
         </div>
-        <button @click="goToDashboard" class="auth-btn dashboard-btn" type="button">
+        <button
+          class="auth-btn dashboard-btn"
+          type="button"
+          @click="goToDashboard"
+        >
           <i class="fas fa-th-large"></i>
           <span>Dashboard</span>
         </button>
-        <button @click="handleLogout" class="auth-btn logout-btn" type="button">
+        <button class="auth-btn logout-btn" type="button" @click="handleLogout">
           <i class="fas fa-sign-out-alt"></i>
           <span>Logout</span>
         </button>
@@ -96,35 +106,82 @@ const handleLinkClick = () => {
         </li>
 
         <li>
-          <button @click="toggleSubmenu('subjects')" type="button" class="menu-toggle">
+          <button
+            type="button"
+            class="menu-toggle"
+            @click="toggleSubmenu('subjects')"
+          >
             <span>Subjects</span>
-            <i class="fas fa-chevron-down" :class="{ 'rotate': activeSubmenu === 'subjects' }"></i>
+            <i
+              class="fas fa-chevron-down"
+              :class="{ rotate: activeSubmenu === 'subjects' }"
+            ></i>
           </button>
           <ul v-show="activeSubmenu === 'subjects'" class="submenu">
-            <li><router-link to="/subjects" @click="handleLinkClick">All Subjects</router-link></li>
-            <li><router-link to="/subjects/math" @click="handleLinkClick">Mathematics</router-link></li>
-            <li><router-link to="/subjects/reading" @click="handleLinkClick">Reading & ELA</router-link></li>
-            <li><router-link to="/subjects/science" @click="handleLinkClick">Science</router-link></li>
+            <li>
+              <router-link to="/subjects" @click="handleLinkClick"
+                >All Subjects</router-link
+              >
+            </li>
+            <li>
+              <router-link to="/subjects/math" @click="handleLinkClick"
+                >Mathematics</router-link
+              >
+            </li>
+            <li>
+              <router-link to="/subjects/reading" @click="handleLinkClick"
+                >Your AI-Buddy</router-link
+              >
+            </li>
+            <!-- <li><router-link to="/subjects/science" @click="handleLinkClick">Science</router-link></li> -->
+            <li>
+              <router-link to="/subjects/craft-drawing" @click="handleLinkClick"
+                >Craft &amp; Drawing</router-link
+              >
+            </li>
           </ul>
         </li>
 
         <li>
-          <router-link to="/features" @click="handleLinkClick">Features</router-link>
+          <router-link to="/features" @click="handleLinkClick"
+            >Features</router-link
+          >
         </li>
 
         <li>
-          <router-link to="/pricing" @click="handleLinkClick">Pricing</router-link>
+          <router-link to="/pricing" @click="handleLinkClick"
+            >Pricing</router-link
+          >
         </li>
 
         <li>
-          <button @click="toggleSubmenu('foryou')" type="button" class="menu-toggle">
+          <button
+            type="button"
+            class="menu-toggle"
+            @click="toggleSubmenu('foryou')"
+          >
             <span>For You</span>
-            <i class="fas fa-chevron-down" :class="{ 'rotate': activeSubmenu === 'foryou' }"></i>
+            <i
+              class="fas fa-chevron-down"
+              :class="{ rotate: activeSubmenu === 'foryou' }"
+            ></i>
           </button>
           <ul v-show="activeSubmenu === 'foryou'" class="submenu">
-            <li><router-link to="/for-parents" @click="handleLinkClick">For Parents</router-link></li>
-            <li><router-link to="/for-teachers" @click="handleLinkClick">For Teachers</router-link></li>
-            <li><router-link to="/for-schools" @click="handleLinkClick">For Schools</router-link></li>
+            <li>
+              <router-link to="/for-parents" @click="handleLinkClick"
+                >For Parents</router-link
+              >
+            </li>
+            <li>
+              <router-link to="/for-teachers" @click="handleLinkClick"
+                >For Teachers</router-link
+              >
+            </li>
+            <li>
+              <router-link to="/for-schools" @click="handleLinkClick"
+                >For Schools</router-link
+              >
+            </li>
           </ul>
         </li>
 
@@ -137,7 +194,9 @@ const handleLinkClick = () => {
         </li>
 
         <li>
-          <router-link to="/contact" @click="handleLinkClick">Contact</router-link>
+          <router-link to="/contact" @click="handleLinkClick"
+            >Contact</router-link
+          >
         </li>
       </ul>
     </nav>
@@ -158,8 +217,12 @@ const handleLinkClick = () => {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Menu Panel */
@@ -170,7 +233,7 @@ const handleLinkClick = () => {
   bottom: 0;
   width: 320px;
   max-width: 85vw;
-  background: linear-gradient(180deg, #4A8B3F 0%, #5EA750 100%);
+  background: linear-gradient(180deg, #4a8b3f 0%, #5ea750 100%);
   z-index: 9999;
   overflow-y: auto;
   transform: translateX(100%);
@@ -267,7 +330,7 @@ const handleLinkClick = () => {
 
 .login-btn {
   background: white;
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .login-btn:hover {
@@ -288,7 +351,7 @@ const handleLinkClick = () => {
 
 .dashboard-btn {
   background: white;
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .dashboard-btn:hover {

@@ -7,8 +7,8 @@ import Logo from './Logo.vue'
 defineProps({
   show: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const emit = defineEmits(['close'])
@@ -23,7 +23,8 @@ const userName = computed(() => {
 
 const goToDashboard = () => {
   const token = authStore.token
-  const adminClientUrl = import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
+  const adminClientUrl =
+    import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
   if (token) {
     window.location.href = `${adminClientUrl}?token=${encodeURIComponent(token)}`
   } else {
@@ -54,10 +55,18 @@ const handleLogout = async () => {
       <!-- Auth Buttons for Mobile -->
       <div class="mobile-auth-buttons">
         <template v-if="!isLoggedIn">
-          <router-link to="/login" class="mobile-btn btn-login" @click="$emit('close')">
+          <router-link
+            to="/login"
+            class="mobile-btn btn-login"
+            @click="$emit('close')"
+          >
             <i class="fas fa-sign-in-alt"></i> Login
           </router-link>
-          <router-link to="/register" class="mobile-btn btn-signup" @click="$emit('close')">
+          <router-link
+            to="/register"
+            class="mobile-btn btn-signup"
+            @click="$emit('close')"
+          >
             <i class="fas fa-rocket"></i> Start Free Trial
           </router-link>
         </template>
@@ -66,10 +75,10 @@ const handleLogout = async () => {
             <i class="fas fa-user-circle"></i>
             <span>{{ userName }}</span>
           </div>
-          <button @click="goToDashboard" class="mobile-btn btn-dashboard">
+          <button class="mobile-btn btn-dashboard" @click="goToDashboard">
             <i class="fas fa-th-large"></i> Dashboard
           </button>
-          <button @click="handleLogout" class="mobile-btn btn-logout">
+          <button class="mobile-btn btn-logout" @click="handleLogout">
             <i class="fas fa-sign-out-alt"></i> Logout
           </button>
         </template>
@@ -83,24 +92,59 @@ const handleLogout = async () => {
           <li class="menu-item-has-children">
             <a href="#">Subjects</a>
             <ul class="sub-menu">
-              <li><router-link to="/subjects" @click="$emit('close')">All Subjects</router-link></li>
-              <li><router-link to="/subjects/math" @click="$emit('close')">Mathematics</router-link></li>
-              <li><router-link to="/subjects/reading" @click="$emit('close')">Reading & ELA</router-link></li>
-              <li><router-link to="/subjects/science" @click="$emit('close')">Science</router-link></li>
+              <li>
+                <router-link to="/subjects" @click="$emit('close')"
+                  >All Subjects</router-link
+                >
+              </li>
+              <li>
+                <router-link to="/subjects/math" @click="$emit('close')"
+                  >Mathematics</router-link
+                >
+              </li>
+              <li>
+                <router-link to="/subjects/reading" @click="$emit('close')"
+                  >Your AI-Buddy</router-link
+                >
+              </li>
+              <!-- <li><router-link to="/subjects/science" @click="$emit('close')">Science</router-link></li> -->
+              <li>
+                <router-link
+                  to="/subjects/craft-drawing"
+                  @click="$emit('close')"
+                  >Craft &amp; Drawing</router-link
+                >
+              </li>
             </ul>
           </li>
           <li>
-            <router-link to="/features" @click="$emit('close')">Features</router-link>
+            <router-link to="/features" @click="$emit('close')"
+              >Features</router-link
+            >
           </li>
           <li>
-            <router-link to="/pricing" @click="$emit('close')">Pricing</router-link>
+            <router-link to="/pricing" @click="$emit('close')"
+              >Pricing</router-link
+            >
           </li>
           <li class="menu-item-has-children">
             <a href="#">For You</a>
             <ul class="sub-menu">
-              <li><router-link to="/for-parents" @click="$emit('close')">For Parents</router-link></li>
-              <li><router-link to="/for-teachers" @click="$emit('close')">For Teachers</router-link></li>
-              <li><router-link to="/for-schools" @click="$emit('close')">For Schools</router-link></li>
+              <li>
+                <router-link to="/for-parents" @click="$emit('close')"
+                  >For Parents</router-link
+                >
+              </li>
+              <li>
+                <router-link to="/for-teachers" @click="$emit('close')"
+                  >For Teachers</router-link
+                >
+              </li>
+              <li>
+                <router-link to="/for-schools" @click="$emit('close')"
+                  >For Schools</router-link
+                >
+              </li>
             </ul>
           </li>
           <li>
@@ -110,7 +154,9 @@ const handleLogout = async () => {
             <router-link to="/about" @click="$emit('close')">About</router-link>
           </li>
           <li>
-            <router-link to="/contact" @click="$emit('close')">Contact</router-link>
+            <router-link to="/contact" @click="$emit('close')"
+              >Contact</router-link
+            >
           </li>
         </ul>
       </div>
@@ -137,7 +183,7 @@ const handleLogout = async () => {
   width: 320px;
   max-width: 85vw;
   height: 100vh;
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #5ea750 100%);
   padding: 60px 20px 20px 20px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -318,7 +364,7 @@ const handleLogout = async () => {
 
 .btn-login {
   background: white;
-  color: #4A8B3F;
+  color: #4a8b3f;
   border: 2px solid white;
 }
 
@@ -327,7 +373,7 @@ const handleLogout = async () => {
 }
 
 .btn-signup {
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
 }
@@ -339,7 +385,7 @@ const handleLogout = async () => {
 
 .btn-dashboard {
   background: white;
-  color: #4A8B3F;
+  color: #4a8b3f;
   border: 2px solid white;
 }
 

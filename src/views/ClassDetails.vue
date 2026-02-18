@@ -6,8 +6,9 @@ import {
   cleanupTemplateScripts,
 } from '@/utils/initScripts'
 import mathIcon from '@/assets/math-icon.png'
-import readingIcon from '@/assets/reading-icon.png'
+import readingIcon from '@/assets/ai-buddy-icon.png'
 import scienceIcon from '@/assets/science-icon.png'
+import craftIcon from '@/assets/craft-drawing-icon.png'
 
 const route = useRoute()
 const router = useRouter()
@@ -34,21 +35,49 @@ const subjectsData = {
         icon: 'fas fa-hashtag',
         name: 'Counting & Numbers',
         games: '120 games',
+        color: '#F97316',
       },
-      { icon: 'fas fa-plus', name: 'Addition', games: '95 games' },
-      { icon: 'fas fa-minus', name: 'Subtraction', games: '88 games' },
-      { icon: 'fas fa-times', name: 'Multiplication', games: '102 games' },
-      { icon: 'fas fa-divide', name: 'Division', games: '76 games' },
-      { icon: 'fas fa-shapes', name: 'Geometry', games: '64 games' },
+      {
+        icon: 'fas fa-plus',
+        name: 'Addition',
+        games: '95 games',
+        color: '#0EA5E9',
+      },
+      {
+        icon: 'fas fa-minus',
+        name: 'Subtraction',
+        games: '88 games',
+        color: '#F97066',
+      },
+      {
+        icon: 'fas fa-times',
+        name: 'Multiplication',
+        games: '102 games',
+        color: '#14B8A6',
+      },
+      {
+        icon: 'fas fa-divide',
+        name: 'Division',
+        games: '76 games',
+        color: '#6366F1',
+      },
+      {
+        icon: 'fas fa-shapes',
+        name: 'Geometry',
+        games: '64 games',
+        color: '#10B981',
+      },
       {
         icon: 'fas fa-percentage',
         name: 'Fractions & Decimals',
         games: '85 games',
+        color: '#F59E0B',
       },
       {
         icon: 'fas fa-question-circle',
         name: 'Word Problems',
         games: '92 games',
+        color: '#F43F5E',
       },
     ],
     grades: [
@@ -151,38 +180,70 @@ const subjectsData = {
     ],
   },
   reading: {
-    name: 'Reading & ELA',
+    name: 'Your AI-Buddy',
     icon: 'fas fa-book-open',
     iconImage: readingIcon,
     color: '#FD79A8',
     gradient: 'linear-gradient(135deg, #FD79A8, #E84393)',
-    heroTitle: 'Explore Reading & ELA',
+    heroTitle: 'Explore Your AI-Buddy',
     heroDescription:
       'Spark a lifelong love of reading with phonics, vocabulary, comprehension, and writing activities for Pre-K through Grade 5.',
     description:
-      'Develop phonics, vocabulary, reading comprehension, grammar, and writing skills through interactive stories and activities.',
+      'AI-powered feature combines friendly interaction, communication skills, general knowledge, and guides children on exploring the outside world — creating a fun, engaging, and educational experience all in one place.',
     stats: {
       games: '1200+',
       worksheets: '4000+',
       grades: 'Pre-K to 5',
     },
     topics: [
-      { icon: 'fas fa-font', name: 'Phonics & Letters', games: '150 games' },
-      { icon: 'fas fa-spell-check', name: 'Spelling', games: '110 games' },
+      {
+        icon: 'fas fa-font',
+        name: 'Phonics & Letters',
+        games: '150 games',
+        color: '#F97066',
+      },
+      {
+        icon: 'fas fa-spell-check',
+        name: 'Spelling',
+        games: '110 games',
+        color: '#8B5CF6',
+      },
       {
         icon: 'fas fa-book-reader',
         name: 'Reading Comprehension',
         games: '180 games',
+        color: '#14B8A6',
       },
-      { icon: 'fas fa-language', name: 'Vocabulary', games: '95 games' },
-      { icon: 'fas fa-pen-fancy', name: 'Grammar', games: '88 games' },
-      { icon: 'fas fa-pencil-alt', name: 'Writing', games: '72 games' },
+      {
+        icon: 'fas fa-language',
+        name: 'Vocabulary',
+        games: '95 games',
+        color: '#F59E0B',
+      },
+      {
+        icon: 'fas fa-pen-fancy',
+        name: 'Grammar',
+        games: '88 games',
+        color: '#6366F1',
+      },
+      {
+        icon: 'fas fa-pencil-alt',
+        name: 'Writing',
+        games: '72 games',
+        color: '#10B981',
+      },
       {
         icon: 'fas fa-comment-dots',
         name: 'Parts of Speech',
         games: '65 games',
+        color: '#F43F5E',
       },
-      { icon: 'fas fa-quote-left', name: 'Punctuation', games: '55 games' },
+      {
+        icon: 'fas fa-quote-left',
+        name: 'Punctuation',
+        games: '55 games',
+        color: '#0EA5E9',
+      },
     ],
     grades: [
       {
@@ -300,27 +361,41 @@ const subjectsData = {
       grades: 'K to 5',
     },
     topics: [
-      { icon: 'fas fa-paw', name: 'Animals & Habitats', games: '110 games' },
+      {
+        icon: 'fas fa-paw',
+        name: 'Animals & Habitats',
+        games: '110 games',
+        color: '#16A34A',
+      },
       {
         icon: 'fas fa-seedling',
         name: 'Plants & Life Cycles',
         games: '85 games',
+        color: '#F97066',
       },
       {
         icon: 'fas fa-cloud-sun-rain',
         name: 'Weather & Seasons',
         games: '72 games',
+        color: '#0EA5E9',
       },
       {
         icon: 'fas fa-globe-americas',
         name: 'Earth & Space',
         games: '95 games',
+        color: '#6366F1',
       },
-      { icon: 'fas fa-atom', name: 'Matter & Energy', games: '68 games' },
+      {
+        icon: 'fas fa-atom',
+        name: 'Matter & Energy',
+        games: '68 games',
+        color: '#F59E0B',
+      },
       {
         icon: 'fas fa-microscope',
         name: 'Scientific Method',
         games: '55 games',
+        color: '#14B8A6',
       },
     ],
     grades: [
@@ -409,6 +484,159 @@ const subjectsData = {
         title: 'Progress Tracking',
         description:
           'Visual dashboards and achievement badges keep kids motivated and parents informed.',
+      },
+    ],
+  },
+  'craft-drawing': {
+    name: 'Craft & Drawing',
+    icon: 'fas fa-palette',
+    iconImage: craftIcon,
+    color: '#F59E0B',
+    gradient: 'linear-gradient(135deg, #F59E0B, #F97316)',
+    heroTitle: 'Explore Craft & Drawing',
+    heroDescription:
+      'Unleash creativity through fun drawing lessons, paper crafts, and hands-on art activities that build fine motor skills, imagination, and self-expression.',
+    description:
+      'From pencil sketching to paper crafts, our creative activities help children develop artistic skills, fine motor control, and imaginative thinking in a fun, guided environment.',
+    stats: {
+      games: '200+',
+      worksheets: '500+',
+      grades: 'Pre-K to 5',
+    },
+    topics: [
+      {
+        icon: 'fas fa-pencil-alt',
+        name: 'Pencil Sketching',
+        games: '45 activities',
+        color: '#F59E0B',
+      },
+      {
+        icon: 'fas fa-palette',
+        name: 'Color & Painting',
+        games: '60 activities',
+        color: '#E91E8C',
+      },
+      {
+        icon: 'fas fa-cut',
+        name: 'Paper Craft',
+        games: '50 activities',
+        color: '#16A34A',
+      },
+      {
+        icon: 'fas fa-shapes',
+        name: 'Origami & Folding',
+        games: '35 activities',
+        color: '#6366F1',
+      },
+      {
+        icon: 'fas fa-hand-sparkles',
+        name: 'Clay & Modelling',
+        games: '30 activities',
+        color: '#0EA5E9',
+      },
+      {
+        icon: 'fas fa-magic',
+        name: 'Creative Projects',
+        games: '40 activities',
+        color: '#14B8A6',
+      },
+    ],
+    grades: [
+      {
+        name: 'Pre-K',
+        ages: '3-4 years',
+        skills: [
+          'Scribbling & free drawing',
+          'Finger painting basics',
+          'Simple paper tearing & pasting',
+          'Color recognition through art',
+        ],
+      },
+      {
+        name: 'Kindergarten',
+        ages: '5-6 years',
+        skills: [
+          'Drawing basic shapes & figures',
+          'Coloring within lines',
+          'Simple paper folding',
+          'Craft with glue & scissors',
+        ],
+      },
+      {
+        name: '1st Grade',
+        ages: '6-7 years',
+        skills: [
+          'Drawing animals & objects',
+          'Watercolor painting basics',
+          'Paper plate crafts',
+          'Pattern drawing & tracing',
+        ],
+      },
+      {
+        name: '2nd Grade',
+        ages: '7-8 years',
+        skills: [
+          'Landscape & scenery drawing',
+          'Color mixing techniques',
+          'Origami simple models',
+          'Clay modelling basics',
+        ],
+      },
+      {
+        name: '3rd Grade',
+        ages: '8-9 years',
+        skills: [
+          'Perspective & shading intro',
+          'Acrylic painting basics',
+          'Advanced origami figures',
+          'Recycled material crafts',
+        ],
+      },
+      {
+        name: '4th Grade',
+        ages: '9-10 years',
+        skills: [
+          'Portrait & figure drawing',
+          'Mixed media art',
+          'Papier-mâché projects',
+          'Craft design & planning',
+        ],
+      },
+      {
+        name: '5th Grade',
+        ages: '10-11 years',
+        skills: [
+          'Realistic sketching techniques',
+          'Canvas painting projects',
+          'Sculpture & 3D art',
+          'Creative portfolio building',
+        ],
+      },
+    ],
+    features: [
+      {
+        icon: 'fas fa-paint-brush',
+        title: 'Builds Creativity',
+        description:
+          'Art activities encourage original thinking, imagination, and the confidence to express ideas visually.',
+      },
+      {
+        icon: 'fas fa-hand-paper',
+        title: 'Fine Motor Skills',
+        description:
+          'Cutting, folding, drawing, and moulding strengthen hand-eye coordination and dexterity.',
+      },
+      {
+        icon: 'fas fa-smile',
+        title: 'Emotional Expression',
+        description:
+          'Art provides a safe outlet for children to express feelings, build self-esteem, and develop mindfulness.',
+      },
+      {
+        icon: 'fas fa-trophy',
+        title: 'Progress Tracking',
+        description:
+          'Visual portfolios and achievement badges keep kids motivated and parents informed about creative growth.',
       },
     ],
   },
@@ -608,14 +836,20 @@ onBeforeUnmount(() => {
                 <h5 class="mb-4">Topics Covered:</h5>
                 <div class="row g-3">
                   <div
-                    v-for="topic in subject.topics"
+                    v-for="(topic, index) in subject.topics"
                     :key="topic.name"
                     class="col-md-6"
                   >
-                    <div class="topic-item">
+                    <div
+                      class="topic-item"
+                      :style="{ '--topic-hover-color': topic.color }"
+                    >
                       <div
-                        class="topic-icon"
-                        :style="{ background: subject.color }"
+                        class="topic-icon cartoon-icon"
+                        :style="{
+                          background: topic.color,
+                          animationDelay: index * 0.15 + 's',
+                        }"
                       >
                         <i :class="topic.icon + ' text-white'"></i>
                       </div>
@@ -1047,16 +1281,20 @@ onBeforeUnmount(() => {
 .topic-item {
   background: #f7f8fa;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 15px;
-  transition: all 0.3s;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-left: 3px solid transparent;
+  cursor: default;
 }
 
 .topic-item:hover {
-  background: #ecedf0;
-  transform: translateX(5px);
+  background: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--topic-hover-color, #6c5ce7);
 }
 
 .topic-icon {
@@ -1067,6 +1305,56 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.cartoon-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(0, 0, 0, 0.06);
+  font-size: 18px;
+  transform: rotate(-3deg);
+  animation: cartoon-float 3s ease-in-out infinite;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.topic-item:hover .cartoon-icon {
+  animation: cartoon-bounce 0.5s ease;
+  transform: scale(1.15) rotate(0deg);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes cartoon-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+}
+
+@keyframes cartoon-bounce {
+  0% {
+    transform: scale(1) rotate(-3deg);
+  }
+  30% {
+    transform: scale(1.2) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  70% {
+    transform: scale(1.18) rotate(-2deg);
+  }
+  100% {
+    transform: scale(1.15) rotate(0deg);
+  }
 }
 
 .topic-info h6 {

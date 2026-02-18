@@ -4,6 +4,12 @@ import {
   initTemplateScripts,
   cleanupTemplateScripts,
 } from '@/utils/initScripts'
+import unlimitedStudentsImg from '@/assets/unlimited-students.png'
+import ferpaCoppaImg from '@/assets/ferpa-coppa.png'
+import schoolAnalyticsImg from '@/assets/school-analytics.png'
+import dedicatedManagerImg from '@/assets/dedicated-manager.png'
+import ssoIntegrationImg from '@/assets/sso-integration.png'
+import professionalDevImg from '@/assets/professional-development.png'
 
 onMounted(async () => {
   await nextTick()
@@ -67,8 +73,12 @@ onBeforeUnmount(() => {
       <div class="row gy-4 mt-5">
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-users"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="unlimitedStudentsImg"
+                alt="Unlimited Students & Teachers"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Unlimited Students & Teachers</h3>
             <p class="feature-card-text">
@@ -80,8 +90,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-shield-alt"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="ferpaCoppaImg"
+                alt="FERPA & COPPA Compliant"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">FERPA & COPPA Compliant</h3>
             <p class="feature-card-text">
@@ -93,8 +107,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-chart-pie"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="schoolAnalyticsImg"
+                alt="School-Wide Analytics"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">School-Wide Analytics</h3>
             <p class="feature-card-text">
@@ -106,8 +124,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-user-tie"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="dedicatedManagerImg"
+                alt="Dedicated Account Manager"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Dedicated Account Manager</h3>
             <p class="feature-card-text">
@@ -119,8 +141,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-sync"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="ssoIntegrationImg"
+                alt="SSO & LMS Integration"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">SSO & LMS Integration</h3>
             <p class="feature-card-text">
@@ -132,8 +158,12 @@ onBeforeUnmount(() => {
 
         <div class="col-md-6 col-lg-4">
           <div class="feature-card">
-            <div class="feature-card-icon">
-              <i class="fas fa-graduation-cap"></i>
+            <div class="feature-card-icon-wrap">
+              <img
+                :src="professionalDevImg"
+                alt="Professional Development"
+                class="feature-card-img"
+              />
             </div>
             <h3 class="box-title">Professional Development</h3>
             <p class="feature-card-text">
@@ -230,7 +260,7 @@ onBeforeUnmount(() => {
     <div class="container">
       <div class="title-area text-center">
         <span class="sub-title">
-          <i class="fas fa-dollar-sign"></i>
+          <i class="fas fa-school"></i>
           School Pricing
         </span>
         <h2 class="sec-title">Simple, Transparent Pricing</h2>
@@ -245,7 +275,7 @@ onBeforeUnmount(() => {
             <div class="pricing-badge">SMALL SCHOOLS</div>
             <h3 class="pricing-title">Starter</h3>
             <div class="pricing-price">
-              <span class="price-amount">$1,500</span>
+              <span class="price-amount">₹1,500</span>
               <span class="price-period">/year</span>
             </div>
             <ul class="pricing-features">
@@ -266,7 +296,7 @@ onBeforeUnmount(() => {
             <div class="pricing-badge featured-badge">MOST POPULAR</div>
             <h3 class="pricing-title">Professional</h3>
             <div class="pricing-price">
-              <span class="price-amount">$3,500</span>
+              <span class="price-amount">₹3,500</span>
               <span class="price-period">/year</span>
             </div>
             <ul class="pricing-features">
@@ -458,6 +488,36 @@ onBeforeUnmount(() => {
   color: white;
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+.feature-card-icon-wrap {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.feature-card-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: school-float 3s ease-in-out infinite;
+}
+
+.feature-card:hover .feature-card-img {
+  transform: scale(1.1) rotate(3deg);
+  animation: none;
+}
+
+@keyframes school-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .box-title {

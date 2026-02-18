@@ -230,8 +230,11 @@ onBeforeUnmount(() => {
               <h5 class="mb-4">Topics Covered:</h5>
               <div class="row g-3">
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #6c5ce7">
+                  <div class="topic-item" style="--topic-hover-color: #f97316">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #f97316; animation-delay: 0s"
+                    >
                       <i class="fas fa-hashtag text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -241,8 +244,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #6c5ce7">
+                  <div class="topic-item" style="--topic-hover-color: #0ea5e9">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #0ea5e9; animation-delay: 0.15s"
+                    >
                       <i class="fas fa-plus text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -252,8 +258,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #6c5ce7">
+                  <div class="topic-item" style="--topic-hover-color: #f97066">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #f97066; animation-delay: 0.3s"
+                    >
                       <i class="fas fa-minus text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -263,8 +272,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #6c5ce7">
+                  <div class="topic-item" style="--topic-hover-color: #14b8a6">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #14b8a6; animation-delay: 0.45s"
+                    >
                       <i class="fas fa-times text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -274,8 +286,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #6c5ce7">
+                  <div class="topic-item" style="--topic-hover-color: #6366f1">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #6366f1; animation-delay: 0.6s"
+                    >
                       <i class="fas fa-divide text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -285,8 +300,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #6c5ce7">
+                  <div class="topic-item" style="--topic-hover-color: #10b981">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #10b981; animation-delay: 0.75s"
+                    >
                       <i class="fas fa-shapes text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -296,8 +314,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #6c5ce7">
+                  <div class="topic-item" style="--topic-hover-color: #f59e0b">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #f59e0b; animation-delay: 0.9s"
+                    >
                       <i class="fas fa-percentage text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -307,8 +328,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #6c5ce7">
+                  <div class="topic-item" style="--topic-hover-color: #f43f5e">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #f43f5e; animation-delay: 1.05s"
+                    >
                       <i class="fas fa-question-circle text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -332,7 +356,7 @@ onBeforeUnmount(() => {
     </div>
   </section>
 
-  <!--======== Reading & ELA Subject ========-->
+  <!--======== Your AI-Buddy Subject ========-->
   <section class="space-bottom bg-smoke">
     <div class="container">
       <div class="subject-card-large wow fadeInUp" data-wow-delay="0.1s">
@@ -341,15 +365,17 @@ onBeforeUnmount(() => {
             <div class="subject-header">
               <div class="subject-icon-large subject-icon-img-wrap mb-4">
                 <img
-                  src="@/assets/reading-icon.png"
-                  alt="Reading & ELA"
+                  src="@/assets/ai-buddy-icon.png"
+                  alt="Your AI-Buddy"
                   class="subject-icon-img"
                 />
               </div>
-              <h2 class="sec-title mb-3">Reading & ELA</h2>
+              <h2 class="sec-title mb-3">Your AI-Buddy</h2>
               <p class="fs-md mb-3">
-                Develop phonics, vocabulary, reading comprehension, grammar, and
-                writing skills through interactive stories and activities.
+                AI-powered feature combines friendly interaction, communication
+                skills, general knowledge, and guides children on exploring the
+                outside world — creating a fun, engaging, and educational
+                experience all in one place.
               </p>
               <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                 <div class="meta-badge">
@@ -378,8 +404,11 @@ onBeforeUnmount(() => {
               <h5 class="mb-4">Topics Covered:</h5>
               <div class="row g-3">
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #fd79a8">
+                  <div class="topic-item" style="--topic-hover-color: #f97066">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #f97066; animation-delay: 0s"
+                    >
                       <i class="fas fa-font text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -389,8 +418,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #fd79a8">
+                  <div class="topic-item" style="--topic-hover-color: #8b5cf6">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #8b5cf6; animation-delay: 0.15s"
+                    >
                       <i class="fas fa-spell-check text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -400,8 +432,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #fd79a8">
+                  <div class="topic-item" style="--topic-hover-color: #14b8a6">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #14b8a6; animation-delay: 0.3s"
+                    >
                       <i class="fas fa-book-reader text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -411,8 +446,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #fd79a8">
+                  <div class="topic-item" style="--topic-hover-color: #f59e0b">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #f59e0b; animation-delay: 0.45s"
+                    >
                       <i class="fas fa-language text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -422,9 +460,12 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #fd79a8">
-                      <i class="fas fa-grammar text-white"></i>
+                  <div class="topic-item" style="--topic-hover-color: #6366f1">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #6366f1; animation-delay: 0.6s"
+                    >
+                      <i class="fas fa-pen-fancy text-white"></i>
                     </div>
                     <div class="topic-info">
                       <h6>Grammar</h6>
@@ -433,9 +474,12 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #fd79a8">
-                      <i class="fas fa-pen-fancy text-white"></i>
+                  <div class="topic-item" style="--topic-hover-color: #10b981">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #10b981; animation-delay: 0.75s"
+                    >
+                      <i class="fas fa-pencil-alt text-white"></i>
                     </div>
                     <div class="topic-info">
                       <h6>Writing</h6>
@@ -444,8 +488,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #fd79a8">
+                  <div class="topic-item" style="--topic-hover-color: #f43f5e">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #f43f5e; animation-delay: 0.9s"
+                    >
                       <i class="fas fa-comment-dots text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -455,8 +502,11 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #fd79a8">
+                  <div class="topic-item" style="--topic-hover-color: #0ea5e9">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #0ea5e9; animation-delay: 1.05s"
+                    >
                       <i class="fas fa-quote-left text-white"></i>
                     </div>
                     <div class="topic-info">
@@ -480,7 +530,28 @@ onBeforeUnmount(() => {
     </div>
   </section>
 
-  <!--======== Science Subject ========-->
+  <!--======== Science Subject (commented out) ========-->
+  <!--
+  <section class="space-bottom">
+    <div class="container">
+      <div class="subject-card-large wow fadeInUp" data-wow-delay="0.1s">
+        <div class="row align-items-center gy-40">
+          <div class="col-lg-5">
+            <div class="subject-header">
+              <div class="subject-icon-large subject-icon-img-wrap mb-4">
+                <img src="@/assets/science-icon.png" alt="Science" class="subject-icon-img" />
+              </div>
+              <h2 class="sec-title mb-3">Science</h2>
+              <p class="fs-md mb-3">Discover the wonders of the natural world through experiments, observations, and interactive science games covering biology, physics, and earth science.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!--======== Craft & Drawing Subject ========-->
   <section class="space-bottom">
     <div class="container">
       <div class="subject-card-large wow fadeInUp" data-wow-delay="0.1s">
@@ -489,29 +560,29 @@ onBeforeUnmount(() => {
             <div class="subject-header">
               <div class="subject-icon-large subject-icon-img-wrap mb-4">
                 <img
-                  src="@/assets/science-icon.png"
-                  alt="Science"
+                  src="@/assets/craft-drawing-icon.png"
+                  alt="Craft & Drawing"
                   class="subject-icon-img"
                 />
               </div>
-              <h2 class="sec-title mb-3">Science</h2>
+              <h2 class="sec-title mb-3">Craft & Drawing</h2>
               <p class="fs-md mb-3">
-                Discover the wonders of the natural world through experiments,
-                observations, and interactive science games covering biology,
-                physics, and earth science.
+                Unleash your child's creativity through fun drawing lessons,
+                paper crafts, and hands-on art activities that build fine motor
+                skills, imagination, and self-expression.
               </p>
               <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                 <div class="meta-badge">
-                  <i class="fas fa-gamepad text-primary"></i>
-                  <strong>800+</strong> Games
+                  <i class="fas fa-paint-brush text-primary"></i>
+                  <strong>200+</strong> Activities
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-file-alt text-success"></i>
-                  <strong>2500+</strong> Worksheets
+                  <strong>500+</strong> Templates
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-graduation-cap text-warning"></i>
-                  <strong>K to 5</strong>
+                  <strong>Pre-K to 5</strong>
                 </div>
               </div>
               <div class="difficulty-badges mb-4">
@@ -527,76 +598,94 @@ onBeforeUnmount(() => {
               <h5 class="mb-4">Topics Covered:</h5>
               <div class="row g-3">
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #00b894">
-                      <i class="fas fa-paw text-white"></i>
+                  <div class="topic-item" style="--topic-hover-color: #f59e0b">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #f59e0b; animation-delay: 0s"
+                    >
+                      <i class="fas fa-pencil-alt text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Animals & Habitats</h6>
-                      <p class="small mb-0 text-muted">110 games</p>
+                      <h6>Pencil Sketching</h6>
+                      <p class="small mb-0 text-muted">45 activities</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #00b894">
-                      <i class="fas fa-seedling text-white"></i>
+                  <div class="topic-item" style="--topic-hover-color: #e91e8c">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #e91e8c; animation-delay: 0.15s"
+                    >
+                      <i class="fas fa-palette text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Plants & Life Cycles</h6>
-                      <p class="small mb-0 text-muted">85 games</p>
+                      <h6>Color & Painting</h6>
+                      <p class="small mb-0 text-muted">60 activities</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #00b894">
-                      <i class="fas fa-cloud-sun-rain text-white"></i>
+                  <div class="topic-item" style="--topic-hover-color: #16a34a">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #16a34a; animation-delay: 0.3s"
+                    >
+                      <i class="fas fa-cut text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Weather & Seasons</h6>
-                      <p class="small mb-0 text-muted">72 games</p>
+                      <h6>Paper Craft</h6>
+                      <p class="small mb-0 text-muted">50 activities</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #00b894">
-                      <i class="fas fa-globe-americas text-white"></i>
+                  <div class="topic-item" style="--topic-hover-color: #6366f1">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #6366f1; animation-delay: 0.45s"
+                    >
+                      <i class="fas fa-shapes text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Earth & Space</h6>
-                      <p class="small mb-0 text-muted">95 games</p>
+                      <h6>Origami & Folding</h6>
+                      <p class="small mb-0 text-muted">35 activities</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #00b894">
-                      <i class="fas fa-atom text-white"></i>
+                  <div class="topic-item" style="--topic-hover-color: #0ea5e9">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #0ea5e9; animation-delay: 0.6s"
+                    >
+                      <i class="fas fa-hand-sparkles text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Matter & Energy</h6>
-                      <p class="small mb-0 text-muted">68 games</p>
+                      <h6>Clay & Modelling</h6>
+                      <p class="small mb-0 text-muted">30 activities</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="topic-item">
-                    <div class="topic-icon" style="background: #00b894">
-                      <i class="fas fa-microscope text-white"></i>
+                  <div class="topic-item" style="--topic-hover-color: #14b8a6">
+                    <div
+                      class="topic-icon cartoon-icon"
+                      style="background: #14b8a6; animation-delay: 0.75s"
+                    >
+                      <i class="fas fa-magic text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Scientific Method</h6>
-                      <p class="small mb-0 text-muted">55 games</p>
+                      <h6>Creative Projects</h6>
+                      <p class="small mb-0 text-muted">40 activities</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div class="mt-4">
-                <router-link to="/subjects/science" class="vs-btn style2">
-                  Explore All Science Games
+                <router-link to="/subjects/craft-drawing" class="vs-btn style2">
+                  Explore All Craft & Drawing Activities
                   <i class="fas fa-arrow-right ms-2"></i>
                 </router-link>
               </div>
@@ -752,16 +841,20 @@ onBeforeUnmount(() => {
 .topic-item {
   background: #f7f8fa;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 15px;
-  transition: all 0.3s;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-left: 3px solid transparent;
+  cursor: default;
 }
 
 .topic-item:hover {
-  background: #ecedf0;
-  transform: translateX(5px);
+  background: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--topic-hover-color, #6c5ce7);
 }
 
 .topic-icon {
@@ -772,6 +865,56 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.cartoon-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(0, 0, 0, 0.06);
+  font-size: 18px;
+  transform: rotate(-3deg);
+  animation: cartoon-float 3s ease-in-out infinite;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.topic-item:hover .cartoon-icon {
+  animation: cartoon-bounce 0.5s ease;
+  transform: scale(1.15) rotate(0deg);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes cartoon-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+}
+
+@keyframes cartoon-bounce {
+  0% {
+    transform: scale(1) rotate(-3deg);
+  }
+  30% {
+    transform: scale(1.2) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  70% {
+    transform: scale(1.18) rotate(-2deg);
+  }
+  100% {
+    transform: scale(1.15) rotate(0deg);
+  }
 }
 
 .topic-info h6 {
