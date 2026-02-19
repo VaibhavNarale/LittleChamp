@@ -90,6 +90,12 @@ const clearCategoryFilter = () => {
   fetchPosts()
 }
 
+// Clear all filters (category + search)
+const clearAllFilters = () => {
+  searchQuery.value = ''
+  clearCategoryFilter()
+}
+
 // Search posts
 const handleSearch = () => {
   blogStore.resetPagination()
@@ -298,10 +304,7 @@ watch(searchQuery, () => {
         <button
           v-if="selectedCategoryId || searchQuery"
           class="clear-btn"
-          @click="
-            clearCategoryFilter()
-            searchQuery = ''
-          "
+          @click="clearAllFilters"
         >
           <i class="fas fa-times"></i> Clear Filters
         </button>
