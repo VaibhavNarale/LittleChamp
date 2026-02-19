@@ -194,7 +194,7 @@ onBeforeUnmount(() => {
               <p class="stat-label">Partner Schools</p>
             </div>
             <div class="stat-item">
-              <h3 class="stat-number">100K+</h3>
+              <h3 class="stat-number">100+</h3>
               <p class="stat-label">Active Students</p>
             </div>
             <div class="stat-item">

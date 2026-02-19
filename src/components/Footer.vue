@@ -27,9 +27,9 @@ const currentYear = computed(() => new Date().getFullYear())
                   </router-link>
                 </div>
                 <p class="about-text">
-                  Make learning magical and fun for your child with 4000+
-                  interactive games for Math, Reading, and Science. Trusted by
-                  50M+ kids and 100,000+ teachers worldwide.
+                  Make learning magical and fun for your child with 500+
+                  interactive games for Math, Reading, and Craft & Drawing.
+                  Trusted by Indian kids and 100+ teachers worldwide.
                 </p>
                 <div class="multi-social">
                   <a

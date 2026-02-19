@@ -62,7 +62,7 @@ onBeforeUnmount(() => {
           <!-- Hero Description -->
           <p class="features-hero-description">
             Discover the powerful features that make Mind Growup Jr the #1
-            choice for 50M+ kids and 100,000+ teachers worldwide
+            choice for Indian kids and 100+ teachers worldwide
           </p>
         </div>
       </div>
@@ -98,15 +98,15 @@ onBeforeUnmount(() => {
                 class="feature-cartoon-img"
               />
             </div>
-            <h3 class="h4 mb-3">4000+ Interactive Games</h3>
+            <h3 class="h4 mb-3">500+ Interactive Games</h3>
             <p class="mb-3">
               Kids learn through play with engaging, curriculum-aligned games
               that adapt to their skill level in real-time.
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> Math, Reading &
-                Science
+                <i class="fas fa-check text-success"></i> Math, Reading & Craft
+                & Drawing
               </li>
               <li>
                 <i class="fas fa-check text-success"></i> Pre-K to Grade 5

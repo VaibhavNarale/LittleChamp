@@ -65,7 +65,7 @@ const handleLogout = async () => {
                 <ul>
                   <li><i class="fal fa-envelope"></i><a href="mailto:support@mindjrgroup.com">support@mindjrgroup.com</a></li>
                   <li><i class="fal fa-phone"></i><a href="tel:+18005551234">+1 (800) 555-1234</a></li>
-                  <li><i class="fal fa-users"></i>Trusted by 50M+ Kids Worldwide</li>
+                  <li><i class="fal fa-users"></i>Trusted by Indian Kids Worldwide</li>
                 </ul>
               </div>
             </v-col>

@@ -192,7 +192,7 @@ const subjectsData = {
       'AI-powered feature combines friendly interaction, communication skills, general knowledge, and guides children on exploring the outside world — creating a fun, engaging, and educational experience all in one place.',
     stats: {
       games: '500+',
-      worksheets: '4000+',
+      worksheets: '500+',
       grades: 'Pre-K to 5',
     },
     topics: [
@@ -345,16 +345,16 @@ const subjectsData = {
     ],
   },
   science: {
-    name: 'Science',
-    icon: 'fas fa-flask',
+    name: 'Craft & Drawing',
+    icon: 'fas fa-paint-brush',
     iconImage: scienceIcon,
     color: '#00B894',
     gradient: 'linear-gradient(135deg, #00B894, #00D2A0)',
-    heroTitle: 'Discover Science',
+    heroTitle: 'Discover Craft & Drawing',
     heroDescription:
-      'Explore the wonders of the natural world with hands-on experiments, observations, and interactive activities for K through Grade 5.',
+      'Unleash creativity with hands-on craft projects, drawing activities, and interactive art exercises for K through Grade 5.',
     description:
-      'Discover the wonders of the natural world through experiments, observations, and interactive science games covering biology, physics, and earth science.',
+      'Unleash creativity through hands-on craft projects, drawing tutorials, and interactive art activities covering painting, origami, and creative design.',
     stats: {
       games: '800+',
       worksheets: '2500+',

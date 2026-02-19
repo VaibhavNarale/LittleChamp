@@ -195,7 +195,7 @@ onBeforeUnmount(() => {
               </li>
               <li>
                 <i class="fas fa-check-circle text-success"></i>
-                <span>All subjects (Math, Reading, Science)</span>
+                <span>All subjects (Math, Reading, Craft & Drawing)</span>
               </li>
               <li>
                 <i class="fas fa-check-circle text-success"></i>
@@ -249,7 +249,7 @@ onBeforeUnmount(() => {
               </li>
               <li>
                 <i class="fas fa-check-circle text-success"></i>
-                <span>All subjects (Math, Reading, Science)</span>
+                <span>All subjects (Math, Reading, Craft & Drawing)</span>
               </li>
               <li>
                 <i class="fas fa-check-circle text-success"></i>
@@ -461,7 +461,7 @@ onBeforeUnmount(() => {
             </tr>
             <tr>
               <td class="feature-name">
-                All Subjects (Math, Reading, Science)
+                All Subjects (Math, Reading, Craft & Drawing)
               </td>
               <td><i class="fas fa-check text-success"></i></td>
               <td><i class="fas fa-check text-success"></i></td>
@@ -796,7 +796,7 @@ onBeforeUnmount(() => {
               Ready to Make Learning <span class="gradient-text">Magical</span>?
             </h2>
             <p class="fs-md mb-4">
-              Join 50 million kids and 100,000+ teachers worldwide
+              Join Indian kids and 100+ teachers worldwide
             </p>
             <div class="d-flex gap-3 justify-content-center flex-wrap">
               <a href="/register" class="vs-btn style2">

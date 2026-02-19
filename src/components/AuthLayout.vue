@@ -23,12 +23,11 @@ defineProps({
 
 <template>
   <div class="col-lg-6 d-none d-lg-flex auth-branding">
-    <!-- Floating Shapes (moved outside branding-content to cover entire left side) -->
-    <div class="floating-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-    </div>
+    <!-- Background Video -->
+    <video class="auth-video-bg" autoplay muted loop playsinline>
+      <source src="/assets/video/auth-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="auth-video-overlay"></div>
 
     <div class="branding-content">
       <h1 class="display-4 text-white fw-bold mb-3">
@@ -43,15 +42,15 @@ defineProps({
       <!-- Stats Grid (default when no features provided) -->
       <div v-if="features.length === 0" class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number">50M+</div>
+          <div class="stat-number">Indian</div>
           <div class="stat-label">Kids Learning</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">4000+</div>
+          <div class="stat-number">500+</div>
           <div class="stat-label">Games</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">100K+</div>
+          <div class="stat-number">100+</div>
           <div class="stat-label">Teachers</div>
         </div>
       </div>
@@ -77,7 +76,7 @@ defineProps({
 <style scoped>
 /* Auth Branding */
 .auth-branding {
-  background: linear-gradient(135deg, #5ea750 0%, #7bc46a 100%);
+  background: #1b1464;
   position: relative;
   overflow: hidden;
   padding: 60px;
@@ -85,10 +84,36 @@ defineProps({
   justify-content: center;
 }
 
+/* Background Video */
+.auth-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.auth-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 139, 63, 0.75) 0%,
+    rgba(27, 20, 100, 0.7) 100%
+  );
+  z-index: 2;
+}
+
 .branding-content {
   position: relative;
   z-index: 10;
   max-width: 600px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .auth-logo {
@@ -156,58 +181,5 @@ defineProps({
   margin: 0;
 }
 
-/* Floating Shapes */
-.floating-shapes {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.shape {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  animation: float 20s ease-in-out infinite;
-}
-
-.shape-1 {
-  width: 300px;
-  height: 300px;
-  top: -100px;
-  right: -100px;
-  animation-delay: 0s;
-}
-
-.shape-2 {
-  width: 200px;
-  height: 200px;
-  bottom: -50px;
-  left: -50px;
-  animation-delay: 5s;
-}
-
-.shape-3 {
-  width: 150px;
-  height: 150px;
-  top: 50%;
-  left: 20%;
-  animation-delay: 10s;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  33% {
-    transform: translate(30px, -30px) rotate(120deg);
-  }
-  66% {
-    transform: translate(-20px, 20px) rotate(240deg);
-  }
-}
+/* Floating shapes removed — replaced by video background */
 </style>

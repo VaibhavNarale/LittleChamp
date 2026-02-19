@@ -36,7 +36,7 @@ onMounted(async () => {
       positions.value = response.data.data
 
       // Create map of position name to ID
-      positions.value.forEach(pos => {
+      positions.value.forEach((pos) => {
         const posName = pos.name.toLowerCase()
         if (posName === 'parent') {
           positionsMap.value.parent = pos.id
@@ -57,7 +57,12 @@ const handleRegister = async () => {
   successMessage.value = ''
 
   // Validation
-  if (!fullName.value || !email.value || !password.value || !confirmPassword.value) {
+  if (
+    !fullName.value ||
+    !email.value ||
+    !password.value ||
+    !confirmPassword.value
+  ) {
     errorMessage.value = 'Please fill in all fields'
     return
   }
@@ -73,7 +78,8 @@ const handleRegister = async () => {
   }
 
   if (!agreeTerms.value) {
-    errorMessage.value = 'Please agree to the Terms of Service and Privacy Policy'
+    errorMessage.value =
+      'Please agree to the Terms of Service and Privacy Policy'
     return
   }
 
@@ -97,18 +103,22 @@ const handleRegister = async () => {
       last_name: lastName || firstName, // Use firstName as lastName if not provided
       email: email.value,
       password: password.value,
-      position_id: positionId
+      position_id: positionId,
     })
 
     if (result.data && result.data.success) {
-      successMessage.value = 'Account created successfully! Redirecting to login...'
+      successMessage.value =
+        'Account created successfully! Redirecting to login...'
 
       // Redirect to login after 2 seconds
       setTimeout(() => {
         router.push('/login')
       }, 2000)
     } else {
-      errorMessage.value = result.error?.message || result.error?.['sub-title'] || 'Registration failed'
+      errorMessage.value =
+        result.error?.message ||
+        result.error?.['sub-title'] ||
+        'Registration failed'
     }
   } catch (err) {
     errorMessage.value = err.message || 'An error occurred during registration'
@@ -122,7 +132,6 @@ const handleRegister = async () => {
   <div class="register-page">
     <div class="register-container">
       <div class="row g-0 h-100">
-
         <!-- Left Side - Branding -->
         <AuthLayout
           title="Join the Learning"
@@ -133,7 +142,6 @@ const handleRegister = async () => {
         <!-- Right Side - Register Form -->
         <div class="col-lg-6 register-form-section">
           <div class="form-container">
-
             <!-- Back to Home Link -->
             <router-link to="/" class="back-link">
               <i class="fas fa-arrow-left"></i>
@@ -142,7 +150,9 @@ const handleRegister = async () => {
 
             <div class="form-header">
               <h2 class="form-title">Create Account</h2>
-              <p class="form-subtitle">Start your free trial and explore 4000+ games</p>
+              <p class="form-subtitle">
+                Start your free trial and explore 500+ games
+              </p>
             </div>
 
             <!-- Social Login Buttons -->
@@ -195,7 +205,7 @@ const handleRegister = async () => {
             </div>
 
             <!-- Register Form -->
-            <form @submit.prevent="handleRegister" class="register-form">
+            <form class="register-form" @submit.prevent="handleRegister">
               <div class="form-group">
                 <label for="fullName" class="form-label">
                   <i class="fas fa-user me-2"></i>Full Name
@@ -242,7 +252,9 @@ const handleRegister = async () => {
                     class="password-toggle"
                     @click="showPassword = !showPassword"
                   >
-                    <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+                    <i
+                      :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"
+                    ></i>
                   </button>
                 </div>
                 <div class="password-strength">
@@ -250,14 +262,20 @@ const handleRegister = async () => {
                     <div
                       class="strength-fill"
                       :class="{
-                        'weak': password.length > 0 && password.length < 8,
-                        'medium': password.length >= 8 && password.length < 12,
-                        'strong': password.length >= 12
+                        weak: password.length > 0 && password.length < 8,
+                        medium: password.length >= 8 && password.length < 12,
+                        strong: password.length >= 12,
                       }"
                     ></div>
                   </div>
-                  <span class="strength-text" v-if="password.length > 0">
-                    {{ password.length < 8 ? 'Weak' : password.length < 12 ? 'Medium' : 'Strong' }}
+                  <span v-if="password.length > 0" class="strength-text">
+                    {{
+                      password.length < 8
+                        ? 'Weak'
+                        : password.length < 12
+                          ? 'Medium'
+                          : 'Strong'
+                    }}
                   </span>
                 </div>
               </div>
@@ -280,20 +298,28 @@ const handleRegister = async () => {
                     class="password-toggle"
                     @click="showConfirmPassword = !showConfirmPassword"
                   >
-                    <i :class="showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+                    <i
+                      :class="
+                        showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'
+                      "
+                    ></i>
                   </button>
                 </div>
               </div>
 
               <div class="terms-agreement">
                 <label class="custom-checkbox">
-                  <input type="checkbox" v-model="agreeTerms">
+                  <input v-model="agreeTerms" type="checkbox" />
                   <span class="checkmark"></span>
                   <span class="checkbox-label">
                     I agree to the
-                    <router-link to="/terms" class="link">Terms of Service</router-link>
+                    <router-link to="/terms" class="link"
+                      >Terms of Service</router-link
+                    >
                     and
-                    <router-link to="/privacy" class="link">Privacy Policy</router-link>
+                    <router-link to="/privacy" class="link"
+                      >Privacy Policy</router-link
+                    >
                   </span>
                 </label>
               </div>
@@ -302,7 +328,7 @@ const handleRegister = async () => {
                 <span v-if="!loading">
                   <i class="fas fa-rocket me-2"></i>Start Free Trial
                 </span>
-                <span v-else">
+                <span v-else>
                   <i class="fas fa-spinner fa-spin me-2"></i>Creating Account...
                 </span>
               </button>
@@ -310,8 +336,11 @@ const handleRegister = async () => {
 
             <!-- Sign In Link -->
             <div class="signin-link">
-              <p>Already have an account?
-                <router-link to="/login" class="signin-cta">Sign In</router-link>
+              <p>
+                Already have an account?
+                <router-link to="/login" class="signin-cta"
+                  >Sign In</router-link
+                >
               </p>
             </div>
 
@@ -330,10 +359,8 @@ const handleRegister = async () => {
                 <span>Cancel Anytime</span>
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -342,7 +369,7 @@ const handleRegister = async () => {
 <style scoped>
 .register-page {
   min-height: 100vh;
-  background: #F7F8FA;
+  background: #f7f8fa;
 }
 
 .register-container {
@@ -372,16 +399,16 @@ const handleRegister = async () => {
 }
 
 .register-form-section::-webkit-scrollbar-track {
-  background: #F7F8FA;
+  background: #f7f8fa;
 }
 
 .register-form-section::-webkit-scrollbar-thumb {
-  background: #4A8B3F;
+  background: #4a8b3f;
   border-radius: 4px;
 }
 
 .register-form-section::-webkit-scrollbar-thumb:hover {
-  background: #3A7032;
+  background: #3a7032;
 }
 
 .form-container {
@@ -393,7 +420,7 @@ const handleRegister = async () => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #4A8B3F;
+  color: #4a8b3f;
   text-decoration: none;
   font-weight: 600;
   margin-bottom: 30px;
@@ -401,7 +428,7 @@ const handleRegister = async () => {
 }
 
 .back-link:hover {
-  color: #3A7032;
+  color: #3a7032;
   gap: 12px;
 }
 
@@ -413,12 +440,12 @@ const handleRegister = async () => {
 .form-title {
   font-size: 32px;
   font-weight: 800;
-  color: #2D3436;
+  color: #2d3436;
   margin-bottom: 10px;
 }
 
 .form-subtitle {
-  color: #636E72;
+  color: #636e72;
   font-size: 16px;
 }
 
@@ -430,7 +457,7 @@ const handleRegister = async () => {
 .account-type-label {
   display: block;
   margin-bottom: 12px;
-  color: #2D3436;
+  color: #2d3436;
   font-weight: 600;
   font-size: 14px;
   text-align: left;
@@ -448,10 +475,10 @@ const handleRegister = async () => {
   align-items: center;
   gap: 8px;
   padding: 16px 10px;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   border-radius: 12px;
   background: white;
-  color: #636E72;
+  color: #636e72;
   font-weight: 600;
   font-size: 13px;
   cursor: pointer;
@@ -463,13 +490,13 @@ const handleRegister = async () => {
 }
 
 .type-btn:hover {
-  border-color: #4A8B3F;
+  border-color: #4a8b3f;
   transform: translateY(-2px);
 }
 
 .type-btn.active {
-  border-color: #4A8B3F;
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
+  border-color: #4a8b3f;
+  background: linear-gradient(135deg, #4a8b3f 0%, #5ea750 100%);
   color: white;
 }
 
@@ -481,7 +508,7 @@ const handleRegister = async () => {
 .form-label {
   display: block;
   margin-bottom: 8px;
-  color: #2D3436;
+  color: #2d3436;
   font-weight: 600;
   font-size: 14px;
   text-align: left;
@@ -490,7 +517,7 @@ const handleRegister = async () => {
 .form-control {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   border-radius: 10px;
   font-size: 15px;
   transition: all 0.3s;
@@ -498,7 +525,7 @@ const handleRegister = async () => {
 
 .form-control:focus {
   outline: none;
-  border-color: #4A8B3F;
+  border-color: #4a8b3f;
   box-shadow: 0 0 0 3px rgba(74, 139, 63, 0.1);
 }
 
@@ -513,13 +540,13 @@ const handleRegister = async () => {
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #636E72;
+  color: #636e72;
   cursor: pointer;
   padding: 5px;
 }
 
 .password-toggle:hover {
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 /* Password Strength */
@@ -533,7 +560,7 @@ const handleRegister = async () => {
 .strength-bar {
   flex: 1;
   height: 4px;
-  background: #E0E0E0;
+  background: #e0e0e0;
   border-radius: 2px;
   overflow: hidden;
 }
@@ -546,12 +573,12 @@ const handleRegister = async () => {
 
 .strength-fill.weak {
   width: 33%;
-  background: #FF6B6B;
+  background: #ff6b6b;
 }
 
 .strength-fill.medium {
   width: 66%;
-  background: #FFA502;
+  background: #ffa502;
 }
 
 .strength-fill.strong {
@@ -562,7 +589,7 @@ const handleRegister = async () => {
 .strength-text {
   font-size: 12px;
   font-weight: 600;
-  color: #636E72;
+  color: #636e72;
   white-space: nowrap;
 }
 
@@ -585,7 +612,7 @@ const handleRegister = async () => {
 .checkmark {
   width: 20px;
   height: 20px;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   border-radius: 5px;
   margin-right: 10px;
   flex-shrink: 0;
@@ -595,8 +622,8 @@ const handleRegister = async () => {
 }
 
 .custom-checkbox input:checked ~ .checkmark {
-  background: #4A8B3F;
-  border-color: #4A8B3F;
+  background: #4a8b3f;
+  border-color: #4a8b3f;
 }
 
 .custom-checkbox input:checked ~ .checkmark::after {
@@ -613,12 +640,12 @@ const handleRegister = async () => {
 
 .checkbox-label {
   font-size: 13px;
-  color: #636E72;
+  color: #636e72;
   line-height: 1.5;
 }
 
 .checkbox-label .link {
-  color: #4A8B3F;
+  color: #4a8b3f;
   text-decoration: none;
   font-weight: 600;
 }
@@ -630,7 +657,7 @@ const handleRegister = async () => {
 .btn-submit {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   border: none;
   border-radius: 10px;
@@ -656,22 +683,22 @@ const handleRegister = async () => {
   text-align: center;
   margin-top: 25px;
   padding-top: 25px;
-  border-top: 1px solid #E0E0E0;
+  border-top: 1px solid #e0e0e0;
 }
 
 .signin-link p {
-  color: #636E72;
+  color: #636e72;
   margin: 0;
 }
 
 .signin-cta {
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-weight: 700;
   text-decoration: none;
 }
 
 .signin-cta:hover {
-  color: #3A7032;
+  color: #3a7032;
   text-decoration: underline;
 }
 
@@ -683,7 +710,7 @@ const handleRegister = async () => {
   justify-content: center;
   margin-top: 25px;
   padding: 20px;
-  background: #F7F8FA;
+  background: #f7f8fa;
   border-radius: 10px;
 }
 
@@ -691,7 +718,7 @@ const handleRegister = async () => {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #2D3436;
+  color: #2d3436;
   font-size: 13px;
   font-weight: 600;
 }
@@ -708,15 +735,15 @@ const handleRegister = async () => {
 }
 
 .alert-danger {
-  background: #FEE;
-  color: #C00;
-  border: 1px solid #FCC;
+  background: #fee;
+  color: #c00;
+  border: 1px solid #fcc;
 }
 
 .alert-success {
-  background: #E8F5E9;
-  color: #2E7D32;
-  border: 1px solid #A5D6A7;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
 }
 
 /* Responsive */

@@ -132,7 +132,7 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.2s"
                 >
-                  Join 50M+ kids worldwide exploring 4000+ interactive
+                  Join Indian kids worldwide exploring 500+ interactive
                   educational games. Perfect for Pre-K to Grade 5 learners.
                 </p>
 
@@ -143,7 +143,7 @@ onBeforeUnmount(() => {
                 >
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>4000+ Interactive Games</span>
+                    <span>500+ Interactive Games</span>
                   </div>
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
@@ -402,8 +402,8 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.2s"
                 >
-                  Join 100,000+ educators using Mind Growup Jr to engage
-                  students and track progress in their classrooms.
+                  Join 100+ educators using Mind Growup Jr to engage students
+                  and track progress in their classrooms.
                 </p>
 
                 <div
@@ -525,7 +525,8 @@ onBeforeUnmount(() => {
               <span class="gradient-text">Irresistible</span>
             </h2>
             <p class="mt-3 text-muted">
-              Everything your child needs to excel in Math, Reading, and Science
+              Everything your child needs to excel in Math, Reading, and Craft &
+              Drawing
             </p>
           </div>
         </div>
@@ -541,8 +542,8 @@ onBeforeUnmount(() => {
                 class="feature-icon-img"
               />
             </div>
-            <span class="feature-card__highlight highlight--pink">4000+</span>
-            <h3 class="feature-card__title">4000+ Interactive Games</h3>
+            <span class="feature-card__highlight highlight--pink">500+</span>
+            <h3 class="feature-card__title">500+ Interactive Games</h3>
             <p class="feature-card__text">
               Kids learn through play with curriculum-aligned games that adapt
               to their level
@@ -866,7 +867,7 @@ onBeforeUnmount(() => {
               </router-link>
               <span class="subject-card__badge subject-badge--purple">
                 <i class="fas fa-calculator"></i>
-                1000+ Games
+                500+ Games
               </span>
             </div>
             <div class="subject-card__body">
@@ -885,7 +886,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="subject-stat">
                   <i class="fas fa-gamepad"></i>
-                  <span>1000+ Games</span>
+                  <span>500+ Games</span>
                 </div>
               </div>
               <router-link
@@ -1117,7 +1118,7 @@ onBeforeUnmount(() => {
           </div>
           <h3 class="step-title">Play & Learn</h3>
           <p class="step-desc">
-            Kids explore 4000+ games. AI adapts difficulty to their level.
+            Kids explore 500+ games. AI adapts difficulty to their level.
           </p>
         </div>
 

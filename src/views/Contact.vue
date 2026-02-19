@@ -96,7 +96,7 @@ onBeforeUnmount(() => {
 
               <div class="panel-items">
                 <a href="tel:+919821749524" class="panel-item">
-                  <div class="panel-item-icon">
+                  <div class="panel-item-icon panel-icon--phone">
                     <i class="fas fa-phone-alt"></i>
                   </div>
                   <div>
@@ -105,8 +105,23 @@ onBeforeUnmount(() => {
                   </div>
                 </a>
 
+                <a
+                  href="https://wa.me/919876543210"
+                  target="_blank"
+                  rel="noopener"
+                  class="panel-item"
+                >
+                  <div class="panel-item-icon panel-icon--whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                  <div>
+                    <span class="panel-item-label">WhatsApp</span>
+                    <span class="panel-item-value">+91 9876543210</span>
+                  </div>
+                </a>
+
                 <a href="mailto:Info@mindgrowupjr.com" class="panel-item">
-                  <div class="panel-item-icon">
+                  <div class="panel-item-icon panel-icon--email">
                     <i class="fas fa-envelope"></i>
                   </div>
                   <div>
@@ -116,7 +131,7 @@ onBeforeUnmount(() => {
                 </a>
 
                 <div class="panel-item">
-                  <div class="panel-item-icon">
+                  <div class="panel-item-icon panel-icon--hours">
                     <i class="fas fa-clock"></i>
                   </div>
                   <div>
@@ -574,13 +589,38 @@ a.panel-item:hover {
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 20px;
   flex-shrink: 0;
-  backdrop-filter: blur(4px);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.panel-item:hover .panel-item-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.panel-icon--phone {
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+}
+
+.panel-icon--whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  font-size: 22px;
+}
+
+.panel-icon--email {
+  background: linear-gradient(135deg, #f72585, #b5179e);
+}
+
+.panel-icon--hours {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
 }
 
 .panel-item-label {

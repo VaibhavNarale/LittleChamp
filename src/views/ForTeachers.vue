@@ -220,7 +220,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>Access to all 4000+ educational games</span>
+              <span>Access to all 500+ educational games</span>
             </div>
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
@@ -279,8 +279,8 @@ onBeforeUnmount(() => {
               significantly!"
             </p>
             <div class="testimonial-author">
-              <h5>Sarah Johnson</h5>
-              <span>3rd Grade Teacher, Chicago</span>
+              <h5>Priya Sharma</h5>
+              <span>3rd Grade Teacher, Mumbai</span>
             </div>
           </div>
         </div>
@@ -300,8 +300,8 @@ onBeforeUnmount(() => {
               accordingly."
             </p>
             <div class="testimonial-author">
-              <h5>Michael Chen</h5>
-              <span>2nd Grade Teacher, San Francisco</span>
+              <h5>Rahul Mehta</h5>
+              <span>2nd Grade Teacher, Delhi</span>
             </div>
           </div>
         </div>
@@ -321,8 +321,8 @@ onBeforeUnmount(() => {
               ever!"
             </p>
             <div class="testimonial-author">
-              <h5>Emily Rodriguez</h5>
-              <span>1st Grade Teacher, Miami</span>
+              <h5>Ananya Iyer</h5>
+              <span>1st Grade Teacher, Bangalore</span>
             </div>
           </div>
         </div>

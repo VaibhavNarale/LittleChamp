@@ -1,7 +1,10 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 import { useBlogStore } from '@/stores/blog'
 
 // Fallback images
@@ -30,11 +33,13 @@ const featuredPost = computed(() => {
 })
 
 // Regular posts (only exclude featured when featured section is visible)
-const showFeatured = computed(() => featuredPost.value && !selectedCategoryId.value && !searchQuery.value)
+const showFeatured = computed(
+  () => featuredPost.value && !selectedCategoryId.value && !searchQuery.value
+)
 
 const regularPosts = computed(() => {
   if (!showFeatured.value) return blogPosts.value
-  return blogPosts.value.filter(p => p.id !== featuredPost.value.id)
+  return blogPosts.value.filter((p) => p.id !== featuredPost.value.id)
 })
 
 // Reading time estimate
@@ -48,8 +53,10 @@ const readingTime = (content) => {
 // Get image URL
 const getImageUrl = (imagePath) => {
   if (!imagePath) return mathImg
-  if (imagePath.startsWith('http') || imagePath.startsWith('data:')) return imagePath
-  const storageUrl = import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
+  if (imagePath.startsWith('http') || imagePath.startsWith('data:'))
+    return imagePath
+  const storageUrl =
+    import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
   return `${storageUrl}${imagePath}`
 }
 
@@ -60,7 +67,7 @@ const formatDate = (dateString) => {
   return date.toLocaleDateString('en-US', {
     day: '2-digit',
     month: 'short',
-    year: 'numeric'
+    year: 'numeric',
   })
 }
 
@@ -93,7 +100,7 @@ const handleSearch = () => {
 const loadMore = () => {
   blogStore.loadMorePosts({
     categoryId: selectedCategoryId.value,
-    search: searchQuery.value
+    search: searchQuery.value,
   })
 }
 
@@ -102,19 +109,20 @@ const fetchPosts = () => {
   blogStore.fetchPosts({
     page: 1,
     categoryId: selectedCategoryId.value,
-    search: searchQuery.value
+    search: searchQuery.value,
   })
 }
 
 // Category colors
 const categoryColors = ['#4A8B3F', '#E91E8C', '#1B1464', '#FF6B35', '#6C5CE7']
-const getCategoryColor = (index) => categoryColors[index % categoryColors.length]
+const getCategoryColor = (index) =>
+  categoryColors[index % categoryColors.length]
 
 // Initialize
 onMounted(async () => {
   await Promise.all([
     blogStore.fetchCategories(),
-    blogStore.fetchPosts({ page: 1 })
+    blogStore.fetchPosts({ page: 1 }),
   ])
 
   await nextTick()
@@ -142,7 +150,12 @@ watch(searchQuery, () => {
   <section class="blog-hero-section">
     <div class="blog-hero-bg">
       <div class="blog-hero-particles">
-        <span v-for="n in 6" :key="n" class="particle" :style="{ animationDelay: `${n * 0.5}s` }"></span>
+        <span
+          v-for="n in 6"
+          :key="n"
+          class="particle"
+          :style="{ animationDelay: `${n * 0.5}s` }"
+        ></span>
       </div>
       <div class="container">
         <div class="blog-hero-content">
@@ -162,7 +175,10 @@ watch(searchQuery, () => {
     </div>
     <div class="hero-wave-bottom">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#f8f9fa"/>
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#f8f9fa"
+        />
       </svg>
     </div>
   </section>
@@ -185,7 +201,14 @@ watch(searchQuery, () => {
             :key="cat.id"
             class="filter-pill"
             :class="{ active: selectedCategoryId === cat.id }"
-            :style="selectedCategoryId === cat.id ? { background: getCategoryColor(index), borderColor: getCategoryColor(index) } : {}"
+            :style="
+              selectedCategoryId === cat.id
+                ? {
+                    background: getCategoryColor(index),
+                    borderColor: getCategoryColor(index),
+                  }
+                : {}
+            "
             @click="filterByCategory(cat.id)"
           >
             {{ cat.name }}
@@ -199,7 +222,7 @@ watch(searchQuery, () => {
             type="text"
             placeholder="Search articles..."
             class="search-input"
-          >
+          />
         </div>
       </div>
     </div>
@@ -210,20 +233,35 @@ watch(searchQuery, () => {
     <div class="container">
       <div class="featured-card" @click="goToPost(featuredPost.slug)">
         <div class="featured-img-wrap">
-          <img :src="getImageUrl(featuredPost.featured_image)" :alt="featuredPost.title" class="featured-img">
+          <img
+            :src="getImageUrl(featuredPost.featured_image)"
+            :alt="featuredPost.title"
+            class="featured-img"
+          />
           <div class="featured-overlay"></div>
           <span v-if="featuredPost.is_featured" class="featured-badge">
             <i class="fas fa-star"></i> Featured
           </span>
         </div>
         <div class="featured-content">
-          <span v-if="featuredPost.category" class="featured-category">{{ featuredPost.category.name }}</span>
+          <span v-if="featuredPost.category" class="featured-category">{{
+            featuredPost.category.name
+          }}</span>
           <h2 class="featured-title">{{ featuredPost.title }}</h2>
           <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
           <div class="featured-meta">
-            <span><i class="far fa-calendar-alt"></i> {{ formatDate(featuredPost.published_at) }}</span>
-            <span><i class="far fa-clock"></i> {{ readingTime(featuredPost.content) }}</span>
-            <span><i class="far fa-eye"></i> {{ featuredPost.views || 0 }} views</span>
+            <span
+              ><i class="far fa-calendar-alt"></i>
+              {{ formatDate(featuredPost.published_at) }}</span
+            >
+            <span
+              ><i class="far fa-clock"></i>
+              {{ readingTime(featuredPost.content) }}</span
+            >
+            <span
+              ><i class="far fa-eye"></i>
+              {{ featuredPost.views || 0 }} views</span
+            >
           </div>
           <span class="read-more-link">
             Read Article <i class="fas fa-arrow-right"></i>
@@ -257,7 +295,14 @@ watch(searchQuery, () => {
         </div>
         <h3>No articles found</h3>
         <p>Try adjusting your search or filter criteria</p>
-        <button v-if="selectedCategoryId || searchQuery" class="clear-btn" @click="clearCategoryFilter(); searchQuery = ''">
+        <button
+          v-if="selectedCategoryId || searchQuery"
+          class="clear-btn"
+          @click="
+            clearCategoryFilter()
+            searchQuery = ''
+          "
+        >
           <i class="fas fa-times"></i> Clear Filters
         </button>
       </div>
@@ -274,7 +319,11 @@ watch(searchQuery, () => {
               @click="goToPost(post.slug)"
             >
               <div class="card-img-wrap">
-                <img :src="getImageUrl(post.featured_image)" :alt="post.title" class="card-img">
+                <img
+                  :src="getImageUrl(post.featured_image)"
+                  :alt="post.title"
+                  class="card-img"
+                />
                 <div class="card-img-overlay">
                   <span class="read-indicator">
                     <i class="fas fa-book-open"></i> Read
@@ -286,18 +335,33 @@ watch(searchQuery, () => {
               </div>
               <div class="card-body">
                 <div class="card-top">
-                  <span v-if="post.category" class="card-category">{{ post.category.name }}</span>
-                  <span class="card-reading-time"><i class="far fa-clock"></i> {{ readingTime(post.content) }}</span>
+                  <span v-if="post.category" class="card-category">{{
+                    post.category.name
+                  }}</span>
+                  <span class="card-reading-time"
+                    ><i class="far fa-clock"></i>
+                    {{ readingTime(post.content) }}</span
+                  >
                 </div>
                 <h3 class="card-title">{{ post.title }}</h3>
                 <p class="card-excerpt">{{ post.excerpt }}</p>
-                <div class="card-tags" v-if="post.tags && post.tags.length">
-                  <span v-for="tag in post.tags.slice(0, 2)" :key="tag" class="card-tag">#{{ tag }}</span>
+                <div v-if="post.tags && post.tags.length" class="card-tags">
+                  <span
+                    v-for="tag in post.tags.slice(0, 2)"
+                    :key="tag"
+                    class="card-tag"
+                    >#{{ tag }}</span
+                  >
                 </div>
                 <div class="card-footer">
                   <div class="card-meta">
-                    <span><i class="far fa-calendar-alt"></i> {{ formatDate(post.published_at) }}</span>
-                    <span><i class="far fa-eye"></i> {{ post.views || 0 }}</span>
+                    <span
+                      ><i class="far fa-calendar-alt"></i>
+                      {{ formatDate(post.published_at) }}</span
+                    >
+                    <span
+                      ><i class="far fa-eye"></i> {{ post.views || 0 }}</span
+                    >
                   </div>
                   <span class="card-arrow">
                     <i class="fas fa-arrow-right"></i>
@@ -329,7 +393,12 @@ watch(searchQuery, () => {
             <div class="sidebar-widget search-widget">
               <div class="search-box">
                 <i class="fas fa-search"></i>
-                <input v-model="searchQuery" type="text" placeholder="Search articles..." @keyup.enter="handleSearch">
+                <input
+                  v-model="searchQuery"
+                  type="text"
+                  placeholder="Search articles..."
+                  @keyup.enter="handleSearch"
+                />
               </div>
             </div>
 
@@ -357,7 +426,10 @@ watch(searchQuery, () => {
                   :class="{ active: selectedCategoryId === cat.id }"
                   @click.prevent="filterByCategory(cat.id)"
                 >
-                  <span class="cat-dot" :style="{ background: getCategoryColor(index) }"></span>
+                  <span
+                    class="cat-dot"
+                    :style="{ background: getCategoryColor(index) }"
+                  ></span>
                   <span class="cat-name">{{ cat.name }}</span>
                   <span class="cat-count">{{ cat.posts_count || 0 }}</span>
                 </a>
@@ -378,13 +450,21 @@ watch(searchQuery, () => {
                   class="recent-item"
                   @click.prevent="goToPost(post.slug)"
                 >
-                  <span class="recent-number">{{ String(index + 1).padStart(2, '0') }}</span>
+                  <span class="recent-number">{{
+                    String(index + 1).padStart(2, '0')
+                  }}</span>
                   <div class="recent-img-wrap">
-                    <img :src="getImageUrl(post.featured_image)" :alt="post.title">
+                    <img
+                      :src="getImageUrl(post.featured_image)"
+                      :alt="post.title"
+                    />
                   </div>
                   <div class="recent-info">
                     <h5 class="recent-title">{{ post.title }}</h5>
-                    <span class="recent-date"><i class="far fa-calendar-alt"></i> {{ formatDate(post.published_at) }}</span>
+                    <span class="recent-date"
+                      ><i class="far fa-calendar-alt"></i>
+                      {{ formatDate(post.published_at) }}</span
+                    >
                   </div>
                 </a>
               </div>
@@ -397,7 +477,9 @@ watch(searchQuery, () => {
                 Popular Tags
               </h4>
               <div class="tags-cloud">
-                <span v-for="tag in allTags" :key="tag" class="cloud-tag">#{{ tag }}</span>
+                <span v-for="tag in allTags" :key="tag" class="cloud-tag"
+                  >#{{ tag }}</span
+                >
               </div>
             </div>
 
@@ -408,7 +490,7 @@ watch(searchQuery, () => {
                 <div class="cta-content">
                   <div class="cta-emoji">&#x1F680;</div>
                   <h3>Start Learning Today!</h3>
-                  <p>Join 50M+ kids exploring 4000+ interactive games</p>
+                  <p>Join Indian kids exploring 500+ interactive games</p>
                   <router-link to="/pricing" class="cta-btn">
                     Try Free Trial
                     <i class="fas fa-arrow-right"></i>
@@ -431,7 +513,7 @@ watch(searchQuery, () => {
 }
 
 .blog-hero-bg {
-  background: linear-gradient(135deg, #4A8B3F 0%, #3a7a30 40%, #1B1464 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #3a7a30 40%, #1b1464 100%);
   padding: 70px 0 80px;
   min-height: auto;
   position: relative;
@@ -453,16 +535,47 @@ watch(searchQuery, () => {
   animation: float-particle 8s ease-in-out infinite;
 }
 
-.particle:nth-child(1) { top: 20%; left: 10%; }
-.particle:nth-child(2) { top: 60%; left: 25%; width: 8px; height: 8px; }
-.particle:nth-child(3) { top: 30%; left: 70%; }
-.particle:nth-child(4) { top: 70%; left: 80%; width: 4px; height: 4px; }
-.particle:nth-child(5) { top: 15%; left: 50%; width: 5px; height: 5px; }
-.particle:nth-child(6) { top: 80%; left: 45%; }
+.particle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+}
+.particle:nth-child(2) {
+  top: 60%;
+  left: 25%;
+  width: 8px;
+  height: 8px;
+}
+.particle:nth-child(3) {
+  top: 30%;
+  left: 70%;
+}
+.particle:nth-child(4) {
+  top: 70%;
+  left: 80%;
+  width: 4px;
+  height: 4px;
+}
+.particle:nth-child(5) {
+  top: 15%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+}
+.particle:nth-child(6) {
+  top: 80%;
+  left: 45%;
+}
 
 @keyframes float-particle {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
-  50% { transform: translateY(-30px) scale(1.5); opacity: 0.7; }
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.5);
+    opacity: 0.7;
+  }
 }
 
 .blog-hero-content {
@@ -491,9 +604,18 @@ watch(searchQuery, () => {
   transition: color 0.3s;
 }
 
-.breadcrumb-link:hover { color: #fff; }
-.modern-breadcrumb i { color: rgba(255, 255, 255, 0.4); font-size: 9px; }
-.breadcrumb-current { color: #fff; font-weight: 600; font-size: 13px; }
+.breadcrumb-link:hover {
+  color: #fff;
+}
+.modern-breadcrumb i {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 9px;
+}
+.breadcrumb-current {
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+}
 
 .blog-hero-title {
   font-size: 40px;
@@ -504,7 +626,7 @@ watch(searchQuery, () => {
 }
 
 .title-highlight {
-  background: linear-gradient(135deg, #FFE5B4, #FFD700);
+  background: linear-gradient(135deg, #ffe5b4, #ffd700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -568,15 +690,15 @@ watch(searchQuery, () => {
 }
 
 .filter-pill:hover {
-  border-color: #4A8B3F;
-  color: #4A8B3F;
+  border-color: #4a8b3f;
+  color: #4a8b3f;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(74, 139, 63, 0.15);
 }
 
 .filter-pill.active {
-  background: #4A8B3F;
-  border-color: #4A8B3F;
+  background: #4a8b3f;
+  border-color: #4a8b3f;
   color: #fff;
   box-shadow: 0 4px 15px rgba(74, 139, 63, 0.3);
 }
@@ -623,7 +745,7 @@ watch(searchQuery, () => {
 }
 
 .search-input:focus {
-  border-color: #4A8B3F;
+  border-color: #4a8b3f;
   box-shadow: 0 0 0 3px rgba(74, 139, 63, 0.1);
 }
 
@@ -677,7 +799,7 @@ watch(searchQuery, () => {
   top: 20px;
   left: 20px;
   padding: 6px 16px;
-  background: linear-gradient(135deg, #FFD700, #FFA500);
+  background: linear-gradient(135deg, #ffd700, #ffa500);
   color: #333;
   font-size: 12px;
   font-weight: 700;
@@ -687,7 +809,9 @@ watch(searchQuery, () => {
   gap: 5px;
 }
 
-.featured-badge i { font-size: 11px; }
+.featured-badge i {
+  font-size: 11px;
+}
 
 .featured-content {
   width: 50%;
@@ -701,7 +825,7 @@ watch(searchQuery, () => {
   display: inline-block;
   padding: 4px 14px;
   background: rgba(74, 139, 63, 0.1);
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-size: 12px;
   font-weight: 700;
   border-radius: 20px;
@@ -742,14 +866,14 @@ watch(searchQuery, () => {
 }
 
 .featured-meta i {
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .read-more-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-weight: 700;
   font-size: 14px;
   transition: gap 0.3s;
@@ -795,16 +919,25 @@ watch(searchQuery, () => {
   margin-bottom: 12px;
 }
 
-.skeleton-line.short { width: 40%; }
-.skeleton-line.medium { width: 70%; }
+.skeleton-line.short {
+  width: 40%;
+}
+.skeleton-line.medium {
+  width: 70%;
+}
 
 .pulse {
   animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Empty state */
@@ -826,7 +959,7 @@ watch(searchQuery, () => {
 
 .empty-icon i {
   font-size: 30px;
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .empty-state h3 {
@@ -844,8 +977,8 @@ watch(searchQuery, () => {
 .clear-btn {
   padding: 10px 24px;
   background: #fff;
-  border: 2px solid #4A8B3F;
-  color: #4A8B3F;
+  border: 2px solid #4a8b3f;
+  color: #4a8b3f;
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
@@ -853,7 +986,7 @@ watch(searchQuery, () => {
 }
 
 .clear-btn:hover {
-  background: #4A8B3F;
+  background: #4a8b3f;
   color: #fff;
 }
 
@@ -964,7 +1097,7 @@ watch(searchQuery, () => {
 .card-category {
   padding: 3px 12px;
   background: rgba(74, 139, 63, 0.1);
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-size: 11px;
   font-weight: 700;
   border-radius: 20px;
@@ -990,7 +1123,7 @@ watch(searchQuery, () => {
 }
 
 .blog-card:hover .card-title {
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .card-excerpt {
@@ -1012,7 +1145,7 @@ watch(searchQuery, () => {
 
 .card-tag {
   font-size: 11px;
-  color: #E91E8C;
+  color: #e91e8c;
   font-weight: 600;
 }
 
@@ -1060,7 +1193,7 @@ watch(searchQuery, () => {
 }
 
 .blog-card:hover .card-arrow {
-  background: #4A8B3F;
+  background: #4a8b3f;
 }
 
 .blog-card:hover .card-arrow i {
@@ -1077,8 +1210,8 @@ watch(searchQuery, () => {
 .load-more-btn {
   padding: 12px 32px;
   background: #fff;
-  border: 2px solid #4A8B3F;
-  color: #4A8B3F;
+  border: 2px solid #4a8b3f;
+  color: #4a8b3f;
   border-radius: 50px;
   font-size: 14px;
   font-weight: 700;
@@ -1090,7 +1223,7 @@ watch(searchQuery, () => {
 }
 
 .load-more-btn:hover {
-  background: #4A8B3F;
+  background: #4a8b3f;
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(74, 139, 63, 0.3);
@@ -1100,14 +1233,16 @@ watch(searchQuery, () => {
   width: 24px;
   height: 24px;
   border: 3px solid #e8e8e8;
-  border-top-color: #4A8B3F;
+  border-top-color: #4a8b3f;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   margin: 0 auto 8px;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-text {
@@ -1142,7 +1277,7 @@ watch(searchQuery, () => {
 
 .widget-icon {
   font-size: 14px;
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 /* Search Widget */
@@ -1175,7 +1310,7 @@ watch(searchQuery, () => {
 }
 
 .search-box input:focus {
-  border-color: #4A8B3F;
+  border-color: #4a8b3f;
   background: #fff;
   box-shadow: 0 0 0 3px rgba(74, 139, 63, 0.08);
 }
@@ -1201,12 +1336,12 @@ watch(searchQuery, () => {
 
 .category-item:hover {
   background: #f8f9fa;
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .category-item.active {
   background: rgba(74, 139, 63, 0.08);
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-weight: 600;
 }
 
@@ -1232,7 +1367,7 @@ watch(searchQuery, () => {
 
 .category-item.active .cat-count {
   background: rgba(74, 139, 63, 0.15);
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 /* Recent Posts Widget */
@@ -1267,7 +1402,7 @@ watch(searchQuery, () => {
 }
 
 .recent-item:hover .recent-number {
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .recent-img-wrap {
@@ -1302,7 +1437,7 @@ watch(searchQuery, () => {
 }
 
 .recent-item:hover .recent-title {
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .recent-date {
@@ -1334,7 +1469,7 @@ watch(searchQuery, () => {
 
 .cloud-tag:hover {
   background: rgba(233, 30, 140, 0.08);
-  color: #E91E8C;
+  color: #e91e8c;
   border-color: rgba(233, 30, 140, 0.2);
 }
 
@@ -1346,7 +1481,7 @@ watch(searchQuery, () => {
 }
 
 .cta-card {
-  background: linear-gradient(135deg, #1B1464 0%, #4A8B3F 100%);
+  background: linear-gradient(135deg, #1b1464 0%, #4a8b3f 100%);
   padding: 35px 28px;
   text-align: center;
   position: relative;
@@ -1389,7 +1524,7 @@ watch(searchQuery, () => {
   gap: 8px;
   padding: 12px 28px;
   background: #fff;
-  color: #1B1464;
+  color: #1b1464;
   border-radius: 50px;
   font-weight: 700;
   font-size: 14px;
@@ -1398,7 +1533,7 @@ watch(searchQuery, () => {
 }
 
 .cta-btn:hover {
-  background: #FFE5B4;
+  background: #ffe5b4;
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
@@ -1444,19 +1579,44 @@ watch(searchQuery, () => {
 
 /* ===== Responsive ===== */
 @media (max-width: 991px) {
-  .blog-hero-bg { padding: 60px 0 70px; }
-  .blog-hero-title { font-size: 34px; }
-  .blog-hero-description { font-size: 14px; }
+  .blog-hero-bg {
+    padding: 60px 0 70px;
+  }
+  .blog-hero-title {
+    font-size: 34px;
+  }
+  .blog-hero-description {
+    font-size: 14px;
+  }
 
-  .filter-bar { flex-direction: column; align-items: stretch; }
-  .search-bar { min-width: unset; }
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-bar {
+    min-width: unset;
+  }
 
-  .featured-card { flex-direction: column; }
-  .featured-img-wrap { width: 100%; min-height: 250px; }
-  .featured-content { width: 100%; padding: 28px; }
+  .featured-card {
+    flex-direction: column;
+  }
+  .featured-img-wrap {
+    width: 100%;
+    min-height: 250px;
+  }
+  .featured-content {
+    width: 100%;
+    padding: 28px;
+  }
 
-  .blog-card { flex-direction: column; }
-  .card-img-wrap { width: 100%; min-width: unset; min-height: 200px; }
+  .blog-card {
+    flex-direction: column;
+  }
+  .card-img-wrap {
+    width: 100%;
+    min-width: unset;
+    min-height: 200px;
+  }
 
   .blog-scroll-col,
   .sidebar-scroll-col {
@@ -1466,28 +1626,61 @@ watch(searchQuery, () => {
 }
 
 @media (max-width: 767px) {
-  .blog-hero-bg { padding: 50px 0 60px; }
-  .blog-hero-title { font-size: 28px; }
-  .blog-hero-description { font-size: 13px; }
-  .hero-wave-bottom svg { height: 60px; }
+  .blog-hero-bg {
+    padding: 50px 0 60px;
+  }
+  .blog-hero-title {
+    font-size: 28px;
+  }
+  .blog-hero-description {
+    font-size: 13px;
+  }
+  .hero-wave-bottom svg {
+    height: 60px;
+  }
 
-  .filter-pills { gap: 6px; }
-  .filter-pill { padding: 6px 14px; font-size: 12px; }
+  .filter-pills {
+    gap: 6px;
+  }
+  .filter-pill {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
 
-  .featured-content { padding: 22px; }
-  .featured-title { font-size: 20px; }
+  .featured-content {
+    padding: 22px;
+  }
+  .featured-title {
+    font-size: 20px;
+  }
 
-  .card-body { padding: 18px; }
-  .card-title { font-size: 16px; }
+  .card-body {
+    padding: 18px;
+  }
+  .card-title {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 575px) {
-  .blog-hero-bg { padding: 45px 0 50px; }
-  .blog-hero-title { font-size: 24px; }
-  .blog-hero-description { font-size: 13px; }
-  .hero-wave-bottom svg { height: 50px; }
+  .blog-hero-bg {
+    padding: 45px 0 50px;
+  }
+  .blog-hero-title {
+    font-size: 24px;
+  }
+  .blog-hero-description {
+    font-size: 13px;
+  }
+  .hero-wave-bottom svg {
+    height: 50px;
+  }
 
-  .featured-meta { gap: 12px; }
-  .card-meta { gap: 10px; }
+  .featured-meta {
+    gap: 12px;
+  }
+  .card-meta {
+    gap: 10px;
+  }
 }
 </style>

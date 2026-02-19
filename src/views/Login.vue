@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import AuthLayout from '@/components/AuthLayout.vue'
@@ -7,6 +7,33 @@ import SocialLoginButtons from '@/components/SocialLoginButtons.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
+
+// Audio
+const bgAudio = ref(null)
+const isPlaying = ref(false)
+
+const toggleAudio = () => {
+  if (!bgAudio.value) return
+  if (isPlaying.value) {
+    bgAudio.value.pause()
+    isPlaying.value = false
+  } else {
+    bgAudio.value.volume = 0.5
+    bgAudio.value
+      .play()
+      .then(() => {
+        isPlaying.value = true
+      })
+      .catch(() => {})
+  }
+}
+
+onBeforeUnmount(() => {
+  if (bgAudio.value) {
+    bgAudio.value.pause()
+    bgAudio.value.currentTime = 0
+  }
+})
 
 // Form state
 const email = ref('')
@@ -31,14 +58,15 @@ const handleLogin = async () => {
   try {
     const result = await authStore.logIn({
       email: email.value,
-      password: password.value
+      password: password.value,
     })
 
     if (result.data && result.data.token) {
       // Login successful - redirect to admin panel with token
       router.push('/')
     } else {
-      errorMessage.value = result.error?.['sub-title'] || result.error?.message || 'Login failed'
+      errorMessage.value =
+        result.error?.['sub-title'] || result.error?.message || 'Login failed'
     }
   } catch (err) {
     errorMessage.value = err.message || 'An error occurred during login'
@@ -50,20 +78,30 @@ const handleLogin = async () => {
 
 <template>
   <div class="login-page">
+    <!-- Background Audio -->
+    <audio ref="bgAudio" loop preload="auto">
+      <source src="/assets/audio/login-bg.mp3" type="audio/mpeg" />
+    </audio>
+    <button
+      class="audio-toggle"
+      :class="{ playing: isPlaying }"
+      @click="toggleAudio"
+    >
+      <i :class="isPlaying ? 'fas fa-volume-up' : 'fas fa-volume-mute'"></i>
+    </button>
+
     <div class="login-container">
       <div class="row g-0 h-100">
-
         <!-- Left Side - Branding -->
         <AuthLayout
           title="Welcome Back to"
           subtitle="Mind Growup Jr!"
-          description="Continue your child's learning journey with 4000+ interactive games and activities."
+          description="Continue your child's learning journey with 500+ interactive games and activities."
         />
 
         <!-- Right Side - Login Form -->
         <div class="col-lg-6 login-form-section">
           <div class="form-container">
-
             <!-- Back to Home Link -->
             <router-link to="/" class="back-link">
               <i class="fas fa-arrow-left"></i>
@@ -85,7 +123,7 @@ const handleLogin = async () => {
             </div>
 
             <!-- Login Form -->
-            <form @submit.prevent="handleLogin" class="login-form">
+            <form class="login-form" @submit.prevent="handleLogin">
               <div class="form-group">
                 <label for="email" class="form-label">
                   <i class="fas fa-envelope me-2"></i>Email Address
@@ -118,14 +156,16 @@ const handleLogin = async () => {
                     class="password-toggle"
                     @click="showPassword = !showPassword"
                   >
-                    <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+                    <i
+                      :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"
+                    ></i>
                   </button>
                 </div>
               </div>
 
               <div class="form-options">
                 <label class="custom-checkbox">
-                  <input type="checkbox" v-model="rememberMe">
+                  <input v-model="rememberMe" type="checkbox" />
                   <span class="checkmark"></span>
                   <span class="checkbox-label">Remember me</span>
                 </label>
@@ -146,8 +186,11 @@ const handleLogin = async () => {
 
             <!-- Sign Up Link -->
             <div class="signup-link">
-              <p>Don't have an account?
-                <router-link to="/register" class="signup-cta">Start Free Trial</router-link>
+              <p>
+                Don't have an account?
+                <router-link to="/register" class="signup-cta"
+                  >Start Free Trial</router-link
+                >
               </p>
             </div>
 
@@ -158,22 +201,21 @@ const handleLogin = async () => {
                 <strong>Are you a teacher?</strong>
                 <p>Get a free account with premium features!</p>
               </div>
-              <router-link to="/for-teachers" class="teacher-btn">Learn More</router-link>
+              <router-link to="/for-teachers" class="teacher-btn"
+                >Learn More</router-link
+              >
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </template>
 
-
 <style scoped>
 .login-page {
   min-height: 100vh;
-  background: #F7F8FA;
+  background: #f7f8fa;
 }
 
 .login-container {
@@ -203,7 +245,7 @@ const handleLogin = async () => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #4A8B3F;
+  color: #4a8b3f;
   text-decoration: none;
   font-weight: 600;
   margin-bottom: 30px;
@@ -211,7 +253,7 @@ const handleLogin = async () => {
 }
 
 .back-link:hover {
-  color: #3A7032;
+  color: #3a7032;
   gap: 12px;
 }
 
@@ -222,12 +264,12 @@ const handleLogin = async () => {
 .form-title {
   font-size: 32px;
   font-weight: 800;
-  color: #2D3436;
+  color: #2d3436;
   margin-bottom: 10px;
 }
 
 .form-subtitle {
-  color: #636E72;
+  color: #636e72;
   font-size: 16px;
 }
 
@@ -239,7 +281,7 @@ const handleLogin = async () => {
 .form-label {
   display: block;
   margin-bottom: 8px;
-  color: #2D3436;
+  color: #2d3436;
   font-weight: 600;
   font-size: 14px;
 }
@@ -247,7 +289,7 @@ const handleLogin = async () => {
 .form-control {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   border-radius: 10px;
   font-size: 15px;
   transition: all 0.3s;
@@ -255,7 +297,7 @@ const handleLogin = async () => {
 
 .form-control:focus {
   outline: none;
-  border-color: #4A8B3F;
+  border-color: #4a8b3f;
   box-shadow: 0 0 0 3px rgba(74, 139, 63, 0.1);
 }
 
@@ -270,13 +312,13 @@ const handleLogin = async () => {
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #636E72;
+  color: #636e72;
   cursor: pointer;
   padding: 5px;
 }
 
 .password-toggle:hover {
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 .form-options {
@@ -300,7 +342,7 @@ const handleLogin = async () => {
 .checkmark {
   width: 20px;
   height: 20px;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   border-radius: 5px;
   margin-right: 10px;
   position: relative;
@@ -308,8 +350,8 @@ const handleLogin = async () => {
 }
 
 .custom-checkbox input:checked ~ .checkmark {
-  background: #4A8B3F;
-  border-color: #4A8B3F;
+  background: #4a8b3f;
+  border-color: #4a8b3f;
 }
 
 .custom-checkbox input:checked ~ .checkmark::after {
@@ -326,24 +368,24 @@ const handleLogin = async () => {
 
 .checkbox-label {
   font-size: 14px;
-  color: #2D3436;
+  color: #2d3436;
 }
 
 .forgot-link {
-  color: #4A8B3F;
+  color: #4a8b3f;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
 }
 
 .forgot-link:hover {
-  color: #3A7032;
+  color: #3a7032;
 }
 
 .btn-submit {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   border: none;
   border-radius: 10px;
@@ -368,22 +410,22 @@ const handleLogin = async () => {
   text-align: center;
   margin-top: 25px;
   padding-top: 25px;
-  border-top: 1px solid #E0E0E0;
+  border-top: 1px solid #e0e0e0;
 }
 
 .signup-link p {
-  color: #636E72;
+  color: #636e72;
   margin: 0;
 }
 
 .signup-cta {
-  color: #4A8B3F;
+  color: #4a8b3f;
   font-weight: 700;
   text-decoration: none;
 }
 
 .signup-cta:hover {
-  color: #3A7032;
+  color: #3a7032;
   text-decoration: underline;
 }
 
@@ -392,7 +434,7 @@ const handleLogin = async () => {
   display: flex;
   align-items: center;
   gap: 15px;
-  background: linear-gradient(135deg, #00D2A0, #00B894);
+  background: linear-gradient(135deg, #00d2a0, #00b894);
   padding: 20px;
   border-radius: 12px;
   margin-top: 30px;
@@ -417,7 +459,7 @@ const handleLogin = async () => {
 
 .teacher-btn {
   background: white;
-  color: #00B894;
+  color: #00b894;
   padding: 8px 16px;
   border-radius: 8px;
   text-decoration: none;
@@ -439,9 +481,51 @@ const handleLogin = async () => {
 }
 
 .alert-danger {
-  background: #FEE;
-  color: #C00;
-  border: 1px solid #FCC;
+  background: #fee;
+  color: #c00;
+  border: 1px solid #fcc;
+}
+
+/* Audio Toggle Button */
+.audio-toggle {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(74, 139, 63, 0.4);
+  transition: all 0.3s;
+}
+
+.audio-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(74, 139, 63, 0.5);
+}
+
+.audio-toggle.playing {
+  animation: pulse-audio 2s ease-in-out infinite;
+}
+
+@keyframes pulse-audio {
+  0%,
+  100% {
+    box-shadow: 0 4px 15px rgba(74, 139, 63, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 4px 25px rgba(74, 139, 63, 0.7),
+      0 0 0 10px rgba(74, 139, 63, 0.1);
+  }
 }
 
 /* Responsive */

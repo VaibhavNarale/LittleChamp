@@ -120,7 +120,7 @@ onBeforeUnmount(() => {
 
           <!-- Hero Description -->
           <p class="subjects-hero-description">
-            Curriculum-aligned content for Pre-K through Grade 5 • 4000+ Games •
+            Curriculum-aligned content for Pre-K through Grade 5 • 500+ Games •
             10,000+ Worksheets
           </p>
         </div>
@@ -384,7 +384,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-file-alt text-success"></i>
-                  <strong>4000+</strong> Worksheets
+                  <strong>500+</strong> Worksheets
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-graduation-cap text-warning"></i>
@@ -708,7 +708,7 @@ onBeforeUnmount(() => {
         <span class="sub-title text-white">Start Learning Today</span>
         <h2 class="sec-title text-white">Ready to Help Your Child Excel?</h2>
         <p class="text-white fs-md mt-3">
-          Join 50M+ kids learning through play
+          Join Indian kids learning through play
         </p>
       </div>
       <router-link to="/pricing" class="vs-btn wave-btn">

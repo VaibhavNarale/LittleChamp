@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 
 onMounted(async () => {
   await nextTick()
@@ -33,13 +36,19 @@ onBeforeUnmount(() => {
             Explore Our
             <span class="gradient-text-light d-block">Educational Classes</span>
           </h1>
-          <p class="classes-hero-subtitle">Discover engaging programs designed to inspire and educate young minds</p>
+          <p class="classes-hero-subtitle">
+            Discover engaging programs designed to inspire and educate young
+            minds
+          </p>
         </div>
       </div>
     </div>
     <div class="hero-wave-bottom">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#FFFFFF"
+        />
       </svg>
     </div>
   </section>
@@ -47,25 +56,32 @@ onBeforeUnmount(() => {
   <!--======== Classes Section ========-->
   <section class="classes-section bg-smoke-two space-top space-extra-bottom">
     <div class="container">
-      <div class="row ">
+      <div class="row">
         <!-- Single Class -->
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="class-box">
             <div class="class-img">
               <router-link to="/class-details">
-                <img src="/assets/img/class/class-1.jpg" alt="class">
+                <img src="/assets/img/class/class-1.jpg" alt="class" />
               </router-link>
             </div>
             <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/class-details">Language Class</router-link></h2>
-              <p class="class-text">Interactively brand client center through is customized value good ideas.</p>
+              <h2 class="class-title h4">
+                <router-link to="/class-details">Language Class</router-link>
+              </h2>
+              <p class="class-text">
+                Interactively brand client center through is customized value
+                good ideas.
+              </p>
               <div class="class-profile">
                 <div class="profile">
                   <div class="avator">
-                    <img src="/assets/img/blog/author-1.jpg" alt="author">
+                    <img src="/assets/img/blog/author-1.jpg" alt="author" />
                   </div>
                   <div class="info">
-                    <h3 class="author-name text-title"><router-link to="/team-details">Romeza Xara</router-link></h3>
+                    <h3 class="author-name text-title">
+                      <router-link to="/team-details">Kavita Nair</router-link>
+                    </h3>
                     <span class="author-desig">Teacher</span>
                   </div>
                 </div>
@@ -85,7 +101,9 @@ onBeforeUnmount(() => {
                   <span>30 Kids</span>
                 </li>
               </ul>
-              <router-link to="/class-details" class="vs-btn style-1">Read More</router-link>
+              <router-link to="/class-details" class="vs-btn style-1"
+                >Read More</router-link
+              >
             </div>
           </div>
         </div>
@@ -94,19 +112,28 @@ onBeforeUnmount(() => {
           <div class="class-box">
             <div class="class-img">
               <router-link to="/class-details">
-                <img src="/assets/img/class/class-2.jpg" alt="class">
+                <img src="/assets/img/class/class-2.jpg" alt="class" />
               </router-link>
             </div>
             <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/class-details">Mathematics Class</router-link></h2>
-              <p class="class-text">Interactively brand client center through is customized value good ideas.</p>
+              <h2 class="class-title h4">
+                <router-link to="/class-details">Mathematics Class</router-link>
+              </h2>
+              <p class="class-text">
+                Interactively brand client center through is customized value
+                good ideas.
+              </p>
               <div class="class-profile">
                 <div class="profile">
                   <div class="avator">
-                    <img src="/assets/img/blog/author-2.jpg" alt="author">
+                    <img src="/assets/img/blog/author-2.jpg" alt="author" />
                   </div>
                   <div class="info">
-                    <h3 class="author-name text-title"><router-link to="/team-details">Rose Xara</router-link></h3>
+                    <h3 class="author-name text-title">
+                      <router-link to="/team-details"
+                        >Deepa Kulkarni</router-link
+                      >
+                    </h3>
                     <span class="author-desig">Teacher</span>
                   </div>
                 </div>
@@ -126,7 +153,9 @@ onBeforeUnmount(() => {
                   <span>30 Kids</span>
                 </li>
               </ul>
-              <router-link to="/class-details" class="vs-btn style-1">Read More</router-link>
+              <router-link to="/class-details" class="vs-btn style-1"
+                >Read More</router-link
+              >
             </div>
           </div>
         </div>
@@ -135,19 +164,26 @@ onBeforeUnmount(() => {
           <div class="class-box">
             <div class="class-img">
               <router-link to="/class-details">
-                <img src="/assets/img/class/class-3.jpg" alt="class">
+                <img src="/assets/img/class/class-3.jpg" alt="class" />
               </router-link>
             </div>
             <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/class-details">Kids Online Class</router-link></h2>
-              <p class="class-text">Interactively brand client center through is customized value good ideas.</p>
+              <h2 class="class-title h4">
+                <router-link to="/class-details">Kids Online Class</router-link>
+              </h2>
+              <p class="class-text">
+                Interactively brand client center through is customized value
+                good ideas.
+              </p>
               <div class="class-profile">
                 <div class="profile">
                   <div class="avator">
-                    <img src="/assets/img/blog/author-3.jpg" alt="author">
+                    <img src="/assets/img/blog/author-3.jpg" alt="author" />
                   </div>
                   <div class="info">
-                    <h3 class="author-name text-title"><router-link to="/team-details">Julia Jelly</router-link></h3>
+                    <h3 class="author-name text-title">
+                      <router-link to="/team-details">Sneha Reddy</router-link>
+                    </h3>
                     <span class="author-desig">Teacher</span>
                   </div>
                 </div>
@@ -167,7 +203,9 @@ onBeforeUnmount(() => {
                   <span>30 Kids</span>
                 </li>
               </ul>
-              <router-link to="/class-details" class="vs-btn style-1">Read More</router-link>
+              <router-link to="/class-details" class="vs-btn style-1"
+                >Read More</router-link
+              >
             </div>
           </div>
         </div>
@@ -176,19 +214,26 @@ onBeforeUnmount(() => {
           <div class="class-box">
             <div class="class-img">
               <router-link to="/class-details">
-                <img src="/assets/img/class/class-4.jpg" alt="class">
+                <img src="/assets/img/class/class-4.jpg" alt="class" />
               </router-link>
             </div>
             <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/class-details">Practical Classes</router-link></h2>
-              <p class="class-text">Interactively brand client center through is customized value good ideas.</p>
+              <h2 class="class-title h4">
+                <router-link to="/class-details">Practical Classes</router-link>
+              </h2>
+              <p class="class-text">
+                Interactively brand client center through is customized value
+                good ideas.
+              </p>
               <div class="class-profile">
                 <div class="profile">
                   <div class="avator">
-                    <img src="/assets/img/blog/author-2.jpg" alt="author">
+                    <img src="/assets/img/blog/author-2.jpg" alt="author" />
                   </div>
                   <div class="info">
-                    <h3 class="author-name text-title"><router-link to="/team-details">Romeza Xara</router-link></h3>
+                    <h3 class="author-name text-title">
+                      <router-link to="/team-details">Kavita Nair</router-link>
+                    </h3>
                     <span class="author-desig">Teacher</span>
                   </div>
                 </div>
@@ -208,7 +253,9 @@ onBeforeUnmount(() => {
                   <span>30 Kids</span>
                 </li>
               </ul>
-              <router-link to="/class-details" class="vs-btn style-1">Read More</router-link>
+              <router-link to="/class-details" class="vs-btn style-1"
+                >Read More</router-link
+              >
             </div>
           </div>
         </div>
@@ -217,19 +264,26 @@ onBeforeUnmount(() => {
           <div class="class-box">
             <div class="class-img">
               <router-link to="/class-details">
-                <img src="/assets/img/class/class-5.jpg" alt="class">
+                <img src="/assets/img/class/class-5.jpg" alt="class" />
               </router-link>
             </div>
             <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/class-details">Outdoor Learning</router-link></h2>
-              <p class="class-text">Interactively brand client center through is customized value good ideas.</p>
+              <h2 class="class-title h4">
+                <router-link to="/class-details">Outdoor Learning</router-link>
+              </h2>
+              <p class="class-text">
+                Interactively brand client center through is customized value
+                good ideas.
+              </p>
               <div class="class-profile">
                 <div class="profile">
                   <div class="avator">
-                    <img src="/assets/img/blog/author-1.jpg" alt="author">
+                    <img src="/assets/img/blog/author-1.jpg" alt="author" />
                   </div>
                   <div class="info">
-                    <h3 class="author-name text-title"><router-link to="/team-details">Romeza Xara</router-link></h3>
+                    <h3 class="author-name text-title">
+                      <router-link to="/team-details">Kavita Nair</router-link>
+                    </h3>
                     <span class="author-desig">Teacher</span>
                   </div>
                 </div>
@@ -249,7 +303,9 @@ onBeforeUnmount(() => {
                   <span>30 Kids</span>
                 </li>
               </ul>
-              <router-link to="/class-details" class="vs-btn style-1">Read More</router-link>
+              <router-link to="/class-details" class="vs-btn style-1"
+                >Read More</router-link
+              >
             </div>
           </div>
         </div>
@@ -258,19 +314,26 @@ onBeforeUnmount(() => {
           <div class="class-box">
             <div class="class-img">
               <router-link to="/class-details">
-                <img src="/assets/img/class/class-6.jpg" alt="class">
+                <img src="/assets/img/class/class-6.jpg" alt="class" />
               </router-link>
             </div>
             <div class="class-content">
-              <h2 class="class-title h4"><router-link to="/class-details">Learning Care</router-link></h2>
-              <p class="class-text">Interactively brand client center through is customized value good ideas.</p>
+              <h2 class="class-title h4">
+                <router-link to="/class-details">Learning Care</router-link>
+              </h2>
+              <p class="class-text">
+                Interactively brand client center through is customized value
+                good ideas.
+              </p>
               <div class="class-profile">
                 <div class="profile">
                   <div class="avator">
-                    <img src="/assets/img/blog/author-3.jpg" alt="author">
+                    <img src="/assets/img/blog/author-3.jpg" alt="author" />
                   </div>
                   <div class="info">
-                    <h3 class="author-name text-title"><router-link to="/team-details">Romeza Xara</router-link></h3>
+                    <h3 class="author-name text-title">
+                      <router-link to="/team-details">Kavita Nair</router-link>
+                    </h3>
                     <span class="author-desig">Teacher</span>
                   </div>
                 </div>
@@ -290,7 +353,9 @@ onBeforeUnmount(() => {
                   <span>30 Kids</span>
                 </li>
               </ul>
-              <router-link to="/class-details" class="vs-btn style-1">Read More</router-link>
+              <router-link to="/class-details" class="vs-btn style-1"
+                >Read More</router-link
+              >
             </div>
           </div>
         </div>
@@ -300,16 +365,30 @@ onBeforeUnmount(() => {
   <!--======== / Classes Section ========-->
 
   <!--======== CTA Section ========-->
-  <section class="cta-section space-shape-plus" data-bg-src="/assets/img/bg/cta-4.jpg" data-opacity="8" data-overlay="custom">
+  <section
+    class="cta-section space-shape-plus"
+    data-bg-src="/assets/img/bg/cta-4.jpg"
+    data-opacity="8"
+    data-overlay="custom"
+  >
     <div class="container text-center z-index-common">
       <div class="title-area mb-35 wow fadeInUp" data-wow-delay="0.1s">
         <span class="sub-title text-white">Join Our New Session</span>
-        <h2 class="sec-title text-white">Call To Enroll Your Child <a class="d-block text-inherit" href="tel:+25621582222">256 2158 2222</a></h2>
+        <h2 class="sec-title text-white">
+          Call To Enroll Your Child
+          <a class="d-block text-inherit" href="tel:+25621582222"
+            >256 2158 2222</a
+          >
+        </h2>
       </div>
       <router-link to="/about" class="vs-btn wave-btn">Learn More</router-link>
     </div>
-    <div class="section-before style-2"><img src="/assets/img/shape/main-shape-before-2.png" alt="shape"></div>
-    <div class="section-after style-2"><img src="/assets/img/shape/main-shape-after-smoke.png" alt="shape"></div>
+    <div class="section-before style-2">
+      <img src="/assets/img/shape/main-shape-before-2.png" alt="shape" />
+    </div>
+    <div class="section-after style-2">
+      <img src="/assets/img/shape/main-shape-after-smoke.png" alt="shape" />
+    </div>
   </section>
   <!--======== / CTA Section ========-->
 
@@ -318,36 +397,56 @@ onBeforeUnmount(() => {
     <div class="container">
       <div class="row gy-30 gx-0 align-items-center">
         <div class="col-lg-4">
-          <div class="title-area text-center text-lg-start wow fadeInUp" data-wow-delay="0.1s">
+          <div
+            class="title-area text-center text-lg-start wow fadeInUp"
+            data-wow-delay="0.1s"
+          >
             <span class="sub-title">Testimonial</span>
             <h2 class="sec-title">Parent Say About Knirpse</h2>
           </div>
           <div class="rating-box">
             <h2 class="number h1">4.7</h2>
             <div class="total-rating">
-              <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
+              <div
+                class="star-rating"
+                role="img"
+                aria-label="Rated 5.00 out of 5"
+              >
+                <span
+                  >Rated <strong class="rating">5.00</strong> out of 5 based on
+                  <span class="rating">1</span> customer rating</span
+                >
               </div>
-              <h5 class="rating-count">(<span class="count">450</span> Reviews) From Google</h5>
+              <h5 class="rating-count">
+                (<span class="count">450</span> Reviews) From Google
+              </h5>
             </div>
           </div>
         </div>
         <div class="col-lg-8">
           <div class="testi-grid-wrapper ml-40">
-            <div class="row vs-carousel" id="testi2" data-slide-show="2">
+            <div id="testi2" class="row vs-carousel" data-slide-show="2">
               <!-- Slider item -->
               <div class="col-md-6">
                 <div class="testi-grid">
                   <div class="testi-text">
-                    <p>everage total linkage rather markets. ransition enabled niches whereas cross media bene world class diverse error free paradigms. maintain inexpensive good effort could makes good happen.</p>
+                    <p>
+                      everage total linkage rather markets. ransition enabled
+                      niches whereas cross media bene world class diverse error
+                      free paradigms. maintain inexpensive good effort could
+                      makes good happen.
+                    </p>
                     <i class="fa-regular fa-quote-left"></i>
                   </div>
                   <div class="testi-author">
                     <div class="avater">
-                      <img src="/assets/img/testimonial/avator-1.jpg" alt="avator">
+                      <img
+                        src="/assets/img/testimonial/avator-1.jpg"
+                        alt="avator"
+                      />
                     </div>
                     <div class="media-body">
-                      <h5 class="name">Jerzzy Lamot</h5>
+                      <h5 class="name">Vikram Desai</h5>
                       <span class="desig">Brother</span>
                     </div>
                   </div>
@@ -357,15 +456,23 @@ onBeforeUnmount(() => {
               <div class="col-md-6">
                 <div class="testi-grid">
                   <div class="testi-text">
-                    <p>everage total linkage rather markets. ransition enabled niches whereas cross media bene world class diverse error free paradigms. maintain inexpensive good effort could makes good happen.</p>
+                    <p>
+                      everage total linkage rather markets. ransition enabled
+                      niches whereas cross media bene world class diverse error
+                      free paradigms. maintain inexpensive good effort could
+                      makes good happen.
+                    </p>
                     <i class="fa-regular fa-quote-left"></i>
                   </div>
                   <div class="testi-author">
                     <div class="avater">
-                      <img src="/assets/img/testimonial/avator-2.jpg" alt="avator">
+                      <img
+                        src="/assets/img/testimonial/avator-2.jpg"
+                        alt="avator"
+                      />
                     </div>
                     <div class="media-body">
-                      <h5 class="name">David Smith</h5>
+                      <h5 class="name">Suresh Gupta</h5>
                       <span class="desig">Parent</span>
                     </div>
                   </div>
@@ -375,15 +482,23 @@ onBeforeUnmount(() => {
               <div class="col-md-6">
                 <div class="testi-grid">
                   <div class="testi-text">
-                    <p>everage total linkage rather markets. ransition enabled niches whereas cross media bene world class diverse error free paradigms. maintain inexpensive good effort could makes good happen.</p>
+                    <p>
+                      everage total linkage rather markets. ransition enabled
+                      niches whereas cross media bene world class diverse error
+                      free paradigms. maintain inexpensive good effort could
+                      makes good happen.
+                    </p>
                     <i class="fa-regular fa-quote-left"></i>
                   </div>
                   <div class="testi-author">
                     <div class="avater">
-                      <img src="/assets/img/testimonial/avator-3.jpg" alt="avator">
+                      <img
+                        src="/assets/img/testimonial/avator-3.jpg"
+                        alt="avator"
+                      />
                     </div>
                     <div class="media-body">
-                      <h5 class="name">John Doe</h5>
+                      <h5 class="name">Amit Joshi</h5>
                       <span class="desig">Gurdian</span>
                     </div>
                   </div>
@@ -393,29 +508,60 @@ onBeforeUnmount(() => {
               <div class="col-md-6">
                 <div class="testi-grid">
                   <div class="testi-text">
-                    <p>everage total linkage rather markets. ransition enabled niches whereas cross media bene world class diverse error free paradigms. maintain inexpensive good effort could makes good happen.</p>
+                    <p>
+                      everage total linkage rather markets. ransition enabled
+                      niches whereas cross media bene world class diverse error
+                      free paradigms. maintain inexpensive good effort could
+                      makes good happen.
+                    </p>
                     <i class="fa-regular fa-quote-left"></i>
                   </div>
                   <div class="testi-author">
                     <div class="avater">
-                      <img src="/assets/img/testimonial/avator-4.jpg" alt="avator">
+                      <img
+                        src="/assets/img/testimonial/avator-4.jpg"
+                        alt="avator"
+                      />
                     </div>
                     <div class="media-body">
-                      <h5 class="name">Justin Doe</h5>
+                      <h5 class="name">Manish Tiwari</h5>
                       <span class="desig">Parent</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <svg id="clipShape" xmlns="http://www.w3.org/2000/svg" width="58.124" height="38.113" viewBox="0 0 58.124 38.113">
+            <svg
+              id="clipShape"
+              xmlns="http://www.w3.org/2000/svg"
+              width="58.124"
+              height="38.113"
+              viewBox="0 0 58.124 38.113"
+            >
               <clipPath id="testiAfterShape">
-                <path id="testiAfter" d="M1043.75,573s12,13.75-10,37c-.5-.25,10.25,3,56.25-37Z" transform="translate(-1033.213 -572.5)" fill="none" stroke="#707070" stroke-width="1" />
+                <path
+                  id="testiAfter"
+                  d="M1043.75,573s12,13.75-10,37c-.5-.25,10.25,3,56.25-37Z"
+                  transform="translate(-1033.213 -572.5)"
+                  fill="none"
+                  stroke="#707070"
+                  stroke-width="1"
+                />
               </clipPath>
             </svg>
             <div class="vs-icon-box testi-2 d-none d-xl-block">
-              <button data-slick-prev="#testi2" class="icon-btn style-3 arrow-left mb-15"><i class="far fa-arrow-left"></i></button>
-              <button data-slick-next="#testi2" class="icon-btn style-3 arrow-right"><i class="far fa-arrow-right"></i></button>
+              <button
+                data-slick-prev="#testi2"
+                class="icon-btn style-3 arrow-left mb-15"
+              >
+                <i class="far fa-arrow-left"></i>
+              </button>
+              <button
+                data-slick-next="#testi2"
+                class="icon-btn style-3 arrow-right"
+              >
+                <i class="far fa-arrow-right"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -434,7 +580,7 @@ onBeforeUnmount(() => {
 }
 
 .classes-hero-bg {
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 45%, #FF6584 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #5ea750 45%, #ff6584 100%);
   padding: 120px 0 80px;
   position: relative;
   z-index: 1;
@@ -509,7 +655,8 @@ onBeforeUnmount(() => {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -528,7 +675,11 @@ onBeforeUnmount(() => {
 }
 
 .gradient-text-light {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

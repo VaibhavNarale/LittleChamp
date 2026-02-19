@@ -95,7 +95,7 @@ onBeforeUnmount(() => {
               />
             </div>
             <div class="mission-badge">
-              <span class="mission-badge-number">50M+</span>
+              <span class="mission-badge-number">500+</span>
               <span class="mission-badge-text">Kids Learning</span>
             </div>
           </div>
@@ -112,10 +112,10 @@ onBeforeUnmount(() => {
             </h2>
             <p class="mission-desc">
               Mind Growup Jr is a leading educational technology platform that
-              transforms how children learn. With over 4,000 interactive games
-              covering Math, Reading, and Science for Pre-K through Grade 5, we
-              make learning feel like play while delivering curriculum-aligned
-              content that builds essential skills.
+              transforms how children learn. With over 500+ interactive games
+              covering Math, Reading, and Craft & Drawing for Pre-K through
+              Grade 5, we make learning feel like play while delivering
+              curriculum-aligned content that builds essential skills.
             </p>
 
             <div class="mission-features">
@@ -126,7 +126,7 @@ onBeforeUnmount(() => {
                 <div>
                   <h4 class="feature-name">Play-Based Learning</h4>
                   <p class="feature-desc">
-                    4000+ games that make education exciting
+                    500+ games that make education exciting
                   </p>
                 </div>
               </div>
@@ -383,7 +383,7 @@ onBeforeUnmount(() => {
                 class="stat-icon-img"
               />
             </div>
-            <h3 class="stat-number stat-number--green">50M+</h3>
+            <h3 class="stat-number stat-number--green">Indian</h3>
             <p class="stat-label">Kids Learning</p>
             <div class="stat-bar stat-bar--green"></div>
           </div>
@@ -397,7 +397,7 @@ onBeforeUnmount(() => {
                 class="stat-icon-img"
               />
             </div>
-            <h3 class="stat-number stat-number--pink">4000+</h3>
+            <h3 class="stat-number stat-number--pink">500+</h3>
             <p class="stat-label">Interactive Games</p>
             <div class="stat-bar stat-bar--pink"></div>
           </div>
@@ -411,7 +411,7 @@ onBeforeUnmount(() => {
                 class="stat-icon-img"
               />
             </div>
-            <h3 class="stat-number stat-number--navy">100K+</h3>
+            <h3 class="stat-number stat-number--navy">100+</h3>
             <p class="stat-label">Teachers Trust Us</p>
             <div class="stat-bar stat-bar--navy"></div>
           </div>
@@ -519,7 +519,7 @@ onBeforeUnmount(() => {
           </div>
           <h3 class="step-title">Play & Learn</h3>
           <p class="step-desc">
-            Kids explore 4000+ games. AI adapts difficulty to their level.
+            Kids explore 500+ games. AI adapts difficulty to their level.
           </p>
         </div>
 
@@ -1351,7 +1351,7 @@ onBeforeUnmount(() => {
 
 /* Pillar Title */
 .pillar-title {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 800;
   color: #1b1464;
   text-align: center;
@@ -1361,7 +1361,7 @@ onBeforeUnmount(() => {
 
 /* Pillar Description */
 .pillar-desc {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.65;
   color: #636e72;
   text-align: center;
@@ -1380,10 +1380,10 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 14px;
+  font-size: 16px;
   color: #444;
   line-height: 1.5;
-  padding: 6px 0;
+  padding: 7px 0;
   border-bottom: 1px solid #f5f5f5;
 }
 

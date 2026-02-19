@@ -45,7 +45,7 @@ onBeforeUnmount(() => {
             >
           </h1>
           <p class="hero-description">
-            Give your child the gift of learning through play with 4000+
+            Give your child the gift of learning through play with 500+
             educational games and activities designed by experts
           </p>
         </div>
@@ -224,7 +224,7 @@ onBeforeUnmount(() => {
             </div>
             <h4 class="process-title">Let Them Play</h4>
             <p class="process-text">
-              Your child explores 4000+ games while learning key concepts
+              Your child explores 500+ games while learning key concepts
             </p>
           </div>
         </div>

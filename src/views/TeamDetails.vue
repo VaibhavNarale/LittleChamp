@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { initTemplateScripts, cleanupTemplateScripts } from '@/utils/initScripts'
+import {
+  initTemplateScripts,
+  cleanupTemplateScripts,
+} from '@/utils/initScripts'
 
 onMounted(async () => {
   await nextTick()
@@ -38,7 +41,10 @@ onBeforeUnmount(() => {
     </div>
     <div class="hero-wave-bottom">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z" fill="#FFFFFF"/>
+        <path
+          d="M0,64 C240,96 480,96 720,64 C960,32 1200,32 1440,64 L1440,120 L0,120 Z"
+          fill="#FFFFFF"
+        />
       </svg>
     </div>
   </section>
@@ -48,19 +54,32 @@ onBeforeUnmount(() => {
     <div class="container">
       <div class="row team-details">
         <div class="team-img">
-          <img src="/assets/img/team/team-details.png" alt="team member">
+          <img src="/assets/img/team/team-details.png" alt="team member" />
         </div>
         <div class="col-lg-10 offset-lg-2">
           <div class="team-content-card bg-smoke">
-            <h2 class="team-name">Melandina Julieo</h2>
+            <h2 class="team-name">Meera Krishnan</h2>
             <span class="team-desig">Full Time Teacher</span>
-            <p class="team-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+            <p class="team-desc">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
+              accumsan lacus vel facilisis.
+            </p>
             <div class="info-list">
               <ul>
                 <li><strong>Experience:</strong>10 Years</li>
-                <li><strong>Experience At:</strong>Kid's Training, Kid's Caring.</li>
-                <li><strong>Email:</strong><a href="mailto:member@domain.com">member@domain.com</a></li>
-                <li><strong>Mobile:</strong><a href="tel:+82012345678">+820-123-456-78</a></li>
+                <li>
+                  <strong>Experience At:</strong>Kid's Training, Kid's Caring.
+                </li>
+                <li>
+                  <strong>Email:</strong
+                  ><a href="mailto:member@domain.com">member@domain.com</a>
+                </li>
+                <li>
+                  <strong>Mobile:</strong
+                  ><a href="tel:+82012345678">+820-123-456-78</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -81,14 +100,21 @@ onBeforeUnmount(() => {
           </div>
         </div>
       </div>
-      <div class="row  slider-shadow vs-carousel" data-slide-show="3" data-lg-slide-show="2">
+      <div
+        class="row slider-shadow vs-carousel"
+        data-slide-show="3"
+        data-lg-slide-show="2"
+      >
         <!-- Single Team -->
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="team-card">
             <div class="team-img" data-mask-src="/assets/img/team/t-mask.png">
-              <img src="/assets/img/team/t-1.jpg" alt="team">
+              <img src="/assets/img/team/t-1.jpg" alt="team" />
               <div class="team-content">
-                <p class="team-text">Assertively repurpose orthogonal architectures through just in time manufactured products.</p>
+                <p class="team-text">
+                  Assertively repurpose orthogonal architectures through just in
+                  time manufactured products.
+                </p>
                 <div class="multi-social">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
@@ -97,9 +123,13 @@ onBeforeUnmount(() => {
                 </div>
               </div>
             </div>
-            <button class="icon-btn expand-btn"><i class="fas fa-share-alt"></i></button>
+            <button class="icon-btn expand-btn">
+              <i class="fas fa-share-alt"></i>
+            </button>
             <div class="team-info">
-              <h4 class="team-title"><router-link to="/team-details">Bableo Dablo</router-link></h4>
+              <h4 class="team-title">
+                <router-link to="/team-details">Arjun Pillai</router-link>
+              </h4>
               <span class="team-desig">Kids Specialist</span>
             </div>
           </div>
@@ -108,9 +138,12 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="team-card">
             <div class="team-img" data-mask-src="/assets/img/team/t-mask.png">
-              <img src="/assets/img/team/t-2.jpg" alt="team">
+              <img src="/assets/img/team/t-2.jpg" alt="team" />
               <div class="team-content">
-                <p class="team-text">Assertively repurpose orthogonal architectures through just in time manufactured products.</p>
+                <p class="team-text">
+                  Assertively repurpose orthogonal architectures through just in
+                  time manufactured products.
+                </p>
                 <div class="multi-social">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
@@ -119,9 +152,13 @@ onBeforeUnmount(() => {
                 </div>
               </div>
             </div>
-            <button class="icon-btn expand-btn"><i class="fas fa-share-alt"></i></button>
+            <button class="icon-btn expand-btn">
+              <i class="fas fa-share-alt"></i>
+            </button>
             <div class="team-info">
-              <h4 class="team-title"><router-link to="/team-details">Rose Marry</router-link></h4>
+              <h4 class="team-title">
+                <router-link to="/team-details">Pooja Verma</router-link>
+              </h4>
               <span class="team-desig">Drawing Teacher</span>
             </div>
           </div>
@@ -130,9 +167,12 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="team-card">
             <div class="team-img" data-mask-src="/assets/img/team/t-mask.png">
-              <img src="/assets/img/team/t-3.jpg" alt="team">
+              <img src="/assets/img/team/t-3.jpg" alt="team" />
               <div class="team-content">
-                <p class="team-text">Assertively repurpose orthogonal architectures through just in time manufactured products.</p>
+                <p class="team-text">
+                  Assertively repurpose orthogonal architectures through just in
+                  time manufactured products.
+                </p>
                 <div class="multi-social">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
@@ -141,9 +181,13 @@ onBeforeUnmount(() => {
                 </div>
               </div>
             </div>
-            <button class="icon-btn expand-btn"><i class="fas fa-share-alt"></i></button>
+            <button class="icon-btn expand-btn">
+              <i class="fas fa-share-alt"></i>
+            </button>
             <div class="team-info">
-              <h4 class="team-title"><router-link to="/team-details">Jabian Joe</router-link></h4>
+              <h4 class="team-title">
+                <router-link to="/team-details">Ravi Shankar</router-link>
+              </h4>
               <span class="team-desig">Kids Teacher</span>
             </div>
           </div>
@@ -152,9 +196,12 @@ onBeforeUnmount(() => {
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="team-card">
             <div class="team-img" data-mask-src="/assets/img/team/t-mask.png">
-              <img src="/assets/img/team/t-4.jpg" alt="team">
+              <img src="/assets/img/team/t-4.jpg" alt="team" />
               <div class="team-content">
-                <p class="team-text">Assertively repurpose orthogonal architectures through just in time manufactured products.</p>
+                <p class="team-text">
+                  Assertively repurpose orthogonal architectures through just in
+                  time manufactured products.
+                </p>
                 <div class="multi-social">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
@@ -163,23 +210,54 @@ onBeforeUnmount(() => {
                 </div>
               </div>
             </div>
-            <button class="icon-btn expand-btn"><i class="fas fa-share-alt"></i></button>
+            <button class="icon-btn expand-btn">
+              <i class="fas fa-share-alt"></i>
+            </button>
             <div class="team-info">
-              <h4 class="team-title"><router-link to="/team-details">Sonia Khan</router-link></h4>
+              <h4 class="team-title">
+                <router-link to="/team-details">Nisha Kapoor</router-link>
+              </h4>
               <span class="team-desig">Kids Specialist</span>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-    <div class="shape-before"><img src="/assets/img/shape/before-shape-5.png" alt="shape"></div>
-    <div class="shape-after"><img src="/assets/img/shape/after-shape-5.png" alt="shape"></div>
+    <div class="shape-before">
+      <img src="/assets/img/shape/before-shape-5.png" alt="shape" />
+    </div>
+    <div class="shape-after">
+      <img src="/assets/img/shape/after-shape-5.png" alt="shape" />
+    </div>
 
-    <div class="shape-mockup movingX d-none d-hd-block" data-top="12%" data-left="6%"><img src="/assets/img/icon/doll-1.png" alt="shapes"></div>
-    <div class="shape-mockup movingX d-none d-hd-block" data-bottom="9%" data-left="5%"><img src="/assets/img/icon/shoe-1.png" alt="shapes"></div>
-    <div class="shape-mockup shapePulse d-none d-hd-block" data-top="12%" data-right="5%"><img src="/assets/img/icon/dog-2.png" alt="shapes"></div>
-    <div class="shape-mockup movingX d-none d-hd-block" data-bottom="12%" data-right="3%"><img src="/assets/img/icon/plane-1.png" alt="shapes"></div>
+    <div
+      class="shape-mockup movingX d-none d-hd-block"
+      data-top="12%"
+      data-left="6%"
+    >
+      <img src="/assets/img/icon/doll-1.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup movingX d-none d-hd-block"
+      data-bottom="9%"
+      data-left="5%"
+    >
+      <img src="/assets/img/icon/shoe-1.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup shapePulse d-none d-hd-block"
+      data-top="12%"
+      data-right="5%"
+    >
+      <img src="/assets/img/icon/dog-2.png" alt="shapes" />
+    </div>
+    <div
+      class="shape-mockup movingX d-none d-hd-block"
+      data-bottom="12%"
+      data-right="3%"
+    >
+      <img src="/assets/img/icon/plane-1.png" alt="shapes" />
+    </div>
   </section>
   <!--======== / Team Section ========-->
 
@@ -189,29 +267,42 @@ onBeforeUnmount(() => {
       <div class="row gx-60 gy-30 align-items-center">
         <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
           <div class="img-box-1">
-            <img src="/assets/img/normal/img-1.jpg" alt="photo">
+            <img src="/assets/img/normal/img-1.jpg" alt="photo" />
           </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
           <span class="sub-title">Service Benefits</span>
           <h2 class="sec-title">We Are Here To Bring Your Child Next Level</h2>
-          <p class="mb-50">Monotonectally conceptualize economically sound value after accurate growth strategies. Quickly parallel task client-centric materials with worldwide technologies. Assertively re-engineer interoperable customer</p>
+          <p class="mb-50">
+            Monotonectally conceptualize economically sound value after accurate
+            growth strategies. Quickly parallel task client-centric materials
+            with worldwide technologies. Assertively re-engineer interoperable
+            customer
+          </p>
           <div class="feature-box">
             <div class="feature-icon">
-              <img src="/assets/img/icon/t-1.png" alt="icon">
+              <img src="/assets/img/icon/t-1.png" alt="icon" />
             </div>
             <div class="feature-info">
               <h4 class="feature-title">Full Care Of Your Child</h4>
-              <p class="feature-text">Proactively myocardinate high-quality quality vectors rather than collaborative best practices. Continually create go forward total linkage vis-a-vis wireless mindshare.</p>
+              <p class="feature-text">
+                Proactively myocardinate high-quality quality vectors rather
+                than collaborative best practices. Continually create go forward
+                total linkage vis-a-vis wireless mindshare.
+              </p>
             </div>
           </div>
           <div class="feature-box">
             <div class="feature-icon">
-              <img src="/assets/img/icon/t-2.png" alt="icon">
+              <img src="/assets/img/icon/t-2.png" alt="icon" />
             </div>
             <div class="feature-info">
               <h4 class="feature-title">Professional Teachers</h4>
-              <p class="feature-text">Proactively myocardinate high-quality quality vectors rather than collaborative best practices. Continually create go forward total linkage vis-a-vis wireless mindshare.</p>
+              <p class="feature-text">
+                Proactively myocardinate high-quality quality vectors rather
+                than collaborative best practices. Continually create go forward
+                total linkage vis-a-vis wireless mindshare.
+              </p>
             </div>
           </div>
         </div>
@@ -230,7 +321,7 @@ onBeforeUnmount(() => {
 }
 
 .teamdetails-hero-bg {
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 45%, #FF6584 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #5ea750 45%, #ff6584 100%);
   padding: 100px 0 60px;
   position: relative;
   z-index: 1;
@@ -305,7 +396,8 @@ onBeforeUnmount(() => {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -324,7 +416,11 @@ onBeforeUnmount(() => {
 }
 
 .gradient-text-light {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
