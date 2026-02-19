@@ -789,8 +789,22 @@ onBeforeUnmount(() => {
         <!-- Single Item: Kids Learning -->
         <div class="col-lg-auto col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="counter-item text-center">
-            <div class="connter_icon"><i class="fa-light fa-children"></i></div>
-            <span class="counter-number">50</span><span class="h2">M+</span>
+            <div
+              class="connter_icon"
+              style="display: flex; justify-content: center"
+            >
+              <img
+                src="@/assets/kids-icon.png"
+                alt="Kids"
+                style="
+                  width: 58px;
+                  height: 58px;
+                  object-fit: contain;
+                  margin-bottom: -8px;
+                "
+              />
+            </div>
+            <span class="counter-number">Indian</span>
             <p class="counter-text h4">Kids Learning</p>
           </div>
         </div>
@@ -808,7 +822,7 @@ onBeforeUnmount(() => {
             <div class="connter_icon">
               <i class="fa-light fa-chalkboard-user"></i>
             </div>
-            <span class="counter-number">100</span><span class="h2">K+</span>
+            <span class="counter-number">100</span><span class="h2">+</span>
             <p class="counter-text h4">Teachers Trust Us</p>
           </div>
         </div>
@@ -816,11 +830,7 @@ onBeforeUnmount(() => {
         <div class="col-lg-auto col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
           <div class="counter-item text-center">
             <div class="connter_icon"><i class="fa-light fa-globe"></i></div>
-            <span
-              class="h2"
-              style="font-size: 50px; font-weight: 900; color: #1b1464"
-              >India</span
-            ><span class="h2"> +</span>
+            <span class="counter-number">India</span><span class="h2"> +</span>
             <p class="counter-text h4">Other Countries</p>
           </div>
         </div>

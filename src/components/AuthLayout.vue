@@ -103,8 +103,8 @@ defineProps({
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(74, 139, 63, 0.75) 0%,
-    rgba(27, 20, 100, 0.7) 100%
+    rgba(74, 139, 63, 0.45) 0%,
+    rgba(27, 20, 100, 0.4) 100%
   );
   z-index: 2;
 }
