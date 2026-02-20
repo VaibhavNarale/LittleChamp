@@ -194,6 +194,12 @@ const handleLinkClick = () => {
         </li>
 
         <li>
+          <router-link to="/gallery" @click="handleLinkClick"
+            >Gallery</router-link
+          >
+        </li>
+
+        <li>
           <router-link to="/contact" @click="handleLinkClick"
             >Contact</router-link
           >

@@ -120,7 +120,7 @@ onBeforeUnmount(() => {
 
           <!-- Hero Description -->
           <p class="subjects-hero-description">
-            Curriculum-aligned content for Pre-K through Grade 5 • 500+ Games •
+            Curriculum-aligned content for Pre-K through Grade 7 • 500+ Games •
             10,000+ Worksheets
           </p>
         </div>
@@ -214,7 +214,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-graduation-cap text-warning"></i>
-                  <strong>Pre-K to 5</strong>
+                  <strong>Pre-K to 7</strong>
                 </div>
               </div>
               <div class="difficulty-badges mb-4">
@@ -388,7 +388,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-graduation-cap text-warning"></i>
-                  <strong>Pre-K to 5</strong>
+                  <strong>Pre-K to 7</strong>
                 </div>
               </div>
               <div class="difficulty-badges mb-4">
@@ -582,7 +582,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-graduation-cap text-warning"></i>
-                  <strong>Pre-K to 5</strong>
+                  <strong>Pre-K to 7</strong>
                 </div>
               </div>
               <div class="difficulty-badges mb-4">

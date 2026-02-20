@@ -16,7 +16,6 @@ import ClassDetails from '../views/ClassDetails.vue' // Will be renamed to Subje
 
 // Features
 import Features from '../views/Features.vue'
-import ServiceDetails from '../views/ServiceDetails.vue' // For details if needed
 
 // For You Pages
 import ForParents from '../views/ForParents.vue'
@@ -25,12 +24,11 @@ import ForSchools from '../views/ForSchools.vue'
 
 // Pricing
 import Pricing from '../views/Pricing.vue'
-import EventDetails from '../views/EventDetails.vue' // For comparison if needed
 
 // Content
 import Blog from '../views/Blog.vue'
 import BlogDetails from '../views/BlogDetails.vue'
-import Gallery from '../views/Gallery.vue' // Will become Screenshots
+import Gallery from '../views/Gallery.vue'
 
 // Other
 import TeamDetails from '../views/TeamDetails.vue'
@@ -43,12 +41,20 @@ const routes = [
   { path: '/contact', name: 'Contact', component: Contact },
   { path: '/login', name: 'Login', component: Login },
   { path: '/register', name: 'Register', component: Register },
-  { path: '/forgot-password', name: 'ForgotPassword', component: ForgotPassword },
+  {
+    path: '/forgot-password',
+    name: 'ForgotPassword',
+    component: ForgotPassword,
+  },
   { path: '/auth/callback', name: 'AuthCallback', component: AuthCallback },
 
   // Subjects (Learning Content)
   { path: '/subjects', name: 'Subjects', component: Subjects },
-  { path: '/subjects/:subject', name: 'SubjectDetails', component: ClassDetails },
+  {
+    path: '/subjects/:subject',
+    name: 'SubjectDetails',
+    component: ClassDetails,
+  },
 
   // Features
   { path: '/features', name: 'Features', component: Features },
@@ -64,14 +70,14 @@ const routes = [
   // Content
   { path: '/blog', name: 'Blog', component: Blog },
   { path: '/blog/:slug', name: 'BlogDetails', component: BlogDetails },
-  { path: '/screenshots', name: 'Screenshots', component: Gallery },
+  { path: '/gallery', name: 'Gallery', component: Gallery },
 
   // Other
   { path: '/testimonials', name: 'Testimonials', component: TeamDetails },
 
   // Error
   { path: '/error', name: 'Error', component: Error },
-  { path: '/:pathMatch(.*)*', redirect: '/' }
+  { path: '/:pathMatch(.*)*', redirect: '/' },
 ]
 
 const router = createRouter({
@@ -89,9 +95,14 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
   const isAuthenticated = authStore.authenticated
   // If user is logged in and trying to access login/register, redirect to admin panel
-  if (isAuthenticated && (to.name === 'Login' || to.name === 'Register' || to.name === 'ForgotPassword')) {
+  if (
+    isAuthenticated &&
+    (to.name === 'Login' ||
+      to.name === 'Register' ||
+      to.name === 'ForgotPassword')
+  ) {
     // Pass token in URL for cross-domain authentication
-    next({ name: 'Home'})
+    next({ name: 'Home' })
     return
   }
 

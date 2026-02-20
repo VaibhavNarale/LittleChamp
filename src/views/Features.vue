@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
                 & Drawing
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Pre-K to Grade 5
+                <i class="fas fa-check text-success"></i> Pre-K to Grade 7
               </li>
               <li>
                 <i class="fas fa-check text-success"></i> New games added
@@ -251,7 +251,7 @@ onBeforeUnmount(() => {
             <h3 class="h4 mb-3">Curriculum Aligned</h3>
             <p class="mb-3">
               All content aligns with Common Core standards and state-specific
-              curricula for Pre-K through Grade 5.
+              curricula for Pre-K through Grade 7.
             </p>
             <ul class="feature-highlights">
               <li>

@@ -97,6 +97,8 @@ const handleLogin = async () => {
           title="Welcome Back to"
           subtitle="Mind Growup Jr!"
           description="Continue your child's learning journey with 500+ interactive games and activities."
+          :features="[]"
+          :hide-stats="true"
         />
 
         <!-- Right Side - Login Form -->

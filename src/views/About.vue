@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
               Mind Growup Jr is a leading educational technology platform that
               transforms how children learn. With over 500+ interactive games
               covering Math, Reading, and Craft & Drawing for Pre-K through
-              Grade 5, we make learning feel like play while delivering
+              Grade 7, we make learning feel like play while delivering
               curriculum-aligned content that builds essential skills.
             </p>
 
@@ -190,8 +190,8 @@ onBeforeUnmount(() => {
             />
           </div>
           <h2 class="section-heading section-heading--kids">
-            Our Three Pillars of
-            <span class="title-highlight">Growth</span>
+            Our Three Key Focus
+            <span class="title-highlight">Areas</span>
           </h2>
           <div class="heading-kid heading-kid--right">
             <img
@@ -489,7 +489,7 @@ onBeforeUnmount(() => {
           </div>
           <h3 class="step-title">Choose Your Grade</h3>
           <p class="step-desc">
-            Select from Pre-K to Grade 5. Pick subjects that interest your
+            Select from Pre-K to Grade 7. Pick subjects that interest your
             child.
           </p>
         </div>

@@ -22,13 +22,13 @@ const subjectsData = {
     gradient: 'linear-gradient(135deg, #6C5CE7, #5EA750)',
     heroTitle: 'Master Mathematics',
     heroDescription:
-      'Build strong math foundations with interactive games, puzzles, and activities designed for Pre-K through Grade 5.',
+      'Build strong math foundations with interactive games, puzzles, and activities designed for Pre-K through Grade 7.',
     description:
       'Build number sense, master arithmetic, explore geometry, and solve real-world problems through engaging games and activities.',
     stats: {
       games: '1000+',
       worksheets: '3500+',
-      grades: 'Pre-K to 5',
+      grades: 'Pre-K to 7',
     },
     topics: [
       {
@@ -187,13 +187,13 @@ const subjectsData = {
     gradient: 'linear-gradient(135deg, #FD79A8, #E84393)',
     heroTitle: 'Explore Your AI-Buddy',
     heroDescription:
-      'Spark a lifelong love of reading with phonics, vocabulary, comprehension, and writing activities for Pre-K through Grade 5.',
+      'Spark a lifelong love of reading with phonics, vocabulary, comprehension, and writing activities for Pre-K through Grade 7.',
     description:
       'AI-powered feature combines friendly interaction, communication skills, general knowledge, and guides children on exploring the outside world — creating a fun, engaging, and educational experience all in one place.',
     stats: {
       games: '500+',
       worksheets: '500+',
-      grades: 'Pre-K to 5',
+      grades: 'Pre-K to 7',
     },
     topics: [
       {
@@ -352,7 +352,7 @@ const subjectsData = {
     gradient: 'linear-gradient(135deg, #00B894, #00D2A0)',
     heroTitle: 'Discover Craft & Drawing',
     heroDescription:
-      'Unleash creativity with hands-on craft projects, drawing activities, and interactive art exercises for K through Grade 5.',
+      'Unleash creativity with hands-on craft projects, drawing activities, and interactive art exercises for K through Grade 7.',
     description:
       'Unleash creativity through hands-on craft projects, drawing tutorials, and interactive art activities covering painting, origami, and creative design.',
     stats: {
@@ -501,7 +501,7 @@ const subjectsData = {
     stats: {
       games: '200+',
       worksheets: '500+',
-      grades: 'Pre-K to 5',
+      grades: 'Pre-K to 7',
     },
     topics: [
       {

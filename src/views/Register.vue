@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import api from '@/utils/api'
@@ -8,6 +8,33 @@ import SocialLoginButtons from '@/components/SocialLoginButtons.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
+
+// Audio
+const bgAudio = ref(null)
+const isPlaying = ref(false)
+
+const toggleAudio = () => {
+  if (!bgAudio.value) return
+  if (isPlaying.value) {
+    bgAudio.value.pause()
+    isPlaying.value = false
+  } else {
+    bgAudio.value.volume = 0.5
+    bgAudio.value
+      .play()
+      .then(() => {
+        isPlaying.value = true
+      })
+      .catch(() => {})
+  }
+}
+
+onBeforeUnmount(() => {
+  if (bgAudio.value) {
+    bgAudio.value.pause()
+    bgAudio.value.currentTime = 0
+  }
+})
 
 // Form state
 const fullName = ref('')
@@ -130,6 +157,17 @@ const handleRegister = async () => {
 
 <template>
   <div class="register-page">
+    <!-- Background Audio -->
+    <audio ref="bgAudio" loop preload="auto">
+      <source src="/assets/audio/login-bg.mp3" type="audio/mpeg" />
+    </audio>
+    <button
+      class="audio-toggle"
+      :class="{ playing: isPlaying }"
+      @click="toggleAudio"
+    >
+      <i :class="isPlaying ? 'fas fa-volume-up' : 'fas fa-volume-mute'"></i>
+    </button>
     <div class="register-container">
       <div class="row g-0 h-100">
         <!-- Left Side - Branding -->
@@ -765,6 +803,48 @@ const handleRegister = async () => {
   .features-banner {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* Audio Toggle Button */
+.audio-toggle {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(74, 139, 63, 0.4);
+  transition: all 0.3s;
+}
+
+.audio-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(74, 139, 63, 0.5);
+}
+
+.audio-toggle.playing {
+  animation: pulse-audio 2s ease-in-out infinite;
+}
+
+@keyframes pulse-audio {
+  0%,
+  100% {
+    box-shadow: 0 4px 15px rgba(74, 139, 63, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 4px 25px rgba(74, 139, 63, 0.7),
+      0 0 0 10px rgba(74, 139, 63, 0.1);
   }
 }
 </style>

@@ -18,6 +18,10 @@ defineProps({
     type: Array,
     default: () => [],
   },
+  hideStats: {
+    type: Boolean,
+    default: false,
+  },
 })
 </script>
 
@@ -29,18 +33,21 @@ defineProps({
     </video>
     <div class="auth-video-overlay"></div>
 
+    <div class="auth-logo-top">
+      <img :src="authLogo" alt="Mind Growup Jr" class="auth-logo" />
+    </div>
+
     <div class="branding-content">
       <h1 class="display-4 text-white fw-bold mb-3">
         {{ title }}
       </h1>
-      <img :src="authLogo" alt="Mind Growup Jr" class="auth-logo mb-4" />
 
       <p v-if="description" class="lead text-white opacity-90 mb-5">
         {{ description }}
       </p>
 
       <!-- Stats Grid (default when no features provided) -->
-      <div v-if="features.length === 0" class="stats-grid">
+      <div v-if="features.length === 0 && !hideStats" class="stats-grid">
         <div class="stat-item">
           <div class="stat-number">Indian</div>
           <div class="stat-label">Kids Learning</div>
@@ -116,8 +123,17 @@ defineProps({
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+.auth-logo-top {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+}
+
 .auth-logo {
-  max-width: 240px;
+  max-width: 200px;
   height: auto;
   display: block;
   image-rendering: -webkit-optimize-contrast;

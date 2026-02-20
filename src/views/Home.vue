@@ -133,7 +133,7 @@ onBeforeUnmount(() => {
                   data-ani-delay="0.2s"
                 >
                   Join Indian kids worldwide exploring 500+ interactive
-                  educational games. Perfect for Pre-K to Grade 5 learners.
+                  educational games. Perfect for Pre-K to Grade 7 learners.
                 </p>
 
                 <div
@@ -147,7 +147,7 @@ onBeforeUnmount(() => {
                   </div>
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Pre-K to Grade 5</span>
+                    <span>Pre-K to Grade 7</span>
                   </div>
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
@@ -574,23 +574,25 @@ onBeforeUnmount(() => {
             >
           </div>
         </div>
-        <!-- Feature 3: Progress Tracking -->
+        <!-- Feature 3: Pediatric Guidance & Parent Support -->
         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="feature-card feature-card--yellow">
             <div
               class="feature-card__icon feature-icon--transparent feature-icon--larger"
             >
               <img
-                src="@/assets/progress-reports.png"
-                alt="Detailed Progress Reports"
+                src="@/assets/pediatric-guidance.png"
+                alt="Pediatric Guidance & Parent Support"
                 class="feature-icon-img"
               />
             </div>
-            <span class="feature-card__highlight highlight--yellow">24/7</span>
-            <h3 class="feature-card__title">Detailed Progress Reports</h3>
+            <span class="feature-card__highlight highlight--yellow">Care</span>
+            <h3 class="feature-card__title">
+              Pediatric Guidance & Parent Support
+            </h3>
             <p class="feature-card__text">
-              Track your child's learning journey with detailed analytics and
-              weekly reports
+              We care about complete child development. That's why we include
+              pediatric guidance and dedicated parent support.
             </p>
             <router-link to="/features" class="feature-card__link"
               >Click to learn more</router-link
@@ -661,7 +663,7 @@ onBeforeUnmount(() => {
           data-wow-delay="0.1s"
         >
           <div class="text-center text-lg-start">
-            <span class="sub-title">Why Mind Growup Jr</span>
+            <span class="sub-title sub-title--lg">Why Mind Growup Jr</span>
             <h2 class="sec-title big-title">
               Transform Learning into an
               <span class="gradient-text">Adventure</span>
@@ -857,7 +859,7 @@ onBeforeUnmount(() => {
               Will Master
             </h2>
             <p class="mt-3 text-muted">
-              Curriculum-aligned content for Pre-K through Grade 5
+              Curriculum-aligned content for Pre-K through Grade 7
             </p>
           </div>
         </div>
@@ -881,7 +883,7 @@ onBeforeUnmount(() => {
               </span>
             </div>
             <div class="subject-card__body">
-              <div class="subject-card__grade-tag">Pre-K to Grade 5</div>
+              <div class="subject-card__grade-tag">Pre-K to Grade 7</div>
               <h3 class="subject-card__title">
                 <router-link to="/subjects/math">Mathematics</router-link>
               </h3>
@@ -927,7 +929,7 @@ onBeforeUnmount(() => {
               </span>
             </div>
             <div class="subject-card__body">
-              <div class="subject-card__grade-tag">Pre-K to Grade 5</div>
+              <div class="subject-card__grade-tag">Pre-K to Grade 7</div>
               <h3 class="subject-card__title">
                 <router-link to="/subjects/reading">Your AI-Buddy</router-link>
               </h3>
@@ -975,7 +977,7 @@ onBeforeUnmount(() => {
               </span>
             </div>
             <div class="subject-card__body">
-              <div class="subject-card__grade-tag">Kindergarten to Grade 5</div>
+              <div class="subject-card__grade-tag">Kindergarten to Grade 7</div>
               <h3 class="subject-card__title">
                 <router-link to="/subjects/craft-drawing"
                   >Craft & Drawing</router-link
@@ -1098,7 +1100,7 @@ onBeforeUnmount(() => {
           </div>
           <h3 class="step-title">Choose Your Grade</h3>
           <p class="step-desc">
-            Select from Pre-K to Grade 5. Pick subjects that interest your
+            Select from Pre-K to Grade 7. Pick subjects that interest your
             child.
           </p>
         </div>
@@ -1175,7 +1177,7 @@ onBeforeUnmount(() => {
   <!--======== Learning Journey Section ========-->
   <section class="learning-journey-section">
     <div class="container">
-      <div class="text-center mb-4 wow fadeInUp">
+      <div class="text-center mb-2 wow fadeInUp">
         <h2 class="journey-title">
           Make effective independent learning
           <span class="journey-title-highlight">a reality</span>
@@ -1191,7 +1193,7 @@ onBeforeUnmount(() => {
         data-wow-delay="0.2s"
       >
         <img
-          src="@/assets/learning-path.webp"
+          src="@/assets/learning-path-new.png"
           alt="Learning Journey Path"
           class="learning-path-img"
         />
@@ -3703,7 +3705,7 @@ onBeforeUnmount(() => {
    Learning Journey Section
    ======================================== */
 .learning-journey-section {
-  padding: 80px 0 60px;
+  padding: 50px 0 60px;
   background: #fefcf8;
   position: relative;
   overflow: hidden;
@@ -3728,16 +3730,17 @@ onBeforeUnmount(() => {
   font-size: 17px;
   color: #636e72;
   max-width: 560px;
-  margin: 0 auto 40px;
+  margin: 0 auto 15px;
   line-height: 1.6;
 }
 
 .journey-visual-img {
-  padding: 20px 0 40px;
+  padding: 0;
 }
 
 .learning-path-img {
-  max-width: 90%;
+  max-width: 100%;
+  width: 750px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -5421,6 +5424,15 @@ onBeforeUnmount(() => {
 @media (max-width: 575px) {
   .subject-card__img {
     height: 180px;
+  }
+}
+
+.sub-title--lg {
+  font-size: 30px;
+}
+@media (max-width: 575px) {
+  .sub-title--lg {
+    font-size: 24px;
   }
 }
 </style>
