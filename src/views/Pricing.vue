@@ -215,7 +215,7 @@ onBeforeUnmount(() => {
               Start Free Trial
             </a>
             <p class="trial-note text-center mt-3 small">
-              No credit card required
+              All payment accepted
             </p>
           </div>
         </div>
@@ -278,7 +278,7 @@ onBeforeUnmount(() => {
               <i class="fas fa-arrow-right ms-2"></i>
             </a>
             <p class="trial-note text-center mt-3 small">
-              No credit card required
+              All payment accepted
             </p>
           </div>
         </div>
@@ -569,7 +569,7 @@ onBeforeUnmount(() => {
       >
         <div class="col-xl-8">
           <div class="title-area">
-            <span class="sub-title">Got Questions?</span>
+            <span class="sub-title">Help Desk</span>
             <h2 class="sec-title">
               Frequently Asked <span class="gradient-text">Questions</span>
             </h2>
@@ -587,14 +587,15 @@ onBeforeUnmount(() => {
                 :class="{ active: activeFaq === 1 }"
                 @click="toggleFaq(1)"
               >
-                <span>Can I cancel my subscription anytime?</span>
+                <span>Can I add more children to my parent plan?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
               <div class="faq-answer" :class="{ show: activeFaq === 1 }">
                 <p>
-                  Yes! You can cancel your subscription at any time with no
-                  questions asked. You'll continue to have access until the end
-                  of your current billing period.
+                  The parent plan includes up to 3 children. If you need to add
+                  more children, please contact our support team and we can
+                  provide you with a customized family plan at a discounted
+                  rate.
                 </p>
               </div>
             </div>
@@ -606,14 +607,15 @@ onBeforeUnmount(() => {
                 :class="{ active: activeFaq === 2 }"
                 @click="toggleFaq(2)"
               >
-                <span>Is the 7-day free trial really free?</span>
+                <span>Is my child's data safe and private?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
               <div class="faq-answer" :class="{ show: activeFaq === 2 }">
                 <p>
-                  Absolutely! No credit card required. You get full access to
-                  all features for 7 days with no commitment. If you decide not
-                  to continue, your trial simply expires with no charges.
+                  Absolutely. We are fully COPPA and FERPA compliant. We never
+                  sell student data to third parties, and all data is encrypted
+                  and stored securely. We take privacy and security very
+                  seriously.
                 </p>
               </div>
             </div>
@@ -646,15 +648,14 @@ onBeforeUnmount(() => {
                 :class="{ active: activeFaq === 4 }"
                 @click="toggleFaq(4)"
               >
-                <span>Can I switch plans later?</span>
+                <span>Is the 7-day free trial really free?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
               <div class="faq-answer" :class="{ show: activeFaq === 4 }">
                 <p>
-                  Yes! You can upgrade or downgrade your plan at any time. If
-                  you upgrade, you'll be charged the prorated difference
-                  immediately. If you downgrade, the change will take effect at
-                  the start of your next billing cycle.
+                  Absolutely! All payment accepted. You get full access to all
+                  features for 7 days with no commitment. If you decide not to
+                  continue, your trial simply expires with no charges.
                 </p>
               </div>
             </div>
@@ -666,15 +667,14 @@ onBeforeUnmount(() => {
                 :class="{ active: activeFaq === 5 }"
                 @click="toggleFaq(5)"
               >
-                <span>Do you offer refunds?</span>
+                <span>What payment methods do you accept?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
               <div class="faq-answer" :class="{ show: activeFaq === 5 }">
                 <p>
-                  Yes! We offer a 30-day money-back guarantee on all paid plans.
-                  If you're not completely satisfied within the first 30 days,
-                  contact our support team for a full refund, no questions
-                  asked.
+                  We accept all major credit cards (Visa, Mastercard, American
+                  Express, Discover), PayPal, and for school plans, we can
+                  arrange invoicing and purchase orders.
                 </p>
               </div>
             </div>
@@ -686,95 +686,16 @@ onBeforeUnmount(() => {
                 :class="{ active: activeFaq === 6 }"
                 @click="toggleFaq(6)"
               >
-                <span>What payment methods do you accept?</span>
+                <span>Can I switch plans later?</span>
                 <i class="fas fa-chevron-down"></i>
               </button>
               <div class="faq-answer" :class="{ show: activeFaq === 6 }">
                 <p>
-                  We accept all major credit cards (Visa, Mastercard, American
-                  Express, Discover), PayPal, and for school plans, we can
-                  arrange invoicing and purchase orders.
+                  Yes! You can upgrade or downgrade your plan at any time. If
+                  you upgrade, you'll be charged the prorated difference
+                  immediately. If you downgrade, the change will take effect at
+                  the start of your next billing cycle.
                 </p>
-              </div>
-            </div>
-
-            <!-- FAQ 7 -->
-            <div class="faq-item wow fadeInUp" data-wow-delay="0.7s">
-              <button
-                class="faq-question"
-                :class="{ active: activeFaq === 7 }"
-                @click="toggleFaq(7)"
-              >
-                <span>Is my child's data safe and private?</span>
-                <i class="fas fa-chevron-down"></i>
-              </button>
-              <div class="faq-answer" :class="{ show: activeFaq === 7 }">
-                <p>
-                  Absolutely. We are fully COPPA and FERPA compliant. We never
-                  sell student data to third parties, and all data is encrypted
-                  and stored securely. We take privacy and security very
-                  seriously.
-                </p>
-              </div>
-            </div>
-
-            <!-- FAQ 8 -->
-            <div class="faq-item wow fadeInUp" data-wow-delay="0.8s">
-              <button
-                class="faq-question"
-                :class="{ active: activeFaq === 8 }"
-                @click="toggleFaq(8)"
-              >
-                <span>Can I add more children to my parent plan?</span>
-                <i class="fas fa-chevron-down"></i>
-              </button>
-              <div class="faq-answer" :class="{ show: activeFaq === 8 }">
-                <p>
-                  The parent plan includes up to 3 children. If you need to add
-                  more children, please contact our support team and we can
-                  provide you with a customized family plan at a discounted
-                  rate.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--======== Money-Back Guarantee ========-->
-  <section class="space bg-smoke-blue">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-xl-8 col-lg-10 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="guarantee-card text-center">
-            <div class="guarantee-icon mb-4">
-              <i class="fas fa-shield-check fa-5x" style="color: #00d2a0"></i>
-            </div>
-            <h2 class="sec-title mb-3">30-Day Money-Back Guarantee</h2>
-            <p class="fs-md mb-4">
-              Try Mind Growup Jr risk-free! If you're not completely satisfied
-              with your subscription within the first 30 days, we'll give you a
-              full refund. No questions asked, no hassle.
-            </p>
-            <div
-              class="guarantee-features d-flex flex-wrap justify-content-center gap-4 mt-4"
-            >
-              <div class="guarantee-feature">
-                <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
-                <p class="mb-0"><strong>100% Refund</strong></p>
-                <p class="small text-muted">Full money back</p>
-              </div>
-              <div class="guarantee-feature">
-                <i class="fas fa-ban text-success fa-2x mb-2"></i>
-                <p class="mb-0"><strong>No Questions</strong></p>
-                <p class="small text-muted">Hassle-free process</p>
-              </div>
-              <div class="guarantee-feature">
-                <i class="fas fa-clock text-success fa-2x mb-2"></i>
-                <p class="mb-0"><strong>30 Days</strong></p>
-                <p class="small text-muted">Full month to decide</p>
               </div>
             </div>
           </div>
@@ -784,7 +705,7 @@ onBeforeUnmount(() => {
   </section>
 
   <!--======== Final CTA ========-->
-  <section class="space">
+  <section class="space" style="padding-top: 0">
     <div class="container">
       <div
         class="row text-center justify-content-center wow fadeInUp"
@@ -807,10 +728,6 @@ onBeforeUnmount(() => {
                 Contact Sales
               </router-link>
             </div>
-            <p class="small text-muted mt-3">
-              No credit card required • Cancel anytime • 30-day money-back
-              guarantee
-            </p>
           </div>
         </div>
       </div>

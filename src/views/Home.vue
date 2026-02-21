@@ -1442,7 +1442,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="home-cta-trust-item">
               <i class="fas fa-credit-card"></i>
-              <span>No Credit Card</span>
+              <span>All Payment Accepted</span>
             </div>
           </div>
         </div>
