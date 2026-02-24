@@ -181,7 +181,7 @@ onBeforeUnmount(() => {
                   </div>
                   <div class="trust-item">
                     <i class="fas fa-credit-card"></i>
-                    <span>No Credit Card</span>
+                    <span>All Payments Required</span>
                   </div>
                   <div class="trust-item">
                     <i class="fas fa-ban"></i>
@@ -449,7 +449,7 @@ onBeforeUnmount(() => {
                   data-ani-delay="0.5s"
                 >
                   <i class="fas fa-infinity"></i>
-                  <span>Forever Free • No Trials • No Credit Card</span>
+                  <span>Forever Free • No Trials • All Payments Required</span>
                 </div>
               </div>
             </div>
@@ -1071,7 +1071,7 @@ onBeforeUnmount(() => {
           </div>
           <h3 class="step-title">Sign Up Free</h3>
           <p class="step-desc">
-            Create your account in seconds. No credit card required to start.
+            Create your account in seconds. All payments required.
           </p>
         </div>
 
@@ -1412,8 +1412,8 @@ onBeforeUnmount(() => {
             >
           </h2>
           <p class="home-cta-text">
-            Join 50 million kids already learning through play. No credit card
-            needed - get instant access to thousands of educational games.
+            Join 50 million kids already learning through play. All payments
+            required - get instant access to thousands of educational games.
           </p>
           <div class="home-cta-buttons">
             <router-link

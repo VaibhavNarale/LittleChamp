@@ -174,7 +174,7 @@ const handleRegister = async () => {
         <AuthLayout
           title="Join the Learning"
           subtitle="Revolution!"
-          description="Start your 30-day free trial today. No credit card required. Cancel anytime."
+          description="Start your 30-day free trial today. All payments required. Cancel anytime."
         />
 
         <!-- Right Side - Register Form -->
@@ -390,7 +390,7 @@ const handleRegister = async () => {
               </div>
               <div class="feature-badge">
                 <i class="fas fa-check-circle"></i>
-                <span>No Credit Card Required</span>
+                <span>All Payments Required</span>
               </div>
               <div class="feature-badge">
                 <i class="fas fa-check-circle"></i>

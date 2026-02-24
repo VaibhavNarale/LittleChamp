@@ -184,7 +184,7 @@ onBeforeUnmount(() => {
       <div class="title-area text-center">
         <span class="sub-title">
           <i class="fas fa-lightbulb"></i>
-          Simple & Easy
+          Simple & Smart
         </span>
         <h2 class="sec-title">How It Works for Parents</h2>
       </div>
@@ -254,7 +254,7 @@ onBeforeUnmount(() => {
             <h2 class="cta-title">Start Your Free Trial Today</h2>
             <p class="cta-text">
               Join thousands of parents who trust Mind Growup Jr for their
-              children's education. No credit card required.
+              children's education. All payments required.
             </p>
           </div>
           <div class="col-lg-4 text-lg-end">

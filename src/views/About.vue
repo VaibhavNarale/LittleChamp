@@ -460,7 +460,7 @@ onBeforeUnmount(() => {
           </div>
           <h3 class="step-title">Sign Up Free</h3>
           <p class="step-desc">
-            Create your account in seconds. No credit card required to start.
+            Create your account in seconds. All payments required.
           </p>
         </div>
 

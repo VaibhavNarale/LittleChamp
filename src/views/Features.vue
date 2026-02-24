@@ -577,7 +577,7 @@ onBeforeUnmount(() => {
         <span class="sub-title text-white">Ready to Get Started?</span>
         <h2 class="sec-title text-white">Start Your 7-Day Free Trial Today</h2>
         <p class="text-white fs-md mt-3">
-          No credit card required • Access all features • Cancel anytime
+          All payments required • Access all features
         </p>
       </div>
       <div class="d-flex gap-3 justify-content-center flex-wrap">
