@@ -162,13 +162,20 @@ onBeforeUnmount(() => {
                 >
                   <router-link to="/register" class="modern-btn btn-primary">
                     <i class="fas fa-rocket"></i>
-                    <span>Start Free Trial</span>
+                    <span>Book Free AI Strategy Call</span>
                   </router-link>
                   <router-link to="/pricing" class="modern-btn btn-outline">
                     <span>View Pricing</span>
                     <i class="fas fa-arrow-right"></i>
                   </router-link>
                 </div>
+                <p
+                  class="cta-response-note"
+                  data-ani="slideinup"
+                  data-ani-delay="0.5s"
+                >
+                  We respond within 24 hours
+                </p>
 
                 <div
                   class="trust-indicators"
@@ -432,7 +439,7 @@ onBeforeUnmount(() => {
                 >
                   <router-link to="/register" class="modern-btn btn-primary">
                     <i class="fas fa-chalkboard-teacher"></i>
-                    <span>Sign Up Free</span>
+                    <span>Book Free AI Strategy Call</span>
                   </router-link>
                   <router-link
                     to="/for-teachers"
@@ -1166,9 +1173,10 @@ onBeforeUnmount(() => {
 
       <div class="text-center mt-50 wow fadeInUp" data-wow-delay="0.4s">
         <router-link to="/register" class="vs-btn btn-primary-enhanced">
-          Get Started Free
+          Book Free AI Strategy Call
           <i class="fas fa-arrow-right ms-2"></i>
         </router-link>
+        <p class="cta-response-note mt-3">We respond within 24 hours</p>
       </div>
     </div>
   </section>
@@ -1256,9 +1264,10 @@ onBeforeUnmount(() => {
               children's progress.
             </p>
             <router-link to="/pricing" class="testi-cta">
-              Start Free Trial
+              Book Free AI Strategy Call
               <i class="fas fa-arrow-right"></i>
             </router-link>
+            <p class="cta-response-note mt-2">We respond within 24 hours</p>
           </div>
         </div>
         <div class="col-lg-8">

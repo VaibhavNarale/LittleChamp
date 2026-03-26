@@ -67,7 +67,7 @@ const handleLogout = async () => {
             class="mobile-btn btn-signup"
             @click="$emit('close')"
           >
-            <i class="fas fa-rocket"></i> Start Free Trial
+            <i class="fas fa-rocket"></i> Book Free AI Strategy Call
           </router-link>
         </template>
         <template v-else>

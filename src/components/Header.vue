@@ -189,7 +189,7 @@ const handleLogout = async () => {
                       </router-link>
                       <router-link to="/register" class="btn-signup">
                         <i class="fas fa-rocket"></i>
-                        <span class="btn-text">Start Free Trial</span>
+                        <span class="btn-text">Book Free AI Strategy Call</span>
                       </router-link>
                     </template>
 

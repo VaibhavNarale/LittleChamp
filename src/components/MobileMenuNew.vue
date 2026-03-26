@@ -75,7 +75,7 @@ const handleLinkClick = () => {
           @click="handleLinkClick"
         >
           <i class="fas fa-rocket"></i>
-          <span>Start Free Trial</span>
+          <span>Book Free AI Strategy Call</span>
         </router-link>
       </template>
       <template v-else>
