@@ -5,13 +5,13 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vuetify({ autoImport: true }),
-  ],
+  plugins: [vue(), vuetify({ autoImport: true })],
+  server: {
+    port: 5174,
+  },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
 })
