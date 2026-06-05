@@ -24,7 +24,11 @@ const error = computed(() => blogStore.error)
 // Get image URL
 const getImageUrl = (imagePath) => {
   if (!imagePath) return mathImg
-  if (imagePath.startsWith('http') || imagePath.startsWith('data:'))
+  if (
+    imagePath.startsWith('http') ||
+    imagePath.startsWith('data:') ||
+    imagePath.startsWith('/')
+  )
     return imagePath
   const storageUrl =
     import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
@@ -379,7 +383,7 @@ watch(
             </div>
 
             <!-- Categories -->
-            <div class="sidebar-widget">
+            <div v-if="categories.length" class="sidebar-widget">
               <h4 class="sw-title">
                 <i class="fas fa-folder-open sw-icon"></i> Categories
               </h4>

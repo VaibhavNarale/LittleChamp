@@ -23,7 +23,6 @@ const categories = computed(() => blogStore.categories)
 const loading = computed(() => blogStore.loading)
 const hasMorePosts = computed(() => blogStore.hasMorePosts)
 const recentPosts = computed(() => blogStore.recentPosts)
-const allTags = computed(() => blogStore.allTags)
 
 // Featured post = first featured or first post
 const featuredPost = computed(() => {
@@ -53,7 +52,11 @@ const readingTime = (content) => {
 // Get image URL
 const getImageUrl = (imagePath) => {
   if (!imagePath) return mathImg
-  if (imagePath.startsWith('http') || imagePath.startsWith('data:'))
+  if (
+    imagePath.startsWith('http') ||
+    imagePath.startsWith('data:') ||
+    imagePath.startsWith('/')
+  )
     return imagePath
   const storageUrl =
     import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
@@ -193,7 +196,7 @@ watch(searchQuery, () => {
   <section class="category-filter-section">
     <div class="container">
       <div class="filter-bar">
-        <div class="filter-pills">
+        <div v-if="categories.length" class="filter-pills">
           <button
             class="filter-pill"
             :class="{ active: !selectedCategoryId }"
@@ -406,7 +409,7 @@ watch(searchQuery, () => {
             </div>
 
             <!-- Categories Widget -->
-            <div class="sidebar-widget">
+            <div v-if="categories.length" class="sidebar-widget">
               <h4 class="widget-title">
                 <i class="fas fa-folder-open widget-icon"></i>
                 Categories
@@ -474,18 +477,6 @@ watch(searchQuery, () => {
             </div>
 
             <!-- Tags Widget -->
-            <div v-if="allTags.length > 0" class="sidebar-widget">
-              <h4 class="widget-title">
-                <i class="fas fa-tags widget-icon"></i>
-                Popular Tags
-              </h4>
-              <div class="tags-cloud">
-                <span v-for="tag in allTags" :key="tag" class="cloud-tag"
-                  >#{{ tag }}</span
-                >
-              </div>
-            </div>
-
             <!-- CTA Widget -->
             <div class="sidebar-widget cta-widget">
               <div class="cta-card">

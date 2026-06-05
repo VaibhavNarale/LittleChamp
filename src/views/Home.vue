@@ -24,7 +24,7 @@ const blogPosts = computed(() => blogStore.posts.slice(0, 3))
 
 function getImageUrl(path) {
   if (!path) return '/assets/img/blog/blog-1.jpg'
-  if (path.startsWith('http')) return path
+  if (path.startsWith('http') || path.startsWith('/')) return path
   return `${storageUrl}${path}`
 }
 
