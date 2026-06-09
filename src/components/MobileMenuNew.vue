@@ -186,6 +186,32 @@ const handleLinkClick = () => {
         </li>
 
         <li>
+          <button
+            type="button"
+            class="menu-toggle"
+            @click="toggleSubmenu('register')"
+          >
+            <span>Register</span>
+            <i
+              class="fas fa-chevron-down"
+              :class="{ rotate: activeSubmenu === 'register' }"
+            ></i>
+          </button>
+          <ul v-show="activeSubmenu === 'register'" class="submenu">
+            <li>
+              <router-link to="/doctor-registration" @click="handleLinkClick"
+                >Doctor Registration</router-link
+              >
+            </li>
+            <li>
+              <router-link to="/playgroup-registration" @click="handleLinkClick"
+                >Playgroup Registration</router-link
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li>
           <router-link to="/blog" @click="handleLinkClick">Blog</router-link>
         </li>
 

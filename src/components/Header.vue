@@ -157,6 +157,21 @@ const handleLogout = async () => {
                           </li>
                         </ul>
                       </li>
+                      <li class="menu-item-has-children">
+                        <a href="#">Register</a>
+                        <ul class="sub-menu">
+                          <li>
+                            <router-link to="/doctor-registration"
+                              >Doctor Registration</router-link
+                            >
+                          </li>
+                          <li>
+                            <router-link to="/playgroup-registration"
+                              >Playgroup Registration</router-link
+                            >
+                          </li>
+                        </ul>
+                      </li>
                       <li>
                         <router-link to="/blog">Blog</router-link>
                       </li>

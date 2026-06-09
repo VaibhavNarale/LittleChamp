@@ -9,6 +9,8 @@ import Login from '../views/Login.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
 import Register from '../views/Register.vue'
 import AuthCallback from '../views/AuthCallback.vue'
+import DoctorRegistration from '../views/DoctorRegistration.vue'
+import PlaygroupRegistration from '../views/PlaygroupRegistration.vue'
 
 // Learning Content (Subjects)
 import Subjects from '../views/Subjects.vue'
@@ -47,6 +49,18 @@ const routes = [
     component: ForgotPassword,
   },
   { path: '/auth/callback', name: 'AuthCallback', component: AuthCallback },
+
+  // Registration Forms (Doctor & School)
+  {
+    path: '/doctor-registration',
+    name: 'DoctorRegistration',
+    component: DoctorRegistration,
+  },
+  {
+    path: '/playgroup-registration',
+    name: 'PlaygroupRegistration',
+    component: PlaygroupRegistration,
+  },
 
   // Subjects (Learning Content)
   { path: '/subjects', name: 'Subjects', component: Subjects },
