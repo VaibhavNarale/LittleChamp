@@ -1,5 +1,5 @@
 <script setup>
-import { ref, nextTick, watch } from 'vue'
+import { ref, computed, nextTick, watch } from 'vue'
 import api from '@/utils/api'
 import botAvatar from '@/assets/ai-robot-icon.png'
 
@@ -30,11 +30,37 @@ const input = ref('')
 const loading = ref(false)
 const scrollEl = ref(null)
 
+/* ---- Lead capture (Name -> Mobile -> Email, then chat) ---- */
+const STAGE = { NAME: 'name', MOBILE: 'mobile', EMAIL: 'email', CHAT: 'chat' }
+const stage = ref(STAGE.NAME)
+const chatStarted = ref(false)
+const lead = ref({ name: '', mobile: '', email: '' })
+
+const firstName = computed(() => (lead.value.name || '').split(' ')[0])
+
+const inputPlaceholder = computed(() => {
+  switch (stage.value) {
+    case STAGE.NAME:
+      return 'Type your name…'
+    case STAGE.MOBILE:
+      return 'Type your mobile number…'
+    case STAGE.EMAIL:
+      return 'Type your email…'
+    default:
+      return 'Type your message…'
+  }
+})
+
 const toggleOpen = () => {
   open.value = !open.value
   showGreeting.value = false
   if (open.value && messages.value.length === 0) {
     messages.value.push({ role: 'assistant', text: WELCOME })
+    messages.value.push({
+      role: 'assistant',
+      text: 'Before we begin, may I know your name? 😊',
+    })
+    stage.value = STAGE.NAME
   }
   if (open.value) scrollToBottom()
 }
@@ -46,12 +72,78 @@ const scrollToBottom = async () => {
 
 watch(messages, scrollToBottom, { deep: true })
 
+// Push an assistant message with a short "typing" delay
+const botSay = async (text, delay = 550) => {
+  loading.value = true
+  scrollToBottom()
+  await new Promise((r) => setTimeout(r, delay))
+  messages.value.push({ role: 'assistant', text })
+  loading.value = false
+  scrollToBottom()
+}
+
+// Handle the Name -> Mobile -> Email questions
+const handleCapture = async (content) => {
+  if (stage.value === STAGE.NAME) {
+    if (content.length < 2 || /\d/.test(content)) {
+      await botSay(
+        "Oops, that doesn't look like a name. What should I call you? 😊"
+      )
+      return
+    }
+    lead.value.name = content
+    stage.value = STAGE.MOBILE
+    await botSay(
+      `Nice to meet you, ${firstName.value}! 📱 What's your mobile number?`
+    )
+    return
+  }
+
+  if (stage.value === STAGE.MOBILE) {
+    const digits = content.replace(/\D/g, '')
+    const ten = digits.length > 10 ? digits.slice(-10) : digits
+    if (!/^[6-9]\d{9}$/.test(ten)) {
+      await botSay(
+        "Hmm, that doesn't look like a valid 10-digit mobile number. Could you enter it again? 📱"
+      )
+      return
+    }
+    lead.value.mobile = ten
+    stage.value = STAGE.EMAIL
+    await botSay('Great! 📧 And your email address?')
+    return
+  }
+
+  if (stage.value === STAGE.EMAIL) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(content)) {
+      await botSay(
+        "That email doesn't look quite right. Mind typing it again? 📧"
+      )
+      return
+    }
+    lead.value.email = content
+    stage.value = STAGE.CHAT
+    await botSay(
+      `Thanks, ${firstName.value}! 🎉 You're all set. How can I help you today? Ask me about our subjects, pricing, free trial, or registration!`
+    )
+  }
+}
+
 const sendMessage = async (text) => {
   const content = (text ?? input.value).trim()
   if (!content || loading.value) return
 
   messages.value.push({ role: 'user', text: content })
   input.value = ''
+  scrollToBottom()
+
+  // Collect Name / Mobile / Email before normal chat
+  if (stage.value !== STAGE.CHAT) {
+    await handleCapture(content)
+    return
+  }
+
+  chatStarted.value = true
   loading.value = true
   scrollToBottom()
 
@@ -62,7 +154,10 @@ const sendMessage = async (text) => {
         role: m.role,
         content: m.text,
       }))
-      const res = await api.post('/ai/chat', { messages: history })
+      const res = await api.post('/ai/chat', {
+        messages: history,
+        lead: lead.value,
+      })
       reply = res.data?.reply || res.data?.data?.reply || ''
     }
   } catch {
@@ -158,7 +253,7 @@ function localReply(text) {
         </div>
 
         <!-- Suggestions -->
-        <div v-if="messages.length <= 1" class="cw-suggestions">
+        <div v-if="stage === 'chat' && !chatStarted" class="cw-suggestions">
           <button
             v-for="(s, i) in SUGGESTIONS"
             :key="i"
@@ -173,9 +268,11 @@ function localReply(text) {
         <form class="cw-input-bar" @submit.prevent="sendMessage()">
           <input
             v-model="input"
-            type="text"
+            :type="
+              stage === 'mobile' ? 'tel' : stage === 'email' ? 'email' : 'text'
+            "
             class="cw-input"
-            placeholder="Type your message…"
+            :placeholder="inputPlaceholder"
             :disabled="loading"
           />
           <button
