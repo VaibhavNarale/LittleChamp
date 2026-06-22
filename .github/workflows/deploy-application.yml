@@ -48,7 +48,6 @@ jobs:
         run: |
           delimiter="$(openssl rand -hex 8)"
           JSON=$(cat deployment-config.json)
-          cat deployment-config.json
           echo "DEPLOYMENT_MATRIX<<${delimiter}" >> "${GITHUB_OUTPUT}"
           echo "$JSON" >> "${GITHUB_OUTPUT}"
           echo "${delimiter}" >> "${GITHUB_OUTPUT}"
@@ -64,12 +63,73 @@ jobs:
         with:
           name: app-build
 
+      - name: Mask deploy key in logs
+        env:
+          DEPLOYMENT_CONFIG: ${{ secrets.DEPLOYMENT_CONFIG }}
+        run: |
+          printf '%s' "${DEPLOYMENT_CONFIG:-}" \
+            | jq -r '(if type=="array" then .[] else . end) | .key // empty' 2>/dev/null \
+            | while IFS= read -r l; do [ -n "$l" ] && printf '::add-mask::%s\n' "$l"; done || true
+
+      - name: Resolve SSH key (vault fallback if embedded key fails)
+        id: sshkey
+        env:
+          EMBEDDED_KEY: ${{ matrix.server.key }}
+          HOST: ${{ matrix.server.ip }}
+          SSH_USER: ${{ matrix.server.username }}
+          SSH_PORT: ${{ matrix.server.port }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          SP_API: ${{ vars.SERVERPILOT_API_URL }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -u
+          KEY_FILE="$RUNNER_TEMP/sp_deploy_key"
+          umask 077; : > "$KEY_FILE"
+          EFFECTIVE_USER="$SSH_USER"
+          echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+          emit_key() {
+            while IFS= read -r l; do [ -n "$l" ] && echo "::add-mask::$l"; done < "$KEY_FILE"
+            { echo "key<<__SP_KEY_EOF__"; cat "$KEY_FILE"; echo "__SP_KEY_EOF__"; } >> "$GITHUB_OUTPUT"
+          }
+          if [ -z "${EMBEDDED_KEY:-}" ]; then
+            echo "No embedded SSH key (password-auth host); skipping key fallback."
+            exit 0
+          fi
+          printf '%s' "$EMBEDDED_KEY" > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+          ssh_ok() { ssh -i "$KEY_FILE" -p "${SSH_PORT:-22}" -o BatchMode=yes \
+            -o StrictHostKeyChecking=no -o ConnectTimeout=10 "${EFFECTIVE_USER}@${HOST}" true 2>/dev/null; }
+          if ssh_ok; then echo "Embedded deploy key OK."; emit_key; exit 0; fi
+          if [ -z "${DEPLOY_TOKEN:-}" ]; then
+            echo "::warning::Embedded key failed and no DEPLOY_TOKEN secret set — cannot fall back to vault."
+            emit_key
+            exit 0
+          fi
+          echo "Embedded key failed — requesting current key from ServerPilot vault (host-local call)."
+          API="${SP_API:-https://api.serverpilot.aaibuzz.com}"
+          RESP="$(curl -s -L -X POST "$API/api/deploy/resolve-key" \
+            -H "Authorization: Bearer $DEPLOY_TOKEN" \
+            -H "Content-Type: application/json" -H "Accept: application/json" \
+            -d "{\"host\":\"$HOST\",\"repo\":\"${REPO:-}\"}")"
+          if [ "$(printf '%s' "$RESP" | jq -r '.data.type // empty')" = "ssh_key" ]; then
+            printf '%s' "$RESP" | jq -r '.data.key' > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+            NEW_USER="$(printf '%s' "$RESP" | jq -r '.data.username // empty')"
+            if [ -n "$NEW_USER" ] && [ "$NEW_USER" != "$EFFECTIVE_USER" ]; then
+              echo "ServerPilot switched deploy user: '$EFFECTIVE_USER' -> '$NEW_USER'."
+              EFFECTIVE_USER="$NEW_USER"
+              echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+            fi
+            if ssh_ok; then echo "Recovered via vault key (user: $EFFECTIVE_USER)."; emit_key; else echo "::error::Vault key also failed for $HOST"; exit 1; fi
+          else
+            echo "::error::resolve-key returned no ssh_key for $HOST"
+            exit 1
+          fi
+
       - name: Upload
         uses: appleboy/scp-action@master
         with:
           host: ${{ matrix.server.ip }}
-          username: ${{ matrix.server.username }}
-          key: ${{ matrix.server.key }}
+          username: ${{ steps.sshkey.outputs.username }}
+          key: ${{ steps.sshkey.outputs.key }}
           port: ${{ matrix.server.port }}
           source: ${{ github.sha }}.tar.gz
           target: ${{ matrix.server.path }}/artifacts
@@ -80,8 +140,8 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
         with:
           host: ${{ matrix.server.ip }}
-          username: ${{ matrix.server.username }}
-          key: ${{ matrix.server.key }}
+          username: ${{ steps.sshkey.outputs.username }}
+          key: ${{ steps.sshkey.outputs.key }}
           port: ${{ matrix.server.port }}
           envs: GITHUB_SHA
           script: |
@@ -99,6 +159,67 @@ jobs:
       matrix:
         server: ${{ fromJson(needs.create-deployment-artifacts.outputs.DEPLOYMENT_MATRIX) }}
     steps:
+      - name: Mask deploy key in logs
+        env:
+          DEPLOYMENT_CONFIG: ${{ secrets.DEPLOYMENT_CONFIG }}
+        run: |
+          printf '%s' "${DEPLOYMENT_CONFIG:-}" \
+            | jq -r '(if type=="array" then .[] else . end) | .key // empty' 2>/dev/null \
+            | while IFS= read -r l; do [ -n "$l" ] && printf '::add-mask::%s\n' "$l"; done || true
+
+      - name: Resolve SSH key (vault fallback if embedded key fails)
+        id: sshkey
+        env:
+          EMBEDDED_KEY: ${{ matrix.server.key }}
+          HOST: ${{ matrix.server.ip }}
+          SSH_USER: ${{ matrix.server.username }}
+          SSH_PORT: ${{ matrix.server.port }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          SP_API: ${{ vars.SERVERPILOT_API_URL }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -u
+          KEY_FILE="$RUNNER_TEMP/sp_deploy_key"
+          umask 077; : > "$KEY_FILE"
+          EFFECTIVE_USER="$SSH_USER"
+          echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+          emit_key() {
+            while IFS= read -r l; do [ -n "$l" ] && echo "::add-mask::$l"; done < "$KEY_FILE"
+            { echo "key<<__SP_KEY_EOF__"; cat "$KEY_FILE"; echo "__SP_KEY_EOF__"; } >> "$GITHUB_OUTPUT"
+          }
+          if [ -z "${EMBEDDED_KEY:-}" ]; then
+            echo "No embedded SSH key (password-auth host); skipping key fallback."
+            exit 0
+          fi
+          printf '%s' "$EMBEDDED_KEY" > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+          ssh_ok() { ssh -i "$KEY_FILE" -p "${SSH_PORT:-22}" -o BatchMode=yes \
+            -o StrictHostKeyChecking=no -o ConnectTimeout=10 "${EFFECTIVE_USER}@${HOST}" true 2>/dev/null; }
+          if ssh_ok; then echo "Embedded deploy key OK."; emit_key; exit 0; fi
+          if [ -z "${DEPLOY_TOKEN:-}" ]; then
+            echo "::warning::Embedded key failed and no DEPLOY_TOKEN secret set — cannot fall back to vault."
+            emit_key
+            exit 0
+          fi
+          echo "Embedded key failed — requesting current key from ServerPilot vault (host-local call)."
+          API="${SP_API:-https://api.serverpilot.aaibuzz.com}"
+          RESP="$(curl -s -L -X POST "$API/api/deploy/resolve-key" \
+            -H "Authorization: Bearer $DEPLOY_TOKEN" \
+            -H "Content-Type: application/json" -H "Accept: application/json" \
+            -d "{\"host\":\"$HOST\",\"repo\":\"${REPO:-}\"}")"
+          if [ "$(printf '%s' "$RESP" | jq -r '.data.type // empty')" = "ssh_key" ]; then
+            printf '%s' "$RESP" | jq -r '.data.key' > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+            NEW_USER="$(printf '%s' "$RESP" | jq -r '.data.username // empty')"
+            if [ -n "$NEW_USER" ] && [ "$NEW_USER" != "$EFFECTIVE_USER" ]; then
+              echo "ServerPilot switched deploy user: '$EFFECTIVE_USER' -> '$NEW_USER'."
+              EFFECTIVE_USER="$NEW_USER"
+              echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+            fi
+            if ssh_ok; then echo "Recovered via vault key (user: $EFFECTIVE_USER)."; emit_key; else echo "::error::Vault key also failed for $HOST"; exit 1; fi
+          else
+            echo "::error::resolve-key returned no ssh_key for $HOST"
+            exit 1
+          fi
+
       - name: Runs before hooks
         uses: appleboy/ssh-action@master
         env:
@@ -109,8 +230,8 @@ jobs:
           BASE_PATH: ${{ matrix.server.path }}
         with:
           host: ${{ matrix.server.ip }}
-          username: ${{ matrix.server.username }}
-          key: ${{ matrix.server.key }}
+          username: ${{ steps.sshkey.outputs.username }}
+          key: ${{ steps.sshkey.outputs.key }}
           port: ${{ matrix.server.port }}
           envs: GITHUB_SHA, RELEASE_PATH, ACTIVE_PATH, STORAGE_PATH, BASE_PATH
           script: |
@@ -125,6 +246,67 @@ jobs:
       matrix:
         server: ${{ fromJson(needs.create-deployment-artifacts.outputs.DEPLOYMENT_MATRIX) }}
     steps:
+      - name: Mask deploy key in logs
+        env:
+          DEPLOYMENT_CONFIG: ${{ secrets.DEPLOYMENT_CONFIG }}
+        run: |
+          printf '%s' "${DEPLOYMENT_CONFIG:-}" \
+            | jq -r '(if type=="array" then .[] else . end) | .key // empty' 2>/dev/null \
+            | while IFS= read -r l; do [ -n "$l" ] && printf '::add-mask::%s\n' "$l"; done || true
+
+      - name: Resolve SSH key (vault fallback if embedded key fails)
+        id: sshkey
+        env:
+          EMBEDDED_KEY: ${{ matrix.server.key }}
+          HOST: ${{ matrix.server.ip }}
+          SSH_USER: ${{ matrix.server.username }}
+          SSH_PORT: ${{ matrix.server.port }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          SP_API: ${{ vars.SERVERPILOT_API_URL }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -u
+          KEY_FILE="$RUNNER_TEMP/sp_deploy_key"
+          umask 077; : > "$KEY_FILE"
+          EFFECTIVE_USER="$SSH_USER"
+          echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+          emit_key() {
+            while IFS= read -r l; do [ -n "$l" ] && echo "::add-mask::$l"; done < "$KEY_FILE"
+            { echo "key<<__SP_KEY_EOF__"; cat "$KEY_FILE"; echo "__SP_KEY_EOF__"; } >> "$GITHUB_OUTPUT"
+          }
+          if [ -z "${EMBEDDED_KEY:-}" ]; then
+            echo "No embedded SSH key (password-auth host); skipping key fallback."
+            exit 0
+          fi
+          printf '%s' "$EMBEDDED_KEY" > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+          ssh_ok() { ssh -i "$KEY_FILE" -p "${SSH_PORT:-22}" -o BatchMode=yes \
+            -o StrictHostKeyChecking=no -o ConnectTimeout=10 "${EFFECTIVE_USER}@${HOST}" true 2>/dev/null; }
+          if ssh_ok; then echo "Embedded deploy key OK."; emit_key; exit 0; fi
+          if [ -z "${DEPLOY_TOKEN:-}" ]; then
+            echo "::warning::Embedded key failed and no DEPLOY_TOKEN secret set — cannot fall back to vault."
+            emit_key
+            exit 0
+          fi
+          echo "Embedded key failed — requesting current key from ServerPilot vault (host-local call)."
+          API="${SP_API:-https://api.serverpilot.aaibuzz.com}"
+          RESP="$(curl -s -L -X POST "$API/api/deploy/resolve-key" \
+            -H "Authorization: Bearer $DEPLOY_TOKEN" \
+            -H "Content-Type: application/json" -H "Accept: application/json" \
+            -d "{\"host\":\"$HOST\",\"repo\":\"${REPO:-}\"}")"
+          if [ "$(printf '%s' "$RESP" | jq -r '.data.type // empty')" = "ssh_key" ]; then
+            printf '%s' "$RESP" | jq -r '.data.key' > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+            NEW_USER="$(printf '%s' "$RESP" | jq -r '.data.username // empty')"
+            if [ -n "$NEW_USER" ] && [ "$NEW_USER" != "$EFFECTIVE_USER" ]; then
+              echo "ServerPilot switched deploy user: '$EFFECTIVE_USER' -> '$NEW_USER'."
+              EFFECTIVE_USER="$NEW_USER"
+              echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+            fi
+            if ssh_ok; then echo "Recovered via vault key (user: $EFFECTIVE_USER)."; emit_key; else echo "::error::Vault key also failed for $HOST"; exit 1; fi
+          else
+            echo "::error::resolve-key returned no ssh_key for $HOST"
+            exit 1
+          fi
+
       - name: Activate release
         uses: appleboy/ssh-action@master
         env:
@@ -140,8 +322,8 @@ jobs:
           REFRESH_VIRTUAL_HOST: ${{ matrix.server.refreshVirtualHost }}
         with:
           host: ${{ matrix.server.ip }}
-          username: ${{ matrix.server.username }}
-          key: ${{ matrix.server.key }}
+          username: ${{ steps.sshkey.outputs.username }}
+          key: ${{ steps.sshkey.outputs.key }}
           port: ${{ matrix.server.port }}
           envs: GITHUB_SHA, RELEASE_PATH, ACTIVE_RELEASE_PATH, BASE_PATH, VIRTUAL_HOST_FILE_PATH, SERVER_NAME, SERVER_ALIAS, SERVER_ADMIN, REFRESH_VIRTUAL_HOST, VIRTUAL_HOST_FILE
           script: |
@@ -162,10 +344,10 @@ jobs:
 
                     ErrorLog ${APACHE_LOG_DIR}/error.log
                     CustomLog ${APACHE_LOG_DIR}/access.log combined
-                </VirtualHost>" > $VIRTUAL_HOST_FILE_PATH/$VIRTUAL_HOST_FILE
+                </VirtualHost>" | sudo tee $VIRTUAL_HOST_FILE_PATH/$VIRTUAL_HOST_FILE > /dev/null
 
                 sudo a2ensite $VIRTUAL_HOST_FILE
-                systemctl reload apache2
+                sudo systemctl reload apache2
             fi
 
   run-after-hooks:
@@ -177,6 +359,67 @@ jobs:
       matrix:
         server: ${{ fromJson(needs.create-deployment-artifacts.outputs.DEPLOYMENT_MATRIX) }}
     steps:
+      - name: Mask deploy key in logs
+        env:
+          DEPLOYMENT_CONFIG: ${{ secrets.DEPLOYMENT_CONFIG }}
+        run: |
+          printf '%s' "${DEPLOYMENT_CONFIG:-}" \
+            | jq -r '(if type=="array" then .[] else . end) | .key // empty' 2>/dev/null \
+            | while IFS= read -r l; do [ -n "$l" ] && printf '::add-mask::%s\n' "$l"; done || true
+
+      - name: Resolve SSH key (vault fallback if embedded key fails)
+        id: sshkey
+        env:
+          EMBEDDED_KEY: ${{ matrix.server.key }}
+          HOST: ${{ matrix.server.ip }}
+          SSH_USER: ${{ matrix.server.username }}
+          SSH_PORT: ${{ matrix.server.port }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          SP_API: ${{ vars.SERVERPILOT_API_URL }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -u
+          KEY_FILE="$RUNNER_TEMP/sp_deploy_key"
+          umask 077; : > "$KEY_FILE"
+          EFFECTIVE_USER="$SSH_USER"
+          echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+          emit_key() {
+            while IFS= read -r l; do [ -n "$l" ] && echo "::add-mask::$l"; done < "$KEY_FILE"
+            { echo "key<<__SP_KEY_EOF__"; cat "$KEY_FILE"; echo "__SP_KEY_EOF__"; } >> "$GITHUB_OUTPUT"
+          }
+          if [ -z "${EMBEDDED_KEY:-}" ]; then
+            echo "No embedded SSH key (password-auth host); skipping key fallback."
+            exit 0
+          fi
+          printf '%s' "$EMBEDDED_KEY" > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+          ssh_ok() { ssh -i "$KEY_FILE" -p "${SSH_PORT:-22}" -o BatchMode=yes \
+            -o StrictHostKeyChecking=no -o ConnectTimeout=10 "${EFFECTIVE_USER}@${HOST}" true 2>/dev/null; }
+          if ssh_ok; then echo "Embedded deploy key OK."; emit_key; exit 0; fi
+          if [ -z "${DEPLOY_TOKEN:-}" ]; then
+            echo "::warning::Embedded key failed and no DEPLOY_TOKEN secret set — cannot fall back to vault."
+            emit_key
+            exit 0
+          fi
+          echo "Embedded key failed — requesting current key from ServerPilot vault (host-local call)."
+          API="${SP_API:-https://api.serverpilot.aaibuzz.com}"
+          RESP="$(curl -s -L -X POST "$API/api/deploy/resolve-key" \
+            -H "Authorization: Bearer $DEPLOY_TOKEN" \
+            -H "Content-Type: application/json" -H "Accept: application/json" \
+            -d "{\"host\":\"$HOST\",\"repo\":\"${REPO:-}\"}")"
+          if [ "$(printf '%s' "$RESP" | jq -r '.data.type // empty')" = "ssh_key" ]; then
+            printf '%s' "$RESP" | jq -r '.data.key' > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+            NEW_USER="$(printf '%s' "$RESP" | jq -r '.data.username // empty')"
+            if [ -n "$NEW_USER" ] && [ "$NEW_USER" != "$EFFECTIVE_USER" ]; then
+              echo "ServerPilot switched deploy user: '$EFFECTIVE_USER' -> '$NEW_USER'."
+              EFFECTIVE_USER="$NEW_USER"
+              echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+            fi
+            if ssh_ok; then echo "Recovered via vault key (user: $EFFECTIVE_USER)."; emit_key; else echo "::error::Vault key also failed for $HOST"; exit 1; fi
+          else
+            echo "::error::resolve-key returned no ssh_key for $HOST"
+            exit 1
+          fi
+
       - name: Runs after hooks
         uses: appleboy/ssh-action@master
         env:
@@ -186,8 +429,8 @@ jobs:
           BASE_PATH: ${{ matrix.server.path }}
         with:
           host: ${{ matrix.server.ip }}
-          username: ${{ matrix.server.username }}
-          key: ${{ matrix.server.key }}
+          username: ${{ steps.sshkey.outputs.username }}
+          key: ${{ steps.sshkey.outputs.key }}
           port: ${{ matrix.server.port }}
           envs: GITHUB_SHA, RELEASE_PATH, ACTIVE_PATH, BASE_PATH
           script: |
@@ -207,6 +450,67 @@ jobs:
       matrix:
         server: ${{ fromJson(needs.create-deployment-artifacts.outputs.DEPLOYMENT_MATRIX) }}
     steps:
+      - name: Mask deploy key in logs
+        env:
+          DEPLOYMENT_CONFIG: ${{ secrets.DEPLOYMENT_CONFIG }}
+        run: |
+          printf '%s' "${DEPLOYMENT_CONFIG:-}" \
+            | jq -r '(if type=="array" then .[] else . end) | .key // empty' 2>/dev/null \
+            | while IFS= read -r l; do [ -n "$l" ] && printf '::add-mask::%s\n' "$l"; done || true
+
+      - name: Resolve SSH key (vault fallback if embedded key fails)
+        id: sshkey
+        env:
+          EMBEDDED_KEY: ${{ matrix.server.key }}
+          HOST: ${{ matrix.server.ip }}
+          SSH_USER: ${{ matrix.server.username }}
+          SSH_PORT: ${{ matrix.server.port }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          SP_API: ${{ vars.SERVERPILOT_API_URL }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -u
+          KEY_FILE="$RUNNER_TEMP/sp_deploy_key"
+          umask 077; : > "$KEY_FILE"
+          EFFECTIVE_USER="$SSH_USER"
+          echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+          emit_key() {
+            while IFS= read -r l; do [ -n "$l" ] && echo "::add-mask::$l"; done < "$KEY_FILE"
+            { echo "key<<__SP_KEY_EOF__"; cat "$KEY_FILE"; echo "__SP_KEY_EOF__"; } >> "$GITHUB_OUTPUT"
+          }
+          if [ -z "${EMBEDDED_KEY:-}" ]; then
+            echo "No embedded SSH key (password-auth host); skipping key fallback."
+            exit 0
+          fi
+          printf '%s' "$EMBEDDED_KEY" > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+          ssh_ok() { ssh -i "$KEY_FILE" -p "${SSH_PORT:-22}" -o BatchMode=yes \
+            -o StrictHostKeyChecking=no -o ConnectTimeout=10 "${EFFECTIVE_USER}@${HOST}" true 2>/dev/null; }
+          if ssh_ok; then echo "Embedded deploy key OK."; emit_key; exit 0; fi
+          if [ -z "${DEPLOY_TOKEN:-}" ]; then
+            echo "::warning::Embedded key failed and no DEPLOY_TOKEN secret set — cannot fall back to vault."
+            emit_key
+            exit 0
+          fi
+          echo "Embedded key failed — requesting current key from ServerPilot vault (host-local call)."
+          API="${SP_API:-https://api.serverpilot.aaibuzz.com}"
+          RESP="$(curl -s -L -X POST "$API/api/deploy/resolve-key" \
+            -H "Authorization: Bearer $DEPLOY_TOKEN" \
+            -H "Content-Type: application/json" -H "Accept: application/json" \
+            -d "{\"host\":\"$HOST\",\"repo\":\"${REPO:-}\"}")"
+          if [ "$(printf '%s' "$RESP" | jq -r '.data.type // empty')" = "ssh_key" ]; then
+            printf '%s' "$RESP" | jq -r '.data.key' > "$KEY_FILE"; chmod 600 "$KEY_FILE"
+            NEW_USER="$(printf '%s' "$RESP" | jq -r '.data.username // empty')"
+            if [ -n "$NEW_USER" ] && [ "$NEW_USER" != "$EFFECTIVE_USER" ]; then
+              echo "ServerPilot switched deploy user: '$EFFECTIVE_USER' -> '$NEW_USER'."
+              EFFECTIVE_USER="$NEW_USER"
+              echo "username=$EFFECTIVE_USER" >> "$GITHUB_OUTPUT"
+            fi
+            if ssh_ok; then echo "Recovered via vault key (user: $EFFECTIVE_USER)."; emit_key; else echo "::error::Vault key also failed for $HOST"; exit 1; fi
+          else
+            echo "::error::resolve-key returned no ssh_key for $HOST"
+            exit 1
+          fi
+
       - name: Runs clean up
         uses: appleboy/ssh-action@master
         env:
@@ -214,8 +518,8 @@ jobs:
           RELEASE_PATH: ${{ matrix.server.path }}/releases
         with:
           host: ${{ matrix.server.ip }}
-          username: ${{ matrix.server.username }}
-          key: ${{ matrix.server.key }}
+          username: ${{ steps.sshkey.outputs.username }}
+          key: ${{ steps.sshkey.outputs.key }}
           port: ${{ matrix.server.port }}
           envs: RELEASE_PATH, ARTIFACTS_PATH
           script: |
