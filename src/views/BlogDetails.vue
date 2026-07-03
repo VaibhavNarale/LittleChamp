@@ -68,8 +68,9 @@ const currentUrl = computed(() =>
   typeof window !== 'undefined' ? window.location.href : ''
 )
 
-// Get author name
+// Get author name — prefer editable author_name, fallback to author relationship
 const authorName = computed(() => {
+  if (post.value?.author_name) return post.value.author_name
   if (!post.value?.author) return 'Anonymous'
   return (
     `${post.value.author.first_name || ''} ${post.value.author.last_name || ''}`.trim() ||
@@ -79,10 +80,16 @@ const authorName = computed(() => {
 
 // Author initials
 const authorInitials = computed(() => {
-  if (!post.value?.author) return 'A'
-  const first = post.value.author.first_name?.[0] || ''
-  const last = post.value.author.last_name?.[0] || ''
-  return (first + last).toUpperCase() || 'A'
+  const name = authorName.value
+  if (!name || name === 'Anonymous') return 'A'
+  const parts = name.trim().split(/\s+/)
+  return (
+    parts
+      .map((p) => p[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2) || 'A'
+  )
 })
 
 // Category colors
