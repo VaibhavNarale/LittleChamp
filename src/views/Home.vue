@@ -1523,8 +1523,7 @@ onBeforeUnmount(() => {
                   {{ formatDate(post.published_at) }}</span
                 >
                 <span
-                  ><i class="fal fa-eye"></i>
-                  {{ post.views_count || 0 }} views</span
+                  ><i class="fal fa-eye"></i> {{ post.views || 0 }} views</span
                 >
               </div>
               <h4 class="home-blog-title">
