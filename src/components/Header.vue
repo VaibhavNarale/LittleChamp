@@ -63,7 +63,7 @@ const handleLogout = async () => {
             <v-col cols="auto">
               <div class="header-links">
                 <ul>
-                  <li><i class="fal fa-envelope"></i><a href="mailto:support@mindjrgroup.com">support@mindjrgroup.com</a></li>
+                  <li><i class="fal fa-envelope"></i><a href="mailto:support@kindergarden.com">support@kindergarden.com</a></li>
                   <li><i class="fal fa-phone"></i><a href="tel:+18005551234">+1 (800) 555-1234</a></li>
                   <li><i class="fal fa-users"></i>Trusted by Indian Kids Worldwide</li>
                 </ul>
@@ -72,11 +72,11 @@ const handleLogout = async () => {
             <v-col cols="auto">
               <div class="header-social">
                 <ul>
-                  <li><a href="https://facebook.com/mindjrgroup" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
-                  <li><a href="https://twitter.com/mindjrgroup" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a></li>
-                  <li><a href="https://instagram.com/mindjrgroup" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
-                  <li><a href="https://linkedin.com/company/mindjrgroup" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a></li>
-                  <li><a href="https://youtube.com/@mindjrgroup" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></li>
+                  <li><a href="https://facebook.com/kindergarden" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="https://twitter.com/kindergarden" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="https://instagram.com/kindergarden" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="https://linkedin.com/company/kindergarden" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a></li>
+                  <li><a href="https://youtube.com/@kindergarden" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></li>
                 </ul>
               </div>
             </v-col>
@@ -134,9 +134,6 @@ const handleLogout = async () => {
                       <li>
                         <router-link to="/features">Features</router-link>
                       </li>
-                      <li>
-                        <router-link to="/pricing">Pricing</router-link>
-                      </li>
                       <li class="menu-item-has-children">
                         <a href="#">For You</a>
                         <ul class="sub-menu">
@@ -153,21 +150,6 @@ const handleLogout = async () => {
                           <li>
                             <router-link to="/for-schools"
                               >For Schools</router-link
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="menu-item-has-children">
-                        <a href="#">Register</a>
-                        <ul class="sub-menu">
-                          <li>
-                            <router-link to="/doctor-registration"
-                              >Doctor Registration</router-link
-                            >
-                          </li>
-                          <li>
-                            <router-link to="/playgroup-registration"
-                              >Playgroup Registration</router-link
                             >
                           </li>
                         </ul>
@@ -201,10 +183,6 @@ const handleLogout = async () => {
                       <router-link to="/login" class="btn-login">
                         <i class="fas fa-sign-in-alt"></i>
                         <span class="btn-text">Login</span>
-                      </router-link>
-                      <router-link to="/register" class="btn-signup">
-                        <i class="fas fa-rocket"></i>
-                        <span class="btn-text">Book Free AI Strategy Call</span>
                       </router-link>
                     </template>
 
@@ -607,10 +585,10 @@ body {
 
 .vs-header .header-logo {
   padding: 2px 0;
-  transform: scale(0.92);
+  transform: scale(1);
   transform-origin: left center;
   flex-shrink: 0;
-  margin-left: -50px;
+  margin-left: 0;
 }
 
 /* Nav menu spacing */
@@ -851,7 +829,7 @@ body {
 
   .vs-header .header-logo {
     transform: scale(1);
-    margin-left: -52px;
+    margin-left: 0;
   }
 
   .vs-header .btn-login,
@@ -879,7 +857,7 @@ body {
 
   .vs-header .header-logo {
     transform: scale(1);
-    margin-left: -45px;
+    margin-left: 0;
   }
 
   .vs-header .btn-login,
@@ -895,8 +873,8 @@ body {
   }
 
   .vs-header .header-logo {
-    transform: scale(1.2);
-    margin-left: -60px;
+    transform: scale(1);
+    margin-left: 0;
   }
 
   .vs-header .sticky-wrapper,
@@ -992,7 +970,7 @@ body {
 
   .vs-header .header-logo {
     transform: scale(1);
-    margin-left: -60px;
+    margin-left: 0;
   }
 
   .vs-header .sticky-wrapper,
@@ -1027,9 +1005,9 @@ body {
   }
 
   .vs-header .header-logo {
-    transform: scale(1.2);
+    transform: scale(1);
     transform-origin: left center;
-    margin-left: -39px;
+    margin-left: 8px;
   }
 
   .vs-header .sticky-wrapper,
@@ -1062,7 +1040,7 @@ body {
 @media (max-width: 767px) and (orientation: landscape) {
   .vs-header .header-logo {
     transform: scale(1);
-    margin-left: -60px;
+    margin-left: 0;
   }
 
   .vs-header .sticky-wrapper,

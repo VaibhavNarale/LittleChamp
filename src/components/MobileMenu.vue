@@ -62,13 +62,6 @@ const handleLogout = async () => {
           >
             <i class="fas fa-sign-in-alt"></i> Login
           </router-link>
-          <router-link
-            to="/register"
-            class="mobile-btn btn-signup"
-            @click="$emit('close')"
-          >
-            <i class="fas fa-rocket"></i> Book Free AI Strategy Call
-          </router-link>
         </template>
         <template v-else>
           <div class="mobile-user-info">
@@ -120,11 +113,6 @@ const handleLogout = async () => {
           <li>
             <router-link to="/features" @click="$emit('close')"
               >Features</router-link
-            >
-          </li>
-          <li>
-            <router-link to="/pricing" @click="$emit('close')"
-              >Pricing</router-link
             >
           </li>
           <li class="menu-item-has-children">

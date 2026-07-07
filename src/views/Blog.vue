@@ -477,21 +477,6 @@ watch(searchQuery, () => {
             </div>
 
             <!-- Tags Widget -->
-            <!-- CTA Widget -->
-            <div class="sidebar-widget cta-widget">
-              <div class="cta-card">
-                <div class="cta-pattern"></div>
-                <div class="cta-content">
-                  <div class="cta-emoji">&#x1F680;</div>
-                  <h3>Start Learning Today!</h3>
-                  <p>Join Indian kids exploring 500+ interactive games</p>
-                  <router-link to="/pricing" class="cta-btn">
-                    Try Free Trial
-                    <i class="fas fa-arrow-right"></i>
-                  </router-link>
-                </div>
-              </div>
-            </div>
           </aside>
         </div>
       </div>

@@ -179,7 +179,7 @@ const resetForm = () => {
           </h1>
 
           <p class="reg-hero-description">
-            Register your playgroup with Mind Growup Jr. and give every little
+            Register your playgroup with Little Champ and give every little
             learner access to interactive, gamified fun. Upload your documents
             to begin!
           </p>
@@ -203,7 +203,7 @@ const resetForm = () => {
     eyebrow-icon="fas fa-child"
     title-lead="Everything Your Little Ones"
     title-accent="Need to Thrive"
-    subtitle="Before you register, here's what joining Mind Growup Jr. brings to your playgroup."
+    subtitle="Before you register, here's what joining Little Champ brings to your playgroup."
     theme="pink"
     :cards="playgroupInfoCards"
   />

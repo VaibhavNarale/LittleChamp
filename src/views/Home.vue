@@ -159,16 +159,7 @@ onBeforeUnmount(() => {
                   class="modern-cta-group"
                   data-ani="slideinup"
                   data-ani-delay="0.4s"
-                >
-                  <router-link to="/register" class="modern-btn btn-primary">
-                    <i class="fas fa-rocket"></i>
-                    <span>Book Free AI Strategy Call</span>
-                  </router-link>
-                  <router-link to="/pricing" class="modern-btn btn-outline">
-                    <span>View Pricing</span>
-                    <i class="fas fa-arrow-right"></i>
-                  </router-link>
-                </div>
+                ></div>
                 <p
                   class="cta-response-note"
                   data-ani="slideinup"
@@ -317,10 +308,6 @@ onBeforeUnmount(() => {
                     <i class="fas fa-lightbulb"></i>
                     <span>See How It Works</span>
                   </router-link>
-                  <router-link to="/register" class="modern-btn btn-outline">
-                    <span>Try It Free</span>
-                    <i class="fas fa-arrow-right"></i>
-                  </router-link>
                 </div>
               </div>
             </div>
@@ -409,8 +396,8 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.2s"
                 >
-                  Join 100+ educators using Mind Growup Jr to engage students
-                  and track progress in their classrooms.
+                  Join 100+ educators using Little Champ to engage students and
+                  track progress in their classrooms.
                 </p>
 
                 <div
@@ -437,10 +424,6 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.4s"
                 >
-                  <router-link to="/register" class="modern-btn btn-primary">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span>Book Free AI Strategy Call</span>
-                  </router-link>
                   <router-link
                     to="/for-teachers"
                     class="modern-btn btn-outline"
@@ -526,7 +509,7 @@ onBeforeUnmount(() => {
       >
         <div class="col-xl-8 col-lg-9">
           <div class="title-area">
-            <span class="sub-title">Why Choose Mind Growup Jr</span>
+            <span class="sub-title">Why Choose Little Champ</span>
             <h2 class="sec-title">
               Powerful Features That Make Learning
               <span class="gradient-text">Irresistible</span>
@@ -670,14 +653,14 @@ onBeforeUnmount(() => {
           data-wow-delay="0.1s"
         >
           <div class="text-center text-lg-start">
-            <span class="sub-title sub-title--lg">Why Mind Growup Jr</span>
+            <span class="sub-title sub-title--lg">Why Little Champ</span>
             <h2 class="sec-title big-title">
               Transform Learning into an
               <span class="gradient-text">Adventure</span>
             </h2>
             <p class="fs-md mb-30">
-              At Mind Growup Jr, every child can discover the joy of learning.
-              Our platform uses adaptive AI technology and fun games to create
+              At Little Champ, every child can discover the joy of learning. Our
+              platform uses adaptive AI technology and fun games to create
               personalized experiences in Math, Manners, Brain Activities, and
               the Ability to think out of the box.
             </p>
@@ -1170,14 +1153,6 @@ onBeforeUnmount(() => {
           </p>
         </div>
       </div>
-
-      <div class="text-center mt-50 wow fadeInUp" data-wow-delay="0.4s">
-        <router-link to="/register" class="vs-btn btn-primary-enhanced">
-          Book Free AI Strategy Call
-          <i class="fas fa-arrow-right ms-2"></i>
-        </router-link>
-        <p class="cta-response-note mt-3">We respond within 24 hours</p>
-      </div>
     </div>
   </section>
   <!--======== / How It Works Section ========-->
@@ -1259,15 +1234,10 @@ onBeforeUnmount(() => {
               <span class="title-highlight">Say About Us</span>
             </h2>
             <p class="testi-desc">
-              Discover how Mind Growup Jr is transforming learning for millions
-              of families worldwide. Real stories from real parents about their
+              Discover how Little Champ is transforming learning for millions of
+              families worldwide. Real stories from real parents about their
               children's progress.
             </p>
-            <router-link to="/pricing" class="testi-cta">
-              Book Free AI Strategy Call
-              <i class="fas fa-arrow-right"></i>
-            </router-link>
-            <p class="cta-response-note mt-2">We respond within 24 hours</p>
           </div>
         </div>
         <div class="col-lg-8">
@@ -1425,13 +1395,6 @@ onBeforeUnmount(() => {
             required - get instant access to thousands of educational games.
           </p>
           <div class="home-cta-buttons">
-            <router-link
-              to="/register"
-              class="modern-btn btn-primary home-cta-btn-primary"
-            >
-              <i class="fas fa-rocket"></i>
-              <span>Start Free Trial</span>
-            </router-link>
             <router-link
               to="/subjects"
               class="modern-btn btn-outline home-cta-btn-outline"

@@ -824,10 +824,6 @@ onBeforeUnmount(() => {
                   <span class="badge-pill intermediate">Intermediate</span>
                   <span class="badge-pill advanced">Advanced</span>
                 </div>
-                <router-link to="/pricing" class="vs-btn">
-                  Start Learning Free
-                  <i class="fas fa-arrow-right ms-2"></i>
-                </router-link>
               </div>
             </div>
 
@@ -1011,9 +1007,6 @@ onBeforeUnmount(() => {
               {{ subject.name.toLowerCase() }} activities.
             </p>
             <div class="cta-buttons">
-              <router-link to="/pricing" class="vs-btn cta-btn-primary">
-                <i class="fas fa-rocket me-2"></i> Start Free Trial
-              </router-link>
               <router-link to="/subjects" class="vs-btn cta-btn-secondary">
                 <i class="fas fa-th-large me-2"></i> Explore Other Subjects
               </router-link>

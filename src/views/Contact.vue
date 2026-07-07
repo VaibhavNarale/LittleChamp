@@ -85,9 +85,7 @@ onBeforeUnmount(() => {
             <div class="contact-panel">
               <h2 class="panel-title">Let's Start a <br />Conversation</h2>
               <p class="panel-brand">
-                with <span class="brand-mind">Mind</span>
-                <span class="brand-growup">Growup</span>
-                <span class="brand-jr">Jr.</span>
+                with <span class="brand-mind">Little Champ</span>
               </p>
               <p class="panel-desc">
                 We're happy to help parents, teachers, and schools. Reach out
@@ -120,13 +118,13 @@ onBeforeUnmount(() => {
                   </div>
                 </a>
 
-                <a href="mailto:Info@mindgrowupjr.com" class="panel-item">
+                <a href="mailto:Info@kindergarden.com" class="panel-item">
                   <div class="panel-item-icon panel-icon--email">
                     <i class="fas fa-envelope"></i>
                   </div>
                   <div>
                     <span class="panel-item-label">Email</span>
-                    <span class="panel-item-value">Info@mindgrowupjr.com</span>
+                    <span class="panel-item-value">Info@kindergarden.com</span>
                   </div>
                 </a>
 

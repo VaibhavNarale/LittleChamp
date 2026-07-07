@@ -41,7 +41,7 @@ onBeforeUnmount(() => {
           <h1 class="servicedetails-hero-title">
             Help Your Child
             <span class="gradient-text-light d-block"
-              >Succeed with Mind Growup Jr</span
+              >Succeed with Little Champ</span
             >
           </h1>
           <p class="hero-description">
@@ -239,29 +239,6 @@ onBeforeUnmount(() => {
             <p class="process-text">
               Review detailed reports and celebrate achievements together
             </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing CTA Section -->
-  <section class="space">
-    <div class="container">
-      <div class="cta-box">
-        <div class="row align-items-center">
-          <div class="col-lg-8">
-            <h2 class="cta-title">Start Your Free Trial Today</h2>
-            <p class="cta-text">
-              Join thousands of parents who trust Mind Growup Jr for their
-              children's education. All payments required.
-            </p>
-          </div>
-          <div class="col-lg-4 text-lg-end">
-            <router-link to="/pricing" class="vs-btn">
-              View Pricing
-              <i class="fas fa-arrow-right ms-2"></i>
-            </router-link>
           </div>
         </div>
       </div>

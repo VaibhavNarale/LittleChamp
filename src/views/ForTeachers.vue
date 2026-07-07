@@ -40,7 +40,7 @@ onBeforeUnmount(() => {
           </div>
           <h1 class="servicedetails-hero-title">
             Empower Your Classroom
-            <span class="gradient-text-light d-block">with Mind Growup Jr</span>
+            <span class="gradient-text-light d-block">with Little Champ</span>
           </h1>
           <p class="hero-description">
             Free premium access for teachers! Engage your students with
@@ -72,12 +72,6 @@ onBeforeUnmount(() => {
             We believe in supporting educators. Get full access to all premium
             features at no cost when you register as a teacher.
           </p>
-        </div>
-        <div class="col-lg-4 text-lg-end">
-          <router-link to="/register" class="vs-btn style-white">
-            Register as Teacher
-            <i class="fas fa-arrow-right ms-2"></i>
-          </router-link>
         </div>
       </div>
     </div>
@@ -274,8 +268,8 @@ onBeforeUnmount(() => {
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "Mind Growup Jr has transformed how I teach mathematics. My
-              students are more engaged and their test scores have improved
+              "Little Champ has transformed how I teach mathematics. My students
+              are more engaged and their test scores have improved
               significantly!"
             </p>
             <div class="testimonial-author">
@@ -324,29 +318,6 @@ onBeforeUnmount(() => {
               <h5>Ananya Iyer</h5>
               <span>1st Grade Teacher, Bangalore</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="space-bottom">
-    <div class="container">
-      <div class="cta-box">
-        <div class="row align-items-center">
-          <div class="col-lg-8">
-            <h2 class="cta-title">Ready to Transform Your Classroom?</h2>
-            <p class="cta-text">
-              Join thousands of teachers using Mind Growup Jr. Register now and
-              get instant access to all premium features for free!
-            </p>
-          </div>
-          <div class="col-lg-4 text-lg-end">
-            <router-link to="/register" class="vs-btn style-white">
-              Get Started Free
-              <i class="fas fa-arrow-right ms-2"></i>
-            </router-link>
           </div>
         </div>
       </div>

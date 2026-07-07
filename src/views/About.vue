@@ -85,7 +85,7 @@ onBeforeUnmount(() => {
             <div class="mission-img-main">
               <img
                 src="/assets/img/normal/square-1.png"
-                alt="Kids learning with Mind Growup Jr"
+                alt="Kids learning with Little Champ"
               />
             </div>
             <div class="mission-img-small">
@@ -104,14 +104,14 @@ onBeforeUnmount(() => {
           <div class="mission-content">
             <span class="section-tag">
               <i class="fas fa-star"></i>
-              About Mind Growup Jr
+              About Little Champ
             </span>
             <h2 class="mission-title">
-              Mind Growup Jr's
+              Little Champ's
               <span class="title-highlight">Features</span>
             </h2>
             <p class="mission-desc">
-              Mind Growup Jr is a leading educational technology platform that
+              Little Champ is a leading educational technology platform that
               transforms how children learn. With over 500+ interactive games
               covering Math, Reading, and Craft & Drawing for Pre-K through
               Grade 7, we make learning feel like play while delivering
@@ -153,11 +153,6 @@ onBeforeUnmount(() => {
                 </div>
               </div>
             </div>
-
-            <router-link to="/pricing" class="mission-cta">
-              Start Free Trial
-              <i class="fas fa-arrow-right"></i>
-            </router-link>
           </div>
         </div>
       </div>
@@ -202,7 +197,7 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <p class="pillars-intro">
-          Mind Growup Jr. is a child-focused development center dedicated to
+          Little Champ is a child-focused development center dedicated to
           nurturing young minds through innovation, creativity, and expert
           guidance. We believe every child grows best in a supportive, engaging,
           and inspiring environment.
@@ -228,7 +223,7 @@ onBeforeUnmount(() => {
               AI Learning &amp;<br />Child Development
             </h3>
             <p class="pillar-desc">
-              At Mind Growup Jr., we introduce AI-assisted learning in a
+              At Little Champ, we introduce AI-assisted learning in a
               child-friendly way to build curiosity and smart thinking.
             </p>
             <ul class="pillar-list pillar-list--green">
@@ -356,7 +351,7 @@ onBeforeUnmount(() => {
             <i class="fas fa-graduation-cap"></i>
           </div>
           <p class="closing-text">
-            At Mind Growup Jr., we combine <strong>technology</strong>,
+            At Little Champ, we combine <strong>technology</strong>,
             <strong>creativity</strong>, and
             <strong>medical guidance</strong>
             to build confident, intelligent, and happy children.
@@ -571,14 +566,10 @@ onBeforeUnmount(() => {
               <span class="title-highlight">Say About Us</span>
             </h2>
             <p class="testi-desc">
-              Discover how Mind Growup Jr is transforming learning for millions
-              of families worldwide. Real stories from real parents about their
+              Discover how Little Champ is transforming learning for millions of
+              families worldwide. Real stories from real parents about their
               children's progress.
             </p>
-            <router-link to="/pricing" class="mission-cta">
-              Start Free Trial
-              <i class="fas fa-arrow-right"></i>
-            </router-link>
           </div>
         </div>
         <div class="col-lg-8">

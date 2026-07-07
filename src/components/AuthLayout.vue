@@ -1,5 +1,5 @@
 <script setup>
-import authLogo from '@/assets/auth-logo.png'
+import Logo from './Logo.vue'
 
 defineProps({
   title: {
@@ -34,7 +34,7 @@ defineProps({
     <div class="auth-video-overlay"></div>
 
     <div class="auth-logo-top">
-      <img :src="authLogo" alt="Mind Growup Jr" class="auth-logo" />
+      <Logo variant="white" size="large" />
     </div>
 
     <div class="branding-content">

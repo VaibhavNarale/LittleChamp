@@ -7,7 +7,6 @@ import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
 import Login from '../views/Login.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
-import Register from '../views/Register.vue'
 import AuthCallback from '../views/AuthCallback.vue'
 import DoctorRegistration from '../views/DoctorRegistration.vue'
 import PlaygroupRegistration from '../views/PlaygroupRegistration.vue'
@@ -24,9 +23,6 @@ import ForParents from '../views/ForParents.vue'
 import ForTeachers from '../views/ForTeachers.vue'
 import ForSchools from '../views/ForSchools.vue'
 
-// Pricing
-import Pricing from '../views/Pricing.vue'
-
 // Content
 import Blog from '../views/Blog.vue'
 import BlogDetails from '../views/BlogDetails.vue'
@@ -42,7 +38,6 @@ const routes = [
   { path: '/about', name: 'About', component: About },
   { path: '/contact', name: 'Contact', component: Contact },
   { path: '/login', name: 'Login', component: Login },
-  { path: '/register', name: 'Register', component: Register },
   {
     path: '/forgot-password',
     name: 'ForgotPassword',
@@ -72,9 +67,6 @@ const routes = [
 
   // Features
   { path: '/features', name: 'Features', component: Features },
-
-  // Pricing
-  { path: '/pricing', name: 'Pricing', component: Pricing },
 
   // For Parents, Teachers, Schools
   { path: '/for-parents', name: 'ForParents', component: ForParents },
@@ -111,9 +103,7 @@ router.beforeEach((to, from, next) => {
   // If user is logged in and trying to access login/register, redirect to admin panel
   if (
     isAuthenticated &&
-    (to.name === 'Login' ||
-      to.name === 'Register' ||
-      to.name === 'ForgotPassword')
+    (to.name === 'Login' || to.name === 'ForgotPassword')
   ) {
     // Pass token in URL for cross-domain authentication
     next({ name: 'Home' })

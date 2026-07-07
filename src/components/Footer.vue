@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import footerLogo from '@/assets/footer-logo.png'
+import Logo from './Logo.vue'
 
 const currentYear = computed(() => new Date().getFullYear())
 </script>
@@ -19,11 +19,7 @@ const currentYear = computed(() => new Date().getFullYear())
               <div class="vs-widget-about">
                 <div class="about-logo">
                   <router-link to="/">
-                    <img
-                      :src="footerLogo"
-                      alt="Mind Growup Jr"
-                      class="footer-logo-img"
-                    />
+                    <Logo variant="white" size="large" />
                   </router-link>
                 </div>
                 <p class="about-text">
@@ -33,31 +29,31 @@ const currentYear = computed(() => new Date().getFullYear())
                 </p>
                 <div class="multi-social">
                   <a
-                    href="https://facebook.com/mindjrgroup"
+                    href="https://facebook.com/kindergarden"
                     target="_blank"
                     rel="noopener"
                     ><i class="fab fa-facebook-f"></i
                   ></a>
                   <a
-                    href="https://twitter.com/mindjrgroup"
+                    href="https://twitter.com/kindergarden"
                     target="_blank"
                     rel="noopener"
                     ><i class="fab fa-twitter"></i
                   ></a>
                   <a
-                    href="https://instagram.com/mindjrgroup"
+                    href="https://instagram.com/kindergarden"
                     target="_blank"
                     rel="noopener"
                     ><i class="fab fa-instagram"></i
                   ></a>
                   <a
-                    href="https://linkedin.com/company/mindjrgroup"
+                    href="https://linkedin.com/company/kindergarden"
                     target="_blank"
                     rel="noopener"
                     ><i class="fab fa-linkedin-in"></i
                   ></a>
                   <a
-                    href="https://youtube.com/@mindjrgroup"
+                    href="https://youtube.com/@kindergarden"
                     target="_blank"
                     rel="noopener"
                     ><i class="fab fa-youtube"></i
@@ -74,7 +70,6 @@ const currentYear = computed(() => new Date().getFullYear())
               <ul class="menu">
                 <li><router-link to="/subjects">Subjects</router-link></li>
                 <li><router-link to="/features">Features</router-link></li>
-                <li><router-link to="/pricing">Pricing</router-link></li>
                 <li>
                   <router-link to="/for-parents">For Parents</router-link>
                 </li>
@@ -112,8 +107,8 @@ const currentYear = computed(() => new Date().getFullYear())
               <div class="vs-widget-contact">
                 <p class="footer-info">
                   <i class="fas fa-envelope"></i
-                  ><a href="mailto:Info@mindgrowupjr.com"
-                    >Info@mindgrowupjr.com</a
+                  ><a href="mailto:Info@kindergarden.com"
+                    >Info@kindergarden.com</a
                   >
                 </p>
                 <p class="footer-info">
@@ -123,10 +118,10 @@ const currentYear = computed(() => new Date().getFullYear())
                 <p class="footer-info">
                   <i class="fab fa-instagram"></i
                   ><a
-                    href="https://instagram.com/mindgrowupjr"
+                    href="https://instagram.com/kindergarden"
                     target="_blank"
                     rel="noopener"
-                    >@mindgrowupjr</a
+                    >@kindergarden</a
                   >
                 </p>
               </div>
@@ -140,8 +135,8 @@ const currentYear = computed(() => new Date().getFullYear())
     <div class="footer-copyright">
       <v-container>
         <p class="copyright">
-          &copy; Copyright {{ currentYear }} Mindgrowup Junior Private Limited.
-          All Rights Reserved. |
+          &copy; Copyright {{ currentYear }} Little Champ Private Limited. All
+          Rights Reserved. |
           <router-link to="/privacy">Privacy Policy</router-link> |
           <router-link to="/terms">Terms of Service</router-link>
         </p>

@@ -10,18 +10,18 @@ const authFeatures = [
   {
     icon: 'fas fa-shield-alt',
     title: 'Secure Process',
-    description: 'Your data is protected with encryption'
+    description: 'Your data is protected with encryption',
   },
   {
     icon: 'fas fa-clock',
     title: 'Quick Recovery',
-    description: 'Reset link expires in 60 minutes'
+    description: 'Reset link expires in 60 minutes',
   },
   {
     icon: 'fas fa-envelope',
     title: 'Email Notification',
-    description: 'Check your inbox and spam folder'
-  }
+    description: 'Check your inbox and spam folder',
+  },
 ]
 
 // Form state
@@ -68,7 +68,6 @@ const goBackToLogin = () => {
   <div class="forgot-password-page">
     <div class="forgot-password-container">
       <div class="row g-0 h-100">
-
         <!-- Left Side - Branding -->
         <AuthLayout
           title="Don't Worry!"
@@ -80,7 +79,6 @@ const goBackToLogin = () => {
         <!-- Right Side - Reset Password Form -->
         <div class="col-lg-6 forgot-password-form-section">
           <div class="form-container">
-
             <!-- Back to Login Link -->
             <router-link to="/login" class="back-link">
               <i class="fas fa-arrow-left"></i>
@@ -93,7 +91,10 @@ const goBackToLogin = () => {
                   <i class="fas fa-lock"></i>
                 </div>
                 <h2 class="form-title">Forgot Password?</h2>
-                <p class="form-subtitle">Enter your email address and we'll send you a link to reset your password</p>
+                <p class="form-subtitle">
+                  Enter your email address and we'll send you a link to reset
+                  your password
+                </p>
               </div>
 
               <!-- Error Message -->
@@ -103,7 +104,7 @@ const goBackToLogin = () => {
               </div>
 
               <!-- Reset Password Form -->
-              <form @submit.prevent="handleResetPassword" class="reset-form">
+              <form class="reset-form" @submit.prevent="handleResetPassword">
                 <div class="form-group">
                   <label for="email" class="form-label">
                     <i class="fas fa-envelope me-2"></i>Email Address
@@ -132,10 +133,6 @@ const goBackToLogin = () => {
               <div class="alternative-options">
                 <p class="text-center mb-3">Need more help?</p>
                 <div class="help-links">
-                  <router-link to="/register" class="help-link">
-                    <i class="fas fa-user-plus"></i>
-                    <span>Create New Account</span>
-                  </router-link>
                   <router-link to="/contact" class="help-link">
                     <i class="fas fa-headset"></i>
                     <span>Contact Support</span>
@@ -160,7 +157,9 @@ const goBackToLogin = () => {
               <div class="instructions">
                 <h4>What's Next?</h4>
                 <ol>
-                  <li>Check your email inbox for a message from Mind Growup Jr</li>
+                  <li>
+                    Check your email inbox for a message from Little Champ
+                  </li>
                   <li>Click the password reset link in the email</li>
                   <li>Create a new password for your account</li>
                   <li>Sign in with your new password</li>
@@ -174,12 +173,18 @@ const goBackToLogin = () => {
                   <li>Make sure you entered the correct email address</li>
                   <li>Wait a few minutes and check again</li>
                 </ul>
-                <button @click="emailSent = false; successMessage = ''" class="btn-secondary">
+                <button
+                  class="btn-secondary"
+                  @click="
+                    emailSent = false
+                    successMessage = ''
+                  "
+                >
                   <i class="fas fa-redo me-2"></i>Try Again
                 </button>
               </div>
 
-              <button @click="goBackToLogin" class="btn-submit mt-4">
+              <button class="btn-submit mt-4" @click="goBackToLogin">
                 <i class="fas fa-arrow-left me-2"></i>Back to Login
               </button>
             </div>
@@ -187,22 +192,22 @@ const goBackToLogin = () => {
             <!-- Security Note -->
             <div class="security-note">
               <i class="fas fa-shield-check"></i>
-              <p>Your security is our priority. We'll never ask for your password via email.</p>
+              <p>
+                Your security is our priority. We'll never ask for your password
+                via email.
+              </p>
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </template>
 
-
 <style scoped>
 .forgot-password-page {
   min-height: 100vh;
-  background: #F7F8FA;
+  background: #f7f8fa;
 }
 
 .forgot-password-container {
@@ -217,7 +222,7 @@ const goBackToLogin = () => {
 
 /* Left Side - Branding */
 .forgot-password-branding {
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #5ea750 100%);
   position: relative;
   overflow: hidden;
   padding: 60px;
@@ -232,7 +237,7 @@ const goBackToLogin = () => {
 }
 
 .gradient-text-light {
-  background: linear-gradient(135deg, #FFE5B4, #FFDAB9);
+  background: linear-gradient(135deg, #ffe5b4, #ffdab9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -254,7 +259,7 @@ const goBackToLogin = () => {
 
 .feature-item i {
   font-size: 28px;
-  color: #FFE5B4;
+  color: #ffe5b4;
   flex-shrink: 0;
   margin-top: 5px;
 }
@@ -314,9 +319,16 @@ const goBackToLogin = () => {
 }
 
 @keyframes float {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(30px, -30px) rotate(120deg); }
-  66% { transform: translate(-20px, 20px) rotate(240deg); }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
 }
 
 /* Right Side - Form */
@@ -336,7 +348,7 @@ const goBackToLogin = () => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #4A8B3F;
+  color: #4a8b3f;
   text-decoration: none;
   font-weight: 600;
   margin-bottom: 30px;
@@ -344,7 +356,7 @@ const goBackToLogin = () => {
 }
 
 .back-link:hover {
-  color: #3A7032;
+  color: #3a7032;
   gap: 12px;
 }
 
@@ -352,7 +364,7 @@ const goBackToLogin = () => {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
+  background: linear-gradient(135deg, #4a8b3f 0%, #5ea750 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -372,12 +384,12 @@ const goBackToLogin = () => {
 .form-title {
   font-size: 32px;
   font-weight: 800;
-  color: #2D3436;
+  color: #2d3436;
   margin-bottom: 10px;
 }
 
 .form-subtitle {
-  color: #636E72;
+  color: #636e72;
   font-size: 16px;
   line-height: 1.6;
 }
@@ -390,7 +402,7 @@ const goBackToLogin = () => {
 .form-label {
   display: block;
   margin-bottom: 8px;
-  color: #2D3436;
+  color: #2d3436;
   font-weight: 600;
   font-size: 14px;
   text-align: left;
@@ -399,7 +411,7 @@ const goBackToLogin = () => {
 .form-control {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   border-radius: 10px;
   font-size: 15px;
   transition: all 0.3s;
@@ -407,14 +419,14 @@ const goBackToLogin = () => {
 
 .form-control:focus {
   outline: none;
-  border-color: #4A8B3F;
+  border-color: #4a8b3f;
   box-shadow: 0 0 0 3px rgba(74, 139, 63, 0.1);
 }
 
 .btn-submit {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #4A8B3F, #5EA750);
+  background: linear-gradient(135deg, #4a8b3f, #5ea750);
   color: white;
   border: none;
   border-radius: 10px;
@@ -438,8 +450,8 @@ const goBackToLogin = () => {
 .btn-secondary {
   padding: 10px 20px;
   background: white;
-  color: #4A8B3F;
-  border: 2px solid #4A8B3F;
+  color: #4a8b3f;
+  border: 2px solid #4a8b3f;
   border-radius: 10px;
   font-weight: 600;
   font-size: 14px;
@@ -448,7 +460,7 @@ const goBackToLogin = () => {
 }
 
 .btn-secondary:hover {
-  background: #4A8B3F;
+  background: #4a8b3f;
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(74, 139, 63, 0.3);
@@ -461,26 +473,26 @@ const goBackToLogin = () => {
 }
 
 .alert-danger {
-  background: #FEE;
-  color: #C00;
-  border: 1px solid #FCC;
+  background: #fee;
+  color: #c00;
+  border: 1px solid #fcc;
 }
 
 .alert-success {
-  background: #E8F5E9;
-  color: #2E7D32;
-  border: 1px solid #A5D6A7;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
 }
 
 /* Alternative Options */
 .alternative-options {
   margin-top: 30px;
   padding-top: 30px;
-  border-top: 1px solid #E0E0E0;
+  border-top: 1px solid #e0e0e0;
 }
 
 .alternative-options p {
-  color: #636E72;
+  color: #636e72;
   font-weight: 600;
 }
 
@@ -496,24 +508,24 @@ const goBackToLogin = () => {
   align-items: center;
   gap: 8px;
   padding: 15px;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   border-radius: 10px;
   text-decoration: none;
-  color: #2D3436;
+  color: #2d3436;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s;
 }
 
 .help-link:hover {
-  border-color: #4A8B3F;
-  background: #F7F8FA;
+  border-color: #4a8b3f;
+  background: #f7f8fa;
   transform: translateY(-2px);
 }
 
 .help-link i {
   font-size: 24px;
-  color: #4A8B3F;
+  color: #4a8b3f;
 }
 
 /* Success State */
@@ -525,7 +537,7 @@ const goBackToLogin = () => {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00D2A0, #00B894);
+  background: linear-gradient(135deg, #00d2a0, #00b894);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -550,13 +562,13 @@ const goBackToLogin = () => {
 .success-title {
   font-size: 28px;
   font-weight: 800;
-  color: #2D3436;
+  color: #2d3436;
   margin-bottom: 20px;
 }
 
 .instructions {
   text-align: left;
-  background: #F7F8FA;
+  background: #f7f8fa;
   padding: 20px;
   border-radius: 10px;
   margin: 25px 0;
@@ -565,7 +577,7 @@ const goBackToLogin = () => {
 .instructions h4 {
   font-size: 18px;
   font-weight: 700;
-  color: #2D3436;
+  color: #2d3436;
   margin-bottom: 15px;
 }
 
@@ -575,22 +587,22 @@ const goBackToLogin = () => {
 }
 
 .instructions li {
-  color: #636E72;
+  color: #636e72;
   margin-bottom: 10px;
   line-height: 1.6;
 }
 
 .additional-help {
   text-align: left;
-  background: #FFF9E6;
+  background: #fff9e6;
   padding: 20px;
   border-radius: 10px;
   margin: 25px 0;
-  border: 1px solid #FFE5B4;
+  border: 1px solid #ffe5b4;
 }
 
 .additional-help p {
-  color: #2D3436;
+  color: #2d3436;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -601,7 +613,7 @@ const goBackToLogin = () => {
 }
 
 .additional-help li {
-  color: #636E72;
+  color: #636e72;
   margin-bottom: 8px;
   line-height: 1.5;
 }
@@ -611,23 +623,23 @@ const goBackToLogin = () => {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  background: #F7F8FA;
+  background: #f7f8fa;
   padding: 15px;
   border-radius: 10px;
   margin-top: 30px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
 }
 
 .security-note i {
   font-size: 20px;
-  color: #00D2A0;
+  color: #00d2a0;
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .security-note p {
   margin: 0;
-  color: #636E72;
+  color: #636e72;
   font-size: 13px;
   line-height: 1.5;
 }

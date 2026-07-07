@@ -175,7 +175,7 @@ const resetForm = () => {
           </h1>
 
           <p class="reg-hero-description">
-            Partner with Mind Growup Jr. to support children's growth and
+            Partner with Little Champ to support children's growth and
             well-being. Register below and upload your documents to get started!
           </p>
         </div>
@@ -198,7 +198,7 @@ const resetForm = () => {
     eyebrow-icon="fas fa-stethoscope"
     title-lead="Three Ways You'll"
     title-accent="Care for Families"
-    subtitle="Before you register, here's what being a Mind Growup Jr. partner doctor looks like."
+    subtitle="Before you register, here's what being a Little Champ partner doctor looks like."
     :cards="doctorInfoCards"
   />
 

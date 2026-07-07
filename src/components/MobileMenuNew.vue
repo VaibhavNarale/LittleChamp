@@ -69,14 +69,6 @@ const handleLinkClick = () => {
           <i class="fas fa-sign-in-alt"></i>
           <span>Login</span>
         </router-link>
-        <router-link
-          to="/register"
-          class="auth-btn signup-btn"
-          @click="handleLinkClick"
-        >
-          <i class="fas fa-rocket"></i>
-          <span>Book Free AI Strategy Call</span>
-        </router-link>
       </template>
       <template v-else>
         <div class="user-info">
@@ -149,12 +141,6 @@ const handleLinkClick = () => {
         </li>
 
         <li>
-          <router-link to="/pricing" @click="handleLinkClick"
-            >Pricing</router-link
-          >
-        </li>
-
-        <li>
           <button
             type="button"
             class="menu-toggle"
@@ -180,32 +166,6 @@ const handleLinkClick = () => {
             <li>
               <router-link to="/for-schools" @click="handleLinkClick"
                 >For Schools</router-link
-              >
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <button
-            type="button"
-            class="menu-toggle"
-            @click="toggleSubmenu('register')"
-          >
-            <span>Register</span>
-            <i
-              class="fas fa-chevron-down"
-              :class="{ rotate: activeSubmenu === 'register' }"
-            ></i>
-          </button>
-          <ul v-show="activeSubmenu === 'register'" class="submenu">
-            <li>
-              <router-link to="/doctor-registration" @click="handleLinkClick"
-                >Doctor Registration</router-link
-              >
-            </li>
-            <li>
-              <router-link to="/playgroup-registration" @click="handleLinkClick"
-                >Playgroup Registration</router-link
               >
             </li>
           </ul>

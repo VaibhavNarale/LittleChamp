@@ -95,7 +95,7 @@ const handleLogin = async () => {
         <!-- Left Side - Branding -->
         <AuthLayout
           title="Welcome Back to"
-          subtitle="Mind Growup Jr!"
+          subtitle="Little Champ!"
           description="Continue your child's learning journey with 500+ interactive games and activities."
           :features="[]"
           :hide-stats="true"
@@ -112,7 +112,7 @@ const handleLogin = async () => {
 
             <div class="form-header">
               <h2 class="form-title">Sign In</h2>
-              <p class="form-subtitle">Access your Mind Growup Jr account</p>
+              <p class="form-subtitle">Access your Little Champ account</p>
             </div>
 
             <!-- Social Login Buttons -->
@@ -185,16 +185,6 @@ const handleLogin = async () => {
                 </span>
               </button>
             </form>
-
-            <!-- Sign Up Link -->
-            <div class="signup-link">
-              <p>
-                Don't have an account?
-                <router-link to="/register" class="signup-cta"
-                  >Start Free Trial</router-link
-                >
-              </p>
-            </div>
 
             <!-- Teacher Sign Up -->
             <div class="teacher-banner">

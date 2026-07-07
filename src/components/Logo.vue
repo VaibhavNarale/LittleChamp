@@ -1,97 +1,81 @@
 <script setup>
-import newLogo from '@/assets/new-logo.png'
+import logoUrl from '@/assets/little-champ-logo.png'
 
+// Props kept for API compatibility with existing callers.
+// The logo image is full-colour and reads on both light and dark
+// backgrounds, so `variant` no longer changes the artwork.
 defineProps({
   variant: {
     type: String,
-    default: 'default', // 'default' or 'white'
+    default: 'default',
   },
   size: {
     type: String,
     default: 'medium', // 'small', 'medium', 'large'
-  }
+  },
 })
 
 const sizeClasses = {
   small: 'logo-small',
   medium: 'logo-medium',
-  large: 'logo-large'
+  large: 'logo-large',
 }
 </script>
 
 <template>
-  <div class="mind-jr-logo" :class="[sizeClasses[size], `logo-${variant}`]">
-    <div class="logo-container">
-      <img :src="newLogo" alt="Mind Growup Jr Logo" class="logo-image">
-    </div>
-  </div>
+  <img
+    :src="logoUrl"
+    class="kg-logo"
+    :class="sizeClasses[size]"
+    alt="Little Champ"
+    decoding="async"
+  />
 </template>
 
 <style scoped>
-.mind-jr-logo {
-  display: inline-flex;
-  align-items: center;
+.kg-logo {
+  display: inline-block;
+  width: auto;
+  object-fit: contain;
   cursor: pointer;
   transition: transform 0.3s ease;
+  vertical-align: middle;
 }
 
-.mind-jr-logo:hover {
-  transform: scale(1.05);
+.kg-logo:hover {
+  transform: scale(1.04);
 }
 
-/* Logo Container */
-.logo-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Height drives the lockup; width follows the ~2.2:1 aspect ratio. */
+.logo-small {
+  height: 50px;
 }
-
-.logo-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
+.logo-medium {
+  height: 74px;
 }
-
-/* Size Variations */
-.logo-small .logo-container {
-  height: 200px;
-  width: auto;
-}
-
-.logo-medium .logo-container {
-  height: 260px;
-  width: auto;
-}
-
-.logo-large .logo-container {
-  height: 320px;
-  width: auto;
+.logo-large {
+  height: 84px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .logo-medium .logo-container {
-    height: 200px;
+  .logo-medium {
+    height: 62px;
   }
-
-  .logo-large .logo-container {
-    height: 240px;
+  .logo-large {
+    height: 66px;
   }
 }
 
 @media (max-width: 480px) {
-  .logo-small .logo-container {
-    height: 150px;
+  .logo-small {
+    height: 44px;
   }
-
-  .logo-medium .logo-container {
-    height: 170px;
+  .logo-medium {
+    height: 54px;
   }
-
-  .logo-large .logo-container {
-    height: 200px;
+  .logo-large {
+    height: 56px;
   }
 }
 </style>

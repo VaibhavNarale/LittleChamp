@@ -4,7 +4,7 @@ import api from '@/utils/api'
 import botAvatar from '@/assets/ai-robot-icon.png'
 
 /* ------------------------------------------------------------------
-   Mind Growup Jr. — Floating AI Chat Widget ("Growie")
+   Little Champ — Floating AI Chat Widget ("Growie")
    ------------------------------------------------------------------
    Replies come from a built-in contextual fallback so the bot works
    out of the box. When the backend AI endpoint is ready, set
@@ -14,7 +14,7 @@ import botAvatar from '@/assets/ai-robot-icon.png'
 const USE_AI_BACKEND = false
 
 const WELCOME =
-  "Hi there! 👋 I'm Growie, your Mind Growup Jr. helper. Ask me about our subjects, pricing, free trial, or how to register — I'm happy to help!"
+  "Hi there! 👋 I'm Growie, your Little Champ helper. Ask me about our subjects, pricing, free trial, or how to register — I'm happy to help!"
 
 const SUGGESTIONS = [
   'What subjects do you teach?',
@@ -196,11 +196,11 @@ function localReply(text) {
   if (has('register', 'registration', 'join', 'enroll'))
     return 'You can register as a Parent, Doctor, or Playgroup. Look for the “Register” menu at the top — which one are you interested in?'
   if (has('feature', 'what do you', 'how it works', 'about'))
-    return 'Mind Growup Jr offers 500+ interactive games, adaptive learning, progress reports, a parent dashboard, and a 100% safe, ad-free space. See the Features page for the full list! ⭐'
+    return 'Little Champ offers 500+ interactive games, adaptive learning, progress reports, a parent dashboard, and a 100% safe, ad-free space. See the Features page for the full list! ⭐'
   if (has('screen time', 'screen', 'how long', 'hours'))
     return 'For ages 5–10 we suggest short, focused sessions of about 20–30 minutes, a few times a week. Our games are built in fun, rewarding bursts. 🌳'
   if (has('contact', 'phone', 'call', 'email', 'whatsapp', 'reach', 'talk to'))
-    return 'You can reach our team at 📞 +91 98217 49524 or ✉️ Info@mindgrowupjr.com. The Contact page also has a quick message form and WhatsApp link!'
+    return 'You can reach our team at 📞 +91 98217 49524 or ✉️ Info@kindergarden.com. The Contact page also has a quick message form and WhatsApp link!'
   if (has('thank', 'thanks', 'great', 'awesome', 'ok', 'okay'))
     return 'You’re most welcome! 😊 Is there anything else I can help you with?'
   return 'Great question! I can help with our subjects, pricing, free trial, registration (parent / doctor / playgroup), or contacting our team. Could you tell me a little more about what you need?'
@@ -220,7 +220,7 @@ function localReply(text) {
           </div>
           <div class="cw-head-info">
             <h4>Growie</h4>
-            <p><span class="cw-dot"></span> Mind Growup Jr. Helper</p>
+            <p><span class="cw-dot"></span> Little Champ Helper</p>
           </div>
           <button class="cw-close" aria-label="Close chat" @click="toggleOpen">
             <i class="fas fa-chevron-down"></i>
@@ -285,7 +285,7 @@ function localReply(text) {
           </button>
         </form>
 
-        <p class="cw-footer">Powered by Mind Growup Jr. AI</p>
+        <p class="cw-footer">Powered by Little Champ AI</p>
       </div>
     </transition>
 

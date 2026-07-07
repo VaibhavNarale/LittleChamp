@@ -12,16 +12,16 @@ const vuetify = createVuetify({
     themes: {
       light: {
         colors: {
-          // Mind Growup Jr Brand Colors - Matched to Logo
-          primary: '#4A8B3F',      // Green - "Mind" from logo
-          secondary: '#E91E8C',    // Pink - "JR." from logo
-          accent: '#1B1464',       // Navy - "GROWUP" from logo
+          // Little Champ Brand Colors - Matched to Logo
+          primary: '#4A8B3F', // Green - "Kinder" in logo
+          secondary: '#E91E8C', // Pink - "Garden" in logo
+          accent: '#1B1464', // Navy - seed accent in logo
 
           // Subject Colors
-          math: '#6C5CE7',         // Purple for Math
-          reading: '#FD79A8',      // Pink for Reading
-          science: '#00B894',      // Green for Science
-          earlySkills: '#FFB800',  // Yellow for Early Skills
+          math: '#6C5CE7', // Purple for Math
+          reading: '#FD79A8', // Pink for Reading
+          science: '#00B894', // Green for Science
+          earlySkills: '#FFB800', // Yellow for Early Skills
 
           // Status Colors
           error: '#FF6B6B',

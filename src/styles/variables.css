@@ -1,40 +1,45 @@
-/* Mind Growup Jr CSS Variables */
+/* Little Champ CSS Variables */
 :root {
   /* Primary Brand Colors - Matched to Logo */
-  --primary: #4A8B3F;
-  --primary-light: #5EA750;
-  --primary-dark: #3A7032;
-  --secondary: #E91E8C;
-  --secondary-light: #F04DA3;
-  --accent: #1B1464;
+  --primary: #4a8b3f;
+  --primary-light: #5ea750;
+  --primary-dark: #3a7032;
+  --secondary: #e91e8c;
+  --secondary-light: #f04da3;
+  --accent: #1b1464;
 
   /* Override template theme colors to match logo */
-  --theme-color: #4A8B3F;
-  --secondary-color: #3A7032;
-  --blue-color: #1B1464;
+  --theme-color: #4a8b3f;
+  --secondary-color: #3a7032;
+  --blue-color: #1b1464;
 
   /* Subject Colors */
-  --math: #6C5CE7;
-  --reading: #FD79A8;
-  --science: #00B894;
-  --early-skills: #FFB800;
+  --math: #6c5ce7;
+  --reading: #fd79a8;
+  --science: #00b894;
+  --early-skills: #ffb800;
 
   /* Neutral Colors */
-  --dark: #2D3436;
-  --gray: #636E72;
-  --light-gray: #F5F6FA;
-  --white: #FFFFFF;
+  --dark: #2d3436;
+  --gray: #636e72;
+  --light-gray: #f5f6fa;
+  --white: #ffffff;
 
   /* Status Colors */
-  --success: #00D2A0;
-  --warning: #FFB800;
-  --error: #FF6B6B;
-  --info: #4A8B3F;
+  --success: #00d2a0;
+  --warning: #ffb800;
+  --error: #ff6b6b;
+  --info: #4a8b3f;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #4A8B3F 0%, #5EA750 100%);
-  --gradient-secondary: linear-gradient(135deg, #E91E8C 0%, #F04DA3 100%);
-  --gradient-hero: linear-gradient(135deg, #4A8B3F 0%, #E91E8C 50%, #1B1464 100%);
+  --gradient-primary: linear-gradient(135deg, #4a8b3f 0%, #5ea750 100%);
+  --gradient-secondary: linear-gradient(135deg, #e91e8c 0%, #f04da3 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    #4a8b3f 0%,
+    #e91e8c 50%,
+    #1b1464 100%
+  );
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -62,7 +67,7 @@
 
 /* Utility Classes */
 .gradient-text {
-  background: linear-gradient(135deg, #E91E8C 0%, #F04DA3 100%);
+  background: linear-gradient(135deg, #e91e8c 0%, #f04da3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -144,7 +149,8 @@
 
 /* Animations */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {

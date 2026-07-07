@@ -17,11 +17,10 @@ const showPreloader = ref(true)
 const showSideMenu = ref(false)
 const showMobileMenu = ref(false)
 
-// Hide header/footer on auth pages (login, register, forgot-password)
+// Hide header/footer on auth pages (login, forgot-password)
 const hideNavigation = computed(() => {
   return (
     route.path === '/login' ||
-    route.path === '/register' ||
     route.path === '/forgot-password' ||
     route.path === '/auth/callback'
   )

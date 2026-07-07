@@ -711,10 +711,6 @@ onBeforeUnmount(() => {
           Join Indian kids learning through play
         </p>
       </div>
-      <router-link to="/pricing" class="vs-btn wave-btn">
-        View Pricing Plans
-        <i class="fas fa-arrow-right ms-2"></i>
-      </router-link>
     </div>
     <div class="section-before style-2">
       <img src="/assets/img/shape/main-shape-before.png" alt="shape" />

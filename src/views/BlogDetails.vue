@@ -327,7 +327,7 @@ watch(
               <p class="author-bio">
                 {{
                   post.author.bio ||
-                  'Content creator at Mind Growup Jr, passionate about helping children learn and grow through engaging educational content.'
+                  'Content creator at Little Champ, passionate about helping children learn and grow through engaging educational content.'
                 }}
               </p>
             </div>
@@ -454,21 +454,6 @@ watch(
                 <span v-for="tag in post.tags" :key="tag" class="sw-tag"
                   >#{{ tag }}</span
                 >
-              </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="sidebar-widget cta-widget">
-              <div class="cta-card">
-                <div class="cta-pattern"></div>
-                <div class="cta-inner">
-                  <div class="cta-emoji">&#x1F680;</div>
-                  <h3>Start Learning Today!</h3>
-                  <p>Join Indian kids exploring 500+ interactive games</p>
-                  <router-link to="/pricing" class="cta-btn">
-                    Try Free Trial <i class="fas fa-arrow-right"></i>
-                  </router-link>
-                </div>
               </div>
             </div>
           </aside>

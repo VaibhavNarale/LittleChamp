@@ -402,7 +402,7 @@ onBeforeUnmount(() => {
             data-wow-delay="0.1s"
           >
             <span class="sub-title">Testimonial</span>
-            <h2 class="sec-title">Parent Say About Knirpse</h2>
+            <h2 class="sec-title">Parent Say About Little Champ</h2>
           </div>
           <div class="rating-box">
             <h2 class="number h1">4.7</h2>

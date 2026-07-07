@@ -50,7 +50,7 @@ onBeforeUnmount(() => {
           <!-- Hero Badge -->
           <div class="hero-badge">
             <i class="fas fa-star"></i>
-            <span>Why Choose Mind Growup Jr</span>
+            <span>Why Choose Little Champ</span>
           </div>
 
           <!-- Hero Title -->
@@ -61,8 +61,8 @@ onBeforeUnmount(() => {
 
           <!-- Hero Description -->
           <p class="features-hero-description">
-            Discover the powerful features that make Mind Growup Jr the #1
-            choice for Indian kids and 100+ teachers worldwide
+            Discover the powerful features that make Little Champ the #1 choice
+            for Indian kids and 100+ teachers worldwide
           </p>
         </div>
       </div>
@@ -486,7 +486,7 @@ onBeforeUnmount(() => {
               <span class="gradient-text">Top Priority</span>
             </h2>
             <p class="mb-4">
-              We take privacy and security seriously. Mind Growup Jr is fully
+              We take privacy and security seriously. Little Champ is fully
               compliant with all major children's privacy regulations.
             </p>
           </div>
@@ -579,15 +579,6 @@ onBeforeUnmount(() => {
         <p class="text-white fs-md mt-3">
           All payments required • Access all features
         </p>
-      </div>
-      <div class="d-flex gap-3 justify-content-center flex-wrap">
-        <a href="/register" class="vs-btn wave-btn">
-          Start Free Trial
-          <i class="fas fa-arrow-right ms-2"></i>
-        </a>
-        <router-link to="/pricing" class="vs-btn style4">
-          View Pricing
-        </router-link>
       </div>
     </div>
     <div class="section-before style-2">
