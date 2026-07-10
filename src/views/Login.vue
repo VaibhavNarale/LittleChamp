@@ -1,11 +1,13 @@
 <script setup>
 import { ref, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { useAuthStore } from '@/stores/auth'
 import AuthLayout from '@/components/AuthLayout.vue'
 import SocialLoginButtons from '@/components/SocialLoginButtons.vue'
 
 const router = useRouter()
+const { t } = useI18n()
 const authStore = useAuthStore()
 
 // Audio
@@ -49,7 +51,7 @@ const handleLogin = async () => {
   errorMessage.value = ''
 
   if (!email.value || !password.value) {
-    errorMessage.value = 'Please fill in all fields'
+    errorMessage.value = t('login.errors.fillAllFields')
     return
   }
 
@@ -66,10 +68,12 @@ const handleLogin = async () => {
       router.push('/')
     } else {
       errorMessage.value =
-        result.error?.['sub-title'] || result.error?.message || 'Login failed'
+        result.error?.['sub-title'] ||
+        result.error?.message ||
+        t('login.errors.loginFailed')
     }
   } catch (err) {
-    errorMessage.value = err.message || 'An error occurred during login'
+    errorMessage.value = err.message || t('login.errors.generic')
   } finally {
     loading.value = false
   }
@@ -94,9 +98,9 @@ const handleLogin = async () => {
       <div class="row g-0 h-100">
         <!-- Left Side - Branding -->
         <AuthLayout
-          title="Welcome Back to"
-          subtitle="Little Champ!"
-          description="Continue your child's learning journey with 500+ interactive games and activities."
+          :title="$t('login.branding.title')"
+          :subtitle="$t('login.branding.subtitle')"
+          :description="$t('login.branding.description')"
           :features="[]"
           :hide-stats="true"
         />
@@ -107,12 +111,12 @@ const handleLogin = async () => {
             <!-- Back to Home Link -->
             <router-link to="/" class="back-link">
               <i class="fas fa-arrow-left"></i>
-              <span>Back to Home</span>
+              <span>{{ $t('common.backToHome') }}</span>
             </router-link>
 
             <div class="form-header">
-              <h2 class="form-title">Sign In</h2>
-              <p class="form-subtitle">Access your Little Champ account</p>
+              <h2 class="form-title">{{ $t('login.form.title') }}</h2>
+              <p class="form-subtitle">{{ $t('login.form.subtitle') }}</p>
             </div>
 
             <!-- Social Login Buttons -->
@@ -128,21 +132,23 @@ const handleLogin = async () => {
             <form class="login-form" @submit.prevent="handleLogin">
               <div class="form-group">
                 <label for="email" class="form-label">
-                  <i class="fas fa-envelope me-2"></i>Email Address
+                  <i class="fas fa-envelope me-2"></i
+                  >{{ $t('login.form.emailLabel') }}
                 </label>
                 <input
                   id="email"
                   v-model="email"
                   type="email"
                   class="form-control"
-                  placeholder="Enter your email"
+                  :placeholder="$t('login.form.emailPlaceholder')"
                   required
                 />
               </div>
 
               <div class="form-group">
                 <label for="password" class="form-label">
-                  <i class="fas fa-lock me-2"></i>Password
+                  <i class="fas fa-lock me-2"></i
+                  >{{ $t('login.form.passwordLabel') }}
                 </label>
                 <div class="password-input-wrapper">
                   <input
@@ -150,7 +156,7 @@ const handleLogin = async () => {
                     v-model="password"
                     :type="showPassword ? 'text' : 'password'"
                     class="form-control"
-                    placeholder="Enter your password"
+                    :placeholder="$t('login.form.passwordPlaceholder')"
                     required
                   />
                   <button
@@ -169,19 +175,23 @@ const handleLogin = async () => {
                 <label class="custom-checkbox">
                   <input v-model="rememberMe" type="checkbox" />
                   <span class="checkmark"></span>
-                  <span class="checkbox-label">Remember me</span>
+                  <span class="checkbox-label">{{
+                    $t('login.form.rememberMe')
+                  }}</span>
                 </label>
                 <router-link to="/forgot-password" class="forgot-link">
-                  Forgot Password?
+                  {{ $t('login.form.forgotPassword') }}
                 </router-link>
               </div>
 
               <button type="submit" class="btn-submit" :disabled="loading">
                 <span v-if="!loading">
-                  <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                  <i class="fas fa-sign-in-alt me-2"></i
+                  >{{ $t('login.form.signIn') }}
                 </span>
                 <span v-else>
-                  <i class="fas fa-spinner fa-spin me-2"></i>Signing In...
+                  <i class="fas fa-spinner fa-spin me-2"></i
+                  >{{ $t('login.form.signingIn') }}
                 </span>
               </button>
             </form>
@@ -190,12 +200,12 @@ const handleLogin = async () => {
             <div class="teacher-banner">
               <i class="fas fa-graduation-cap"></i>
               <div>
-                <strong>Are you a teacher?</strong>
-                <p>Get a free account with premium features!</p>
+                <strong>{{ $t('login.teacher.question') }}</strong>
+                <p>{{ $t('login.teacher.description') }}</p>
               </div>
-              <router-link to="/for-teachers" class="teacher-btn"
-                >Learn More</router-link
-              >
+              <router-link to="/for-teachers" class="teacher-btn">{{
+                $t('common.learnMore')
+              }}</router-link>
             </div>
           </div>
         </div>

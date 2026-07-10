@@ -1,0 +1,11 @@
+{
+  "defaultHint": "PNG, JPG or PDF — up to 5 MB",
+  "clickToUpload": "Click to upload",
+  "orDragDrop": "or drag & drop",
+  "uploaded": "Uploaded",
+  "removeFile": "Remove file",
+  "errors": {
+    "tooBig": "Oops! File is too big. Please keep it under {max} MB.",
+    "invalidType": "Please upload a {types} file."
+  }
+}

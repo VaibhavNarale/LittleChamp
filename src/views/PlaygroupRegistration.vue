@@ -1,33 +1,36 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import api from '@/utils/api'
 import DocumentUploadBox from '@/components/DocumentUploadBox.vue'
 import RegistrationInfo from '@/components/RegistrationInfo.vue'
 
+const { t } = useI18n()
+
 // "What joining brings to your playgroup" — shown above the form
-const playgroupInfoCards = [
+const playgroupInfoCards = computed(() => [
   {
     variant: 'pink',
     icon: 'fas fa-gamepad',
-    step: '500+ Games',
-    title: 'Playful Learning',
-    text: 'Little learners explore Maths, reading and craft through joyful, age-appropriate games they love.',
+    step: t('registrationInfo.playgroup.cards.games.step'),
+    title: t('registrationInfo.playgroup.cards.games.title'),
+    text: t('registrationInfo.playgroup.cards.games.text'),
   },
   {
     variant: 'amber',
     icon: 'fas fa-chart-line',
-    step: 'Stay In The Loop',
-    title: 'Parent Updates',
-    text: 'Parents receive regular progress updates, so every little milestone gets celebrated together.',
+    step: t('registrationInfo.playgroup.cards.updates.step'),
+    title: t('registrationInfo.playgroup.cards.updates.title'),
+    text: t('registrationInfo.playgroup.cards.updates.text'),
   },
   {
     variant: 'navy',
     icon: 'fas fa-shield-alt',
-    step: '100% Safe',
-    title: 'Safe & Guided',
-    text: 'An ad-free, monitored space with teacher dashboards to gently guide every child through the day.',
+    step: t('registrationInfo.playgroup.cards.safe.step'),
+    title: t('registrationInfo.playgroup.cards.safe.title'),
+    text: t('registrationInfo.playgroup.cards.safe.text'),
   },
-]
+])
 
 // Form fields
 const form = ref({
@@ -53,14 +56,29 @@ const loading = ref(false)
 const errorMessage = ref('')
 const successMessage = ref('')
 
-const playgroupTypes = [
-  'Playgroup',
-  'Pre-Nursery',
-  'Nursery',
-  'LKG / UKG',
-  'Daycare / Crèche',
-  'Other',
-]
+const playgroupTypes = computed(() => [
+  {
+    value: 'Playgroup',
+    label: t('playgroupRegistration.playgroupTypes.playgroup'),
+  },
+  {
+    value: 'Pre-Nursery',
+    label: t('playgroupRegistration.playgroupTypes.preNursery'),
+  },
+  {
+    value: 'Nursery',
+    label: t('playgroupRegistration.playgroupTypes.nursery'),
+  },
+  {
+    value: 'LKG / UKG',
+    label: t('playgroupRegistration.playgroupTypes.lkgUkg'),
+  },
+  {
+    value: 'Daycare / Crèche',
+    label: t('playgroupRegistration.playgroupTypes.daycare'),
+  },
+  { value: 'Other', label: t('playgroupRegistration.playgroupTypes.other') },
+])
 
 const handleSubmit = async () => {
   errorMessage.value = ''
@@ -73,23 +91,22 @@ const handleSubmit = async () => {
     !form.value.phone ||
     !form.value.playgroupType
   ) {
-    errorMessage.value = 'Please fill in all the required fields.'
+    errorMessage.value = t('playgroupRegistration.messages.requiredFields')
     return
   }
 
   if (!identityProof.value) {
-    errorMessage.value = "Please upload the authorized person's Identity Proof."
+    errorMessage.value = t('playgroupRegistration.messages.uploadIdentity')
     return
   }
 
   if (!registrationDoc.value) {
-    errorMessage.value =
-      'Please upload the Playgroup Registration / License Document.'
+    errorMessage.value = t('playgroupRegistration.messages.uploadRegistration')
     return
   }
 
   if (!agreeTerms.value) {
-    errorMessage.value = 'Please agree to the Terms of Service to continue.'
+    errorMessage.value = t('playgroupRegistration.messages.agreeTerms')
     return
   }
 
@@ -115,14 +132,13 @@ const handleSubmit = async () => {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
 
-    successMessage.value =
-      'Thank you! Your playgroup registration has been submitted. Our team will verify your documents and reach out soon. 🎉'
+    successMessage.value = t('playgroupRegistration.messages.success')
     resetForm()
   } catch (err) {
     errorMessage.value =
       err.response?.data?.message ||
       err.response?.data?.['sub-title'] ||
-      'Something went wrong while submitting. Please try again.'
+      t('playgroupRegistration.messages.error')
   } finally {
     loading.value = false
   }
@@ -163,25 +179,29 @@ const resetForm = () => {
       <div class="container">
         <div class="reg-hero-content">
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('playgroupRegistration.hero.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Playgroup Registration</span>
+            <span class="breadcrumb-current">{{
+              $t('playgroupRegistration.hero.breadcrumb')
+            }}</span>
           </nav>
 
           <div class="hero-badge">
             <i class="fas fa-child"></i>
-            <span>For Playgroups &amp; Pre-Schools</span>
+            <span>{{ $t('playgroupRegistration.hero.badge') }}</span>
           </div>
 
           <h1 class="reg-hero-title">
-            Bring Joyful Learning to
-            <span class="gradient-text-light d-block">Your Little Ones</span>
+            {{ $t('playgroupRegistration.hero.titleLead') }}
+            <span class="gradient-text-light d-block">{{
+              $t('playgroupRegistration.hero.titleAccent')
+            }}</span>
           </h1>
 
           <p class="reg-hero-description">
-            Register your playgroup with Little Champ and give every little
-            learner access to interactive, gamified fun. Upload your documents
-            to begin!
+            {{ $t('playgroupRegistration.hero.description') }}
           </p>
         </div>
       </div>
@@ -199,11 +219,11 @@ const resetForm = () => {
 
   <!--======== How the Program Works ========-->
   <RegistrationInfo
-    eyebrow="How Our Playgroup Program Works"
+    :eyebrow="$t('registrationInfo.playgroup.eyebrow')"
     eyebrow-icon="fas fa-child"
-    title-lead="Everything Your Little Ones"
-    title-accent="Need to Thrive"
-    subtitle="Before you register, here's what joining Little Champ brings to your playgroup."
+    :title-lead="$t('registrationInfo.playgroup.titleLead')"
+    :title-accent="$t('registrationInfo.playgroup.titleAccent')"
+    :subtitle="$t('registrationInfo.playgroup.subtitle')"
     theme="pink"
     :cards="playgroupInfoCards"
   />
@@ -219,23 +239,31 @@ const resetForm = () => {
               <div class="panel-mascot">
                 <i class="fas fa-child"></i>
               </div>
-              <h2 class="panel-title">Register Your<br />Playgroup</h2>
+              <h2 class="panel-title">
+                {{ $t('playgroupRegistration.panel.title1') }}<br />{{
+                  $t('playgroupRegistration.panel.title2')
+                }}
+              </h2>
               <p class="panel-desc">
-                Join a growing community of playgroups making early learning
-                playful and effective.
+                {{ $t('playgroupRegistration.panel.desc') }}
               </p>
 
               <ul class="panel-perks">
                 <li>
-                  <i class="fas fa-gamepad"></i> 500+ interactive learning games
+                  <i class="fas fa-gamepad"></i>
+                  {{ $t('playgroupRegistration.panel.perks.games') }}
                 </li>
                 <li>
-                  <i class="fas fa-chart-line"></i> Teacher &amp; class
-                  dashboards
+                  <i class="fas fa-chart-line"></i>
+                  {{ $t('playgroupRegistration.panel.perks.dashboards') }}
                 </li>
-                <li><i class="fas fa-award"></i> Age-appropriate content</li>
                 <li>
-                  <i class="fas fa-headset"></i> Dedicated support manager
+                  <i class="fas fa-award"></i>
+                  {{ $t('playgroupRegistration.panel.perks.content') }}
+                </li>
+                <li>
+                  <i class="fas fa-headset"></i>
+                  {{ $t('playgroupRegistration.panel.perks.support') }}
                 </li>
               </ul>
 
@@ -247,9 +275,13 @@ const resetForm = () => {
           <!-- Right Form Panel -->
           <div class="col-lg-7">
             <div class="reg-form-panel">
-              <h2 class="form-panel-title">Playgroup Registration Form</h2>
+              <h2 class="form-panel-title">
+                {{ $t('playgroupRegistration.form.title') }}
+              </h2>
               <p class="form-panel-desc">
-                Fields marked with <span class="req-star">*</span> are required.
+                {{ $t('playgroupRegistration.form.requiredBefore') }}
+                <span class="req-star">*</span>
+                {{ $t('playgroupRegistration.form.requiredAfter') }}
               </p>
 
               <div v-if="successMessage" class="alert alert-success">
@@ -263,114 +295,167 @@ const resetForm = () => {
                 <div class="row g-3">
                   <div class="col-12">
                     <label class="field-label"
-                      >Playgroup Name <span class="req-star">*</span></label
+                      >{{ $t('playgroupRegistration.fields.playgroupName') }}
+                      <span class="req-star">*</span></label
                     >
                     <input
                       v-model="form.playgroupName"
                       type="text"
                       class="field-input"
-                      placeholder="Little Stars Playgroup"
+                      :placeholder="
+                        $t(
+                          'playgroupRegistration.fields.playgroupNamePlaceholder'
+                        )
+                      "
                     />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label"
-                      >Contact Person <span class="req-star">*</span></label
+                      >{{ $t('playgroupRegistration.fields.contactPerson') }}
+                      <span class="req-star">*</span></label
                     >
                     <input
                       v-model="form.contactPerson"
                       type="text"
                       class="field-input"
-                      placeholder="Principal / Coordinator name"
+                      :placeholder="
+                        $t(
+                          'playgroupRegistration.fields.contactPersonPlaceholder'
+                        )
+                      "
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label">Designation</label>
+                    <label class="field-label">{{
+                      $t('playgroupRegistration.fields.designation')
+                    }}</label>
                     <input
                       v-model="form.designation"
                       type="text"
                       class="field-input"
-                      placeholder="e.g. Principal"
+                      :placeholder="
+                        $t(
+                          'playgroupRegistration.fields.designationPlaceholder'
+                        )
+                      "
                     />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label"
-                      >Email Address <span class="req-star">*</span></label
+                      >{{ $t('playgroupRegistration.fields.email') }}
+                      <span class="req-star">*</span></label
                     >
                     <input
                       v-model="form.email"
                       type="email"
                       class="field-input"
-                      placeholder="playgroup@example.com"
+                      :placeholder="
+                        $t('playgroupRegistration.fields.emailPlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label"
-                      >Phone Number <span class="req-star">*</span></label
+                      >{{ $t('playgroupRegistration.fields.phone') }}
+                      <span class="req-star">*</span></label
                     >
                     <input
                       v-model="form.phone"
                       type="tel"
                       class="field-input"
-                      placeholder="+91 00000 00000"
+                      :placeholder="
+                        $t('playgroupRegistration.fields.phonePlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label"
-                      >Playgroup Type <span class="req-star">*</span></label
+                      >{{ $t('playgroupRegistration.fields.playgroupType') }}
+                      <span class="req-star">*</span></label
                     >
                     <select v-model="form.playgroupType" class="field-input">
-                      <option value="" disabled>Select type</option>
-                      <option v-for="t in playgroupTypes" :key="t" :value="t">
-                        {{ t }}
+                      <option value="" disabled>
+                        {{
+                          $t(
+                            'playgroupRegistration.fields.playgroupTypePlaceholder'
+                          )
+                        }}
+                      </option>
+                      <option
+                        v-for="pt in playgroupTypes"
+                        :key="pt.value"
+                        :value="pt.value"
+                      >
+                        {{ pt.label }}
                       </option>
                     </select>
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label"
-                      >Registration / License No.</label
-                    >
+                    <label class="field-label">{{
+                      $t('playgroupRegistration.fields.registrationNumber')
+                    }}</label>
                     <input
                       v-model="form.registrationNumber"
                       type="text"
                       class="field-input"
-                      placeholder="e.g. REG-123456"
+                      :placeholder="
+                        $t(
+                          'playgroupRegistration.fields.registrationNumberPlaceholder'
+                        )
+                      "
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label">Number of Children</label>
+                    <label class="field-label">{{
+                      $t('playgroupRegistration.fields.childCount')
+                    }}</label>
                     <input
                       v-model="form.childCount"
                       type="number"
                       min="0"
                       class="field-input"
-                      placeholder="e.g. 45"
+                      :placeholder="
+                        $t('playgroupRegistration.fields.childCountPlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label">City</label>
+                    <label class="field-label">{{
+                      $t('playgroupRegistration.fields.city')
+                    }}</label>
                     <input
                       v-model="form.city"
                       type="text"
                       class="field-input"
-                      placeholder="Mumbai"
+                      :placeholder="
+                        $t('playgroupRegistration.fields.cityPlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-12">
-                    <label class="field-label">Playgroup Address</label>
+                    <label class="field-label">{{
+                      $t('playgroupRegistration.fields.address')
+                    }}</label>
                     <input
                       v-model="form.address"
                       type="text"
                       class="field-input"
-                      placeholder="Street, area, pin code"
+                      :placeholder="
+                        $t('playgroupRegistration.fields.addressPlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-12">
-                    <label class="field-label">About the Playgroup</label>
+                    <label class="field-label">{{
+                      $t('playgroupRegistration.fields.about')
+                    }}</label>
                     <textarea
                       v-model="form.about"
                       class="field-input field-textarea"
                       rows="4"
-                      placeholder="Tell us about your playgroup and what you're looking for..."
+                      :placeholder="
+                        $t('playgroupRegistration.fields.aboutPlaceholder')
+                      "
                     ></textarea>
                   </div>
 
@@ -382,9 +467,11 @@ const resetForm = () => {
                           <i class="fas fa-folder-open"></i>
                         </div>
                         <div>
-                          <h3 class="docs-title">Documents Upload</h3>
+                          <h3 class="docs-title">
+                            {{ $t('playgroupRegistration.docs.title') }}
+                          </h3>
                           <p class="docs-subtitle">
-                            Please upload clear copies of the documents below.
+                            {{ $t('playgroupRegistration.docs.subtitle') }}
                           </p>
                         </div>
                       </div>
@@ -393,18 +480,26 @@ const resetForm = () => {
                         <div class="col-md-6">
                           <DocumentUploadBox
                             v-model="identityProof"
-                            label="Identity Proof (Authorized Person)"
+                            :label="
+                              $t('playgroupRegistration.docs.identityLabel')
+                            "
                             icon="fas fa-id-card"
-                            hint="Aadhaar / Passport / PAN — PNG, JPG or PDF (max 5 MB)"
+                            :hint="
+                              $t('playgroupRegistration.docs.identityHint')
+                            "
                             required
                           />
                         </div>
                         <div class="col-md-6">
                           <DocumentUploadBox
                             v-model="registrationDoc"
-                            label="Playgroup Registration / License Document"
+                            :label="
+                              $t('playgroupRegistration.docs.registrationLabel')
+                            "
                             icon="fas fa-certificate"
-                            hint="Registration / License certificate — PNG, JPG or PDF (max 5 MB)"
+                            :hint="
+                              $t('playgroupRegistration.docs.registrationHint')
+                            "
                             required
                           />
                         </div>
@@ -418,14 +513,14 @@ const resetForm = () => {
                       <input v-model="agreeTerms" type="checkbox" />
                       <span class="checkmark"></span>
                       <span class="checkbox-label">
-                        I confirm the information provided is accurate and I
-                        agree to the
-                        <router-link to="/terms" class="link"
-                          >Terms of Service</router-link
-                        >
-                        and
-                        <router-link to="/privacy" class="link"
-                          >Privacy Policy</router-link
+                        {{ $t('playgroupRegistration.terms.text') }}
+                        <router-link to="/terms" class="link">{{
+                          $t('playgroupRegistration.terms.termsOfService')
+                        }}</router-link>
+                        {{ $t('playgroupRegistration.terms.and') }}
+                        <router-link to="/privacy" class="link">{{
+                          $t('playgroupRegistration.terms.privacyPolicy')
+                        }}</router-link
                         >.
                       </span>
                     </label>
@@ -438,11 +533,12 @@ const resetForm = () => {
                       :disabled="loading"
                     >
                       <span v-if="!loading">
-                        Submit Registration
+                        {{ $t('playgroupRegistration.button.submit') }}
                         <i class="fas fa-paper-plane ms-2"></i>
                       </span>
                       <span v-else>
-                        <i class="fas fa-spinner fa-spin me-2"></i>Submitting...
+                        <i class="fas fa-spinner fa-spin me-2"></i
+                        >{{ $t('playgroupRegistration.button.submitting') }}
                       </span>
                     </button>
                   </div>

@@ -1,0 +1,48 @@
+{
+  "doctor": {
+    "eyebrow": "So funktioniert unser Ärzteprogramm",
+    "titleLead": "Auf drei Wegen",
+    "titleAccent": "für Familien da",
+    "subtitle": "Bevor du dich registrierst, erfährst du hier, was es bedeutet, Partnerärztin oder Partnerarzt von Little Champ zu sein.",
+    "cards": {
+      "monthly": {
+        "step": "Zweimal im Monat",
+        "title": "Monatliche Treffen",
+        "text": "Lerne Familien in zwei freundlichen Sitzungen pro Monat kennen – für Beratung, Rückfragen und laufende Unterstützung."
+      },
+      "whatsapp": {
+        "step": "Jederzeit",
+        "title": "WhatsApp-Support",
+        "text": "Eltern können dir bei kurzen Fragen direkt über WhatsApp schreiben und erhalten zeitnah einfühlsamen Rat."
+      },
+      "branch": {
+        "step": "Persönlich",
+        "title": "Besuch in deiner Praxis",
+        "text": "Eltern und Kinder können deine Praxis für herzliche persönliche Beratungsgespräche besuchen, wann immer nötig."
+      }
+    }
+  },
+  "playgroup": {
+    "eyebrow": "So funktioniert unser Spielgruppen-Programm",
+    "titleLead": "Alles, was deine Kleinen",
+    "titleAccent": "zum Aufblühen brauchen",
+    "subtitle": "Bevor du dich registrierst, erfährst du hier, was Little Champ deiner Spielgruppe bietet.",
+    "cards": {
+      "games": {
+        "step": "Über 500 Spiele",
+        "title": "Spielerisches Lernen",
+        "text": "Kleine Lernende entdecken Mathe, Lesen und Basteln durch fröhliche, altersgerechte Spiele, die sie lieben."
+      },
+      "updates": {
+        "step": "Immer informiert",
+        "title": "Updates für Eltern",
+        "text": "Eltern erhalten regelmäßige Fortschritts-Updates, sodass jeder kleine Meilenstein gemeinsam gefeiert wird."
+      },
+      "safe": {
+        "step": "100 % sicher",
+        "title": "Sicher & begleitet",
+        "text": "Ein werbefreier, überwachter Raum mit Dashboards für Lehrkräfte, der jedes Kind sanft durch den Tag begleitet."
+      }
+    }
+  }
+}

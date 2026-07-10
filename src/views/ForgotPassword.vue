@@ -1,26 +1,28 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import AuthLayout from '@/components/AuthLayout.vue'
 
 const router = useRouter()
+const { t } = useI18n()
 
 // Auth layout props
 const authFeatures = [
   {
     icon: 'fas fa-shield-alt',
-    title: 'Secure Process',
-    description: 'Your data is protected with encryption',
+    title: t('forgotPassword.features.secureTitle'),
+    description: t('forgotPassword.features.secureDescription'),
   },
   {
     icon: 'fas fa-clock',
-    title: 'Quick Recovery',
-    description: 'Reset link expires in 60 minutes',
+    title: t('forgotPassword.features.quickTitle'),
+    description: t('forgotPassword.features.quickDescription'),
   },
   {
     icon: 'fas fa-envelope',
-    title: 'Email Notification',
-    description: 'Check your inbox and spam folder',
+    title: t('forgotPassword.features.emailTitle'),
+    description: t('forgotPassword.features.emailDescription'),
   },
 ]
 
@@ -38,14 +40,14 @@ const handleResetPassword = async () => {
   successMessage.value = ''
 
   if (!email.value) {
-    errorMessage.value = 'Please enter your email address'
+    errorMessage.value = t('forgotPassword.errors.enterEmail')
     return
   }
 
   // Basic email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!emailRegex.test(email.value)) {
-    errorMessage.value = 'Please enter a valid email address'
+    errorMessage.value = t('forgotPassword.errors.invalidEmail')
     return
   }
 
@@ -55,7 +57,9 @@ const handleResetPassword = async () => {
   setTimeout(() => {
     loading.value = false
     emailSent.value = true
-    successMessage.value = `We've sent a password reset link to ${email.value}. Please check your inbox.`
+    successMessage.value = t('forgotPassword.success.message', {
+      email: email.value,
+    })
   }, 1500)
 }
 
@@ -70,9 +74,9 @@ const goBackToLogin = () => {
       <div class="row g-0 h-100">
         <!-- Left Side - Branding -->
         <AuthLayout
-          title="Don't Worry!"
-          subtitle="We'll Help You"
-          description="Forgot your password? No problem! Just enter your email address and we'll send you a link to reset it."
+          :title="$t('forgotPassword.branding.title')"
+          :subtitle="$t('forgotPassword.branding.subtitle')"
+          :description="$t('forgotPassword.branding.description')"
           :features="authFeatures"
         />
 
@@ -82,7 +86,7 @@ const goBackToLogin = () => {
             <!-- Back to Login Link -->
             <router-link to="/login" class="back-link">
               <i class="fas fa-arrow-left"></i>
-              <span>Back to Login</span>
+              <span>{{ $t('forgotPassword.backToLogin') }}</span>
             </router-link>
 
             <div v-if="!emailSent">
@@ -90,10 +94,11 @@ const goBackToLogin = () => {
                 <div class="icon-wrapper mb-4">
                   <i class="fas fa-lock"></i>
                 </div>
-                <h2 class="form-title">Forgot Password?</h2>
+                <h2 class="form-title">
+                  {{ $t('forgotPassword.form.title') }}
+                </h2>
                 <p class="form-subtitle">
-                  Enter your email address and we'll send you a link to reset
-                  your password
+                  {{ $t('forgotPassword.form.subtitle') }}
                 </p>
               </div>
 
@@ -107,35 +112,40 @@ const goBackToLogin = () => {
               <form class="reset-form" @submit.prevent="handleResetPassword">
                 <div class="form-group">
                   <label for="email" class="form-label">
-                    <i class="fas fa-envelope me-2"></i>Email Address
+                    <i class="fas fa-envelope me-2"></i
+                    >{{ $t('forgotPassword.form.emailLabel') }}
                   </label>
                   <input
                     id="email"
                     v-model="email"
                     type="email"
                     class="form-control"
-                    placeholder="Enter your registered email"
+                    :placeholder="$t('forgotPassword.form.emailPlaceholder')"
                     required
                   />
                 </div>
 
                 <button type="submit" class="btn-submit" :disabled="loading">
                   <span v-if="!loading">
-                    <i class="fas fa-paper-plane me-2"></i>Send Reset Link
+                    <i class="fas fa-paper-plane me-2"></i
+                    >{{ $t('forgotPassword.form.sendResetLink') }}
                   </span>
                   <span v-else>
-                    <i class="fas fa-spinner fa-spin me-2"></i>Sending...
+                    <i class="fas fa-spinner fa-spin me-2"></i
+                    >{{ $t('forgotPassword.form.sending') }}
                   </span>
                 </button>
               </form>
 
               <!-- Alternative Options -->
               <div class="alternative-options">
-                <p class="text-center mb-3">Need more help?</p>
+                <p class="text-center mb-3">
+                  {{ $t('forgotPassword.help.needMore') }}
+                </p>
                 <div class="help-links">
                   <router-link to="/contact" class="help-link">
                     <i class="fas fa-headset"></i>
-                    <span>Contact Support</span>
+                    <span>{{ $t('forgotPassword.help.contactSupport') }}</span>
                   </router-link>
                 </div>
               </div>
@@ -146,7 +156,9 @@ const goBackToLogin = () => {
               <div class="success-icon">
                 <i class="fas fa-check-circle"></i>
               </div>
-              <h3 class="success-title">Check Your Email!</h3>
+              <h3 class="success-title">
+                {{ $t('forgotPassword.success.title') }}
+              </h3>
 
               <!-- Success Message -->
               <div class="alert alert-success">
@@ -155,23 +167,27 @@ const goBackToLogin = () => {
               </div>
 
               <div class="instructions">
-                <h4>What's Next?</h4>
+                <h4>{{ $t('forgotPassword.success.whatsNext') }}</h4>
                 <ol>
                   <li>
-                    Check your email inbox for a message from Little Champ
+                    {{ $t('forgotPassword.success.step1') }}
                   </li>
-                  <li>Click the password reset link in the email</li>
-                  <li>Create a new password for your account</li>
-                  <li>Sign in with your new password</li>
+                  <li>{{ $t('forgotPassword.success.step2') }}</li>
+                  <li>{{ $t('forgotPassword.success.step3') }}</li>
+                  <li>{{ $t('forgotPassword.success.step4') }}</li>
                 </ol>
               </div>
 
               <div class="additional-help">
-                <p><strong>Didn't receive the email?</strong></p>
+                <p>
+                  <strong>{{
+                    $t('forgotPassword.success.notReceived')
+                  }}</strong>
+                </p>
                 <ul>
-                  <li>Check your spam or junk folder</li>
-                  <li>Make sure you entered the correct email address</li>
-                  <li>Wait a few minutes and check again</li>
+                  <li>{{ $t('forgotPassword.success.checkSpam') }}</li>
+                  <li>{{ $t('forgotPassword.success.checkAddress') }}</li>
+                  <li>{{ $t('forgotPassword.success.waitAndCheck') }}</li>
                 </ul>
                 <button
                   class="btn-secondary"
@@ -180,12 +196,14 @@ const goBackToLogin = () => {
                     successMessage = ''
                   "
                 >
-                  <i class="fas fa-redo me-2"></i>Try Again
+                  <i class="fas fa-redo me-2"></i
+                  >{{ $t('forgotPassword.success.tryAgain') }}
                 </button>
               </div>
 
               <button class="btn-submit mt-4" @click="goBackToLogin">
-                <i class="fas fa-arrow-left me-2"></i>Back to Login
+                <i class="fas fa-arrow-left me-2"></i
+                >{{ $t('forgotPassword.backToLogin') }}
               </button>
             </div>
 
@@ -193,8 +211,7 @@ const goBackToLogin = () => {
             <div class="security-note">
               <i class="fas fa-shield-check"></i>
               <p>
-                Your security is our priority. We'll never ask for your password
-                via email.
+                {{ $t('forgotPassword.securityNote') }}
               </p>
             </div>
           </div>

@@ -1,0 +1,328 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "subjects": "Subjects"
+  },
+  "hero": {
+    "titleSuffix": "With Fun & Games"
+  },
+  "labels": {
+    "games": "Games",
+    "worksheets": "Worksheets",
+    "topicsCovered": "Topics Covered:",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "gradeBreakdown": {
+    "tag": "Grade-by-Grade",
+    "title": "What Your Child Will Learn",
+    "description": "{name} skills and concepts broken down by grade level"
+  },
+  "benefits": {
+    "tag": "Benefits",
+    "title": "Why Learn {name}?"
+  },
+  "cta": {
+    "title": "Ready to Start Learning {name}?",
+    "description": "Give your child the tools to succeed with fun, curriculum-aligned {name} activities.",
+    "button": "Explore Other Subjects"
+  },
+  "subjects": {
+    "math": {
+      "name": "Mathematics",
+      "heroTitle": "Master Mathematics",
+      "heroDescription": "Build strong math foundations with interactive games, puzzles, and activities designed for Pre-K through Grade 7.",
+      "description": "Build number sense, master arithmetic, explore geometry, and solve real-world problems through engaging games and activities.",
+      "stats": {
+        "games": "1000+",
+        "worksheets": "3500+",
+        "grades": "Pre-K to 7"
+      },
+      "topics": [
+        { "name": "Counting & Numbers", "games": "120 games" },
+        { "name": "Addition", "games": "95 games" },
+        { "name": "Subtraction", "games": "88 games" },
+        { "name": "Multiplication", "games": "102 games" },
+        { "name": "Division", "games": "76 games" },
+        { "name": "Geometry", "games": "64 games" },
+        { "name": "Fractions & Decimals", "games": "85 games" },
+        { "name": "Word Problems", "games": "92 games" }
+      ],
+      "grades": [
+        {
+          "name": "Pre-K",
+          "ages": "3-4 years",
+          "skills": ["Number recognition 1-10", "Counting objects", "Shape identification", "Sorting & patterns"]
+        },
+        {
+          "name": "Kindergarten",
+          "ages": "5-6 years",
+          "skills": ["Counting to 100", "Addition within 10", "Comparing numbers", "Basic shapes & measurement"]
+        },
+        {
+          "name": "1st Grade",
+          "ages": "6-7 years",
+          "skills": ["Addition & subtraction to 20", "Place value (tens & ones)", "Telling time", "Measuring lengths"]
+        },
+        {
+          "name": "2nd Grade",
+          "ages": "7-8 years",
+          "skills": ["Addition & subtraction to 100", "Introduction to multiplication", "Money concepts", "Basic fractions"]
+        },
+        {
+          "name": "3rd Grade",
+          "ages": "8-9 years",
+          "skills": ["Multiplication & division facts", "Fractions on number lines", "Area & perimeter", "Rounding numbers"]
+        },
+        {
+          "name": "4th Grade",
+          "ages": "9-10 years",
+          "skills": ["Multi-digit multiplication", "Long division", "Equivalent fractions", "Angles & geometry"]
+        },
+        {
+          "name": "5th Grade",
+          "ages": "10-11 years",
+          "skills": ["Decimal operations", "Adding & subtracting fractions", "Volume measurement", "Coordinate graphing"]
+        }
+      ],
+      "features": [
+        {
+          "title": "Builds Problem Solving",
+          "description": "Develop critical thinking and logical reasoning through real-world math challenges and puzzles."
+        },
+        {
+          "title": "Adaptive Learning",
+          "description": "Activities automatically adjust difficulty based on your child's skill level and progress."
+        },
+        {
+          "title": "Real-World Application",
+          "description": "Learn math through practical scenarios like shopping, cooking, and measuring that kids encounter daily."
+        },
+        {
+          "title": "Progress Tracking",
+          "description": "Visual dashboards and achievement badges keep kids motivated and parents informed."
+        }
+      ]
+    },
+    "reading": {
+      "name": "Your AI-Buddy",
+      "heroTitle": "Explore Your AI-Buddy",
+      "heroDescription": "Spark a lifelong love of reading with phonics, vocabulary, comprehension, and writing activities for Pre-K through Grade 7.",
+      "description": "AI-powered feature combines friendly interaction, communication skills, general knowledge, and guides children on exploring the outside world — creating a fun, engaging, and educational experience all in one place.",
+      "stats": {
+        "games": "500+",
+        "worksheets": "500+",
+        "grades": "Pre-K to 7"
+      },
+      "topics": [
+        { "name": "Phonics & Letters", "games": "150 games" },
+        { "name": "Spelling", "games": "110 games" },
+        { "name": "Reading Comprehension", "games": "180 games" },
+        { "name": "Vocabulary", "games": "95 games" },
+        { "name": "Grammar", "games": "88 games" },
+        { "name": "Writing", "games": "72 games" },
+        { "name": "Parts of Speech", "games": "65 games" },
+        { "name": "Punctuation", "games": "55 games" }
+      ],
+      "grades": [
+        {
+          "name": "Pre-K",
+          "ages": "3-4 years",
+          "skills": ["Letter recognition", "Rhyming words", "Listening comprehension", "Name writing"]
+        },
+        {
+          "name": "Kindergarten",
+          "ages": "5-6 years",
+          "skills": ["Letter sounds & phonics", "Sight words", "Simple sentence reading", "Print concepts"]
+        },
+        {
+          "name": "1st Grade",
+          "ages": "6-7 years",
+          "skills": ["Decoding & blending", "Reading fluency", "Story comprehension", "Basic spelling patterns"]
+        },
+        {
+          "name": "2nd Grade",
+          "ages": "7-8 years",
+          "skills": ["Chapter book reading", "Vocabulary building", "Story elements", "Writing paragraphs"]
+        },
+        {
+          "name": "3rd Grade",
+          "ages": "8-9 years",
+          "skills": ["Reading for information", "Context clues", "Grammar & punctuation", "Writing essays"]
+        },
+        {
+          "name": "4th Grade",
+          "ages": "9-10 years",
+          "skills": ["Inference & analysis", "Research skills", "Parts of speech mastery", "Narrative writing"]
+        },
+        {
+          "name": "5th Grade",
+          "ages": "10-11 years",
+          "skills": ["Critical reading", "Advanced vocabulary", "Persuasive writing", "Literary analysis"]
+        }
+      ],
+      "features": [
+        {
+          "title": "Builds Literacy",
+          "description": "Structured phonics and reading programs that develop confident, independent readers step by step."
+        },
+        {
+          "title": "Sparks Imagination",
+          "description": "Interactive stories and creative writing prompts that nurture a love of reading and self-expression."
+        },
+        {
+          "title": "Communication Skills",
+          "description": "Grammar, vocabulary, and writing exercises that strengthen how kids express their ideas."
+        },
+        {
+          "title": "Progress Tracking",
+          "description": "Visual dashboards and achievement badges keep kids motivated and parents informed."
+        }
+      ]
+    },
+    "science": {
+      "name": "Craft & Drawing",
+      "heroTitle": "Discover Craft & Drawing",
+      "heroDescription": "Unleash creativity with hands-on craft projects, drawing activities, and interactive art exercises for K through Grade 7.",
+      "description": "Unleash creativity through hands-on craft projects, drawing tutorials, and interactive art activities covering painting, origami, and creative design.",
+      "stats": {
+        "games": "800+",
+        "worksheets": "2500+",
+        "grades": "K to 5"
+      },
+      "topics": [
+        { "name": "Animals & Habitats", "games": "110 games" },
+        { "name": "Plants & Life Cycles", "games": "85 games" },
+        { "name": "Weather & Seasons", "games": "72 games" },
+        { "name": "Earth & Space", "games": "95 games" },
+        { "name": "Matter & Energy", "games": "68 games" },
+        { "name": "Scientific Method", "games": "55 games" }
+      ],
+      "grades": [
+        {
+          "name": "Kindergarten",
+          "ages": "5-6 years",
+          "skills": ["Five senses", "Living vs non-living", "Basic weather", "Animal needs"]
+        },
+        {
+          "name": "1st Grade",
+          "ages": "6-7 years",
+          "skills": ["Plant parts & needs", "Day & night sky", "Sound & light basics", "Animal habitats"]
+        },
+        {
+          "name": "2nd Grade",
+          "ages": "7-8 years",
+          "skills": ["Life cycles", "States of matter", "Landforms & water", "Push & pull forces"]
+        },
+        {
+          "name": "3rd Grade",
+          "ages": "8-9 years",
+          "skills": ["Ecosystems & food chains", "Weather patterns", "Simple machines", "Inherited traits"]
+        },
+        {
+          "name": "4th Grade",
+          "ages": "9-10 years",
+          "skills": ["Earth's systems", "Energy transfer", "Rock cycle", "Plant & animal structures"]
+        },
+        {
+          "name": "5th Grade",
+          "ages": "10-11 years",
+          "skills": ["Matter & chemical changes", "Earth & space systems", "Organisms & environments", "Engineering design"]
+        }
+      ],
+      "features": [
+        {
+          "title": "Nurtures Curiosity",
+          "description": "Hands-on experiments and discovery-based activities that encourage kids to ask questions and explore."
+        },
+        {
+          "title": "Scientific Thinking",
+          "description": "Learn the scientific method through observation, hypothesis, and experimentation activities."
+        },
+        {
+          "title": "Real-World Connections",
+          "description": "Explore topics like weather, animals, and space that connect classroom learning to the world around them."
+        },
+        {
+          "title": "Progress Tracking",
+          "description": "Visual dashboards and achievement badges keep kids motivated and parents informed."
+        }
+      ]
+    },
+    "craft-drawing": {
+      "name": "Craft & Drawing",
+      "heroTitle": "Explore Craft & Drawing",
+      "heroDescription": "Unleash creativity through fun drawing lessons, paper crafts, and hands-on art activities that build fine motor skills, imagination, and self-expression.",
+      "description": "From pencil sketching to paper crafts, our creative activities help children develop artistic skills, fine motor control, and imaginative thinking in a fun, guided environment.",
+      "stats": {
+        "games": "200+",
+        "worksheets": "500+",
+        "grades": "Pre-K to 7"
+      },
+      "topics": [
+        { "name": "Pencil Sketching", "games": "45 activities" },
+        { "name": "Color & Painting", "games": "60 activities" },
+        { "name": "Paper Craft", "games": "50 activities" },
+        { "name": "Origami & Folding", "games": "35 activities" },
+        { "name": "Clay & Modelling", "games": "30 activities" },
+        { "name": "Creative Projects", "games": "40 activities" }
+      ],
+      "grades": [
+        {
+          "name": "Pre-K",
+          "ages": "3-4 years",
+          "skills": ["Scribbling & free drawing", "Finger painting basics", "Simple paper tearing & pasting", "Color recognition through art"]
+        },
+        {
+          "name": "Kindergarten",
+          "ages": "5-6 years",
+          "skills": ["Drawing basic shapes & figures", "Coloring within lines", "Simple paper folding", "Craft with glue & scissors"]
+        },
+        {
+          "name": "1st Grade",
+          "ages": "6-7 years",
+          "skills": ["Drawing animals & objects", "Watercolor painting basics", "Paper plate crafts", "Pattern drawing & tracing"]
+        },
+        {
+          "name": "2nd Grade",
+          "ages": "7-8 years",
+          "skills": ["Landscape & scenery drawing", "Color mixing techniques", "Origami simple models", "Clay modelling basics"]
+        },
+        {
+          "name": "3rd Grade",
+          "ages": "8-9 years",
+          "skills": ["Perspective & shading intro", "Acrylic painting basics", "Advanced origami figures", "Recycled material crafts"]
+        },
+        {
+          "name": "4th Grade",
+          "ages": "9-10 years",
+          "skills": ["Portrait & figure drawing", "Mixed media art", "Papier-mâché projects", "Craft design & planning"]
+        },
+        {
+          "name": "5th Grade",
+          "ages": "10-11 years",
+          "skills": ["Realistic sketching techniques", "Canvas painting projects", "Sculpture & 3D art", "Creative portfolio building"]
+        }
+      ],
+      "features": [
+        {
+          "title": "Builds Creativity",
+          "description": "Art activities encourage original thinking, imagination, and the confidence to express ideas visually."
+        },
+        {
+          "title": "Fine Motor Skills",
+          "description": "Cutting, folding, drawing, and moulding strengthen hand-eye coordination and dexterity."
+        },
+        {
+          "title": "Emotional Expression",
+          "description": "Art provides a safe outlet for children to express feelings, build self-esteem, and develop mindfulness."
+        },
+        {
+          "title": "Progress Tracking",
+          "description": "Visual portfolios and achievement badges keep kids motivated and parents informed about creative growth."
+        }
+      ]
+    }
+  }
+}

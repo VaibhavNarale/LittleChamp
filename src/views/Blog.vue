@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import {
   initTemplateScripts,
   cleanupTemplateScripts,
@@ -12,6 +13,7 @@ import mathImg from '@/assets/math-gamification.jpg'
 
 const router = useRouter()
 const blogStore = useBlogStore()
+const { t } = useI18n()
 
 // Local state
 const searchQuery = ref('')
@@ -43,10 +45,10 @@ const regularPosts = computed(() => {
 
 // Reading time estimate
 const readingTime = (content) => {
-  if (!content) return '2 min'
+  if (!content) return t('blog.minRead', { minutes: 2 })
   const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length
   const minutes = Math.max(1, Math.ceil(words / 200))
-  return `${minutes} min read`
+  return t('blog.minRead', { minutes })
 }
 
 // Get image URL
@@ -169,15 +171,22 @@ watch(searchQuery, () => {
       <div class="container">
         <div class="blog-hero-content">
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('blog.breadcrumb.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Blog</span>
+            <span class="breadcrumb-current">{{
+              $t('blog.breadcrumb.current')
+            }}</span>
           </nav>
           <h1 class="blog-hero-title">
-            Our <span class="title-highlight">Blog</span>
+            {{ $t('blog.hero.titlePrefix') }}
+            <span class="title-highlight">{{
+              $t('blog.hero.titleHighlight')
+            }}</span>
           </h1>
           <p class="blog-hero-description">
-            Tips, stories & learning resources for parents and educators
+            {{ $t('blog.hero.description') }}
           </p>
         </div>
       </div>
@@ -203,7 +212,7 @@ watch(searchQuery, () => {
             @click="clearCategoryFilter"
           >
             <i class="fas fa-th-large"></i>
-            All
+            {{ $t('blog.filter.all') }}
           </button>
           <button
             v-for="(cat, index) in categories"
@@ -229,7 +238,7 @@ watch(searchQuery, () => {
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="Search articles..."
+            :placeholder="$t('blog.search.placeholder')"
             class="search-input"
           />
         </div>
@@ -249,7 +258,7 @@ watch(searchQuery, () => {
           />
           <div class="featured-overlay"></div>
           <span v-if="featuredPost.is_featured" class="featured-badge">
-            <i class="fas fa-star"></i> Featured
+            <i class="fas fa-star"></i> {{ $t('blog.featured.badge') }}
           </span>
         </div>
         <div class="featured-content">
@@ -269,11 +278,14 @@ watch(searchQuery, () => {
             >
             <span
               ><i class="far fa-eye"></i>
-              {{ featuredPost.views || 0 }} views</span
+              {{
+                $t('blog.meta.views', { count: featuredPost.views || 0 })
+              }}</span
             >
           </div>
           <span class="read-more-link">
-            Read Article <i class="fas fa-arrow-right"></i>
+            {{ $t('blog.featured.readArticle') }}
+            <i class="fas fa-arrow-right"></i>
           </span>
         </div>
       </div>
@@ -302,14 +314,14 @@ watch(searchQuery, () => {
         <div class="empty-icon">
           <i class="fas fa-search"></i>
         </div>
-        <h3>No articles found</h3>
-        <p>Try adjusting your search or filter criteria</p>
+        <h3>{{ $t('blog.empty.title') }}</h3>
+        <p>{{ $t('blog.empty.text') }}</p>
         <button
           v-if="selectedCategoryId || searchQuery"
           class="clear-btn"
           @click="clearAllFilters"
         >
-          <i class="fas fa-times"></i> Clear Filters
+          <i class="fas fa-times"></i> {{ $t('blog.empty.clearFilters') }}
         </button>
       </div>
 
@@ -332,7 +344,7 @@ watch(searchQuery, () => {
                 />
                 <div class="card-img-overlay">
                   <span class="read-indicator">
-                    <i class="fas fa-book-open"></i> Read
+                    <i class="fas fa-book-open"></i> {{ $t('blog.card.read') }}
                   </span>
                 </div>
                 <span v-if="post.video_url" class="video-badge">
@@ -381,14 +393,14 @@ watch(searchQuery, () => {
           <div v-if="hasMorePosts && !loading" class="load-more-wrap">
             <button class="load-more-btn" @click="loadMore">
               <i class="fas fa-plus-circle"></i>
-              Load More Articles
+              {{ $t('blog.loadMore') }}
             </button>
           </div>
 
           <!-- Loading More -->
           <div v-if="loading && blogPosts.length > 0" class="text-center py-4">
             <div class="mini-spinner"></div>
-            <span class="loading-text">Loading more...</span>
+            <span class="loading-text">{{ $t('blog.loadingMore') }}</span>
           </div>
         </div>
 
@@ -402,7 +414,7 @@ watch(searchQuery, () => {
                 <input
                   v-model="searchQuery"
                   type="text"
-                  placeholder="Search articles..."
+                  :placeholder="$t('blog.search.placeholder')"
                   @keyup.enter="handleSearch"
                 />
               </div>
@@ -412,7 +424,7 @@ watch(searchQuery, () => {
             <div v-if="categories.length" class="sidebar-widget">
               <h4 class="widget-title">
                 <i class="fas fa-folder-open widget-icon"></i>
-                Categories
+                {{ $t('blog.sidebar.categories') }}
               </h4>
               <div class="category-list">
                 <a
@@ -421,7 +433,9 @@ watch(searchQuery, () => {
                   :class="{ active: !selectedCategoryId }"
                   @click.prevent="clearCategoryFilter"
                 >
-                  <span class="cat-name">All Categories</span>
+                  <span class="cat-name">{{
+                    $t('blog.sidebar.allCategories')
+                  }}</span>
                   <span class="cat-count">{{ blogStore.totalPosts }}</span>
                 </a>
                 <a
@@ -446,7 +460,7 @@ watch(searchQuery, () => {
             <div class="sidebar-widget">
               <h4 class="widget-title">
                 <i class="fas fa-fire widget-icon"></i>
-                Popular Articles
+                {{ $t('blog.sidebar.popularArticles') }}
               </h4>
               <div class="recent-list">
                 <a

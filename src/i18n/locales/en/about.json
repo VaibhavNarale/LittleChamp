@@ -1,0 +1,124 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "current": "About Us"
+  },
+  "hero": {
+    "badge": "Who We Are",
+    "titleLine1": "Making Learning",
+    "titleHighlight": "Magical & Fun",
+    "titleLine2": "for Every Child",
+    "description": "We're on a mission to help 100 million kids fall in love with learning through play-based education"
+  },
+  "mission": {
+    "imgMainAlt": "Kids learning with Little Champ",
+    "imgSmallAlt": "Interactive educational games",
+    "badgeNumber": "500+",
+    "badgeText": "Kids Learning",
+    "tag": "About Little Champ",
+    "titleLead": "Little Champ's",
+    "titleHighlight": "Features",
+    "desc": "Little Champ is a leading educational technology platform that transforms how children learn. With over 500+ interactive games covering Math, Reading, and Craft & Drawing for Pre-K through Grade 7, we make learning feel like play while delivering curriculum-aligned content that builds essential skills.",
+    "feature1Name": "Play-Based Learning",
+    "feature1Desc": "500+ games that make education exciting",
+    "feature2Name": "AI-Powered Paths",
+    "feature2Desc": "Personalized learning for every child",
+    "feature3Name": "Progress Tracking",
+    "feature3Desc": "Real-time insights for parents & teachers"
+  },
+  "pillars": {
+    "tag": "What We Offer",
+    "kidLeftAlt": "Kid kicking football",
+    "kidRightAlt": "Kid receiving football",
+    "headingLead": "Our Three Key Focus",
+    "headingHighlight": "Areas",
+    "intro": "Little Champ is a child-focused development center dedicated to nurturing young minds through innovation, creativity, and expert guidance. We believe every child grows best in a supportive, engaging, and inspiring environment.",
+    "card1": {
+      "iconAlt": "AI Learning",
+      "titleLine1": "AI Learning &",
+      "titleLine2": "Child Development",
+      "desc": "At Little Champ, we introduce AI-assisted learning in a child-friendly way to build curiosity and smart thinking.",
+      "item1": "AI as a learning companion and interactive friend",
+      "item2": "Improving general knowledge and academic learning",
+      "item3": "Enhancing communication skills",
+      "item4": "Developing positive behavior and emotional growth",
+      "item5": "Strengthening language development and vocabulary",
+      "highlight": "Grow confidently & think independently"
+    },
+    "card2": {
+      "iconAlt": "Mind Activities & Gaming",
+      "titleLine1": "Mind Activities,",
+      "titleLine2": "Gaming & Creativity",
+      "desc": "Learning becomes powerful when it is fun and engaging. We provide:",
+      "item1": "Brain-boosting games to improve focus and logical thinking",
+      "item2": "Mind activity sessions for memory and problem-solving",
+      "item3": "Drawing classes to enhance creativity",
+      "item4": "Craft activities to develop fine motor skills and imagination",
+      "highlight": "Enjoy learning while building life skills"
+    },
+    "card3": {
+      "iconAlt": "Pediatric Guidance & Parent Support",
+      "titleLine1": "Pediatric Guidance",
+      "titleLine2": "& Parent Support",
+      "desc": "We care about complete child development. That's why we include:",
+      "item1": "Interactive sessions with experienced pediatric doctors",
+      "item2": "Appointment booking for one-on-one guidance",
+      "item3": "Monthly parent meetings with doctors",
+      "item4": "Expert advice on healthy physical, mental, and emotional growth",
+      "highlight": "Supporting every step of your child's growth"
+    },
+    "closing": {
+      "textStart": "At Little Champ, we combine",
+      "word1": "technology",
+      "sep1": ", ",
+      "word2": "creativity",
+      "sep2": ", and ",
+      "word3": "medical guidance",
+      "textEnd": " to build confident, intelligent, and happy children.",
+      "tagline": "Growing Young Minds for a Brighter Future"
+    }
+  },
+  "stats": {
+    "kidsLearningAlt": "Kids Learning",
+    "kidsLearningNumber": "Indian",
+    "kidsLearningLabel": "Kids Learning",
+    "gamesAlt": "Interactive Games",
+    "gamesLabel": "Interactive Games",
+    "teachersAlt": "Teachers Trust Us",
+    "teachersLabel": "Teachers Trust Us",
+    "countriesAlt": "Countries Worldwide",
+    "countriesLabel": "Countries Worldwide"
+  },
+  "howItWorks": {
+    "tag": "How It Works",
+    "headingLead": "Get Started in",
+    "headingHighlight": "4 Simple Steps",
+    "step1Alt": "Sign Up Free",
+    "step1Title": "Sign Up Free",
+    "step1Desc": "Create your account in seconds. All payments required.",
+    "step2Alt": "Choose Your Grade",
+    "step2Title": "Choose Your Grade",
+    "step2Desc": "Select from Pre-K to Grade 7. Pick subjects that interest your child.",
+    "step3Alt": "Play & Learn",
+    "step3Title": "Play & Learn",
+    "step3Desc": "Kids explore 500+ games. AI adapts difficulty to their level.",
+    "step4Alt": "Track Progress",
+    "step4Title": "Track Progress",
+    "step4Desc": "Parents & teachers get real-time insights on learning growth."
+  },
+  "testimonials": {
+    "tag": "Parent Reviews",
+    "headingLead": "What Parents & Teachers",
+    "headingHighlight": "Say About Us",
+    "desc": "Discover how Little Champ is transforming learning for millions of families worldwide. Real stories from real parents about their children's progress.",
+    "t1Role": "Parent, Grade 2",
+    "t1Title": "My Daughter Loves Math Now!",
+    "t1Text": "My 7-year-old used to struggle with math, but since using Mind Jr, she's excited to practice every day. The games make learning fun and she's already ahead of her grade level!",
+    "t2Role": "Homeschool Parent",
+    "t2Title": "Perfect for Homeschooling",
+    "t2Text": "As a homeschool parent, Mind Jr has been a game-changer. The curriculum-aligned content covers all subjects and my kids are learning while having fun. Worth every penny!",
+    "t3Role": "Elementary Teacher",
+    "t3Title": "Engaging & Educational",
+    "t3Text": "I use Mind Jr in my classroom and the kids absolutely love it. The progress tracking helps me identify areas where students need extra support. Highly recommend!"
+  }
+}

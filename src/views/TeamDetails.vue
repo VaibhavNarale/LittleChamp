@@ -24,17 +24,23 @@ onBeforeUnmount(() => {
       <div class="container">
         <div class="teamdetails-hero-content">
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('testimonials.breadcrumb.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Team Member</span>
+            <span class="breadcrumb-current">{{
+              $t('testimonials.breadcrumb.current')
+            }}</span>
           </nav>
           <div class="hero-badge">
             <i class="fas fa-user-circle badge-icon"></i>
-            <span>Our Team</span>
+            <span>{{ $t('testimonials.badge') }}</span>
           </div>
           <h1 class="teamdetails-hero-title">
-            Meet Our
-            <span class="gradient-text-light d-block">Team Member</span>
+            {{ $t('testimonials.heroTitle.line1') }}
+            <span class="gradient-text-light d-block">{{
+              $t('testimonials.heroTitle.line2')
+            }}</span>
           </h1>
         </div>
       </div>
@@ -58,26 +64,33 @@ onBeforeUnmount(() => {
         </div>
         <div class="col-lg-10 offset-lg-2">
           <div class="team-content-card bg-smoke">
-            <h2 class="team-name">Meera Krishnan</h2>
-            <span class="team-desig">Full Time Teacher</span>
+            <h2 class="team-name">{{ $t('testimonials.member.name') }}</h2>
+            <span class="team-desig">{{
+              $t('testimonials.member.designation')
+            }}</span>
             <p class="team-desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.
+              {{ $t('testimonials.member.desc') }}
             </p>
             <div class="info-list">
               <ul>
-                <li><strong>Experience:</strong>10 Years</li>
                 <li>
-                  <strong>Experience At:</strong>Kid's Training, Kid's Caring.
+                  <strong>{{
+                    $t('testimonials.member.experienceLabel')
+                  }}</strong
+                  >{{ $t('testimonials.member.experienceValue') }}
                 </li>
                 <li>
-                  <strong>Email:</strong
+                  <strong>{{
+                    $t('testimonials.member.experienceAtLabel')
+                  }}</strong
+                  >{{ $t('testimonials.member.experienceAtValue') }}
+                </li>
+                <li>
+                  <strong>{{ $t('testimonials.member.emailLabel') }}</strong
                   ><a href="mailto:member@domain.com">member@domain.com</a>
                 </li>
                 <li>
-                  <strong>Mobile:</strong
+                  <strong>{{ $t('testimonials.member.mobileLabel') }}</strong
                   ><a href="tel:+82012345678">+820-123-456-78</a>
                 </li>
               </ul>
@@ -95,8 +108,10 @@ onBeforeUnmount(() => {
       <div class="row text-center justify-content-center">
         <div class="col-xl-6 col-lg-7 col-md-8 col-sm-9">
           <div class="title-area">
-            <span class="sub-title">Our Expert Staff</span>
-            <h2 class="sec-title">Most Dedicated Staff For Your Child</h2>
+            <span class="sub-title">{{
+              $t('testimonials.staff.subtitle')
+            }}</span>
+            <h2 class="sec-title">{{ $t('testimonials.staff.title') }}</h2>
           </div>
         </div>
       </div>
@@ -112,8 +127,7 @@ onBeforeUnmount(() => {
               <img src="/assets/img/team/t-1.jpg" alt="team" />
               <div class="team-content">
                 <p class="team-text">
-                  Assertively repurpose orthogonal architectures through just in
-                  time manufactured products.
+                  {{ $t('testimonials.staff.cardText') }}
                 </p>
                 <div class="multi-social">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -128,9 +142,13 @@ onBeforeUnmount(() => {
             </button>
             <div class="team-info">
               <h4 class="team-title">
-                <router-link to="/team-details">Arjun Pillai</router-link>
+                <router-link to="/team-details">{{
+                  $t('testimonials.staff.members.m1.name')
+                }}</router-link>
               </h4>
-              <span class="team-desig">Kids Specialist</span>
+              <span class="team-desig">{{
+                $t('testimonials.staff.members.m1.designation')
+              }}</span>
             </div>
           </div>
         </div>
@@ -141,8 +159,7 @@ onBeforeUnmount(() => {
               <img src="/assets/img/team/t-2.jpg" alt="team" />
               <div class="team-content">
                 <p class="team-text">
-                  Assertively repurpose orthogonal architectures through just in
-                  time manufactured products.
+                  {{ $t('testimonials.staff.cardText') }}
                 </p>
                 <div class="multi-social">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -157,9 +174,13 @@ onBeforeUnmount(() => {
             </button>
             <div class="team-info">
               <h4 class="team-title">
-                <router-link to="/team-details">Pooja Verma</router-link>
+                <router-link to="/team-details">{{
+                  $t('testimonials.staff.members.m2.name')
+                }}</router-link>
               </h4>
-              <span class="team-desig">Drawing Teacher</span>
+              <span class="team-desig">{{
+                $t('testimonials.staff.members.m2.designation')
+              }}</span>
             </div>
           </div>
         </div>
@@ -170,8 +191,7 @@ onBeforeUnmount(() => {
               <img src="/assets/img/team/t-3.jpg" alt="team" />
               <div class="team-content">
                 <p class="team-text">
-                  Assertively repurpose orthogonal architectures through just in
-                  time manufactured products.
+                  {{ $t('testimonials.staff.cardText') }}
                 </p>
                 <div class="multi-social">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -186,9 +206,13 @@ onBeforeUnmount(() => {
             </button>
             <div class="team-info">
               <h4 class="team-title">
-                <router-link to="/team-details">Ravi Shankar</router-link>
+                <router-link to="/team-details">{{
+                  $t('testimonials.staff.members.m3.name')
+                }}</router-link>
               </h4>
-              <span class="team-desig">Kids Teacher</span>
+              <span class="team-desig">{{
+                $t('testimonials.staff.members.m3.designation')
+              }}</span>
             </div>
           </div>
         </div>
@@ -199,8 +223,7 @@ onBeforeUnmount(() => {
               <img src="/assets/img/team/t-4.jpg" alt="team" />
               <div class="team-content">
                 <p class="team-text">
-                  Assertively repurpose orthogonal architectures through just in
-                  time manufactured products.
+                  {{ $t('testimonials.staff.cardText') }}
                 </p>
                 <div class="multi-social">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -215,9 +238,13 @@ onBeforeUnmount(() => {
             </button>
             <div class="team-info">
               <h4 class="team-title">
-                <router-link to="/team-details">Nisha Kapoor</router-link>
+                <router-link to="/team-details">{{
+                  $t('testimonials.staff.members.m4.name')
+                }}</router-link>
               </h4>
-              <span class="team-desig">Kids Specialist</span>
+              <span class="team-desig">{{
+                $t('testimonials.staff.members.m4.designation')
+              }}</span>
             </div>
           </div>
         </div>
@@ -271,24 +298,23 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
-          <span class="sub-title">Service Benefits</span>
-          <h2 class="sec-title">We Are Here To Bring Your Child Next Level</h2>
+          <span class="sub-title">{{
+            $t('testimonials.benefits.subtitle')
+          }}</span>
+          <h2 class="sec-title">{{ $t('testimonials.benefits.title') }}</h2>
           <p class="mb-50">
-            Monotonectally conceptualize economically sound value after accurate
-            growth strategies. Quickly parallel task client-centric materials
-            with worldwide technologies. Assertively re-engineer interoperable
-            customer
+            {{ $t('testimonials.benefits.text') }}
           </p>
           <div class="feature-box">
             <div class="feature-icon">
               <img src="/assets/img/icon/t-1.png" alt="icon" />
             </div>
             <div class="feature-info">
-              <h4 class="feature-title">Full Care Of Your Child</h4>
+              <h4 class="feature-title">
+                {{ $t('testimonials.benefits.feature1.title') }}
+              </h4>
               <p class="feature-text">
-                Proactively myocardinate high-quality quality vectors rather
-                than collaborative best practices. Continually create go forward
-                total linkage vis-a-vis wireless mindshare.
+                {{ $t('testimonials.benefits.feature1.text') }}
               </p>
             </div>
           </div>
@@ -297,11 +323,11 @@ onBeforeUnmount(() => {
               <img src="/assets/img/icon/t-2.png" alt="icon" />
             </div>
             <div class="feature-info">
-              <h4 class="feature-title">Professional Teachers</h4>
+              <h4 class="feature-title">
+                {{ $t('testimonials.benefits.feature2.title') }}
+              </h4>
               <p class="feature-text">
-                Proactively myocardinate high-quality quality vectors rather
-                than collaborative best practices. Continually create go forward
-                total linkage vis-a-vis wireless mindshare.
+                {{ $t('testimonials.benefits.feature2.text') }}
               </p>
             </div>
           </div>

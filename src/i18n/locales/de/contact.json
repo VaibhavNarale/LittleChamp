@@ -1,0 +1,41 @@
+{
+  "breadcrumb": {
+    "current": "Kontakt"
+  },
+  "badge": "Nimm Kontakt auf",
+  "title": {
+    "line1": "Wir freuen uns,",
+    "line2": "von dir zu hören"
+  },
+  "description": "Hast du Fragen? Wir helfen dir gerne! Melde dich jederzeit bei unserem freundlichen Team",
+  "panel": {
+    "title1": "Lass uns ins",
+    "title2": "Gespräch kommen",
+    "with": "mit",
+    "desc": "Wir helfen Eltern, Lehrkräften und Schulen gerne weiter. Melde dich jederzeit!",
+    "callUs": "Ruf uns an",
+    "whatsapp": "WhatsApp",
+    "email": "E-Mail",
+    "workingHours": "Öffnungszeiten",
+    "workingHoursValue": "Mo - Sa, 9-18 Uhr IST"
+  },
+  "form": {
+    "title": "Schreib uns eine Nachricht",
+    "desc": "Fülle das Formular aus und wir melden uns innerhalb von 24 Stunden bei dir.",
+    "fullName": "Vollständiger Name",
+    "namePlaceholder": "Aarav Sharma",
+    "emailAddress": "E-Mail-Adresse",
+    "phoneNumber": "Telefonnummer",
+    "role": "Ich bin ...",
+    "selectRole": "Wähle deine Rolle",
+    "parent": "Elternteil",
+    "teacher": "Lehrkraft",
+    "schoolAdmin": "Schulverwaltung",
+    "other": "Sonstiges",
+    "subject": "Betreff",
+    "subjectPlaceholder": "Wie können wir dir helfen?",
+    "message": "Deine Nachricht",
+    "messagePlaceholder": "Erzähl uns mehr über deine Frage ...",
+    "send": "Nachricht senden"
+  }
+}

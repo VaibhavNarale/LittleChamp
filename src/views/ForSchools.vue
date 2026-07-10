@@ -30,21 +30,26 @@ onBeforeUnmount(() => {
       <div class="container">
         <div class="servicedetails-hero-content">
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('forSchools.breadcrumb.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">For Schools</span>
+            <span class="breadcrumb-current">{{
+              $t('forSchools.breadcrumb.current')
+            }}</span>
           </nav>
           <div class="hero-badge">
             <i class="fas fa-school badge-icon"></i>
-            <span>Enterprise Solutions</span>
+            <span>{{ $t('forSchools.hero.badge') }}</span>
           </div>
           <h1 class="servicedetails-hero-title">
-            Transform Your School
-            <span class="gradient-text-light d-block">with Little Champ</span>
+            {{ $t('forSchools.hero.titleLine1') }}
+            <span class="gradient-text-light d-block">{{
+              $t('forSchools.hero.titleLine2')
+            }}</span>
           </h1>
           <p class="hero-description">
-            Comprehensive learning platform for schools with unlimited students,
-            advanced analytics, and dedicated support
+            {{ $t('forSchools.hero.description') }}
           </p>
         </div>
       </div>
@@ -65,9 +70,9 @@ onBeforeUnmount(() => {
       <div class="title-area text-center">
         <span class="sub-title">
           <i class="fas fa-building"></i>
-          School Solutions
+          {{ $t('forSchools.solutions.subTitle') }}
         </span>
-        <h2 class="sec-title">Everything Your School Needs</h2>
+        <h2 class="sec-title">{{ $t('forSchools.solutions.secTitle') }}</h2>
       </div>
 
       <div class="row gy-4 mt-5">
@@ -76,14 +81,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="unlimitedStudentsImg"
-                alt="Unlimited Students & Teachers"
+                :alt="$t('forSchools.solutions.unlimitedStudents.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Unlimited Students & Teachers</h3>
+            <h3 class="box-title">
+              {{ $t('forSchools.solutions.unlimitedStudents.title') }}
+            </h3>
             <p class="feature-card-text">
-              Add unlimited students and teachers across multiple grades and
-              classes with no per-user fees.
+              {{ $t('forSchools.solutions.unlimitedStudents.text') }}
             </p>
           </div>
         </div>
@@ -93,14 +99,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="ferpaCoppaImg"
-                alt="FERPA & COPPA Compliant"
+                :alt="$t('forSchools.solutions.ferpaCoppa.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">FERPA & COPPA Compliant</h3>
+            <h3 class="box-title">
+              {{ $t('forSchools.solutions.ferpaCoppa.title') }}
+            </h3>
             <p class="feature-card-text">
-              Full compliance with educational data privacy regulations. Student
-              data is secure and never shared.
+              {{ $t('forSchools.solutions.ferpaCoppa.text') }}
             </p>
           </div>
         </div>
@@ -110,14 +117,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="schoolAnalyticsImg"
-                alt="School-Wide Analytics"
+                :alt="$t('forSchools.solutions.schoolAnalytics.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">School-Wide Analytics</h3>
+            <h3 class="box-title">
+              {{ $t('forSchools.solutions.schoolAnalytics.title') }}
+            </h3>
             <p class="feature-card-text">
-              Comprehensive analytics dashboard for administrators to track
-              performance across grades and classes.
+              {{ $t('forSchools.solutions.schoolAnalytics.text') }}
             </p>
           </div>
         </div>
@@ -127,14 +135,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="dedicatedManagerImg"
-                alt="Dedicated Account Manager"
+                :alt="$t('forSchools.solutions.dedicatedManager.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Dedicated Account Manager</h3>
+            <h3 class="box-title">
+              {{ $t('forSchools.solutions.dedicatedManager.title') }}
+            </h3>
             <p class="feature-card-text">
-              Personal account manager to help with setup, training, and ongoing
-              support for your school.
+              {{ $t('forSchools.solutions.dedicatedManager.text') }}
             </p>
           </div>
         </div>
@@ -144,14 +153,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="ssoIntegrationImg"
-                alt="SSO & LMS Integration"
+                :alt="$t('forSchools.solutions.ssoIntegration.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">SSO & LMS Integration</h3>
+            <h3 class="box-title">
+              {{ $t('forSchools.solutions.ssoIntegration.title') }}
+            </h3>
             <p class="feature-card-text">
-              Single sign-on support and seamless integration with popular LMS
-              platforms like Google Classroom and Canvas.
+              {{ $t('forSchools.solutions.ssoIntegration.text') }}
             </p>
           </div>
         </div>
@@ -161,14 +171,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="professionalDevImg"
-                alt="Professional Development"
+                :alt="$t('forSchools.solutions.professionalDev.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Professional Development</h3>
+            <h3 class="box-title">
+              {{ $t('forSchools.solutions.professionalDev.title') }}
+            </h3>
             <p class="feature-card-text">
-              Free training sessions and ongoing professional development
-              resources for all teachers and staff.
+              {{ $t('forSchools.solutions.professionalDev.text') }}
             </p>
           </div>
         </div>
@@ -184,26 +195,34 @@ onBeforeUnmount(() => {
           <div class="title-area">
             <span class="sub-title">
               <i class="fas fa-trophy"></i>
-              Proven Results
+              {{ $t('forSchools.results.subTitle') }}
             </span>
-            <h2 class="sec-title">Why Schools Choose Us</h2>
+            <h2 class="sec-title">{{ $t('forSchools.results.secTitle') }}</h2>
           </div>
           <div class="stats-grid mt-4">
             <div class="stat-item">
               <h3 class="stat-number">500+</h3>
-              <p class="stat-label">Partner Schools</p>
+              <p class="stat-label">
+                {{ $t('forSchools.results.stats.partnerSchools') }}
+              </p>
             </div>
             <div class="stat-item">
               <h3 class="stat-number">100+</h3>
-              <p class="stat-label">Active Students</p>
+              <p class="stat-label">
+                {{ $t('forSchools.results.stats.activeStudents') }}
+              </p>
             </div>
             <div class="stat-item">
               <h3 class="stat-number">98%</h3>
-              <p class="stat-label">Satisfaction Rate</p>
+              <p class="stat-label">
+                {{ $t('forSchools.results.stats.satisfactionRate') }}
+              </p>
             </div>
             <div class="stat-item">
               <h3 class="stat-number">35%</h3>
-              <p class="stat-label">Performance Boost</p>
+              <p class="stat-label">
+                {{ $t('forSchools.results.stats.performanceBoost') }}
+              </p>
             </div>
           </div>
         </div>
@@ -212,40 +231,36 @@ onBeforeUnmount(() => {
             <div class="benefit-item">
               <i class="fas fa-check-circle"></i>
               <div>
-                <h5>Cost-Effective Solution</h5>
+                <h5>{{ $t('forSchools.results.costEffective.title') }}</h5>
                 <p>
-                  Significant savings compared to traditional learning resources
-                  and software licenses
+                  {{ $t('forSchools.results.costEffective.text') }}
                 </p>
               </div>
             </div>
             <div class="benefit-item">
               <i class="fas fa-check-circle"></i>
               <div>
-                <h5>Easy Implementation</h5>
+                <h5>{{ $t('forSchools.results.easyImplementation.title') }}</h5>
                 <p>
-                  Quick setup with minimal IT requirements. Get started in just
-                  a few days
+                  {{ $t('forSchools.results.easyImplementation.text') }}
                 </p>
               </div>
             </div>
             <div class="benefit-item">
               <i class="fas fa-check-circle"></i>
               <div>
-                <h5>Flexible Deployment</h5>
+                <h5>{{ $t('forSchools.results.flexibleDeployment.title') }}</h5>
                 <p>
-                  Works on any device - desktops, tablets, Chromebooks, and
-                  interactive whiteboards
+                  {{ $t('forSchools.results.flexibleDeployment.text') }}
                 </p>
               </div>
             </div>
             <div class="benefit-item">
               <i class="fas fa-check-circle"></i>
               <div>
-                <h5>24/7 Technical Support</h5>
+                <h5>{{ $t('forSchools.results.technicalSupport.title') }}</h5>
                 <p>
-                  Priority support from our dedicated school support team
-                  whenever you need it
+                  {{ $t('forSchools.results.technicalSupport.text') }}
                 </p>
               </div>
             </div>
@@ -261,77 +276,149 @@ onBeforeUnmount(() => {
       <div class="title-area text-center">
         <span class="sub-title">
           <i class="fas fa-school"></i>
-          School Pricing
+          {{ $t('forSchools.pricing.subTitle') }}
         </span>
-        <h2 class="sec-title">Simple, Transparent Pricing</h2>
+        <h2 class="sec-title">{{ $t('forSchools.pricing.secTitle') }}</h2>
         <p class="sec-text">
-          Special pricing for schools with flexible payment options
+          {{ $t('forSchools.pricing.secText') }}
         </p>
       </div>
 
       <div class="row justify-content-center mt-5">
         <div class="col-lg-4 col-md-6">
           <div class="pricing-card">
-            <div class="pricing-badge">SMALL SCHOOLS</div>
-            <h3 class="pricing-title">Starter</h3>
+            <div class="pricing-badge">
+              {{ $t('forSchools.pricing.starter.badge') }}
+            </div>
+            <h3 class="pricing-title">
+              {{ $t('forSchools.pricing.starter.title') }}
+            </h3>
             <div class="pricing-price">
               <span class="price-amount">₹1,500</span>
-              <span class="price-period">/year</span>
+              <span class="price-period">{{
+                $t('forSchools.pricing.perYear')
+              }}</span>
             </div>
             <ul class="pricing-features">
-              <li><i class="fas fa-check"></i> Up to 250 students</li>
-              <li><i class="fas fa-check"></i> 10 teacher accounts</li>
-              <li><i class="fas fa-check"></i> Basic analytics</li>
-              <li><i class="fas fa-check"></i> Email support</li>
-              <li><i class="fas fa-check"></i> LMS integration</li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.starter.feature1') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.starter.feature2') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.starter.feature3') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.starter.feature4') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.starter.feature5') }}
+              </li>
             </ul>
-            <router-link to="/contact" class="vs-btn style-outline"
-              >Contact Sales</router-link
-            >
+            <router-link to="/contact" class="vs-btn style-outline">{{
+              $t('forSchools.pricing.contactSales')
+            }}</router-link>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6">
           <div class="pricing-card featured">
-            <div class="pricing-badge featured-badge">MOST POPULAR</div>
-            <h3 class="pricing-title">Professional</h3>
+            <div class="pricing-badge featured-badge">
+              {{ $t('forSchools.pricing.professional.badge') }}
+            </div>
+            <h3 class="pricing-title">
+              {{ $t('forSchools.pricing.professional.title') }}
+            </h3>
             <div class="pricing-price">
               <span class="price-amount">₹3,500</span>
-              <span class="price-period">/year</span>
+              <span class="price-period">{{
+                $t('forSchools.pricing.perYear')
+              }}</span>
             </div>
             <ul class="pricing-features">
-              <li><i class="fas fa-check"></i> Up to 750 students</li>
-              <li><i class="fas fa-check"></i> Unlimited teachers</li>
-              <li><i class="fas fa-check"></i> Advanced analytics</li>
-              <li><i class="fas fa-check"></i> Priority support</li>
-              <li><i class="fas fa-check"></i> Professional development</li>
-              <li><i class="fas fa-check"></i> Dedicated account manager</li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.professional.feature1') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.professional.feature2') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.professional.feature3') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.professional.feature4') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.professional.feature5') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.professional.feature6') }}
+              </li>
             </ul>
-            <router-link to="/contact" class="vs-btn"
-              >Contact Sales</router-link
-            >
+            <router-link to="/contact" class="vs-btn">{{
+              $t('forSchools.pricing.contactSales')
+            }}</router-link>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6">
           <div class="pricing-card">
-            <div class="pricing-badge">LARGE DISTRICTS</div>
-            <h3 class="pricing-title">Enterprise</h3>
+            <div class="pricing-badge">
+              {{ $t('forSchools.pricing.enterprise.badge') }}
+            </div>
+            <h3 class="pricing-title">
+              {{ $t('forSchools.pricing.enterprise.title') }}
+            </h3>
             <div class="pricing-price">
-              <span class="price-amount">Custom</span>
+              <span class="price-amount">{{
+                $t('forSchools.pricing.enterprise.priceCustom')
+              }}</span>
             </div>
             <ul class="pricing-features">
-              <li><i class="fas fa-check"></i> Unlimited students</li>
-              <li><i class="fas fa-check"></i> Unlimited teachers</li>
-              <li><i class="fas fa-check"></i> Custom analytics</li>
-              <li><i class="fas fa-check"></i> 24/7 phone support</li>
-              <li><i class="fas fa-check"></i> SSO integration</li>
-              <li><i class="fas fa-check"></i> API access</li>
-              <li><i class="fas fa-check"></i> Custom content creation</li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.enterprise.feature1') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.enterprise.feature2') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.enterprise.feature3') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.enterprise.feature4') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.enterprise.feature5') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.enterprise.feature6') }}
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                {{ $t('forSchools.pricing.enterprise.feature7') }}
+              </li>
             </ul>
-            <router-link to="/contact" class="vs-btn style-outline"
-              >Contact Sales</router-link
-            >
+            <router-link to="/contact" class="vs-btn style-outline">{{
+              $t('forSchools.pricing.contactSales')
+            }}</router-link>
           </div>
         </div>
       </div>
@@ -345,16 +432,15 @@ onBeforeUnmount(() => {
         <div class="row align-items-center">
           <div class="col-lg-8">
             <h2 class="cta-title">
-              Ready to Bring Little Champ to Your School?
+              {{ $t('forSchools.cta.title') }}
             </h2>
             <p class="cta-text">
-              Contact our school sales team for a free demo, pricing
-              information, and custom implementation plan.
+              {{ $t('forSchools.cta.text') }}
             </p>
           </div>
           <div class="col-lg-4 text-lg-end">
             <router-link to="/contact" class="vs-btn style-white">
-              Schedule a Demo
+              {{ $t('forSchools.cta.button') }}
               <i class="fas fa-arrow-right ms-2"></i>
             </router-link>
           </div>

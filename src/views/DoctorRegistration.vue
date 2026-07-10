@@ -1,33 +1,36 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import api from '@/utils/api'
 import DocumentUploadBox from '@/components/DocumentUploadBox.vue'
 import RegistrationInfo from '@/components/RegistrationInfo.vue'
 
+const { t } = useI18n()
+
 // "How the doctor program works" — shown above the form
-const doctorInfoCards = [
+const doctorInfoCards = computed(() => [
   {
     variant: 'green',
     icon: 'fas fa-calendar-check',
-    step: 'Twice Every Month',
-    title: 'Monthly Meet-Ups',
-    text: 'Meet families through two friendly sessions every month — for guidance, check-ins and ongoing support.',
+    step: t('registrationInfo.doctor.cards.monthly.step'),
+    title: t('registrationInfo.doctor.cards.monthly.title'),
+    text: t('registrationInfo.doctor.cards.monthly.text'),
   },
   {
     variant: 'whatsapp',
     icon: 'fab fa-whatsapp',
-    step: 'Anytime',
-    title: 'WhatsApp Support',
-    text: 'Parents can message you directly on WhatsApp for quick questions and timely, caring advice.',
+    step: t('registrationInfo.doctor.cards.whatsapp.step'),
+    title: t('registrationInfo.doctor.cards.whatsapp.title'),
+    text: t('registrationInfo.doctor.cards.whatsapp.text'),
   },
   {
     variant: 'navy',
     icon: 'fas fa-hospital',
-    step: 'In Person',
-    title: 'Visit Your Branch',
-    text: 'Parents and children can visit your branch for warm, face-to-face consultations whenever needed.',
+    step: t('registrationInfo.doctor.cards.branch.step'),
+    title: t('registrationInfo.doctor.cards.branch.title'),
+    text: t('registrationInfo.doctor.cards.branch.text'),
   },
-]
+])
 
 // Form fields
 const form = ref({
@@ -51,15 +54,33 @@ const loading = ref(false)
 const errorMessage = ref('')
 const successMessage = ref('')
 
-const specializations = [
-  'Pediatrician',
-  'Child Psychologist',
-  'Speech Therapist',
-  'Occupational Therapist',
-  'Developmental Specialist',
-  'General Physician',
-  'Other',
-]
+const specializations = computed(() => [
+  {
+    value: 'Pediatrician',
+    label: t('doctorRegistration.specializations.pediatrician'),
+  },
+  {
+    value: 'Child Psychologist',
+    label: t('doctorRegistration.specializations.psychologist'),
+  },
+  {
+    value: 'Speech Therapist',
+    label: t('doctorRegistration.specializations.speechTherapist'),
+  },
+  {
+    value: 'Occupational Therapist',
+    label: t('doctorRegistration.specializations.occupationalTherapist'),
+  },
+  {
+    value: 'Developmental Specialist',
+    label: t('doctorRegistration.specializations.developmentalSpecialist'),
+  },
+  {
+    value: 'General Physician',
+    label: t('doctorRegistration.specializations.generalPhysician'),
+  },
+  { value: 'Other', label: t('doctorRegistration.specializations.other') },
+])
 
 const handleSubmit = async () => {
   errorMessage.value = ''
@@ -73,23 +94,22 @@ const handleSubmit = async () => {
     !form.value.specialization ||
     !form.value.registrationNumber
   ) {
-    errorMessage.value = 'Please fill in all the required fields.'
+    errorMessage.value = t('doctorRegistration.messages.requiredFields')
     return
   }
 
   if (!identityProof.value) {
-    errorMessage.value = 'Please upload your Identity Proof.'
+    errorMessage.value = t('doctorRegistration.messages.uploadIdentity')
     return
   }
 
   if (!certificateDoc.value) {
-    errorMessage.value =
-      'Please upload your Medical Certificate / Registration Document.'
+    errorMessage.value = t('doctorRegistration.messages.uploadCertificate')
     return
   }
 
   if (!agreeTerms.value) {
-    errorMessage.value = 'Please agree to the Terms of Service to continue.'
+    errorMessage.value = t('doctorRegistration.messages.agreeTerms')
     return
   }
 
@@ -113,14 +133,13 @@ const handleSubmit = async () => {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
 
-    successMessage.value =
-      'Thank you! Your doctor registration has been submitted. Our team will review your documents and get back to you soon. 🎉'
+    successMessage.value = t('doctorRegistration.messages.success')
     resetForm()
   } catch (err) {
     errorMessage.value =
       err.response?.data?.message ||
       err.response?.data?.['sub-title'] ||
-      'Something went wrong while submitting. Please try again.'
+      t('doctorRegistration.messages.error')
   } finally {
     loading.value = false
   }
@@ -159,24 +178,29 @@ const resetForm = () => {
       <div class="container">
         <div class="reg-hero-content">
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('doctorRegistration.hero.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Doctor Registration</span>
+            <span class="breadcrumb-current">{{
+              $t('doctorRegistration.hero.breadcrumb')
+            }}</span>
           </nav>
 
           <div class="hero-badge">
             <i class="fas fa-user-md"></i>
-            <span>For Health Professionals</span>
+            <span>{{ $t('doctorRegistration.hero.badge') }}</span>
           </div>
 
           <h1 class="reg-hero-title">
-            Join Our Circle of
-            <span class="gradient-text-light d-block">Caring Doctors</span>
+            {{ $t('doctorRegistration.hero.titleLead') }}
+            <span class="gradient-text-light d-block">{{
+              $t('doctorRegistration.hero.titleAccent')
+            }}</span>
           </h1>
 
           <p class="reg-hero-description">
-            Partner with Little Champ to support children's growth and
-            well-being. Register below and upload your documents to get started!
+            {{ $t('doctorRegistration.hero.description') }}
           </p>
         </div>
       </div>
@@ -194,11 +218,11 @@ const resetForm = () => {
 
   <!--======== How the Program Works ========-->
   <RegistrationInfo
-    eyebrow="How Our Doctor Program Works"
+    :eyebrow="$t('registrationInfo.doctor.eyebrow')"
     eyebrow-icon="fas fa-stethoscope"
-    title-lead="Three Ways You'll"
-    title-accent="Care for Families"
-    subtitle="Before you register, here's what being a Little Champ partner doctor looks like."
+    :title-lead="$t('registrationInfo.doctor.titleLead')"
+    :title-accent="$t('registrationInfo.doctor.titleAccent')"
+    :subtitle="$t('registrationInfo.doctor.subtitle')"
     :cards="doctorInfoCards"
   />
 
@@ -213,23 +237,31 @@ const resetForm = () => {
               <div class="panel-mascot">
                 <i class="fas fa-stethoscope"></i>
               </div>
-              <h2 class="panel-title">Become a<br />Partner Doctor</h2>
+              <h2 class="panel-title">
+                {{ $t('doctorRegistration.panel.title1') }}<br />{{
+                  $t('doctorRegistration.panel.title2')
+                }}
+              </h2>
               <p class="panel-desc">
-                Help us make learning safe, joyful and healthy for every child.
+                {{ $t('doctorRegistration.panel.desc') }}
               </p>
 
               <ul class="panel-perks">
                 <li>
-                  <i class="fas fa-heart"></i> Support children's development
+                  <i class="fas fa-heart"></i>
+                  {{ $t('doctorRegistration.panel.perks.development') }}
                 </li>
                 <li>
-                  <i class="fas fa-shield-alt"></i> Verified & trusted profile
+                  <i class="fas fa-shield-alt"></i>
+                  {{ $t('doctorRegistration.panel.perks.profile') }}
                 </li>
                 <li>
-                  <i class="fas fa-calendar-check"></i> Flexible engagement
+                  <i class="fas fa-calendar-check"></i>
+                  {{ $t('doctorRegistration.panel.perks.flexible') }}
                 </li>
                 <li>
-                  <i class="fas fa-users"></i> Connect with caring families
+                  <i class="fas fa-users"></i>
+                  {{ $t('doctorRegistration.panel.perks.families') }}
                 </li>
               </ul>
 
@@ -241,9 +273,13 @@ const resetForm = () => {
           <!-- Right Form Panel -->
           <div class="col-lg-7">
             <div class="reg-form-panel">
-              <h2 class="form-panel-title">Doctor Registration Form</h2>
+              <h2 class="form-panel-title">
+                {{ $t('doctorRegistration.form.title') }}
+              </h2>
               <p class="form-panel-desc">
-                Fields marked with <span class="req-star">*</span> are required.
+                {{ $t('doctorRegistration.form.requiredBefore') }}
+                <span class="req-star">*</span>
+                {{ $t('doctorRegistration.form.requiredAfter') }}
               </p>
 
               <div v-if="successMessage" class="alert alert-success">
@@ -257,95 +293,135 @@ const resetForm = () => {
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label class="field-label"
-                      >Full Name <span class="req-star">*</span></label
+                      >{{ $t('doctorRegistration.fields.fullName') }}
+                      <span class="req-star">*</span></label
                     >
                     <input
                       v-model="form.fullName"
                       type="text"
                       class="field-input"
-                      placeholder="Dr. Aarav Sharma"
+                      :placeholder="
+                        $t('doctorRegistration.fields.fullNamePlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label"
-                      >Email Address <span class="req-star">*</span></label
+                      >{{ $t('doctorRegistration.fields.email') }}
+                      <span class="req-star">*</span></label
                     >
                     <input
                       v-model="form.email"
                       type="email"
                       class="field-input"
-                      placeholder="doctor@example.com"
+                      :placeholder="
+                        $t('doctorRegistration.fields.emailPlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label"
-                      >Phone Number <span class="req-star">*</span></label
+                      >{{ $t('doctorRegistration.fields.phone') }}
+                      <span class="req-star">*</span></label
                     >
                     <input
                       v-model="form.phone"
                       type="tel"
                       class="field-input"
-                      placeholder="+91 00000 00000"
+                      :placeholder="
+                        $t('doctorRegistration.fields.phonePlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-md-6">
                     <label class="field-label"
-                      >Specialization <span class="req-star">*</span></label
+                      >{{ $t('doctorRegistration.fields.specialization') }}
+                      <span class="req-star">*</span></label
                     >
                     <select v-model="form.specialization" class="field-input">
-                      <option value="" disabled>Select specialization</option>
-                      <option v-for="s in specializations" :key="s" :value="s">
-                        {{ s }}
+                      <option value="" disabled>
+                        {{
+                          $t(
+                            'doctorRegistration.fields.specializationPlaceholder'
+                          )
+                        }}
+                      </option>
+                      <option
+                        v-for="s in specializations"
+                        :key="s.value"
+                        :value="s.value"
+                      >
+                        {{ s.label }}
                       </option>
                     </select>
                   </div>
                   <div class="col-md-6">
                     <label class="field-label"
-                      >Medical Registration No.
+                      >{{ $t('doctorRegistration.fields.registrationNumber') }}
                       <span class="req-star">*</span></label
                     >
                     <input
                       v-model="form.registrationNumber"
                       type="text"
                       class="field-input"
-                      placeholder="e.g. MH-123456"
+                      :placeholder="
+                        $t(
+                          'doctorRegistration.fields.registrationNumberPlaceholder'
+                        )
+                      "
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label">Years of Experience</label>
+                    <label class="field-label">{{
+                      $t('doctorRegistration.fields.experience')
+                    }}</label>
                     <input
                       v-model="form.experience"
                       type="number"
                       min="0"
                       class="field-input"
-                      placeholder="e.g. 8"
+                      :placeholder="
+                        $t('doctorRegistration.fields.experiencePlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label">Clinic / Hospital Name</label>
+                    <label class="field-label">{{
+                      $t('doctorRegistration.fields.clinic')
+                    }}</label>
                     <input
                       v-model="form.clinic"
                       type="text"
                       class="field-input"
-                      placeholder="Sunshine Children's Clinic"
+                      :placeholder="
+                        $t('doctorRegistration.fields.clinicPlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label">City</label>
+                    <label class="field-label">{{
+                      $t('doctorRegistration.fields.city')
+                    }}</label>
                     <input
                       v-model="form.city"
                       type="text"
                       class="field-input"
-                      placeholder="Mumbai"
+                      :placeholder="
+                        $t('doctorRegistration.fields.cityPlaceholder')
+                      "
                     />
                   </div>
                   <div class="col-12">
-                    <label class="field-label">About You</label>
+                    <label class="field-label">{{
+                      $t('doctorRegistration.fields.about')
+                    }}</label>
                     <textarea
                       v-model="form.about"
                       class="field-input field-textarea"
                       rows="4"
-                      placeholder="Tell us a little about your practice and how you'd like to help..."
+                      :placeholder="
+                        $t('doctorRegistration.fields.aboutPlaceholder')
+                      "
                     ></textarea>
                   </div>
 
@@ -357,9 +433,11 @@ const resetForm = () => {
                           <i class="fas fa-folder-open"></i>
                         </div>
                         <div>
-                          <h3 class="docs-title">Documents Upload</h3>
+                          <h3 class="docs-title">
+                            {{ $t('doctorRegistration.docs.title') }}
+                          </h3>
                           <p class="docs-subtitle">
-                            Please upload clear copies of the documents below.
+                            {{ $t('doctorRegistration.docs.subtitle') }}
                           </p>
                         </div>
                       </div>
@@ -368,18 +446,22 @@ const resetForm = () => {
                         <div class="col-md-6">
                           <DocumentUploadBox
                             v-model="identityProof"
-                            label="Identity Proof"
+                            :label="$t('doctorRegistration.docs.identityLabel')"
                             icon="fas fa-id-card"
-                            hint="Aadhaar / Passport / PAN — PNG, JPG or PDF (max 5 MB)"
+                            :hint="$t('doctorRegistration.docs.identityHint')"
                             required
                           />
                         </div>
                         <div class="col-md-6">
                           <DocumentUploadBox
                             v-model="certificateDoc"
-                            label="Medical Certificate / Registration Document"
+                            :label="
+                              $t('doctorRegistration.docs.certificateLabel')
+                            "
                             icon="fas fa-file-medical"
-                            hint="Degree / Council Registration — PNG, JPG or PDF (max 5 MB)"
+                            :hint="
+                              $t('doctorRegistration.docs.certificateHint')
+                            "
                             required
                           />
                         </div>
@@ -393,14 +475,14 @@ const resetForm = () => {
                       <input v-model="agreeTerms" type="checkbox" />
                       <span class="checkmark"></span>
                       <span class="checkbox-label">
-                        I confirm the information provided is accurate and I
-                        agree to the
-                        <router-link to="/terms" class="link"
-                          >Terms of Service</router-link
-                        >
-                        and
-                        <router-link to="/privacy" class="link"
-                          >Privacy Policy</router-link
+                        {{ $t('doctorRegistration.terms.text') }}
+                        <router-link to="/terms" class="link">{{
+                          $t('doctorRegistration.terms.termsOfService')
+                        }}</router-link>
+                        {{ $t('doctorRegistration.terms.and') }}
+                        <router-link to="/privacy" class="link">{{
+                          $t('doctorRegistration.terms.privacyPolicy')
+                        }}</router-link
                         >.
                       </span>
                     </label>
@@ -413,11 +495,12 @@ const resetForm = () => {
                       :disabled="loading"
                     >
                       <span v-if="!loading">
-                        Submit Registration
+                        {{ $t('doctorRegistration.button.submit') }}
                         <i class="fas fa-paper-plane ms-2"></i>
                       </span>
                       <span v-else>
-                        <i class="fas fa-spinner fa-spin me-2"></i>Submitting...
+                        <i class="fas fa-spinner fa-spin me-2"></i
+                        >{{ $t('doctorRegistration.button.submitting') }}
                       </span>
                     </button>
                   </div>

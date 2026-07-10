@@ -49,16 +49,22 @@ defineProps({
       <!-- Stats Grid (default when no features provided) -->
       <div v-if="features.length === 0 && !hideStats" class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number">Indian</div>
-          <div class="stat-label">Kids Learning</div>
+          <div class="stat-number">
+            {{ $t('authLayout.stats.kidsLearningNumber') }}
+          </div>
+          <div class="stat-label">
+            {{ $t('authLayout.stats.kidsLearningLabel') }}
+          </div>
         </div>
         <div class="stat-item">
           <div class="stat-number">500+</div>
-          <div class="stat-label">Games</div>
+          <div class="stat-label">{{ $t('authLayout.stats.gamesLabel') }}</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">100+</div>
-          <div class="stat-label">Teachers</div>
+          <div class="stat-label">
+            {{ $t('authLayout.stats.teachersLabel') }}
+          </div>
         </div>
       </div>
 

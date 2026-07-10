@@ -29,19 +29,25 @@ onBeforeUnmount(() => {
       <div class="container">
         <div class="gallery-hero-content">
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('gallery.breadcrumb.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Gallery</span>
+            <span class="breadcrumb-current">{{
+              $t('gallery.breadcrumb.current')
+            }}</span>
           </nav>
           <div class="hero-badge">
             <i class="fas fa-camera-retro badge-icon"></i>
-            <span>Our Memories</span>
+            <span>{{ $t('gallery.hero.badge') }}</span>
           </div>
           <h1 class="gallery-hero-title">
-            Explore Our
-            <span class="gradient-text-light d-block">Photo Gallery</span>
+            {{ $t('gallery.hero.titlePrefix') }}
+            <span class="gradient-text-light d-block">{{
+              $t('gallery.hero.titleHighlight')
+            }}</span>
           </h1>
-          <p class="gallery-hero-subtitle">Our Fun Moments!</p>
+          <p class="gallery-hero-subtitle">{{ $t('gallery.hero.subtitle') }}</p>
         </div>
       </div>
     </div>
@@ -72,16 +78,16 @@ onBeforeUnmount(() => {
       <!-- Filter Buttons -->
       <div class="kids-filter-menu text-center mb-40 filter-menu-active">
         <button data-filter="*" class="filter-pill active">
-          <i class="fas fa-th"></i> All
+          <i class="fas fa-th"></i> {{ $t('gallery.filter.all') }}
         </button>
         <button data-filter=".cat-1" class="filter-pill pill-green">
-          <i class="fas fa-tree"></i> Outdoor
+          <i class="fas fa-tree"></i> {{ $t('gallery.filter.outdoor') }}
         </button>
         <button data-filter=".cat-2" class="filter-pill pill-pink">
-          <i class="fas fa-birthday-cake"></i> Party
+          <i class="fas fa-birthday-cake"></i> {{ $t('gallery.filter.party') }}
         </button>
         <button data-filter=".cat-3" class="filter-pill pill-yellow">
-          <i class="fas fa-baby"></i> Toddler
+          <i class="fas fa-baby"></i> {{ $t('gallery.filter.toddler') }}
         </button>
       </div>
 
@@ -91,7 +97,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-1.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-1.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-1.jpg"
                 class="frame-overlay popup-image"
@@ -99,7 +108,7 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Outdoor Fun</div>
+            <div class="frame-label">{{ $t('gallery.labels.outdoorFun') }}</div>
           </div>
         </div>
 
@@ -107,7 +116,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-2.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-2.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-2.jpg"
                 class="frame-overlay popup-image"
@@ -115,7 +127,7 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Party Time</div>
+            <div class="frame-label">{{ $t('gallery.labels.partyTime') }}</div>
           </div>
         </div>
 
@@ -123,7 +135,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-3.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-3.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-3.jpg"
                 class="frame-overlay popup-image"
@@ -131,7 +146,9 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Little Stars</div>
+            <div class="frame-label">
+              {{ $t('gallery.labels.littleStars') }}
+            </div>
           </div>
         </div>
 
@@ -139,7 +156,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-4.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-4.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-4.jpg"
                 class="frame-overlay popup-image"
@@ -147,7 +167,7 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Happy Days</div>
+            <div class="frame-label">{{ $t('gallery.labels.happyDays') }}</div>
           </div>
         </div>
 
@@ -155,7 +175,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-5.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-5.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-5.jpg"
                 class="frame-overlay popup-image"
@@ -163,7 +186,9 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Celebrations</div>
+            <div class="frame-label">
+              {{ $t('gallery.labels.celebrations') }}
+            </div>
           </div>
         </div>
 
@@ -171,7 +196,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-6.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-6.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-6.jpg"
                 class="frame-overlay popup-image"
@@ -179,7 +207,9 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Tiny Explorers</div>
+            <div class="frame-label">
+              {{ $t('gallery.labels.tinyExplorers') }}
+            </div>
           </div>
         </div>
 
@@ -187,7 +217,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-7.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-7.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-7.jpg"
                 class="frame-overlay popup-image"
@@ -195,7 +228,7 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Party Magic</div>
+            <div class="frame-label">{{ $t('gallery.labels.partyMagic') }}</div>
           </div>
         </div>
 
@@ -203,7 +236,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-8.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-8.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-8.jpg"
                 class="frame-overlay popup-image"
@@ -211,7 +247,7 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Giggles</div>
+            <div class="frame-label">{{ $t('gallery.labels.giggles') }}</div>
           </div>
         </div>
 
@@ -219,7 +255,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-9.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-9.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-9.jpg"
                 class="frame-overlay popup-image"
@@ -227,7 +266,7 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Playtime</div>
+            <div class="frame-label">{{ $t('gallery.labels.playtime') }}</div>
           </div>
         </div>
 
@@ -235,7 +274,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-10.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-10.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-10.jpg"
                 class="frame-overlay popup-image"
@@ -243,7 +285,7 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Adventures</div>
+            <div class="frame-label">{{ $t('gallery.labels.adventures') }}</div>
           </div>
         </div>
 
@@ -251,7 +293,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-11.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-11.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-11.jpg"
                 class="frame-overlay popup-image"
@@ -259,7 +304,9 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Joy & Laughter</div>
+            <div class="frame-label">
+              {{ $t('gallery.labels.joyLaughter') }}
+            </div>
           </div>
         </div>
 
@@ -267,7 +314,10 @@ onBeforeUnmount(() => {
           <div class="photo-frame">
             <div class="tape-deco"></div>
             <div class="frame-inner">
-              <img src="/assets/img/project/p-12.jpg" alt="Fun moment" />
+              <img
+                src="/assets/img/project/p-12.jpg"
+                :alt="$t('gallery.imageAlt')"
+              />
               <a
                 href="/assets/img/project/p-12.jpg"
                 class="frame-overlay popup-image"
@@ -275,7 +325,9 @@ onBeforeUnmount(() => {
                 <i class="fas fa-search-plus"></i>
               </a>
             </div>
-            <div class="frame-label">Precious Moments</div>
+            <div class="frame-label">
+              {{ $t('gallery.labels.preciousMoments') }}
+            </div>
           </div>
         </div>
       </div>

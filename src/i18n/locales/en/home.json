@@ -1,0 +1,202 @@
+{
+  "hero": {
+    "slide1": {
+      "badge": "Learn • Play • Grow",
+      "titleLine1": "Make Learning",
+      "titleHighlight": "Magical & Fun",
+      "titleLine2": "for Your Child!",
+      "subtitle": "Join Indian kids worldwide exploring 500+ interactive educational games. Perfect for Pre-K to Grade 7 learners.",
+      "feature1": "500+ Interactive Games",
+      "feature2": "Pre-K to Grade 7",
+      "feature3": "Safe & Ad-Free",
+      "responseNote": "We respond within 24 hours"
+    },
+    "slide2": {
+      "badge": "Adapt • Grow • Excel",
+      "titleHighlight": "Personalized Learning",
+      "titleLine": "Paths for Every Child",
+      "subtitle": "Our adaptive platform automatically adjusts to your child's skill level, ensuring they're always challenged but never frustrated.",
+      "feature1": "Adaptive Difficulty",
+      "feature2": "Real-Time Progress",
+      "feature3": "Skill Mastery Tracking",
+      "cta": "See How It Works"
+    },
+    "slide3": {
+      "badge": "For Educators",
+      "titleHighlight": "100% Free",
+      "titleLine": "for Teachers Forever!",
+      "subtitle": "Join 100+ educators using Little Champ to engage students and track progress in their classrooms.",
+      "feature1": "Classroom Management",
+      "feature2": "Student Progress Reports",
+      "feature3": "Lesson Planning Tools",
+      "teacherBadge": "Forever Free • No Trials • All Payments Required"
+    },
+    "trust": {
+      "safeSecure": "Safe & Secure",
+      "allPaymentsRequired": "All Payments Required",
+      "adFree": "Ad-Free"
+    }
+  },
+  "features": {
+    "subtitle": "Why Choose Little Champ",
+    "titleLine": "Powerful Features That Make Learning",
+    "titleHighlight": "Irresistible",
+    "desc": "Everything your child needs to excel in Math, Reading, and Craft & Drawing",
+    "clickToLearnMore": "Click to learn more",
+    "exploreMore": "Explore More Features",
+    "games": {
+      "highlight": "500+",
+      "alt": "Interactive Games",
+      "title": "500+ Interactive Games",
+      "text": "Kids learn through play with curriculum-aligned games that adapt to their level"
+    },
+    "personalized": {
+      "highlight": "AI",
+      "alt": "Personalized Learning",
+      "title": "Personalized Learning",
+      "text": "Adaptive technology that adjusts difficulty and pace to match each child's needs"
+    },
+    "pediatric": {
+      "highlight": "Care",
+      "alt": "Pediatric Guidance & Parent Support",
+      "title": "Pediatric Guidance & Parent Support",
+      "text": "We care about complete child development. That's why we include pediatric guidance and dedicated parent support."
+    },
+    "teachers": {
+      "highlight": "FREE",
+      "alt": "Free For Teachers",
+      "title": "Free For Teachers",
+      "text": "Classroom management, assignments, and progress tracking - completely free forever"
+    }
+  },
+  "about": {
+    "subtitle": "Why Little Champ",
+    "titleLine": "Transform Learning into an",
+    "titleHighlight": "Adventure",
+    "text": "At Little Champ, every child can discover the joy of learning. Our platform uses adaptive AI technology and fun games to create personalized experiences in Math, Manners, Brain Activities, and the Ability to think out of the box.",
+    "cta": "Discover Our Story"
+  },
+  "counter": {
+    "kidsAlt": "Kids",
+    "kidsNumber": "Indian",
+    "kidsLabel": "Kids Learning",
+    "gamesLabel": "Interactive Games",
+    "teachersLabel": "Teachers Trust Us",
+    "countriesNumber": "India",
+    "countriesLabel": "Other Countries"
+  },
+  "subjects": {
+    "subtitle": "Learning Subjects",
+    "titleLine1": "Explore",
+    "titleHighlight": "Subjects",
+    "titleLine2": "Your Child Will Master",
+    "desc": "Curriculum-aligned content for Pre-K through Grade 7",
+    "gradeTag1": "Pre-K to Grade 7",
+    "gradeTag2": "Kindergarten to Grade 7",
+    "gamesBadge": "500+ Games",
+    "activitiesBadge": "800+ Activities",
+    "exploreAll": "Explore All Subjects",
+    "math": {
+      "alt": "Mathematics",
+      "title": "Mathematics",
+      "text": "Build number sense, master arithmetic, explore geometry, and solve real-world math problems.",
+      "topics": "15+ Topics",
+      "games": "500+ Games",
+      "explore": "Explore Math"
+    },
+    "reading": {
+      "alt": "Your AI-Buddy",
+      "title": "Your AI-Buddy",
+      "text": "AI-powered feature combines friendly interaction, communication skills, general knowledge, and guides children on exploring the outside world — creating a fun, engaging, and educational experience all in one place.",
+      "topics": "12+ Topics",
+      "games": "500+ Games",
+      "explore": "Explore Reading"
+    },
+    "craft": {
+      "alt": "Craft & Drawing",
+      "title": "Craft & Drawing",
+      "text": "Unleash creativity through hands-on crafts, drawing, coloring, and artistic expression.",
+      "topics": "10+ Topics",
+      "activities": "800+ Activities",
+      "explore": "Explore Craft & Drawing"
+    }
+  },
+  "howItWorks": {
+    "tag": "How It Works",
+    "headingLine": "Get Started in",
+    "headingHighlight": "4 Simple Steps",
+    "step1": {
+      "alt": "Sign Up Free",
+      "title": "Sign Up Free",
+      "desc": "Create your account in seconds. All payments required."
+    },
+    "step2": {
+      "alt": "Choose Your Grade",
+      "title": "Choose Your Grade",
+      "desc": "Select from Pre-K to Grade 7. Pick subjects that interest your child."
+    },
+    "step3": {
+      "alt": "Play & Learn",
+      "title": "Play & Learn",
+      "desc": "Kids explore 500+ games. AI adapts difficulty to their level."
+    },
+    "step4": {
+      "alt": "Track Progress",
+      "title": "Track Progress",
+      "desc": "Parents & teachers get real-time insights on learning growth."
+    }
+  },
+  "journey": {
+    "titleLine": "Make effective independent learning",
+    "titleHighlight": "a reality",
+    "subtitle": "The learning path is your child's personalized learning journey divided into meaningful daily milestones.",
+    "alt": "Learning Journey Path",
+    "benefit1Text": "Saves you the hassle of hunting for",
+    "benefit1Highlight": "learning plans",
+    "benefit2Highlight": "Adapts",
+    "benefit2Text": "to your child's learning needs",
+    "benefit3Text1": "Leads to",
+    "benefit3Highlight": "curriculum mastery,",
+    "benefit3Text2": "one day at a time"
+  },
+  "testimonials": {
+    "tag": "Parent Reviews",
+    "headingLine": "What Parents & Teachers",
+    "headingHighlight": "Say About Us",
+    "desc": "Discover how Little Champ is transforming learning for millions of families worldwide. Real stories from real parents about their children's progress.",
+    "t1": {
+      "role": "Parent, Grade 2",
+      "title": "My Daughter Loves Math Now!",
+      "text": "My 7-year-old used to struggle with math, but since using Mind Jr, she's excited to practice every day. The games make learning fun and she's already ahead of her grade level!"
+    },
+    "t2": {
+      "role": "Homeschool Parent",
+      "title": "Perfect for Homeschooling",
+      "text": "As a homeschool parent, Mind Jr has been a game-changer. The curriculum-aligned content covers all subjects and my kids are learning while having fun. Worth every penny!"
+    },
+    "t3": {
+      "role": "Elementary Teacher",
+      "title": "Engaging & Educational",
+      "text": "I use Mind Jr in my classroom and the kids absolutely love it. The progress tracking helps me identify areas where students need extra support. Highly recommend!"
+    }
+  },
+  "cta": {
+    "badge": "Start Today - It's Free!",
+    "titleLine": "Ready to Start Your Child's",
+    "titleHighlight": "Learning Adventure?",
+    "text": "Join 50 million kids already learning through play. All payments required - get instant access to thousands of educational games.",
+    "exploreSubjects": "Explore Subjects",
+    "safeSecure": "Safe & Secure",
+    "adFree": "100% Ad-Free",
+    "paymentAccepted": "All Payment Accepted"
+  },
+  "blog": {
+    "subtitle": "From Our Blog",
+    "titleLine": "Tips & Resources for",
+    "titleHighlight": "Parents & Teachers",
+    "desc": "Expert advice on childhood education, learning activities, and parenting tips",
+    "views": "views",
+    "readMore": "Read More",
+    "viewAll": "View All Articles"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "breadcrumb": {
+    "home": "Startseite",
+    "current": "Galerie"
+  },
+  "hero": {
+    "badge": "Unsere Erinnerungen",
+    "titlePrefix": "Entdecke unsere",
+    "titleHighlight": "Fotogalerie",
+    "subtitle": "Unsere schönen Momente!"
+  },
+  "filter": {
+    "all": "Alle",
+    "outdoor": "Draußen",
+    "party": "Party",
+    "toddler": "Kleinkind"
+  },
+  "imageAlt": "Fröhlicher Moment",
+  "labels": {
+    "outdoorFun": "Spaß im Freien",
+    "partyTime": "Partyzeit",
+    "littleStars": "Kleine Stars",
+    "happyDays": "Glückliche Tage",
+    "celebrations": "Feiern",
+    "tinyExplorers": "Kleine Entdecker",
+    "partyMagic": "Party-Magie",
+    "giggles": "Kicherlaune",
+    "playtime": "Spielzeit",
+    "adventures": "Abenteuer",
+    "joyLaughter": "Freude & Lachen",
+    "preciousMoments": "Kostbare Momente"
+  }
+}

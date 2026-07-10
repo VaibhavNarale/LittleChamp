@@ -1,5 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const props = defineProps({
   modelValue: {
@@ -12,7 +15,7 @@ const props = defineProps({
   },
   hint: {
     type: String,
-    default: 'PNG, JPG or PDF — up to 5 MB',
+    default: '',
   },
   icon: {
     type: String,
@@ -63,7 +66,7 @@ const validateAndSet = (selected) => {
 
   // Size check
   if (selected.size > props.maxSize * 1024 * 1024) {
-    errorText.value = `Oops! File is too big. Please keep it under ${props.maxSize} MB.`
+    errorText.value = t('documentUpload.errors.tooBig', { max: props.maxSize })
     return
   }
 
@@ -71,7 +74,9 @@ const validateAndSet = (selected) => {
   const allowed = props.accept.split(',').map((t) => t.trim().toLowerCase())
   const ext = '.' + selected.name.split('.').pop().toLowerCase()
   if (allowed.length && !allowed.includes(ext)) {
-    errorText.value = `Please upload a ${allowed.join(', ')} file.`
+    errorText.value = t('documentUpload.errors.invalidType', {
+      types: allowed.join(', '),
+    })
     return
   }
 
@@ -129,9 +134,12 @@ const removeFile = () => {
         <i :class="icon"></i>
       </div>
       <p class="doc-cta">
-        <span class="doc-cta-strong">Click to upload</span> or drag &amp; drop
+        <span class="doc-cta-strong">{{
+          $t('documentUpload.clickToUpload')
+        }}</span>
+        {{ $t('documentUpload.orDragDrop') }}
       </p>
-      <p class="doc-hint">{{ hint }}</p>
+      <p class="doc-hint">{{ hint || $t('documentUpload.defaultHint') }}</p>
     </div>
 
     <!-- Filled state: preview card -->
@@ -146,13 +154,14 @@ const removeFile = () => {
       <div class="doc-preview-info">
         <span class="doc-file-name">{{ file.name }}</span>
         <span class="doc-file-meta">
-          <i class="fas fa-check-circle"></i> Uploaded · {{ fileSizeLabel }}
+          <i class="fas fa-check-circle"></i>
+          {{ $t('documentUpload.uploaded') }} · {{ fileSizeLabel }}
         </span>
       </div>
       <button
         type="button"
         class="doc-remove"
-        title="Remove file"
+        :title="$t('documentUpload.removeFile')"
         @click="removeFile"
       >
         <i class="fas fa-trash-alt"></i>

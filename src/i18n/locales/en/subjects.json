@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "badge": "Learning Subjects",
+    "titleLine1": "What Will Your Child",
+    "titleLine2": "Master Today?",
+    "description": "Curriculum-aligned content for Pre-K through Grade 7 • 500+ Games • 10,000+ Worksheets"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Subjects"
+  },
+  "grades": {
+    "all": "All Grades",
+    "g36": "3 to 6",
+    "g78": "7 and 8",
+    "g812": "8 to 12"
+  },
+  "labels": {
+    "games": "Games",
+    "worksheets": "Worksheets",
+    "activities": "Activities",
+    "templates": "Templates",
+    "gradesRange": "Pre-K to 7",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "topicsCovered": "Topics Covered:"
+  },
+  "math": {
+    "name": "Mathematics",
+    "alt": "Mathematics",
+    "description": "Build number sense, master arithmetic, explore geometry, and solve real-world problems through engaging games and activities.",
+    "button": "Explore All Math Games",
+    "stats": {
+      "games": "1000+",
+      "worksheets": "3500+",
+      "gradesRange": "Pre-K to 7"
+    },
+    "topics": {
+      "counting": "Counting & Numbers",
+      "countingGames": "120 games",
+      "addition": "Addition",
+      "additionGames": "95 games",
+      "subtraction": "Subtraction",
+      "subtractionGames": "88 games",
+      "multiplication": "Multiplication",
+      "multiplicationGames": "102 games",
+      "division": "Division",
+      "divisionGames": "76 games",
+      "geometry": "Geometry",
+      "geometryGames": "64 games",
+      "fractions": "Fractions & Decimals",
+      "fractionsGames": "85 games",
+      "wordProblems": "Word Problems",
+      "wordProblemsGames": "92 games"
+    }
+  },
+  "aiBuddy": {
+    "name": "Your AI-Buddy",
+    "alt": "Your AI-Buddy",
+    "description": "AI-powered feature combines friendly interaction, communication skills, general knowledge, and guides children on exploring the outside world — creating a fun, engaging, and educational experience all in one place.",
+    "button": "Explore All Reading Games",
+    "stats": {
+      "games": "500+",
+      "worksheets": "500+",
+      "gradesRange": "Pre-K to 7"
+    },
+    "topics": {
+      "phonics": "Phonics & Letters",
+      "phonicsGames": "150 games",
+      "spelling": "Spelling",
+      "spellingGames": "110 games",
+      "comprehension": "Reading Comprehension",
+      "comprehensionGames": "180 games",
+      "vocabulary": "Vocabulary",
+      "vocabularyGames": "95 games",
+      "grammar": "Grammar",
+      "grammarGames": "88 games",
+      "writing": "Writing",
+      "writingGames": "72 games",
+      "partsOfSpeech": "Parts of Speech",
+      "partsOfSpeechGames": "65 games",
+      "punctuation": "Punctuation",
+      "punctuationGames": "55 games"
+    }
+  },
+  "craft": {
+    "name": "Craft & Drawing",
+    "alt": "Craft & Drawing",
+    "description": "Unleash your child's creativity through fun drawing lessons, paper crafts, and hands-on art activities that build fine motor skills, imagination, and self-expression.",
+    "button": "Explore All Craft & Drawing Activities",
+    "stats": {
+      "activities": "200+",
+      "templates": "500+",
+      "gradesRange": "Pre-K to 7"
+    },
+    "topics": {
+      "sketching": "Pencil Sketching",
+      "sketchingGames": "45 activities",
+      "painting": "Color & Painting",
+      "paintingGames": "60 activities",
+      "paperCraft": "Paper Craft",
+      "paperCraftGames": "50 activities",
+      "origami": "Origami & Folding",
+      "origamiGames": "35 activities",
+      "clay": "Clay & Modelling",
+      "clayGames": "30 activities",
+      "creative": "Creative Projects",
+      "creativeGames": "40 activities"
+    }
+  },
+  "cta": {
+    "subTitle": "Start Learning Today",
+    "title": "Ready to Help Your Child Excel?",
+    "description": "Join Indian kids learning through play"
+  }
+}

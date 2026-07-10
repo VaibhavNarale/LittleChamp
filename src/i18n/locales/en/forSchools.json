@@ -1,0 +1,115 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "current": "For Schools"
+  },
+  "hero": {
+    "badge": "Enterprise Solutions",
+    "titleLine1": "Transform Your School",
+    "titleLine2": "with Little Champ",
+    "description": "Comprehensive learning platform for schools with unlimited students, advanced analytics, and dedicated support"
+  },
+  "solutions": {
+    "subTitle": "School Solutions",
+    "secTitle": "Everything Your School Needs",
+    "unlimitedStudents": {
+      "alt": "Unlimited Students & Teachers",
+      "title": "Unlimited Students & Teachers",
+      "text": "Add unlimited students and teachers across multiple grades and classes with no per-user fees."
+    },
+    "ferpaCoppa": {
+      "alt": "FERPA & COPPA Compliant",
+      "title": "FERPA & COPPA Compliant",
+      "text": "Full compliance with educational data privacy regulations. Student data is secure and never shared."
+    },
+    "schoolAnalytics": {
+      "alt": "School-Wide Analytics",
+      "title": "School-Wide Analytics",
+      "text": "Comprehensive analytics dashboard for administrators to track performance across grades and classes."
+    },
+    "dedicatedManager": {
+      "alt": "Dedicated Account Manager",
+      "title": "Dedicated Account Manager",
+      "text": "Personal account manager to help with setup, training, and ongoing support for your school."
+    },
+    "ssoIntegration": {
+      "alt": "SSO & LMS Integration",
+      "title": "SSO & LMS Integration",
+      "text": "Single sign-on support and seamless integration with popular LMS platforms like Google Classroom and Canvas."
+    },
+    "professionalDev": {
+      "alt": "Professional Development",
+      "title": "Professional Development",
+      "text": "Free training sessions and ongoing professional development resources for all teachers and staff."
+    }
+  },
+  "results": {
+    "subTitle": "Proven Results",
+    "secTitle": "Why Schools Choose Us",
+    "stats": {
+      "partnerSchools": "Partner Schools",
+      "activeStudents": "Active Students",
+      "satisfactionRate": "Satisfaction Rate",
+      "performanceBoost": "Performance Boost"
+    },
+    "costEffective": {
+      "title": "Cost-Effective Solution",
+      "text": "Significant savings compared to traditional learning resources and software licenses"
+    },
+    "easyImplementation": {
+      "title": "Easy Implementation",
+      "text": "Quick setup with minimal IT requirements. Get started in just a few days"
+    },
+    "flexibleDeployment": {
+      "title": "Flexible Deployment",
+      "text": "Works on any device - desktops, tablets, Chromebooks, and interactive whiteboards"
+    },
+    "technicalSupport": {
+      "title": "24/7 Technical Support",
+      "text": "Priority support from our dedicated school support team whenever you need it"
+    }
+  },
+  "pricing": {
+    "subTitle": "School Pricing",
+    "secTitle": "Simple, Transparent Pricing",
+    "secText": "Special pricing for schools with flexible payment options",
+    "perYear": "/year",
+    "contactSales": "Contact Sales",
+    "starter": {
+      "badge": "SMALL SCHOOLS",
+      "title": "Starter",
+      "feature1": "Up to 250 students",
+      "feature2": "10 teacher accounts",
+      "feature3": "Basic analytics",
+      "feature4": "Email support",
+      "feature5": "LMS integration"
+    },
+    "professional": {
+      "badge": "MOST POPULAR",
+      "title": "Professional",
+      "feature1": "Up to 750 students",
+      "feature2": "Unlimited teachers",
+      "feature3": "Advanced analytics",
+      "feature4": "Priority support",
+      "feature5": "Professional development",
+      "feature6": "Dedicated account manager"
+    },
+    "enterprise": {
+      "badge": "LARGE DISTRICTS",
+      "title": "Enterprise",
+      "priceCustom": "Custom",
+      "feature1": "Unlimited students",
+      "feature2": "Unlimited teachers",
+      "feature3": "Custom analytics",
+      "feature4": "24/7 phone support",
+      "feature5": "SSO integration",
+      "feature6": "API access",
+      "feature7": "Custom content creation"
+    }
+  },
+  "cta": {
+    "title": "Ready to Bring Little Champ to Your School?",
+    "text": "Contact our school sales team for a free demo, pricing information, and custom implementation plan.",
+    "button": "Schedule a Demo"
+  }
+}

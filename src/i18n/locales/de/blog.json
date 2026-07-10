@@ -1,0 +1,40 @@
+{
+  "breadcrumb": {
+    "home": "Startseite",
+    "current": "Blog"
+  },
+  "hero": {
+    "titlePrefix": "Unser",
+    "titleHighlight": "Blog",
+    "description": "Tipps, Geschichten & Lernressourcen für Eltern und Lehrkräfte"
+  },
+  "filter": {
+    "all": "Alle"
+  },
+  "search": {
+    "placeholder": "Artikel suchen..."
+  },
+  "featured": {
+    "badge": "Empfohlen",
+    "readArticle": "Artikel lesen"
+  },
+  "card": {
+    "read": "Lesen"
+  },
+  "meta": {
+    "views": "{count} Aufrufe"
+  },
+  "minRead": "{minutes} Min. Lesezeit",
+  "empty": {
+    "title": "Keine Artikel gefunden",
+    "text": "Passe deine Suche oder deine Filter an",
+    "clearFilters": "Filter zurücksetzen"
+  },
+  "loadMore": "Weitere Artikel laden",
+  "loadingMore": "Wird geladen...",
+  "sidebar": {
+    "allCategories": "Alle Kategorien",
+    "categories": "Kategorien",
+    "popularArticles": "Beliebte Artikel"
+  }
+}

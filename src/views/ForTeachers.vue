@@ -30,21 +30,26 @@ onBeforeUnmount(() => {
       <div class="container">
         <div class="servicedetails-hero-content">
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('forTeachers.breadcrumb.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">For Teachers</span>
+            <span class="breadcrumb-current">{{
+              $t('forTeachers.breadcrumb.current')
+            }}</span>
           </nav>
           <div class="hero-badge">
             <i class="fas fa-chalkboard-teacher badge-icon"></i>
-            <span>Supporting Educators</span>
+            <span>{{ $t('forTeachers.hero.badge') }}</span>
           </div>
           <h1 class="servicedetails-hero-title">
-            Empower Your Classroom
-            <span class="gradient-text-light d-block">with Little Champ</span>
+            {{ $t('forTeachers.hero.titleLine1') }}
+            <span class="gradient-text-light d-block">{{
+              $t('forTeachers.hero.titleLine2')
+            }}</span>
           </h1>
           <p class="hero-description">
-            Free premium access for teachers! Engage your students with
-            interactive learning games and track their progress in real-time
+            {{ $t('forTeachers.hero.description') }}
           </p>
         </div>
       </div>
@@ -67,10 +72,9 @@ onBeforeUnmount(() => {
           <div class="banner-icon">
             <i class="fas fa-gift"></i>
           </div>
-          <h3 class="banner-title">100% Free Premium Access for Teachers!</h3>
+          <h3 class="banner-title">{{ $t('forTeachers.banner.title') }}</h3>
           <p class="banner-text">
-            We believe in supporting educators. Get full access to all premium
-            features at no cost when you register as a teacher.
+            {{ $t('forTeachers.banner.text') }}
           </p>
         </div>
       </div>
@@ -83,9 +87,9 @@ onBeforeUnmount(() => {
       <div class="title-area text-center">
         <span class="sub-title">
           <i class="fas fa-award"></i>
-          Teacher Benefits
+          {{ $t('forTeachers.benefits.subTitle') }}
         </span>
-        <h2 class="sec-title">Everything You Need in the Classroom</h2>
+        <h2 class="sec-title">{{ $t('forTeachers.benefits.secTitle') }}</h2>
       </div>
 
       <div class="row gy-4 mt-5">
@@ -94,14 +98,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="manageClassesImg"
-                alt="Manage Multiple Classes"
+                :alt="$t('forTeachers.benefits.manageClasses.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Manage Multiple Classes</h3>
+            <h3 class="box-title">
+              {{ $t('forTeachers.benefits.manageClasses.title') }}
+            </h3>
             <p class="feature-card-text">
-              Create and manage unlimited classes with up to 40 students per
-              class. Perfect for all grade levels.
+              {{ $t('forTeachers.benefits.manageClasses.text') }}
             </p>
           </div>
         </div>
@@ -111,14 +116,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="assignActivitiesImg"
-                alt="Assign Activities"
+                :alt="$t('forTeachers.benefits.assignActivities.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Assign Activities</h3>
+            <h3 class="box-title">
+              {{ $t('forTeachers.benefits.assignActivities.title') }}
+            </h3>
             <p class="feature-card-text">
-              Easily assign specific games and activities to individuals,
-              groups, or your entire class with one click.
+              {{ $t('forTeachers.benefits.assignActivities.text') }}
             </p>
           </div>
         </div>
@@ -128,14 +134,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="realtimeProgressImg"
-                alt="Real-Time Progress"
+                :alt="$t('forTeachers.benefits.realtimeProgress.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Real-Time Progress</h3>
+            <h3 class="box-title">
+              {{ $t('forTeachers.benefits.realtimeProgress.title') }}
+            </h3>
             <p class="feature-card-text">
-              Monitor student progress in real-time with detailed analytics and
-              insights on individual performance.
+              {{ $t('forTeachers.benefits.realtimeProgress.text') }}
             </p>
           </div>
         </div>
@@ -145,14 +152,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="standardsAlignedImg"
-                alt="Standards-Aligned"
+                :alt="$t('forTeachers.benefits.standardsAligned.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Standards-Aligned</h3>
+            <h3 class="box-title">
+              {{ $t('forTeachers.benefits.standardsAligned.title') }}
+            </h3>
             <p class="feature-card-text">
-              All content is curriculum-aligned and mapped to educational
-              standards for easy integration.
+              {{ $t('forTeachers.benefits.standardsAligned.text') }}
             </p>
           </div>
         </div>
@@ -162,14 +170,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="automatedReportsImg"
-                alt="Automated Reports"
+                :alt="$t('forTeachers.benefits.automatedReports.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Automated Reports</h3>
+            <h3 class="box-title">
+              {{ $t('forTeachers.benefits.automatedReports.title') }}
+            </h3>
             <p class="feature-card-text">
-              Generate comprehensive reports for students, parents, and
-              administrators with just a few clicks.
+              {{ $t('forTeachers.benefits.automatedReports.text') }}
             </p>
           </div>
         </div>
@@ -179,14 +188,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="interactiveWhiteboardImg"
-                alt="Interactive Whiteboard"
+                :alt="$t('forTeachers.benefits.interactiveWhiteboard.alt')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Interactive Whiteboard</h3>
+            <h3 class="box-title">
+              {{ $t('forTeachers.benefits.interactiveWhiteboard.title') }}
+            </h3>
             <p class="feature-card-text">
-              Display activities on your interactive whiteboard for whole-class
-              instruction and engagement.
+              {{ $t('forTeachers.benefits.interactiveWhiteboard.text') }}
             </p>
           </div>
         </div>
@@ -200,9 +210,9 @@ onBeforeUnmount(() => {
       <div class="title-area text-center">
         <span class="sub-title">
           <i class="fas fa-star"></i>
-          Teacher Features
+          {{ $t('forTeachers.features.subTitle') }}
         </span>
-        <h2 class="sec-title">What Teachers Get</h2>
+        <h2 class="sec-title">{{ $t('forTeachers.features.secTitle') }}</h2>
       </div>
 
       <div class="row mt-5 justify-content-center">
@@ -210,35 +220,35 @@ onBeforeUnmount(() => {
           <div class="features-list">
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>Unlimited student accounts</span>
+              <span>{{ $t('forTeachers.features.item1') }}</span>
             </div>
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>Access to all 500+ educational games</span>
+              <span>{{ $t('forTeachers.features.item2') }}</span>
             </div>
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>Customizable learning paths</span>
+              <span>{{ $t('forTeachers.features.item3') }}</span>
             </div>
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>Parent communication tools</span>
+              <span>{{ $t('forTeachers.features.item4') }}</span>
             </div>
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>Printable worksheets and resources</span>
+              <span>{{ $t('forTeachers.features.item5') }}</span>
             </div>
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>Professional development resources</span>
+              <span>{{ $t('forTeachers.features.item6') }}</span>
             </div>
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>Priority support from our team</span>
+              <span>{{ $t('forTeachers.features.item7') }}</span>
             </div>
             <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>Regular content updates</span>
+              <span>{{ $t('forTeachers.features.item8') }}</span>
             </div>
           </div>
         </div>
@@ -252,9 +262,9 @@ onBeforeUnmount(() => {
       <div class="title-area text-center">
         <span class="sub-title">
           <i class="fas fa-quote-left"></i>
-          Teacher Testimonials
+          {{ $t('forTeachers.testimonials.subTitle') }}
         </span>
-        <h2 class="sec-title">What Teachers Say</h2>
+        <h2 class="sec-title">{{ $t('forTeachers.testimonials.secTitle') }}</h2>
       </div>
 
       <div class="row gy-4 mt-5">
@@ -268,13 +278,11 @@ onBeforeUnmount(() => {
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "Little Champ has transformed how I teach mathematics. My students
-              are more engaged and their test scores have improved
-              significantly!"
+              {{ $t('forTeachers.testimonials.item1.text') }}
             </p>
             <div class="testimonial-author">
-              <h5>Priya Sharma</h5>
-              <span>3rd Grade Teacher, Mumbai</span>
+              <h5>{{ $t('forTeachers.testimonials.item1.name') }}</h5>
+              <span>{{ $t('forTeachers.testimonials.item1.role') }}</span>
             </div>
           </div>
         </div>
@@ -289,13 +297,11 @@ onBeforeUnmount(() => {
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "The progress tracking tools are incredible. I can easily see
-              which students need extra help and tailor my instruction
-              accordingly."
+              {{ $t('forTeachers.testimonials.item2.text') }}
             </p>
             <div class="testimonial-author">
-              <h5>Rahul Mehta</h5>
-              <span>2nd Grade Teacher, Delhi</span>
+              <h5>{{ $t('forTeachers.testimonials.item2.name') }}</h5>
+              <span>{{ $t('forTeachers.testimonials.item2.role') }}</span>
             </div>
           </div>
         </div>
@@ -310,13 +316,11 @@ onBeforeUnmount(() => {
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "My students love earning rewards and competing with each other.
-              It's made learning fun and my classroom is more productive than
-              ever!"
+              {{ $t('forTeachers.testimonials.item3.text') }}
             </p>
             <div class="testimonial-author">
-              <h5>Ananya Iyer</h5>
-              <span>1st Grade Teacher, Bangalore</span>
+              <h5>{{ $t('forTeachers.testimonials.item3.name') }}</h5>
+              <span>{{ $t('forTeachers.testimonials.item3.role') }}</span>
             </div>
           </div>
         </div>

@@ -1,0 +1,81 @@
+{
+  "breadcrumb": {
+    "home": "Startseite",
+    "current": "Für Lehrkräfte"
+  },
+  "hero": {
+    "badge": "Wir unterstützen Lehrkräfte",
+    "titleLine1": "Bring Schwung in deinen Unterricht",
+    "titleLine2": "mit Little Champ",
+    "description": "Kostenloser Premium-Zugang für Lehrkräfte! Begeistere deine Schülerinnen und Schüler mit interaktiven Lernspielen und verfolge ihren Fortschritt in Echtzeit"
+  },
+  "banner": {
+    "title": "100 % kostenloser Premium-Zugang für Lehrkräfte!",
+    "text": "Wir glauben daran, Lehrkräfte zu unterstützen. Erhalte kostenlosen Zugang zu allen Premium-Funktionen, wenn du dich als Lehrkraft registrierst."
+  },
+  "benefits": {
+    "subTitle": "Vorteile für Lehrkräfte",
+    "secTitle": "Alles, was du im Unterricht brauchst",
+    "manageClasses": {
+      "alt": "Mehrere Klassen verwalten",
+      "title": "Mehrere Klassen verwalten",
+      "text": "Erstelle und verwalte unbegrenzt viele Klassen mit bis zu 40 Schülerinnen und Schülern pro Klasse. Perfekt für alle Klassenstufen."
+    },
+    "assignActivities": {
+      "alt": "Aktivitäten zuweisen",
+      "title": "Aktivitäten zuweisen",
+      "text": "Weise bestimmte Spiele und Aktivitäten mit nur einem Klick einzelnen Kindern, Gruppen oder deiner ganzen Klasse zu."
+    },
+    "realtimeProgress": {
+      "alt": "Fortschritt in Echtzeit",
+      "title": "Fortschritt in Echtzeit",
+      "text": "Verfolge den Lernfortschritt deiner Schülerinnen und Schüler in Echtzeit mit detaillierten Auswertungen und Einblicken in die individuelle Leistung."
+    },
+    "standardsAligned": {
+      "alt": "Lehrplankonform",
+      "title": "Lehrplankonform",
+      "text": "Alle Inhalte sind lehrplankonform und an Bildungsstandards ausgerichtet, damit sie sich mühelos einbinden lassen."
+    },
+    "automatedReports": {
+      "alt": "Automatische Berichte",
+      "title": "Automatische Berichte",
+      "text": "Erstelle mit nur wenigen Klicks umfassende Berichte für Schülerinnen und Schüler, Eltern und die Schulleitung."
+    },
+    "interactiveWhiteboard": {
+      "alt": "Interaktives Whiteboard",
+      "title": "Interaktives Whiteboard",
+      "text": "Zeige Aktivitäten auf deinem interaktiven Whiteboard an – für den Unterricht mit der ganzen Klasse und mehr Beteiligung."
+    }
+  },
+  "features": {
+    "subTitle": "Funktionen für Lehrkräfte",
+    "secTitle": "Das bekommst du als Lehrkraft",
+    "item1": "Unbegrenzt viele Schülerkonten",
+    "item2": "Zugang zu allen über 500 Lernspielen",
+    "item3": "Anpassbare Lernpfade",
+    "item4": "Tools für die Kommunikation mit Eltern",
+    "item5": "Druckbare Arbeitsblätter und Materialien",
+    "item6": "Materialien zur beruflichen Weiterbildung",
+    "item7": "Bevorzugter Support von unserem Team",
+    "item8": "Regelmäßige Inhalts-Updates"
+  },
+  "testimonials": {
+    "subTitle": "Stimmen von Lehrkräften",
+    "secTitle": "Das sagen Lehrkräfte",
+    "item1": {
+      "text": "„Little Champ hat verändert, wie ich Mathematik unterrichte. Meine Schülerinnen und Schüler sind engagierter und ihre Testergebnisse haben sich deutlich verbessert!“",
+      "name": "Priya Sharma",
+      "role": "Lehrerin der 3. Klasse, Mumbai"
+    },
+    "item2": {
+      "text": "„Die Tools zur Fortschrittsverfolgung sind großartig. Ich erkenne leicht, welche Kinder zusätzliche Unterstützung brauchen, und richte meinen Unterricht entsprechend aus.“",
+      "name": "Rahul Mehta",
+      "role": "Lehrer der 2. Klasse, Delhi"
+    },
+    "item3": {
+      "text": "„Meine Schülerinnen und Schüler lieben es, Belohnungen zu verdienen und sich miteinander zu messen. Lernen macht jetzt Spaß und meine Klasse ist produktiver denn je!“",
+      "name": "Ananya Iyer",
+      "role": "Lehrerin der 1. Klasse, Bangalore"
+    }
+  }
+}

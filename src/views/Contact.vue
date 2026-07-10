@@ -33,27 +33,32 @@ onBeforeUnmount(() => {
         <div class="contact-hero-content">
           <!-- Subtle Breadcrumb -->
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('nav.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Contact Us</span>
+            <span class="breadcrumb-current">{{
+              $t('contact.breadcrumb.current')
+            }}</span>
           </nav>
 
           <!-- Hero Badge -->
           <div class="hero-badge">
             <i class="fas fa-envelope"></i>
-            <span>Get In Touch</span>
+            <span>{{ $t('contact.badge') }}</span>
           </div>
 
           <!-- Hero Title -->
           <h1 class="contact-hero-title">
-            We'd Love to
-            <span class="gradient-text-light d-block">Hear From You</span>
+            {{ $t('contact.title.line1') }}
+            <span class="gradient-text-light d-block">{{
+              $t('contact.title.line2')
+            }}</span>
           </h1>
 
           <!-- Hero Description -->
           <p class="contact-hero-description">
-            Have questions? We're here to help! Reach out to our friendly team
-            anytime
+            {{ $t('contact.description') }}
           </p>
         </div>
       </div>
@@ -83,13 +88,17 @@ onBeforeUnmount(() => {
           <!-- Left: Green Gradient Info Panel -->
           <div class="col-lg-5">
             <div class="contact-panel">
-              <h2 class="panel-title">Let's Start a <br />Conversation</h2>
+              <h2 class="panel-title">
+                {{ $t('contact.panel.title1') }} <br />{{
+                  $t('contact.panel.title2')
+                }}
+              </h2>
               <p class="panel-brand">
-                with <span class="brand-mind">Little Champ</span>
+                {{ $t('contact.panel.with') }}
+                <span class="brand-mind">Little Champ</span>
               </p>
               <p class="panel-desc">
-                We're happy to help parents, teachers, and schools. Reach out
-                anytime!
+                {{ $t('contact.panel.desc') }}
               </p>
 
               <div class="panel-items">
@@ -98,7 +107,9 @@ onBeforeUnmount(() => {
                     <i class="fas fa-phone-alt"></i>
                   </div>
                   <div>
-                    <span class="panel-item-label">Call Us</span>
+                    <span class="panel-item-label">{{
+                      $t('contact.panel.callUs')
+                    }}</span>
                     <span class="panel-item-value">+91 9821749524</span>
                   </div>
                 </a>
@@ -113,7 +124,9 @@ onBeforeUnmount(() => {
                     <i class="fab fa-whatsapp"></i>
                   </div>
                   <div>
-                    <span class="panel-item-label">WhatsApp</span>
+                    <span class="panel-item-label">{{
+                      $t('contact.panel.whatsapp')
+                    }}</span>
                     <span class="panel-item-value">+91 9876543210</span>
                   </div>
                 </a>
@@ -123,7 +136,9 @@ onBeforeUnmount(() => {
                     <i class="fas fa-envelope"></i>
                   </div>
                   <div>
-                    <span class="panel-item-label">Email</span>
+                    <span class="panel-item-label">{{
+                      $t('contact.panel.email')
+                    }}</span>
                     <span class="panel-item-value">Info@kindergarden.com</span>
                   </div>
                 </a>
@@ -133,10 +148,12 @@ onBeforeUnmount(() => {
                     <i class="fas fa-clock"></i>
                   </div>
                   <div>
-                    <span class="panel-item-label">Working Hours</span>
-                    <span class="panel-item-value"
-                      >Mon - Sat, 9am - 6pm IST</span
-                    >
+                    <span class="panel-item-label">{{
+                      $t('contact.panel.workingHours')
+                    }}</span>
+                    <span class="panel-item-value">{{
+                      $t('contact.panel.workingHoursValue')
+                    }}</span>
                   </div>
                 </div>
               </div>
@@ -165,24 +182,28 @@ onBeforeUnmount(() => {
           <!-- Right: White Form -->
           <div class="col-lg-7">
             <div class="form-panel">
-              <h2 class="form-panel-title">Send Us a Message</h2>
+              <h2 class="form-panel-title">{{ $t('contact.form.title') }}</h2>
               <p class="form-panel-desc">
-                Fill the form below and we'll get back to you within 24 hours.
+                {{ $t('contact.form.desc') }}
               </p>
 
               <form class="contact-form-modern">
                 <div class="row g-3">
                   <div class="col-md-6">
-                    <label class="field-label">Full Name</label>
+                    <label class="field-label">{{
+                      $t('contact.form.fullName')
+                    }}</label>
                     <input
                       type="text"
                       class="field-input"
-                      placeholder="Aarav Sharma"
+                      :placeholder="$t('contact.form.namePlaceholder')"
                       required
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label">Email Address</label>
+                    <label class="field-label">{{
+                      $t('contact.form.emailAddress')
+                    }}</label>
                     <input
                       type="email"
                       class="field-input"
@@ -191,7 +212,9 @@ onBeforeUnmount(() => {
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label">Phone Number</label>
+                    <label class="field-label">{{
+                      $t('contact.form.phoneNumber')
+                    }}</label>
                     <input
                       type="tel"
                       class="field-input"
@@ -199,38 +222,44 @@ onBeforeUnmount(() => {
                     />
                   </div>
                   <div class="col-md-6">
-                    <label class="field-label">I am a...</label>
+                    <label class="field-label">{{
+                      $t('contact.form.role')
+                    }}</label>
                     <select class="field-input">
                       <option value="" disabled selected>
-                        Select your role
+                        {{ $t('contact.form.selectRole') }}
                       </option>
-                      <option>Parent</option>
-                      <option>Teacher</option>
-                      <option>School Administrator</option>
-                      <option>Other</option>
+                      <option>{{ $t('contact.form.parent') }}</option>
+                      <option>{{ $t('contact.form.teacher') }}</option>
+                      <option>{{ $t('contact.form.schoolAdmin') }}</option>
+                      <option>{{ $t('contact.form.other') }}</option>
                     </select>
                   </div>
                   <div class="col-12">
-                    <label class="field-label">Subject</label>
+                    <label class="field-label">{{
+                      $t('contact.form.subject')
+                    }}</label>
                     <input
                       type="text"
                       class="field-input"
-                      placeholder="How can we help?"
+                      :placeholder="$t('contact.form.subjectPlaceholder')"
                       required
                     />
                   </div>
                   <div class="col-12">
-                    <label class="field-label">Your Message</label>
+                    <label class="field-label">{{
+                      $t('contact.form.message')
+                    }}</label>
                     <textarea
                       class="field-input field-textarea"
-                      placeholder="Tell us more about your question..."
+                      :placeholder="$t('contact.form.messagePlaceholder')"
                       rows="5"
                       required
                     ></textarea>
                   </div>
                   <div class="col-12 mt-2">
                     <button type="submit" class="send-btn">
-                      Send Message
+                      {{ $t('contact.form.send') }}
                       <i class="fas fa-paper-plane ms-2"></i>
                     </button>
                   </div>

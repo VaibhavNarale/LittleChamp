@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
                   data-ani-delay="0s"
                 >
                   <span class="hero-badge-dot"></span>
-                  <span>Learn • Play • Grow</span>
+                  <span>{{ $t('home.hero.slide1.badge') }}</span>
                 </div>
 
                 <h1
@@ -122,9 +122,11 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.1s"
                 >
-                  Make Learning
-                  <span class="gradient-text d-block">Magical & Fun</span>
-                  for Your Child!
+                  {{ $t('home.hero.slide1.titleLine1') }}
+                  <span class="gradient-text d-block">{{
+                    $t('home.hero.slide1.titleHighlight')
+                  }}</span>
+                  {{ $t('home.hero.slide1.titleLine2') }}
                 </h1>
 
                 <p
@@ -132,8 +134,7 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.2s"
                 >
-                  Join Indian kids worldwide exploring 500+ interactive
-                  educational games. Perfect for Pre-K to Grade 7 learners.
+                  {{ $t('home.hero.slide1.subtitle') }}
                 </p>
 
                 <div
@@ -143,15 +144,15 @@ onBeforeUnmount(() => {
                 >
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>500+ Interactive Games</span>
+                    <span>{{ $t('home.hero.slide1.feature1') }}</span>
                   </div>
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Pre-K to Grade 7</span>
+                    <span>{{ $t('home.hero.slide1.feature2') }}</span>
                   </div>
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Safe & Ad-Free</span>
+                    <span>{{ $t('home.hero.slide1.feature3') }}</span>
                   </div>
                 </div>
 
@@ -165,7 +166,7 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.5s"
                 >
-                  We respond within 24 hours
+                  {{ $t('home.hero.slide1.responseNote') }}
                 </p>
 
                 <div
@@ -175,15 +176,15 @@ onBeforeUnmount(() => {
                 >
                   <div class="trust-item">
                     <i class="fas fa-shield-alt"></i>
-                    <span>Safe & Secure</span>
+                    <span>{{ $t('home.hero.trust.safeSecure') }}</span>
                   </div>
                   <div class="trust-item">
                     <i class="fas fa-credit-card"></i>
-                    <span>All Payments Required</span>
+                    <span>{{ $t('home.hero.trust.allPaymentsRequired') }}</span>
                   </div>
                   <div class="trust-item">
                     <i class="fas fa-ban"></i>
-                    <span>Ad-Free</span>
+                    <span>{{ $t('home.hero.trust.adFree') }}</span>
                   </div>
                 </div>
               </div>
@@ -256,7 +257,7 @@ onBeforeUnmount(() => {
                   data-ani-delay="0s"
                 >
                   <span class="hero-badge-dot hero-badge-dot--blue"></span>
-                  <span>Adapt • Grow • Excel</span>
+                  <span>{{ $t('home.hero.slide2.badge') }}</span>
                 </div>
 
                 <h1
@@ -264,10 +265,10 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.1s"
                 >
-                  <span class="gradient-text d-block"
-                    >Personalized Learning</span
-                  >
-                  Paths for Every Child
+                  <span class="gradient-text d-block">{{
+                    $t('home.hero.slide2.titleHighlight')
+                  }}</span>
+                  {{ $t('home.hero.slide2.titleLine') }}
                 </h1>
 
                 <p
@@ -275,9 +276,7 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.2s"
                 >
-                  Our adaptive platform automatically adjusts to your child's
-                  skill level, ensuring they're always challenged but never
-                  frustrated.
+                  {{ $t('home.hero.slide2.subtitle') }}
                 </p>
 
                 <div
@@ -287,15 +286,15 @@ onBeforeUnmount(() => {
                 >
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Adaptive Difficulty</span>
+                    <span>{{ $t('home.hero.slide2.feature1') }}</span>
                   </div>
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Real-Time Progress</span>
+                    <span>{{ $t('home.hero.slide2.feature2') }}</span>
                   </div>
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Skill Mastery Tracking</span>
+                    <span>{{ $t('home.hero.slide2.feature3') }}</span>
                   </div>
                 </div>
 
@@ -306,7 +305,7 @@ onBeforeUnmount(() => {
                 >
                   <router-link to="/features" class="modern-btn btn-primary">
                     <i class="fas fa-lightbulb"></i>
-                    <span>See How It Works</span>
+                    <span>{{ $t('home.hero.slide2.cta') }}</span>
                   </router-link>
                 </div>
               </div>
@@ -379,7 +378,7 @@ onBeforeUnmount(() => {
                   data-ani-delay="0s"
                 >
                   <i class="fas fa-graduation-cap"></i>
-                  <span>For Educators</span>
+                  <span>{{ $t('home.hero.slide3.badge') }}</span>
                 </div>
 
                 <h1
@@ -387,8 +386,10 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.1s"
                 >
-                  <span class="gradient-text d-block">100% Free</span>
-                  for Teachers Forever!
+                  <span class="gradient-text d-block">{{
+                    $t('home.hero.slide3.titleHighlight')
+                  }}</span>
+                  {{ $t('home.hero.slide3.titleLine') }}
                 </h1>
 
                 <p
@@ -396,8 +397,7 @@ onBeforeUnmount(() => {
                   data-ani="slideinup"
                   data-ani-delay="0.2s"
                 >
-                  Join 100+ educators using Little Champ to engage students and
-                  track progress in their classrooms.
+                  {{ $t('home.hero.slide3.subtitle') }}
                 </p>
 
                 <div
@@ -407,15 +407,15 @@ onBeforeUnmount(() => {
                 >
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Classroom Management</span>
+                    <span>{{ $t('home.hero.slide3.feature1') }}</span>
                   </div>
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Student Progress Reports</span>
+                    <span>{{ $t('home.hero.slide3.feature2') }}</span>
                   </div>
                   <div class="feature-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Lesson Planning Tools</span>
+                    <span>{{ $t('home.hero.slide3.feature3') }}</span>
                   </div>
                 </div>
 
@@ -428,7 +428,7 @@ onBeforeUnmount(() => {
                     to="/for-teachers"
                     class="modern-btn btn-outline"
                   >
-                    <span>Learn More</span>
+                    <span>{{ $t('common.learnMore') }}</span>
                     <i class="fas fa-arrow-right"></i>
                   </router-link>
                 </div>
@@ -439,7 +439,7 @@ onBeforeUnmount(() => {
                   data-ani-delay="0.5s"
                 >
                   <i class="fas fa-infinity"></i>
-                  <span>Forever Free • No Trials • All Payments Required</span>
+                  <span>{{ $t('home.hero.slide3.teacherBadge') }}</span>
                 </div>
               </div>
             </div>
@@ -509,14 +509,15 @@ onBeforeUnmount(() => {
       >
         <div class="col-xl-8 col-lg-9">
           <div class="title-area">
-            <span class="sub-title">Why Choose Little Champ</span>
+            <span class="sub-title">{{ $t('home.features.subtitle') }}</span>
             <h2 class="sec-title">
-              Powerful Features That Make Learning
-              <span class="gradient-text">Irresistible</span>
+              {{ $t('home.features.titleLine') }}
+              <span class="gradient-text">{{
+                $t('home.features.titleHighlight')
+              }}</span>
             </h2>
             <p class="mt-3 text-muted">
-              Everything your child needs to excel in Math, Reading, and Craft &
-              Drawing
+              {{ $t('home.features.desc') }}
             </p>
           </div>
         </div>
@@ -528,19 +529,22 @@ onBeforeUnmount(() => {
             <div class="feature-card__icon feature-icon--transparent">
               <img
                 src="@/assets/game-controllers.png"
-                alt="Interactive Games"
+                :alt="$t('home.features.games.alt')"
                 class="feature-icon-img"
               />
             </div>
-            <span class="feature-card__highlight highlight--pink">500+</span>
-            <h3 class="feature-card__title">500+ Interactive Games</h3>
+            <span class="feature-card__highlight highlight--pink">{{
+              $t('home.features.games.highlight')
+            }}</span>
+            <h3 class="feature-card__title">
+              {{ $t('home.features.games.title') }}
+            </h3>
             <p class="feature-card__text">
-              Kids learn through play with curriculum-aligned games that adapt
-              to their level
+              {{ $t('home.features.games.text') }}
             </p>
-            <router-link to="/features" class="feature-card__link"
-              >Click to learn more</router-link
-            >
+            <router-link to="/features" class="feature-card__link">{{
+              $t('home.features.clickToLearnMore')
+            }}</router-link>
           </div>
         </div>
         <!-- Feature 2: Personalized Learning -->
@@ -549,19 +553,22 @@ onBeforeUnmount(() => {
             <div class="feature-card__icon feature-icon--transparent">
               <img
                 src="@/assets/personalized-learning.png"
-                alt="Personalized Learning"
+                :alt="$t('home.features.personalized.alt')"
                 class="feature-icon-img"
               />
             </div>
-            <span class="feature-card__highlight highlight--purple">AI</span>
-            <h3 class="feature-card__title">Personalized Learning</h3>
+            <span class="feature-card__highlight highlight--purple">{{
+              $t('home.features.personalized.highlight')
+            }}</span>
+            <h3 class="feature-card__title">
+              {{ $t('home.features.personalized.title') }}
+            </h3>
             <p class="feature-card__text">
-              Adaptive technology that adjusts difficulty and pace to match each
-              child's needs
+              {{ $t('home.features.personalized.text') }}
             </p>
-            <router-link to="/features" class="feature-card__link"
-              >Click to learn more</router-link
-            >
+            <router-link to="/features" class="feature-card__link">{{
+              $t('home.features.clickToLearnMore')
+            }}</router-link>
           </div>
         </div>
         <!-- Feature 3: Pediatric Guidance & Parent Support -->
@@ -572,21 +579,22 @@ onBeforeUnmount(() => {
             >
               <img
                 src="@/assets/pediatric-guidance.png"
-                alt="Pediatric Guidance & Parent Support"
+                :alt="$t('home.features.pediatric.alt')"
                 class="feature-icon-img"
               />
             </div>
-            <span class="feature-card__highlight highlight--yellow">Care</span>
+            <span class="feature-card__highlight highlight--yellow">{{
+              $t('home.features.pediatric.highlight')
+            }}</span>
             <h3 class="feature-card__title">
-              Pediatric Guidance & Parent Support
+              {{ $t('home.features.pediatric.title') }}
             </h3>
             <p class="feature-card__text">
-              We care about complete child development. That's why we include
-              pediatric guidance and dedicated parent support.
+              {{ $t('home.features.pediatric.text') }}
             </p>
-            <router-link to="/features" class="feature-card__link"
-              >Click to learn more</router-link
-            >
+            <router-link to="/features" class="feature-card__link">{{
+              $t('home.features.clickToLearnMore')
+            }}</router-link>
           </div>
         </div>
         <!-- Feature 4: Free for Teachers -->
@@ -597,25 +605,28 @@ onBeforeUnmount(() => {
             >
               <img
                 src="@/assets/free-teachers.png"
-                alt="Free For Teachers"
+                :alt="$t('home.features.teachers.alt')"
                 class="feature-icon-img"
               />
             </div>
-            <span class="feature-card__highlight highlight--green">FREE</span>
-            <h3 class="feature-card__title">Free For Teachers</h3>
+            <span class="feature-card__highlight highlight--green">{{
+              $t('home.features.teachers.highlight')
+            }}</span>
+            <h3 class="feature-card__title">
+              {{ $t('home.features.teachers.title') }}
+            </h3>
             <p class="feature-card__text">
-              Classroom management, assignments, and progress tracking -
-              completely free forever
+              {{ $t('home.features.teachers.text') }}
             </p>
-            <router-link to="/for-teachers" class="feature-card__link"
-              >Click to learn more</router-link
-            >
+            <router-link to="/for-teachers" class="feature-card__link">{{
+              $t('home.features.clickToLearnMore')
+            }}</router-link>
           </div>
         </div>
       </div>
       <div class="text-center mt-50 wow fadeInUp" data-wow-delay="0.5s">
         <router-link to="/features" class="vs-btn btn-primary-enhanced">
-          Explore More Features
+          {{ $t('home.features.exploreMore') }}
           <i class="fas fa-arrow-right ms-2"></i>
         </router-link>
       </div>
@@ -653,19 +664,20 @@ onBeforeUnmount(() => {
           data-wow-delay="0.1s"
         >
           <div class="text-center text-lg-start">
-            <span class="sub-title sub-title--lg">Why Little Champ</span>
+            <span class="sub-title sub-title--lg">{{
+              $t('home.about.subtitle')
+            }}</span>
             <h2 class="sec-title big-title">
-              Transform Learning into an
-              <span class="gradient-text">Adventure</span>
+              {{ $t('home.about.titleLine') }}
+              <span class="gradient-text">{{
+                $t('home.about.titleHighlight')
+              }}</span>
             </h2>
             <p class="fs-md mb-30">
-              At Little Champ, every child can discover the joy of learning. Our
-              platform uses adaptive AI technology and fun games to create
-              personalized experiences in Math, Manners, Brain Activities, and
-              the Ability to think out of the box.
+              {{ $t('home.about.text') }}
             </p>
             <router-link to="/about" class="vs-btn wave-btn style-1">
-              Discover Our Story
+              {{ $t('home.about.cta') }}
               <i class="fas fa-arrow-right ms-2"></i>
             </router-link>
           </div>
@@ -787,7 +799,7 @@ onBeforeUnmount(() => {
             >
               <img
                 src="@/assets/kids-icon.png"
-                alt="Kids"
+                :alt="$t('home.counter.kidsAlt')"
                 style="
                   width: 58px;
                   height: 58px;
@@ -796,8 +808,10 @@ onBeforeUnmount(() => {
                 "
               />
             </div>
-            <span class="counter-number">Indian</span>
-            <p class="counter-text h4">Kids Learning</p>
+            <span class="counter-number">{{
+              $t('home.counter.kidsNumber')
+            }}</span>
+            <p class="counter-text h4">{{ $t('home.counter.kidsLabel') }}</p>
           </div>
         </div>
         <!-- Single Item: Games -->
@@ -805,7 +819,7 @@ onBeforeUnmount(() => {
           <div class="counter-item text-center">
             <div class="connter_icon"><i class="fa-light fa-gamepad"></i></div>
             <span class="counter-number">500</span><span class="h2">+</span>
-            <p class="counter-text h4">Interactive Games</p>
+            <p class="counter-text h4">{{ $t('home.counter.gamesLabel') }}</p>
           </div>
         </div>
         <!-- Single Item: Teachers -->
@@ -815,15 +829,22 @@ onBeforeUnmount(() => {
               <i class="fa-light fa-chalkboard-user"></i>
             </div>
             <span class="counter-number">100</span><span class="h2">+</span>
-            <p class="counter-text h4">Teachers Trust Us</p>
+            <p class="counter-text h4">
+              {{ $t('home.counter.teachersLabel') }}
+            </p>
           </div>
         </div>
         <!-- Single Item: Countries -->
         <div class="col-lg-auto col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
           <div class="counter-item text-center">
             <div class="connter_icon"><i class="fa-light fa-globe"></i></div>
-            <span class="counter-number">India</span><span class="h2"> +</span>
-            <p class="counter-text h4">Other Countries</p>
+            <span class="counter-number">{{
+              $t('home.counter.countriesNumber')
+            }}</span
+            ><span class="h2"> +</span>
+            <p class="counter-text h4">
+              {{ $t('home.counter.countriesLabel') }}
+            </p>
           </div>
         </div>
       </div>
@@ -843,13 +864,16 @@ onBeforeUnmount(() => {
       >
         <div class="col-xl-7 col-lg-8">
           <div class="title-area">
-            <span class="sub-title">Learning Subjects</span>
+            <span class="sub-title">{{ $t('home.subjects.subtitle') }}</span>
             <h2 class="sec-title">
-              Explore <span class="gradient-text">Subjects</span> Your Child
-              Will Master
+              {{ $t('home.subjects.titleLine1') }}
+              <span class="gradient-text">{{
+                $t('home.subjects.titleHighlight')
+              }}</span>
+              {{ $t('home.subjects.titleLine2') }}
             </h2>
             <p class="mt-3 text-muted">
-              Curriculum-aligned content for Pre-K through Grade 7
+              {{ $t('home.subjects.desc') }}
             </p>
           </div>
         </div>
@@ -860,7 +884,7 @@ onBeforeUnmount(() => {
           <div class="subject-card subject-card--purple">
             <div class="subject-card__img">
               <router-link to="/subjects/math">
-                <img :src="mathImage" alt="Mathematics" />
+                <img :src="mathImage" :alt="$t('home.subjects.math.alt')" />
                 <div class="subject-card__overlay">
                   <span class="subject-card__play"
                     ><i class="fas fa-play"></i
@@ -869,33 +893,36 @@ onBeforeUnmount(() => {
               </router-link>
               <span class="subject-card__badge subject-badge--purple">
                 <i class="fas fa-calculator"></i>
-                500+ Games
+                {{ $t('home.subjects.gamesBadge') }}
               </span>
             </div>
             <div class="subject-card__body">
-              <div class="subject-card__grade-tag">Pre-K to Grade 7</div>
+              <div class="subject-card__grade-tag">
+                {{ $t('home.subjects.gradeTag1') }}
+              </div>
               <h3 class="subject-card__title">
-                <router-link to="/subjects/math">Mathematics</router-link>
+                <router-link to="/subjects/math">{{
+                  $t('home.subjects.math.title')
+                }}</router-link>
               </h3>
               <p class="subject-card__text">
-                Build number sense, master arithmetic, explore geometry, and
-                solve real-world math problems.
+                {{ $t('home.subjects.math.text') }}
               </p>
               <div class="subject-card__stats">
                 <div class="subject-stat">
                   <i class="fas fa-book-open"></i>
-                  <span>15+ Topics</span>
+                  <span>{{ $t('home.subjects.math.topics') }}</span>
                 </div>
                 <div class="subject-stat">
                   <i class="fas fa-gamepad"></i>
-                  <span>500+ Games</span>
+                  <span>{{ $t('home.subjects.math.games') }}</span>
                 </div>
               </div>
               <router-link
                 to="/subjects/math"
                 class="subject-card__link subject-link--purple"
               >
-                Explore Math
+                {{ $t('home.subjects.math.explore') }}
                 <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
@@ -906,7 +933,10 @@ onBeforeUnmount(() => {
           <div class="subject-card subject-card--pink">
             <div class="subject-card__img">
               <router-link to="/subjects/reading">
-                <img :src="readingImage" alt="Your AI-Buddy" />
+                <img
+                  :src="readingImage"
+                  :alt="$t('home.subjects.reading.alt')"
+                />
                 <div class="subject-card__overlay">
                   <span class="subject-card__play"
                     ><i class="fas fa-play"></i
@@ -915,35 +945,36 @@ onBeforeUnmount(() => {
               </router-link>
               <span class="subject-card__badge subject-badge--pink">
                 <i class="fas fa-book-reader"></i>
-                500+ Games
+                {{ $t('home.subjects.gamesBadge') }}
               </span>
             </div>
             <div class="subject-card__body">
-              <div class="subject-card__grade-tag">Pre-K to Grade 7</div>
+              <div class="subject-card__grade-tag">
+                {{ $t('home.subjects.gradeTag1') }}
+              </div>
               <h3 class="subject-card__title">
-                <router-link to="/subjects/reading">Your AI-Buddy</router-link>
+                <router-link to="/subjects/reading">{{
+                  $t('home.subjects.reading.title')
+                }}</router-link>
               </h3>
               <p class="subject-card__text">
-                AI-powered feature combines friendly interaction, communication
-                skills, general knowledge, and guides children on exploring the
-                outside world — creating a fun, engaging, and educational
-                experience all in one place.
+                {{ $t('home.subjects.reading.text') }}
               </p>
               <div class="subject-card__stats">
                 <div class="subject-stat">
                   <i class="fas fa-book-open"></i>
-                  <span>12+ Topics</span>
+                  <span>{{ $t('home.subjects.reading.topics') }}</span>
                 </div>
                 <div class="subject-stat">
                   <i class="fas fa-gamepad"></i>
-                  <span>500+ Games</span>
+                  <span>{{ $t('home.subjects.reading.games') }}</span>
                 </div>
               </div>
               <router-link
                 to="/subjects/reading"
                 class="subject-card__link subject-link--pink"
               >
-                Explore Reading
+                {{ $t('home.subjects.reading.explore') }}
                 <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
@@ -954,7 +985,7 @@ onBeforeUnmount(() => {
           <div class="subject-card subject-card--green">
             <div class="subject-card__img">
               <router-link to="/subjects/craft-drawing">
-                <img :src="scienceImage" alt="Craft & Drawing" />
+                <img :src="scienceImage" :alt="$t('home.subjects.craft.alt')" />
                 <div class="subject-card__overlay">
                   <span class="subject-card__play"
                     ><i class="fas fa-play"></i
@@ -963,35 +994,36 @@ onBeforeUnmount(() => {
               </router-link>
               <span class="subject-card__badge subject-badge--green">
                 <i class="fas fa-paint-brush"></i>
-                800+ Activities
+                {{ $t('home.subjects.activitiesBadge') }}
               </span>
             </div>
             <div class="subject-card__body">
-              <div class="subject-card__grade-tag">Kindergarten to Grade 7</div>
+              <div class="subject-card__grade-tag">
+                {{ $t('home.subjects.gradeTag2') }}
+              </div>
               <h3 class="subject-card__title">
-                <router-link to="/subjects/craft-drawing"
-                  >Craft & Drawing</router-link
-                >
+                <router-link to="/subjects/craft-drawing">{{
+                  $t('home.subjects.craft.title')
+                }}</router-link>
               </h3>
               <p class="subject-card__text">
-                Unleash creativity through hands-on crafts, drawing, coloring,
-                and artistic expression.
+                {{ $t('home.subjects.craft.text') }}
               </p>
               <div class="subject-card__stats">
                 <div class="subject-stat">
                   <i class="fas fa-book-open"></i>
-                  <span>10+ Topics</span>
+                  <span>{{ $t('home.subjects.craft.topics') }}</span>
                 </div>
                 <div class="subject-stat">
                   <i class="fas fa-palette"></i>
-                  <span>800+ Activities</span>
+                  <span>{{ $t('home.subjects.craft.activities') }}</span>
                 </div>
               </div>
               <router-link
                 to="/subjects/craft-drawing"
                 class="subject-card__link subject-link--green"
               >
-                Explore Craft & Drawing
+                {{ $t('home.subjects.craft.explore') }}
                 <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
@@ -1000,7 +1032,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="text-center mt-50 wow fadeInUp" data-wow-delay="0.4s">
         <router-link to="/subjects" class="vs-btn btn-primary-enhanced">
-          Explore All Subjects
+          {{ $t('home.subjects.exploreAll') }}
           <i class="fas fa-arrow-right ms-2"></i>
         </router-link>
       </div>
@@ -1042,10 +1074,13 @@ onBeforeUnmount(() => {
       <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
         <span class="section-tag section-tag--center">
           <i class="fas fa-rocket"></i>
-          How It Works
+          {{ $t('home.howItWorks.tag') }}
         </span>
         <h2 class="section-heading">
-          Get Started in <span class="title-highlight">4 Simple Steps</span>
+          {{ $t('home.howItWorks.headingLine') }}
+          <span class="title-highlight">{{
+            $t('home.howItWorks.headingHighlight')
+          }}</span>
         </h2>
       </div>
 
@@ -1055,13 +1090,13 @@ onBeforeUnmount(() => {
           <div class="step-icon-wrap step-icon--transparent">
             <img
               src="@/assets/signup-button.png"
-              alt="Sign Up Free"
+              :alt="$t('home.howItWorks.step1.alt')"
               class="step-icon-img"
             />
           </div>
-          <h3 class="step-title">Sign Up Free</h3>
+          <h3 class="step-title">{{ $t('home.howItWorks.step1.title') }}</h3>
           <p class="step-desc">
-            Create your account in seconds. All payments required.
+            {{ $t('home.howItWorks.step1.desc') }}
           </p>
         </div>
 
@@ -1084,14 +1119,13 @@ onBeforeUnmount(() => {
           <div class="step-icon-wrap step-icon--transparent">
             <img
               src="@/assets/choose-grade.png"
-              alt="Choose Your Grade"
+              :alt="$t('home.howItWorks.step2.alt')"
               class="step-icon-img"
             />
           </div>
-          <h3 class="step-title">Choose Your Grade</h3>
+          <h3 class="step-title">{{ $t('home.howItWorks.step2.title') }}</h3>
           <p class="step-desc">
-            Select from Pre-K to Grade 7. Pick subjects that interest your
-            child.
+            {{ $t('home.howItWorks.step2.desc') }}
           </p>
         </div>
 
@@ -1114,13 +1148,13 @@ onBeforeUnmount(() => {
           <div class="step-icon-wrap step-icon--transparent">
             <img
               src="@/assets/play-learn.png"
-              alt="Play & Learn"
+              :alt="$t('home.howItWorks.step3.alt')"
               class="step-icon-img"
             />
           </div>
-          <h3 class="step-title">Play & Learn</h3>
+          <h3 class="step-title">{{ $t('home.howItWorks.step3.title') }}</h3>
           <p class="step-desc">
-            Kids explore 500+ games. AI adapts difficulty to their level.
+            {{ $t('home.howItWorks.step3.desc') }}
           </p>
         </div>
 
@@ -1143,13 +1177,13 @@ onBeforeUnmount(() => {
           <div class="step-icon-wrap step-icon--transparent">
             <img
               src="@/assets/track-progress.png"
-              alt="Track Progress"
+              :alt="$t('home.howItWorks.step4.alt')"
               class="step-icon-img step-icon-img--larger"
             />
           </div>
-          <h3 class="step-title">Track Progress</h3>
+          <h3 class="step-title">{{ $t('home.howItWorks.step4.title') }}</h3>
           <p class="step-desc">
-            Parents & teachers get real-time insights on learning growth.
+            {{ $t('home.howItWorks.step4.desc') }}
           </p>
         </div>
       </div>
@@ -1162,12 +1196,13 @@ onBeforeUnmount(() => {
     <div class="container">
       <div class="text-center mb-2 wow fadeInUp">
         <h2 class="journey-title">
-          Make effective independent learning
-          <span class="journey-title-highlight">a reality</span>
+          {{ $t('home.journey.titleLine') }}
+          <span class="journey-title-highlight">{{
+            $t('home.journey.titleHighlight')
+          }}</span>
         </h2>
         <p class="journey-subtitle">
-          The learning path is your child's personalized learning journey
-          divided into meaningful daily milestones.
+          {{ $t('home.journey.subtitle') }}
         </p>
       </div>
 
@@ -1177,7 +1212,7 @@ onBeforeUnmount(() => {
       >
         <img
           src="@/assets/learning-path-new.png"
-          alt="Learning Journey Path"
+          :alt="$t('home.journey.alt')"
           class="learning-path-img"
         />
       </div>
@@ -1189,23 +1224,25 @@ onBeforeUnmount(() => {
       >
         <p class="journey-benefit">
           <i class="fas fa-check-circle journey-benefit-icon"></i>
-          Saves the hassle of hunting for
-          <span class="benefit-highlight benefit-highlight--purple"
-            >learning plans</span
-          >
+          {{ $t('home.journey.benefit1Text') }}
+          <span class="benefit-highlight benefit-highlight--purple">{{
+            $t('home.journey.benefit1Highlight')
+          }}</span>
         </p>
         <p class="journey-benefit">
           <i class="fas fa-check-circle journey-benefit-icon"></i>
-          <span class="benefit-highlight benefit-highlight--green">Adapts</span>
-          to your child's learning needs
+          <span class="benefit-highlight benefit-highlight--green">{{
+            $t('home.journey.benefit2Highlight')
+          }}</span>
+          {{ $t('home.journey.benefit2Text') }}
         </p>
         <p class="journey-benefit">
           <i class="fas fa-check-circle journey-benefit-icon"></i>
-          Leads to
-          <span class="benefit-highlight benefit-highlight--pink"
-            >curriculum mastery,</span
-          >
-          one day at a time
+          {{ $t('home.journey.benefit3Text1') }}
+          <span class="benefit-highlight benefit-highlight--pink">{{
+            $t('home.journey.benefit3Highlight')
+          }}</span>
+          {{ $t('home.journey.benefit3Text2') }}
         </p>
       </div>
     </div>
@@ -1227,16 +1264,16 @@ onBeforeUnmount(() => {
           <div class="testi-intro">
             <span class="section-tag">
               <i class="fas fa-comment-dots"></i>
-              Parent Reviews
+              {{ $t('home.testimonials.tag') }}
             </span>
             <h2 class="testi-heading">
-              What Parents & Teachers
-              <span class="title-highlight">Say About Us</span>
+              {{ $t('home.testimonials.headingLine') }}
+              <span class="title-highlight">{{
+                $t('home.testimonials.headingHighlight')
+              }}</span>
             </h2>
             <p class="testi-desc">
-              Discover how Little Champ is transforming learning for millions of
-              families worldwide. Real stories from real parents about their
-              children's progress.
+              {{ $t('home.testimonials.desc') }}
             </p>
           </div>
         </div>
@@ -1256,7 +1293,9 @@ onBeforeUnmount(() => {
                     </div>
                     <div>
                       <h5 class="testi-name">Priya Sharma</h5>
-                      <span class="testi-role">Parent, Grade 2</span>
+                      <span class="testi-role">{{
+                        $t('home.testimonials.t1.role')
+                      }}</span>
                     </div>
                     <div class="testi-quote-icon">
                       <i class="fas fa-quote-right"></i>
@@ -1269,11 +1308,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <h4 class="testi-card-title">My Daughter Loves Math Now!</h4>
+                  <h4 class="testi-card-title">
+                    {{ $t('home.testimonials.t1.title') }}
+                  </h4>
                   <p class="testi-card-text">
-                    My 7-year-old used to struggle with math, but since using
-                    Mind Jr, she's excited to practice every day. The games make
-                    learning fun and she's already ahead of her grade level!
+                    {{ $t('home.testimonials.t1.text') }}
                   </p>
                 </div>
               </div>
@@ -1286,7 +1325,9 @@ onBeforeUnmount(() => {
                     </div>
                     <div>
                       <h5 class="testi-name">Rajesh Patel</h5>
-                      <span class="testi-role">Homeschool Parent</span>
+                      <span class="testi-role">{{
+                        $t('home.testimonials.t2.role')
+                      }}</span>
                     </div>
                     <div class="testi-quote-icon">
                       <i class="fas fa-quote-right"></i>
@@ -1299,11 +1340,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <h4 class="testi-card-title">Perfect for Homeschooling</h4>
+                  <h4 class="testi-card-title">
+                    {{ $t('home.testimonials.t2.title') }}
+                  </h4>
                   <p class="testi-card-text">
-                    As a homeschool parent, Mind Jr has been a game-changer. The
-                    curriculum-aligned content covers all subjects and my kids
-                    are learning while having fun. Worth every penny!
+                    {{ $t('home.testimonials.t2.text') }}
                   </p>
                 </div>
               </div>
@@ -1316,7 +1357,9 @@ onBeforeUnmount(() => {
                     </div>
                     <div>
                       <h5 class="testi-name">Anita Desai</h5>
-                      <span class="testi-role">Elementary Teacher</span>
+                      <span class="testi-role">{{
+                        $t('home.testimonials.t3.role')
+                      }}</span>
                     </div>
                     <div class="testi-quote-icon">
                       <i class="fas fa-quote-right"></i>
@@ -1329,11 +1372,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <h4 class="testi-card-title">Engaging & Educational</h4>
+                  <h4 class="testi-card-title">
+                    {{ $t('home.testimonials.t3.title') }}
+                  </h4>
                   <p class="testi-card-text">
-                    I use Mind Jr in my classroom and the kids absolutely love
-                    it. The progress tracking helps me identify areas where
-                    students need extra support. Highly recommend!
+                    {{ $t('home.testimonials.t3.text') }}
                   </p>
                 </div>
               </div>
@@ -1383,38 +1426,38 @@ onBeforeUnmount(() => {
         >
           <span class="home-cta-badge">
             <i class="fas fa-rocket"></i>
-            Start Today - It's Free!
+            {{ $t('home.cta.badge') }}
           </span>
           <h2 class="home-cta-title">
-            Ready to Start Your Child's <br /><span class="home-cta-highlight"
-              >Learning Adventure?</span
+            {{ $t('home.cta.titleLine') }} <br /><span
+              class="home-cta-highlight"
+              >{{ $t('home.cta.titleHighlight') }}</span
             >
           </h2>
           <p class="home-cta-text">
-            Join 50 million kids already learning through play. All payments
-            required - get instant access to thousands of educational games.
+            {{ $t('home.cta.text') }}
           </p>
           <div class="home-cta-buttons">
             <router-link
               to="/subjects"
               class="modern-btn btn-outline home-cta-btn-outline"
             >
-              <span>Explore Subjects</span>
+              <span>{{ $t('home.cta.exploreSubjects') }}</span>
               <i class="fas fa-arrow-right"></i>
             </router-link>
           </div>
           <div class="home-cta-trust">
             <div class="home-cta-trust-item">
               <i class="fas fa-shield-alt"></i>
-              <span>Safe & Secure</span>
+              <span>{{ $t('home.cta.safeSecure') }}</span>
             </div>
             <div class="home-cta-trust-item">
               <i class="fas fa-ban"></i>
-              <span>100% Ad-Free</span>
+              <span>{{ $t('home.cta.adFree') }}</span>
             </div>
             <div class="home-cta-trust-item">
               <i class="fas fa-credit-card"></i>
-              <span>All Payment Accepted</span>
+              <span>{{ $t('home.cta.paymentAccepted') }}</span>
             </div>
           </div>
         </div>
@@ -1432,14 +1475,15 @@ onBeforeUnmount(() => {
       >
         <div class="col-xl-7 col-lg-8">
           <div class="title-area">
-            <span class="sub-title">From Our Blog</span>
+            <span class="sub-title">{{ $t('home.blog.subtitle') }}</span>
             <h2 class="sec-title">
-              Tips & Resources for
-              <span class="gradient-text">Parents & Teachers</span>
+              {{ $t('home.blog.titleLine') }}
+              <span class="gradient-text">{{
+                $t('home.blog.titleHighlight')
+              }}</span>
             </h2>
             <p class="mt-3 text-muted">
-              Expert advice on childhood education, learning activities, and
-              parenting tips
+              {{ $t('home.blog.desc') }}
             </p>
           </div>
         </div>
@@ -1486,7 +1530,8 @@ onBeforeUnmount(() => {
                   {{ formatDate(post.published_at) }}</span
                 >
                 <span
-                  ><i class="fal fa-eye"></i> {{ post.views || 0 }} views</span
+                  ><i class="fal fa-eye"></i> {{ post.views || 0 }}
+                  {{ $t('home.blog.views') }}</span
                 >
               </div>
               <h4 class="home-blog-title">
@@ -1500,7 +1545,8 @@ onBeforeUnmount(() => {
                 }}...
               </p>
               <router-link :to="`/blog/${post.slug}`" class="home-blog-link">
-                Read More <i class="fas fa-arrow-right"></i>
+                {{ $t('home.blog.readMore') }}
+                <i class="fas fa-arrow-right"></i>
               </router-link>
             </div>
           </div>
@@ -1509,7 +1555,7 @@ onBeforeUnmount(() => {
 
       <div class="text-center mt-50 wow fadeInUp" data-wow-delay="0.4s">
         <router-link to="/blog" class="vs-btn btn-primary-enhanced">
-          View All Articles
+          {{ $t('home.blog.viewAll') }}
           <i class="fas fa-arrow-right ms-2"></i>
         </router-link>
       </div>

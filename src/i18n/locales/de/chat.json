@@ -1,0 +1,50 @@
+{
+  "header": {
+    "name": "Growie",
+    "subtitle": "Little Champ Helfer"
+  },
+  "greeting": "Hallo! 👋 Ich bin Growie, dein Little Champ Helfer. Frag mich nach unseren Fächern, Preisen, der kostenlosen Testphase oder wie du dich anmeldest — ich helfe dir gern!",
+  "askName": "Bevor wir loslegen, wie heißt du? 😊",
+  "greetingBubble": "👋 Hallo! Brauchst du Hilfe? Chatte mit mir!",
+  "footer": "Bereitgestellt von Little Champ AI",
+  "chips": {
+    "subjects": "Welche Fächer bietet ihr an?",
+    "pricing": "Wie viel kostet es?",
+    "trial": "Wie starte ich eine kostenlose Testphase?",
+    "playgroup": "Ich möchte meine Spielgruppe anmelden"
+  },
+  "placeholders": {
+    "name": "Gib deinen Namen ein…",
+    "mobile": "Gib deine Handynummer ein…",
+    "email": "Gib deine E-Mail ein…",
+    "message": "Schreibe deine Nachricht…"
+  },
+  "aria": {
+    "close": "Chat schließen",
+    "open": "Chat öffnen",
+    "dismiss": "Ausblenden",
+    "send": "Senden"
+  },
+  "capture": {
+    "invalidName": "Hoppla, das sieht nicht nach einem Namen aus. Wie soll ich dich nennen? 😊",
+    "askMobile": "Schön, dich kennenzulernen, {name}! 📱 Wie lautet deine Handynummer?",
+    "invalidMobile": "Hmm, das sieht nicht nach einer gültigen 10-stelligen Handynummer aus. Kannst du sie noch einmal eingeben? 📱",
+    "askEmail": "Super! 📧 Und deine E-Mail-Adresse?",
+    "invalidEmail": "Diese E-Mail sieht nicht ganz richtig aus. Magst du sie noch einmal eingeben? 📧",
+    "done": "Danke, {name}! 🎉 Alles bereit. Wie kann ich dir heute helfen? Frag mich nach unseren Fächern, Preisen, der kostenlosen Testphase oder der Anmeldung!"
+  },
+  "replies": {
+    "greeting": "Hallo! 😊 Ich kann dir bei Fächern, Preisen, kostenlosen Testphasen, der Anmeldung oder der Kontaktaufnahme mit unserem Team helfen. Was möchtest du wissen?",
+    "subjects": "Wir machen Lernen in drei Bereichen zum Spaß: 🔢 Mathe, 📖 dein AI-Buddy (Lesen) und 🎨 Basteln & Zeichnen — für die Vorschule bis Klasse 7. Möchtest du sie entdecken? Besuche die Fächer-Seite über das obere Menü!",
+    "pricing": "Du kannst mit einer kostenlosen Testphase starten und alle Funktionen ausprobieren. Alle Details zu den Tarifen findest du auf unserer Preise-Seite im oberen Menü. 💚",
+    "trial": "Der Einstieg ist ganz einfach! Klicke oben auf „Kostenlosen KI-Strategie-Call buchen“, erstelle dein Konto und entdecke über 500 Spiele. 🚀",
+    "doctor": "Wir haben ein Ärzteprogramm! Partnerärzte treffen Familien zweimal im Monat, chatten über WhatsApp und freuen sich über Besuche in der Filiale. Du kannst dich direkt auf der Seite zur Arzt-Anmeldung bewerben. 🩺",
+    "playgroup": "Wunderbar! Du kannst deine Spielgruppe direkt auf der Seite zur Spielgruppen-Anmeldung registrieren. Du bekommst über 500 Spiele, Fortschritts-Updates für Eltern und einen sicheren, begleiteten Raum für die Kleinen. 🧒",
+    "register": "Du kannst dich als Elternteil, Arzt oder Spielgruppe anmelden. Gehe einfach zur Seite Arzt-Anmeldung oder Spielgruppen-Anmeldung — was interessiert dich?",
+    "features": "Little Champ bietet über 500 interaktive Spiele, adaptives Lernen, Fortschrittsberichte, ein Eltern-Dashboard und einen 100 % sicheren, werbefreien Raum. Die vollständige Liste findest du auf der Funktionen-Seite! ⭐",
+    "screenTime": "Für Kinder von 5 bis 10 Jahren empfehlen wir kurze, konzentrierte Einheiten von etwa 20–30 Minuten, ein paar Mal pro Woche. Unsere Spiele sind in kurze, lohnende Abschnitte unterteilt. 🌳",
+    "contact": "Du erreichst unser Team unter 📞 +91 98217 49524 oder ✉️ Info@kindergarden.com. Auf der Kontakt-Seite gibt es außerdem ein schnelles Nachrichtenformular und einen WhatsApp-Link!",
+    "thanks": "Sehr gerne! 😊 Kann ich dir noch bei etwas anderem helfen?",
+    "fallback": "Gute Frage! Ich kann dir bei unseren Fächern, Preisen, der kostenlosen Testphase, der Anmeldung (Elternteil / Arzt / Spielgruppe) oder der Kontaktaufnahme mit unserem Team helfen. Kannst du mir etwas mehr darüber erzählen, was du brauchst?"
+  }
+}

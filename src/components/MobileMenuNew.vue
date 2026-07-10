@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
+import LanguageSwitcher from './LanguageSwitcher.vue'
 defineProps({
   show: Boolean,
 })
@@ -58,6 +59,11 @@ const handleLinkClick = () => {
       <i class="fas fa-times"></i>
     </button> -->
 
+    <!-- Language Switcher -->
+    <div class="mobile-lang-row">
+      <LanguageSwitcher />
+    </div>
+
     <!-- Auth Section -->
     <div class="auth-section mt-3">
       <template v-if="!isLoggedIn">
@@ -67,7 +73,7 @@ const handleLinkClick = () => {
           @click="handleLinkClick"
         >
           <i class="fas fa-sign-in-alt"></i>
-          <span>Login</span>
+          <span>{{ $t('header.login') }}</span>
         </router-link>
       </template>
       <template v-else>
@@ -81,11 +87,11 @@ const handleLinkClick = () => {
           @click="goToDashboard"
         >
           <i class="fas fa-th-large"></i>
-          <span>Dashboard</span>
+          <span>{{ $t('header.dashboard') }}</span>
         </button>
         <button class="auth-btn logout-btn" type="button" @click="handleLogout">
           <i class="fas fa-sign-out-alt"></i>
-          <span>Logout</span>
+          <span>{{ $t('header.logout') }}</span>
         </button>
       </template>
     </div>
@@ -94,7 +100,9 @@ const handleLinkClick = () => {
     <nav class="mobile-nav">
       <ul>
         <li>
-          <router-link to="/" @click="handleLinkClick">Home</router-link>
+          <router-link to="/" @click="handleLinkClick">{{
+            $t('nav.home')
+          }}</router-link>
         </li>
 
         <li>
@@ -103,7 +111,7 @@ const handleLinkClick = () => {
             class="menu-toggle"
             @click="toggleSubmenu('subjects')"
           >
-            <span>Subjects</span>
+            <span>{{ $t('nav.subjects') }}</span>
             <i
               class="fas fa-chevron-down"
               :class="{ rotate: activeSubmenu === 'subjects' }"
@@ -111,33 +119,35 @@ const handleLinkClick = () => {
           </button>
           <ul v-show="activeSubmenu === 'subjects'" class="submenu">
             <li>
-              <router-link to="/subjects" @click="handleLinkClick"
-                >All Subjects</router-link
-              >
+              <router-link to="/subjects" @click="handleLinkClick">{{
+                $t('nav.allSubjects')
+              }}</router-link>
             </li>
             <li>
-              <router-link to="/subjects/math" @click="handleLinkClick"
-                >Mathematics</router-link
-              >
+              <router-link to="/subjects/math" @click="handleLinkClick">{{
+                $t('nav.mathematics')
+              }}</router-link>
             </li>
             <li>
-              <router-link to="/subjects/reading" @click="handleLinkClick"
-                >Your AI-Buddy</router-link
-              >
+              <router-link to="/subjects/reading" @click="handleLinkClick">{{
+                $t('nav.aiBuddy')
+              }}</router-link>
             </li>
             <!-- <li><router-link to="/subjects/science" @click="handleLinkClick">Science</router-link></li> -->
             <li>
-              <router-link to="/subjects/craft-drawing" @click="handleLinkClick"
-                >Craft &amp; Drawing</router-link
+              <router-link
+                to="/subjects/craft-drawing"
+                @click="handleLinkClick"
+                >{{ $t('nav.craftDrawing') }}</router-link
               >
             </li>
           </ul>
         </li>
 
         <li>
-          <router-link to="/features" @click="handleLinkClick"
-            >Features</router-link
-          >
+          <router-link to="/features" @click="handleLinkClick">{{
+            $t('nav.features')
+          }}</router-link>
         </li>
 
         <li>
@@ -146,7 +156,7 @@ const handleLinkClick = () => {
             class="menu-toggle"
             @click="toggleSubmenu('foryou')"
           >
-            <span>For You</span>
+            <span>{{ $t('nav.forYou') }}</span>
             <i
               class="fas fa-chevron-down"
               :class="{ rotate: activeSubmenu === 'foryou' }"
@@ -154,41 +164,45 @@ const handleLinkClick = () => {
           </button>
           <ul v-show="activeSubmenu === 'foryou'" class="submenu">
             <li>
-              <router-link to="/for-parents" @click="handleLinkClick"
-                >For Parents</router-link
-              >
+              <router-link to="/for-parents" @click="handleLinkClick">{{
+                $t('nav.forParents')
+              }}</router-link>
             </li>
             <li>
-              <router-link to="/for-teachers" @click="handleLinkClick"
-                >For Teachers</router-link
-              >
+              <router-link to="/for-teachers" @click="handleLinkClick">{{
+                $t('nav.forTeachers')
+              }}</router-link>
             </li>
             <li>
-              <router-link to="/for-schools" @click="handleLinkClick"
-                >For Schools</router-link
-              >
+              <router-link to="/for-schools" @click="handleLinkClick">{{
+                $t('nav.forSchools')
+              }}</router-link>
             </li>
           </ul>
         </li>
 
         <li>
-          <router-link to="/blog" @click="handleLinkClick">Blog</router-link>
+          <router-link to="/blog" @click="handleLinkClick">{{
+            $t('nav.blog')
+          }}</router-link>
         </li>
 
         <li>
-          <router-link to="/about" @click="handleLinkClick">About</router-link>
+          <router-link to="/about" @click="handleLinkClick">{{
+            $t('nav.about')
+          }}</router-link>
         </li>
 
         <li>
-          <router-link to="/gallery" @click="handleLinkClick"
-            >Gallery</router-link
-          >
+          <router-link to="/gallery" @click="handleLinkClick">{{
+            $t('nav.gallery')
+          }}</router-link>
         </li>
 
         <li>
-          <router-link to="/contact" @click="handleLinkClick"
-            >Contact</router-link
-          >
+          <router-link to="/contact" @click="handleLinkClick">{{
+            $t('nav.contact')
+          }}</router-link>
         </li>
       </ul>
     </nav>
@@ -358,6 +372,13 @@ const handleLinkClick = () => {
 
 .logout-btn:hover {
   background: rgba(255, 77, 77, 0.3);
+}
+
+/* Language switcher row */
+.mobile-lang-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
 }
 
 /* Navigation */

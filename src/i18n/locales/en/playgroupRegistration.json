@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "home": "Home",
+    "breadcrumb": "Playgroup Registration",
+    "badge": "For Playgroups & Pre-Schools",
+    "titleLead": "Bring Joyful Learning to",
+    "titleAccent": "Your Little Ones",
+    "description": "Register your playgroup with Little Champ and give every little learner access to interactive, gamified fun. Upload your documents to begin!"
+  },
+  "panel": {
+    "title1": "Register Your",
+    "title2": "Playgroup",
+    "desc": "Join a growing community of playgroups making early learning playful and effective.",
+    "perks": {
+      "games": "500+ interactive learning games",
+      "dashboards": "Teacher & class dashboards",
+      "content": "Age-appropriate content",
+      "support": "Dedicated support manager"
+    }
+  },
+  "form": {
+    "title": "Playgroup Registration Form",
+    "requiredBefore": "Fields marked with",
+    "requiredAfter": "are required."
+  },
+  "fields": {
+    "playgroupName": "Playgroup Name",
+    "playgroupNamePlaceholder": "Little Stars Playgroup",
+    "contactPerson": "Contact Person",
+    "contactPersonPlaceholder": "Principal / Coordinator name",
+    "designation": "Designation",
+    "designationPlaceholder": "e.g. Principal",
+    "email": "Email Address",
+    "emailPlaceholder": "playgroup@example.com",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+91 00000 00000",
+    "playgroupType": "Playgroup Type",
+    "playgroupTypePlaceholder": "Select type",
+    "registrationNumber": "Registration / License No.",
+    "registrationNumberPlaceholder": "e.g. REG-123456",
+    "childCount": "Number of Children",
+    "childCountPlaceholder": "e.g. 45",
+    "city": "City",
+    "cityPlaceholder": "Mumbai",
+    "address": "Playgroup Address",
+    "addressPlaceholder": "Street, area, pin code",
+    "about": "About the Playgroup",
+    "aboutPlaceholder": "Tell us about your playgroup and what you're looking for..."
+  },
+  "playgroupTypes": {
+    "playgroup": "Playgroup",
+    "preNursery": "Pre-Nursery",
+    "nursery": "Nursery",
+    "lkgUkg": "LKG / UKG",
+    "daycare": "Daycare / Crèche",
+    "other": "Other"
+  },
+  "docs": {
+    "title": "Documents Upload",
+    "subtitle": "Please upload clear copies of the documents below.",
+    "identityLabel": "Identity Proof (Authorized Person)",
+    "identityHint": "Aadhaar / Passport / PAN — PNG, JPG or PDF (max 5 MB)",
+    "registrationLabel": "Playgroup Registration / License Document",
+    "registrationHint": "Registration / License certificate — PNG, JPG or PDF (max 5 MB)"
+  },
+  "terms": {
+    "text": "I confirm the information provided is accurate and I agree to the",
+    "termsOfService": "Terms of Service",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "button": {
+    "submit": "Submit Registration",
+    "submitting": "Submitting..."
+  },
+  "messages": {
+    "requiredFields": "Please fill in all the required fields.",
+    "uploadIdentity": "Please upload the authorized person's Identity Proof.",
+    "uploadRegistration": "Please upload the Playgroup Registration / License Document.",
+    "agreeTerms": "Please agree to the Terms of Service to continue.",
+    "success": "Thank you! Your playgroup registration has been submitted. Our team will verify your documents and reach out soon. 🎉",
+    "error": "Something went wrong while submitting. Please try again."
+  }
+}

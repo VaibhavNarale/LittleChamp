@@ -1,0 +1,11 @@
+{
+  "defaultHint": "PNG, JPG oder PDF – bis zu 5 MB",
+  "clickToUpload": "Zum Hochladen klicken",
+  "orDragDrop": "oder per Drag & Drop",
+  "uploaded": "Hochgeladen",
+  "removeFile": "Datei entfernen",
+  "errors": {
+    "tooBig": "Hoppla! Die Datei ist zu groß. Bitte halte sie unter {max} MB.",
+    "invalidType": "Bitte lade eine Datei im Format {types} hoch."
+  }
+}

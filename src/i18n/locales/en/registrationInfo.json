@@ -1,0 +1,48 @@
+{
+  "doctor": {
+    "eyebrow": "How Our Doctor Program Works",
+    "titleLead": "Three Ways You'll",
+    "titleAccent": "Care for Families",
+    "subtitle": "Before you register, here's what being a Little Champ partner doctor looks like.",
+    "cards": {
+      "monthly": {
+        "step": "Twice Every Month",
+        "title": "Monthly Meet-Ups",
+        "text": "Meet families through two friendly sessions every month — for guidance, check-ins and ongoing support."
+      },
+      "whatsapp": {
+        "step": "Anytime",
+        "title": "WhatsApp Support",
+        "text": "Parents can message you directly on WhatsApp for quick questions and timely, caring advice."
+      },
+      "branch": {
+        "step": "In Person",
+        "title": "Visit Your Branch",
+        "text": "Parents and children can visit your branch for warm, face-to-face consultations whenever needed."
+      }
+    }
+  },
+  "playgroup": {
+    "eyebrow": "How Our Playgroup Program Works",
+    "titleLead": "Everything Your Little Ones",
+    "titleAccent": "Need to Thrive",
+    "subtitle": "Before you register, here's what joining Little Champ brings to your playgroup.",
+    "cards": {
+      "games": {
+        "step": "500+ Games",
+        "title": "Playful Learning",
+        "text": "Little learners explore Maths, reading and craft through joyful, age-appropriate games they love."
+      },
+      "updates": {
+        "step": "Stay In The Loop",
+        "title": "Parent Updates",
+        "text": "Parents receive regular progress updates, so every little milestone gets celebrated together."
+      },
+      "safe": {
+        "step": "100% Safe",
+        "title": "Safe & Guided",
+        "text": "An ad-free, monitored space with teacher dashboards to gently guide every child through the day."
+      }
+    }
+  }
+}

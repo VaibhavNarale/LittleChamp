@@ -1,0 +1,81 @@
+{
+  "hero": {
+    "home": "Startseite",
+    "breadcrumb": "Arztregistrierung",
+    "badge": "Für Gesundheitsfachkräfte",
+    "titleLead": "Werde Teil unseres Kreises",
+    "titleAccent": "fürsorglicher Ärztinnen und Ärzte",
+    "description": "Werde Partner von Little Champ und unterstütze die Entwicklung und das Wohlbefinden von Kindern. Registriere dich unten und lade deine Dokumente hoch, um loszulegen!"
+  },
+  "panel": {
+    "title1": "Werde",
+    "title2": "Partnerärztin/-arzt",
+    "desc": "Hilf uns, das Lernen für jedes Kind sicher, freudvoll und gesund zu gestalten.",
+    "perks": {
+      "development": "Kindesentwicklung unterstützen",
+      "profile": "Verifiziertes & vertrauenswürdiges Profil",
+      "flexible": "Flexibles Engagement",
+      "families": "Mit fürsorglichen Familien in Kontakt kommen"
+    }
+  },
+  "form": {
+    "title": "Arztregistrierungsformular",
+    "requiredBefore": "Mit",
+    "requiredAfter": "markierte Felder sind Pflichtfelder."
+  },
+  "fields": {
+    "fullName": "Vollständiger Name",
+    "fullNamePlaceholder": "Dr. Aarav Sharma",
+    "email": "E-Mail-Adresse",
+    "emailPlaceholder": "doctor@example.com",
+    "phone": "Telefonnummer",
+    "phonePlaceholder": "+91 00000 00000",
+    "specialization": "Fachgebiet",
+    "specializationPlaceholder": "Fachgebiet auswählen",
+    "registrationNumber": "Ärztliche Registrierungsnr.",
+    "registrationNumberPlaceholder": "z. B. MH-123456",
+    "experience": "Berufserfahrung (Jahre)",
+    "experiencePlaceholder": "z. B. 8",
+    "clinic": "Name der Praxis / Klinik",
+    "clinicPlaceholder": "Sunshine Children's Clinic",
+    "city": "Stadt",
+    "cityPlaceholder": "Mumbai",
+    "about": "Über dich",
+    "aboutPlaceholder": "Erzähl uns ein wenig über deine Praxis und wie du helfen möchtest ..."
+  },
+  "specializations": {
+    "pediatrician": "Kinderärztin/-arzt",
+    "psychologist": "Kinderpsychologin/-loge",
+    "speechTherapist": "Logopädin/-päde",
+    "occupationalTherapist": "Ergotherapeutin/-therapeut",
+    "developmentalSpecialist": "Entwicklungsspezialistin/-list",
+    "generalPhysician": "Allgemeinmedizinerin/-mediziner",
+    "other": "Sonstiges"
+  },
+  "docs": {
+    "title": "Dokumente hochladen",
+    "subtitle": "Bitte lade gut lesbare Kopien der folgenden Dokumente hoch.",
+    "identityLabel": "Identitätsnachweis",
+    "identityHint": "Aadhaar / Reisepass / PAN — PNG, JPG oder PDF (max. 5 MB)",
+    "certificateLabel": "Ärztliches Zeugnis / Registrierungsdokument",
+    "certificateHint": "Abschluss / Kammer-Registrierung — PNG, JPG oder PDF (max. 5 MB)"
+  },
+  "terms": {
+    "text": "Ich bestätige, dass die angegebenen Informationen korrekt sind, und ich akzeptiere die",
+    "termsOfService": "Nutzungsbedingungen",
+    "and": "und die",
+    "privacyPolicy": "Datenschutzrichtlinie"
+  },
+  "button": {
+    "submit": "Registrierung absenden",
+    "submitting": "Wird gesendet ..."
+  },
+  "messages": {
+    "requiredFields": "Bitte fülle alle Pflichtfelder aus.",
+    "uploadIdentity": "Bitte lade deinen Identitätsnachweis hoch.",
+    "uploadCertificate": "Bitte lade dein ärztliches Zeugnis / Registrierungsdokument hoch.",
+    "agreeTerms": "Bitte stimme den Nutzungsbedingungen zu, um fortzufahren.",
+    "success": "Vielen Dank! Deine Arztregistrierung wurde übermittelt. Unser Team prüft deine Dokumente und meldet sich bald bei dir. 🎉",
+    "error": "Beim Absenden ist etwas schiefgelaufen. Bitte versuche es erneut."
+  }
+}

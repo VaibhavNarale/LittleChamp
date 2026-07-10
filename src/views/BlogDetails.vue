@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import {
   initTemplateScripts,
   cleanupTemplateScripts,
@@ -13,6 +14,7 @@ import mathImg from '@/assets/math-gamification.jpg'
 const route = useRoute()
 const router = useRouter()
 const blogStore = useBlogStore()
+const { t } = useI18n()
 
 // Computed
 const post = computed(() => blogStore.currentPost)
@@ -48,9 +50,11 @@ const formatDate = (dateString) => {
 
 // Reading time
 const readingTime = computed(() => {
-  if (!post.value?.content) return '2 min read'
+  if (!post.value?.content) return t('blogDetails.minRead', { minutes: 2 })
   const words = post.value.content.replace(/<[^>]*>/g, '').split(/\s+/).length
-  return `${Math.max(1, Math.ceil(words / 200))} min read`
+  return t('blogDetails.minRead', {
+    minutes: Math.max(1, Math.ceil(words / 200)),
+  })
 })
 
 // Navigate to another post
@@ -68,20 +72,23 @@ const currentUrl = computed(() =>
   typeof window !== 'undefined' ? window.location.href : ''
 )
 
+// Anonymous fallback label (translated)
+const anonymousName = computed(() => t('blogDetails.author.anonymous'))
+
 // Get author name — prefer editable author_name, fallback to author relationship
 const authorName = computed(() => {
   if (post.value?.author_name) return post.value.author_name
-  if (!post.value?.author) return 'Anonymous'
+  if (!post.value?.author) return anonymousName.value
   return (
     `${post.value.author.first_name || ''} ${post.value.author.last_name || ''}`.trim() ||
-    'Anonymous'
+    anonymousName.value
   )
 })
 
 // Author initials
 const authorInitials = computed(() => {
   const name = authorName.value
-  if (!name || name === 'Anonymous') return 'A'
+  if (!name || name === anonymousName.value) return 'A'
   const parts = name.trim().split(/\s+/)
   return (
     parts
@@ -150,16 +157,20 @@ watch(
       <div class="container">
         <div class="bd-hero-content">
           <nav class="bd-breadcrumb">
-            <router-link to="/" class="bc-link">Home</router-link>
+            <router-link to="/" class="bc-link">{{
+              $t('blogDetails.breadcrumb.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <router-link to="/blog" class="bc-link">Blog</router-link>
+            <router-link to="/blog" class="bc-link">{{
+              $t('blogDetails.breadcrumb.blog')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
             <span class="bc-current">{{
-              post?.category?.name || 'Article'
+              post?.category?.name || $t('blogDetails.breadcrumb.fallback')
             }}</span>
           </nav>
           <h1 v-if="post" class="bd-hero-title">{{ post.title }}</h1>
-          <h1 v-else class="bd-hero-title">Loading...</h1>
+          <h1 v-else class="bd-hero-title">{{ $t('common.loading') }}</h1>
           <div v-if="post" class="bd-hero-meta">
             <span
               ><i class="far fa-calendar-alt"></i>
@@ -168,7 +179,12 @@ watch(
             <span class="meta-dot"></span>
             <span><i class="far fa-clock"></i> {{ readingTime }}</span>
             <span class="meta-dot"></span>
-            <span><i class="far fa-eye"></i> {{ post.views || 0 }} views</span>
+            <span
+              ><i class="far fa-eye"></i>
+              {{
+                $t('blogDetails.detail.views', { count: post.views || 0 })
+              }}</span
+            >
           </div>
         </div>
       </div>
@@ -203,12 +219,13 @@ watch(
       <div v-else-if="error && !post" class="bd-error">
         <div class="error-card">
           <div class="error-icon"><i class="fas fa-ghost"></i></div>
-          <h3>Article Not Found</h3>
+          <h3>{{ $t('blogDetails.error.title') }}</h3>
           <p>
-            The article you're looking for doesn't exist or has been removed.
+            {{ $t('blogDetails.error.text') }}
           </p>
           <router-link to="/blog" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Back to Blog
+            <i class="fas fa-arrow-left"></i>
+            {{ $t('blogDetails.error.backToBlog') }}
           </router-link>
         </div>
       </div>
@@ -288,7 +305,9 @@ watch(
 
             <!-- Share Bar Bottom -->
             <div class="bd-share-bottom">
-              <span class="share-label">Share this article:</span>
+              <span class="share-label">{{
+                $t('blogDetails.share.label')
+              }}</span>
               <div class="share-icons">
                 <a
                   :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`"
@@ -322,13 +341,12 @@ watch(
           <div v-if="post.author" class="bd-author-card">
             <div class="author-avatar-lg">{{ authorInitials }}</div>
             <div class="author-body">
-              <span class="written-by">Written by</span>
+              <span class="written-by">{{
+                $t('blogDetails.author.writtenBy')
+              }}</span>
               <h4 class="author-full-name">{{ authorName }}</h4>
               <p class="author-bio">
-                {{
-                  post.author.bio ||
-                  'Content creator at Little Champ, passionate about helping children learn and grow through engaging educational content.'
-                }}
+                {{ post.author.bio || $t('blogDetails.author.defaultBio') }}
               </p>
             </div>
           </div>
@@ -336,7 +354,8 @@ watch(
           <!-- Related Posts -->
           <div v-if="relatedPosts.length > 0" class="bd-related">
             <h3 class="section-title">
-              <i class="fas fa-newspaper"></i> Related Articles
+              <i class="fas fa-newspaper"></i>
+              {{ $t('blogDetails.related.title') }}
             </h3>
             <div class="related-grid">
               <div
@@ -378,7 +397,7 @@ watch(
                 <i class="fas fa-search"></i>
                 <input
                   type="text"
-                  placeholder="Search articles..."
+                  :placeholder="$t('blogDetails.search.placeholder')"
                   @keyup.enter="
                     router.push({
                       name: 'Blog',
@@ -392,7 +411,8 @@ watch(
             <!-- Categories -->
             <div v-if="categories.length" class="sidebar-widget">
               <h4 class="sw-title">
-                <i class="fas fa-folder-open sw-icon"></i> Categories
+                <i class="fas fa-folder-open sw-icon"></i>
+                {{ $t('blogDetails.sidebar.categories') }}
               </h4>
               <div class="category-list">
                 <a
@@ -415,7 +435,8 @@ watch(
             <!-- Related Sidebar -->
             <div v-if="relatedPosts.length > 0" class="sidebar-widget">
               <h4 class="sw-title">
-                <i class="fas fa-fire sw-icon"></i> You May Also Like
+                <i class="fas fa-fire sw-icon"></i>
+                {{ $t('blogDetails.sidebar.youMayAlsoLike') }}
               </h4>
               <div class="sidebar-posts">
                 <a
@@ -448,7 +469,8 @@ watch(
             <!-- Tags -->
             <div v-if="post.tags && post.tags.length" class="sidebar-widget">
               <h4 class="sw-title">
-                <i class="fas fa-tags sw-icon"></i> Post Tags
+                <i class="fas fa-tags sw-icon"></i>
+                {{ $t('blogDetails.sidebar.postTags') }}
               </h4>
               <div class="sw-tags">
                 <span v-for="tag in post.tags" :key="tag" class="sw-tag"

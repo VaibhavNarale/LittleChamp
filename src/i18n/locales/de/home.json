@@ -1,0 +1,202 @@
+{
+  "hero": {
+    "slide1": {
+      "badge": "Lernen • Spielen • Wachsen",
+      "titleLine1": "Mach das Lernen",
+      "titleHighlight": "magisch & spaßig",
+      "titleLine2": "für dein Kind!",
+      "subtitle": "Schließe dich indischen Kindern weltweit an, die über 500 interaktive Lernspiele entdecken. Perfekt für Kinder von der Vorschule bis zur 7. Klasse.",
+      "feature1": "Über 500 interaktive Spiele",
+      "feature2": "Vorschule bis 7. Klasse",
+      "feature3": "Sicher & werbefrei",
+      "responseNote": "Wir antworten innerhalb von 24 Stunden"
+    },
+    "slide2": {
+      "badge": "Anpassen • Wachsen • Glänzen",
+      "titleHighlight": "Personalisiertes Lernen",
+      "titleLine": "Wege für jedes Kind",
+      "subtitle": "Unsere adaptive Plattform passt sich automatisch dem Niveau deines Kindes an, sodass es immer gefordert, aber nie überfordert ist.",
+      "feature1": "Adaptiver Schwierigkeitsgrad",
+      "feature2": "Fortschritt in Echtzeit",
+      "feature3": "Verfolgung der Lernfortschritte",
+      "cta": "So funktioniert's"
+    },
+    "slide3": {
+      "badge": "Für Lehrkräfte",
+      "titleHighlight": "100 % kostenlos",
+      "titleLine": "für Lehrkräfte – für immer!",
+      "subtitle": "Schließe dich über 100 Lehrkräften an, die Little Champ nutzen, um Schüler zu begeistern und Fortschritte im Klassenzimmer zu verfolgen.",
+      "feature1": "Klassenverwaltung",
+      "feature2": "Fortschrittsberichte für Schüler",
+      "feature3": "Werkzeuge zur Unterrichtsplanung",
+      "teacherBadge": "Für immer kostenlos • Keine Testphasen • Alle Zahlungen erforderlich"
+    },
+    "trust": {
+      "safeSecure": "Sicher & geschützt",
+      "allPaymentsRequired": "Alle Zahlungen erforderlich",
+      "adFree": "Werbefrei"
+    }
+  },
+  "features": {
+    "subtitle": "Warum Little Champ",
+    "titleLine": "Starke Funktionen, die das Lernen",
+    "titleHighlight": "unwiderstehlich machen",
+    "desc": "Alles, was dein Kind braucht, um in Mathe, Lesen und Basteln & Zeichnen zu glänzen",
+    "clickToLearnMore": "Klicke für mehr Infos",
+    "exploreMore": "Weitere Funktionen entdecken",
+    "games": {
+      "highlight": "500+",
+      "alt": "Interaktive Spiele",
+      "title": "Über 500 interaktive Spiele",
+      "text": "Kinder lernen spielerisch mit lehrplangerechten Spielen, die sich ihrem Niveau anpassen"
+    },
+    "personalized": {
+      "highlight": "KI",
+      "alt": "Personalisiertes Lernen",
+      "title": "Personalisiertes Lernen",
+      "text": "Adaptive Technologie, die Schwierigkeit und Tempo an die Bedürfnisse jedes Kindes anpasst"
+    },
+    "pediatric": {
+      "highlight": "Fürsorge",
+      "alt": "Kinderärztliche Beratung & Elternunterstützung",
+      "title": "Kinderärztliche Beratung & Elternunterstützung",
+      "text": "Uns liegt die ganzheitliche Entwicklung deines Kindes am Herzen. Deshalb bieten wir kinderärztliche Beratung und engagierte Elternunterstützung."
+    },
+    "teachers": {
+      "highlight": "GRATIS",
+      "alt": "Kostenlos für Lehrkräfte",
+      "title": "Kostenlos für Lehrkräfte",
+      "text": "Klassenverwaltung, Aufgaben und Fortschrittsverfolgung – für immer völlig kostenlos"
+    }
+  },
+  "about": {
+    "subtitle": "Warum Little Champ",
+    "titleLine": "Verwandle das Lernen in ein",
+    "titleHighlight": "Abenteuer",
+    "text": "Bei Little Champ kann jedes Kind die Freude am Lernen entdecken. Unsere Plattform nutzt adaptive KI-Technologie und lustige Spiele, um personalisierte Erlebnisse in Mathe, Umgangsformen, Denkaufgaben und der Fähigkeit, um die Ecke zu denken, zu schaffen.",
+    "cta": "Unsere Geschichte entdecken"
+  },
+  "counter": {
+    "kidsAlt": "Kinder",
+    "kidsNumber": "Indische",
+    "kidsLabel": "Kinder lernen",
+    "gamesLabel": "Interaktive Spiele",
+    "teachersLabel": "Lehrkräfte vertrauen uns",
+    "countriesNumber": "Indien",
+    "countriesLabel": "Andere Länder"
+  },
+  "subjects": {
+    "subtitle": "Lernfächer",
+    "titleLine1": "Entdecke die",
+    "titleHighlight": "Fächer,",
+    "titleLine2": "die dein Kind meistern wird",
+    "desc": "Lehrplangerechte Inhalte für die Vorschule bis zur 7. Klasse",
+    "gradeTag1": "Vorschule bis 7. Klasse",
+    "gradeTag2": "Kindergarten bis 7. Klasse",
+    "gamesBadge": "Über 500 Spiele",
+    "activitiesBadge": "Über 800 Aktivitäten",
+    "exploreAll": "Alle Fächer entdecken",
+    "math": {
+      "alt": "Mathematik",
+      "title": "Mathematik",
+      "text": "Entwickle Zahlenverständnis, meistere Arithmetik, erkunde Geometrie und löse mathematische Alltagsprobleme.",
+      "topics": "Über 15 Themen",
+      "games": "Über 500 Spiele",
+      "explore": "Mathe entdecken"
+    },
+    "reading": {
+      "alt": "Dein KI-Buddy",
+      "title": "Dein KI-Buddy",
+      "text": "Diese KI-gestützte Funktion vereint freundliche Interaktion, Kommunikationsfähigkeiten und Allgemeinwissen und begleitet Kinder beim Entdecken der Welt – für ein spaßiges, spannendes und lehrreiches Erlebnis an einem Ort.",
+      "topics": "Über 12 Themen",
+      "games": "Über 500 Spiele",
+      "explore": "Lesen entdecken"
+    },
+    "craft": {
+      "alt": "Basteln & Zeichnen",
+      "title": "Basteln & Zeichnen",
+      "text": "Entfache Kreativität durch praktisches Basteln, Zeichnen, Ausmalen und künstlerischen Ausdruck.",
+      "topics": "Über 10 Themen",
+      "activities": "Über 800 Aktivitäten",
+      "explore": "Basteln & Zeichnen entdecken"
+    }
+  },
+  "howItWorks": {
+    "tag": "So funktioniert's",
+    "headingLine": "Leg los in",
+    "headingHighlight": "4 einfachen Schritten",
+    "step1": {
+      "alt": "Kostenlos registrieren",
+      "title": "Kostenlos registrieren",
+      "desc": "Erstelle dein Konto in Sekunden. Alle Zahlungen erforderlich."
+    },
+    "step2": {
+      "alt": "Wähle deine Klasse",
+      "title": "Wähle deine Klasse",
+      "desc": "Wähle von der Vorschule bis zur 7. Klasse. Suche Fächer aus, die dein Kind interessieren."
+    },
+    "step3": {
+      "alt": "Spielen & Lernen",
+      "title": "Spielen & Lernen",
+      "desc": "Kinder entdecken über 500 Spiele. Die KI passt den Schwierigkeitsgrad an ihr Niveau an."
+    },
+    "step4": {
+      "alt": "Fortschritt verfolgen",
+      "title": "Fortschritt verfolgen",
+      "desc": "Eltern & Lehrkräfte erhalten Echtzeit-Einblicke in den Lernfortschritt."
+    }
+  },
+  "journey": {
+    "titleLine": "Mach effektives selbstständiges Lernen",
+    "titleHighlight": "zur Realität",
+    "subtitle": "Der Lernpfad ist die personalisierte Lernreise deines Kindes, aufgeteilt in sinnvolle tägliche Meilensteine.",
+    "alt": "Lernreise-Pfad",
+    "benefit1Text": "Erspart dir die Suche nach",
+    "benefit1Highlight": "Lernplänen",
+    "benefit2Highlight": "Passt sich",
+    "benefit2Text": "den Lernbedürfnissen deines Kindes an",
+    "benefit3Text1": "Führt zur",
+    "benefit3Highlight": "Lehrplan-Meisterschaft,",
+    "benefit3Text2": "Tag für Tag"
+  },
+  "testimonials": {
+    "tag": "Elternstimmen",
+    "headingLine": "Was Eltern & Lehrkräfte",
+    "headingHighlight": "über uns sagen",
+    "desc": "Erfahre, wie Little Champ das Lernen für Millionen Familien weltweit verändert. Echte Geschichten von echten Eltern über die Fortschritte ihrer Kinder.",
+    "t1": {
+      "role": "Elternteil, 2. Klasse",
+      "title": "Meine Tochter liebt jetzt Mathe!",
+      "text": "Meine 7-Jährige hatte früher Schwierigkeiten mit Mathe, aber seit sie Mind Jr nutzt, übt sie jeden Tag mit Begeisterung. Die Spiele machen das Lernen spaßig und sie ist ihrer Klasse schon voraus!"
+    },
+    "t2": {
+      "role": "Homeschooling-Elternteil",
+      "title": "Perfekt fürs Homeschooling",
+      "text": "Als Homeschooling-Elternteil war Mind Jr ein echter Wendepunkt. Die lehrplangerechten Inhalte decken alle Fächer ab und meine Kinder lernen mit Spaß. Jeden Cent wert!"
+    },
+    "t3": {
+      "role": "Grundschullehrerin",
+      "title": "Spannend & lehrreich",
+      "text": "Ich nutze Mind Jr in meinem Klassenzimmer und die Kinder lieben es. Die Fortschrittsverfolgung hilft mir, Bereiche zu erkennen, in denen Schüler zusätzliche Unterstützung brauchen. Sehr empfehlenswert!"
+    }
+  },
+  "cta": {
+    "badge": "Starte heute – es ist kostenlos!",
+    "titleLine": "Bereit, das",
+    "titleHighlight": "Lernabenteuer deines Kindes zu starten?",
+    "text": "Schließe dich 50 Millionen Kindern an, die bereits spielerisch lernen. Alle Zahlungen erforderlich – erhalte sofortigen Zugang zu Tausenden von Lernspielen.",
+    "exploreSubjects": "Fächer entdecken",
+    "safeSecure": "Sicher & geschützt",
+    "adFree": "100 % werbefrei",
+    "paymentAccepted": "Alle Zahlungen akzeptiert"
+  },
+  "blog": {
+    "subtitle": "Aus unserem Blog",
+    "titleLine": "Tipps & Ressourcen für",
+    "titleHighlight": "Eltern & Lehrkräfte",
+    "desc": "Expertenrat zu frühkindlicher Bildung, Lernaktivitäten und Erziehungstipps",
+    "views": "Aufrufe",
+    "readMore": "Mehr lesen",
+    "viewAll": "Alle Artikel ansehen"
+  }
+}

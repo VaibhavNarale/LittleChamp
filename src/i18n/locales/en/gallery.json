@@ -1,0 +1,33 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Gallery"
+  },
+  "hero": {
+    "badge": "Our Memories",
+    "titlePrefix": "Explore Our",
+    "titleHighlight": "Photo Gallery",
+    "subtitle": "Our Fun Moments!"
+  },
+  "filter": {
+    "all": "All",
+    "outdoor": "Outdoor",
+    "party": "Party",
+    "toddler": "Toddler"
+  },
+  "imageAlt": "Fun moment",
+  "labels": {
+    "outdoorFun": "Outdoor Fun",
+    "partyTime": "Party Time",
+    "littleStars": "Little Stars",
+    "happyDays": "Happy Days",
+    "celebrations": "Celebrations",
+    "tinyExplorers": "Tiny Explorers",
+    "partyMagic": "Party Magic",
+    "giggles": "Giggles",
+    "playtime": "Playtime",
+    "adventures": "Adventures",
+    "joyLaughter": "Joy & Laughter",
+    "preciousMoments": "Precious Moments"
+  }
+}

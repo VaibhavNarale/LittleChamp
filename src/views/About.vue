@@ -33,28 +33,33 @@ onBeforeUnmount(() => {
         <div class="about-hero-content">
           <!-- Subtle Breadcrumb -->
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('about.breadcrumb.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">About Us</span>
+            <span class="breadcrumb-current">{{
+              $t('about.breadcrumb.current')
+            }}</span>
           </nav>
 
           <!-- Hero Badge -->
           <div class="hero-badge">
             <i class="fas fa-heart"></i>
-            <span>Who We Are</span>
+            <span>{{ $t('about.hero.badge') }}</span>
           </div>
 
           <!-- Hero Title -->
           <h1 class="about-hero-title">
-            Making Learning
-            <span class="gradient-text-light d-block">Magical & Fun</span>
-            for Every Child
+            {{ $t('about.hero.titleLine1') }}
+            <span class="gradient-text-light d-block">{{
+              $t('about.hero.titleHighlight')
+            }}</span>
+            {{ $t('about.hero.titleLine2') }}
           </h1>
 
           <!-- Hero Description -->
           <p class="about-hero-description">
-            We're on a mission to help 100 million kids fall in love with
-            learning through play-based education
+            {{ $t('about.hero.description') }}
           </p>
         </div>
       </div>
@@ -85,18 +90,22 @@ onBeforeUnmount(() => {
             <div class="mission-img-main">
               <img
                 src="/assets/img/normal/square-1.png"
-                alt="Kids learning with Little Champ"
+                :alt="$t('about.mission.imgMainAlt')"
               />
             </div>
             <div class="mission-img-small">
               <img
                 src="/assets/img/normal/square-2.png"
-                alt="Interactive educational games"
+                :alt="$t('about.mission.imgSmallAlt')"
               />
             </div>
             <div class="mission-badge">
-              <span class="mission-badge-number">500+</span>
-              <span class="mission-badge-text">Kids Learning</span>
+              <span class="mission-badge-number">{{
+                $t('about.mission.badgeNumber')
+              }}</span>
+              <span class="mission-badge-text">{{
+                $t('about.mission.badgeText')
+              }}</span>
             </div>
           </div>
         </div>
@@ -104,18 +113,16 @@ onBeforeUnmount(() => {
           <div class="mission-content">
             <span class="section-tag">
               <i class="fas fa-star"></i>
-              About Little Champ
+              {{ $t('about.mission.tag') }}
             </span>
             <h2 class="mission-title">
-              Little Champ's
-              <span class="title-highlight">Features</span>
+              {{ $t('about.mission.titleLead') }}
+              <span class="title-highlight">{{
+                $t('about.mission.titleHighlight')
+              }}</span>
             </h2>
             <p class="mission-desc">
-              Little Champ is a leading educational technology platform that
-              transforms how children learn. With over 500+ interactive games
-              covering Math, Reading, and Craft & Drawing for Pre-K through
-              Grade 7, we make learning feel like play while delivering
-              curriculum-aligned content that builds essential skills.
+              {{ $t('about.mission.desc') }}
             </p>
 
             <div class="mission-features">
@@ -124,9 +131,11 @@ onBeforeUnmount(() => {
                   <i class="fas fa-gamepad"></i>
                 </div>
                 <div>
-                  <h4 class="feature-name">Play-Based Learning</h4>
+                  <h4 class="feature-name">
+                    {{ $t('about.mission.feature1Name') }}
+                  </h4>
                   <p class="feature-desc">
-                    500+ games that make education exciting
+                    {{ $t('about.mission.feature1Desc') }}
                   </p>
                 </div>
               </div>
@@ -135,9 +144,11 @@ onBeforeUnmount(() => {
                   <i class="fas fa-brain"></i>
                 </div>
                 <div>
-                  <h4 class="feature-name">AI-Powered Paths</h4>
+                  <h4 class="feature-name">
+                    {{ $t('about.mission.feature2Name') }}
+                  </h4>
                   <p class="feature-desc">
-                    Personalized learning for every child
+                    {{ $t('about.mission.feature2Desc') }}
                   </p>
                 </div>
               </div>
@@ -146,9 +157,11 @@ onBeforeUnmount(() => {
                   <i class="fas fa-chart-line"></i>
                 </div>
                 <div>
-                  <h4 class="feature-name">Progress Tracking</h4>
+                  <h4 class="feature-name">
+                    {{ $t('about.mission.feature3Name') }}
+                  </h4>
                   <p class="feature-desc">
-                    Real-time insights for parents & teachers
+                    {{ $t('about.mission.feature3Desc') }}
                   </p>
                 </div>
               </div>
@@ -174,33 +187,32 @@ onBeforeUnmount(() => {
       <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
         <span class="section-tag section-tag--center">
           <i class="fas fa-cubes"></i>
-          What We Offer
+          {{ $t('about.pillars.tag') }}
         </span>
         <div class="heading-with-kids">
           <div class="heading-kid heading-kid--left">
             <img
               src="@/assets/kids-football.png"
-              alt="Kid kicking football"
+              :alt="$t('about.pillars.kidLeftAlt')"
               class="heading-kid-img heading-kid-img--left"
             />
           </div>
           <h2 class="section-heading section-heading--kids">
-            Our Three Key Focus
-            <span class="title-highlight">Areas</span>
+            {{ $t('about.pillars.headingLead') }}
+            <span class="title-highlight">{{
+              $t('about.pillars.headingHighlight')
+            }}</span>
           </h2>
           <div class="heading-kid heading-kid--right">
             <img
               src="@/assets/kids-football.png"
-              alt="Kid receiving football"
+              :alt="$t('about.pillars.kidRightAlt')"
               class="heading-kid-img heading-kid-img--right"
             />
           </div>
         </div>
         <p class="pillars-intro">
-          Little Champ is a child-focused development center dedicated to
-          nurturing young minds through innovation, creativity, and expert
-          guidance. We believe every child grows best in a supportive, engaging,
-          and inspiring environment.
+          {{ $t('about.pillars.intro') }}
         </p>
       </div>
 
@@ -214,43 +226,44 @@ onBeforeUnmount(() => {
               <div class="pillar-icon pillar-icon--green pillar-icon--img">
                 <img
                   src="@/assets/ai-robot-icon.png"
-                  alt="AI Learning"
+                  :alt="$t('about.pillars.card1.iconAlt')"
                   class="pillar-icon-img"
                 />
               </div>
             </div>
             <h3 class="pillar-title">
-              AI Learning &amp;<br />Child Development
+              {{ $t('about.pillars.card1.titleLine1') }}<br />{{
+                $t('about.pillars.card1.titleLine2')
+              }}
             </h3>
             <p class="pillar-desc">
-              At Little Champ, we introduce AI-assisted learning in a
-              child-friendly way to build curiosity and smart thinking.
+              {{ $t('about.pillars.card1.desc') }}
             </p>
             <ul class="pillar-list pillar-list--green">
               <li>
-                <i class="fas fa-check-circle"></i>AI as a learning companion
-                and interactive friend
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card1.item1') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Improving general knowledge
-                and academic learning
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card1.item2') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Enhancing communication
-                skills
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card1.item3') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Developing positive behavior
-                and emotional growth
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card1.item4') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Strengthening language
-                development and vocabulary
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card1.item5') }}
               </li>
             </ul>
             <div class="pillar-highlight pillar-highlight--green">
               <i class="fas fa-star"></i>
-              Grow confidently &amp; think independently
+              {{ $t('about.pillars.card1.highlight') }}
             </div>
           </div>
         </div>
@@ -263,38 +276,40 @@ onBeforeUnmount(() => {
               <div class="pillar-icon pillar-icon--pink pillar-icon--img">
                 <img
                   src="@/assets/gaming-bunny-icon.png"
-                  alt="Mind Activities & Gaming"
+                  :alt="$t('about.pillars.card2.iconAlt')"
                   class="pillar-icon-img"
                 />
               </div>
             </div>
             <h3 class="pillar-title">
-              Mind Activities,<br />Gaming &amp; Creativity
+              {{ $t('about.pillars.card2.titleLine1') }}<br />{{
+                $t('about.pillars.card2.titleLine2')
+              }}
             </h3>
             <p class="pillar-desc">
-              Learning becomes powerful when it is fun and engaging. We provide:
+              {{ $t('about.pillars.card2.desc') }}
             </p>
             <ul class="pillar-list pillar-list--pink">
               <li>
-                <i class="fas fa-check-circle"></i>Brain-boosting games to
-                improve focus and logical thinking
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card2.item1') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Mind activity sessions for
-                memory and problem-solving
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card2.item2') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Drawing classes to enhance
-                creativity
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card2.item3') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Craft activities to develop
-                fine motor skills and imagination
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card2.item4') }}
               </li>
             </ul>
             <div class="pillar-highlight pillar-highlight--pink">
               <i class="fas fa-star"></i>
-              Enjoy learning while building life skills
+              {{ $t('about.pillars.card2.highlight') }}
             </div>
           </div>
         </div>
@@ -307,38 +322,40 @@ onBeforeUnmount(() => {
               <div class="pillar-icon pillar-icon--navy pillar-icon--img">
                 <img
                   src="@/assets/parent-support-icon.png"
-                  alt="Pediatric Guidance & Parent Support"
+                  :alt="$t('about.pillars.card3.iconAlt')"
                   class="pillar-icon-img pillar-icon-img--larger"
                 />
               </div>
             </div>
             <h3 class="pillar-title">
-              Pediatric Guidance<br />&amp; Parent Support
+              {{ $t('about.pillars.card3.titleLine1') }}<br />{{
+                $t('about.pillars.card3.titleLine2')
+              }}
             </h3>
             <p class="pillar-desc">
-              We care about complete child development. That's why we include:
+              {{ $t('about.pillars.card3.desc') }}
             </p>
             <ul class="pillar-list pillar-list--navy">
               <li>
-                <i class="fas fa-check-circle"></i>Interactive sessions with
-                experienced pediatric doctors
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card3.item1') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Appointment booking for
-                one-on-one guidance
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card3.item2') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Monthly parent meetings with
-                doctors
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card3.item3') }}
               </li>
               <li>
-                <i class="fas fa-check-circle"></i>Expert advice on healthy
-                physical, mental, and emotional growth
+                <i class="fas fa-check-circle"></i
+                >{{ $t('about.pillars.card3.item4') }}
               </li>
             </ul>
             <div class="pillar-highlight pillar-highlight--navy">
               <i class="fas fa-star"></i>
-              Supporting every step of your child's growth
+              {{ $t('about.pillars.card3.highlight') }}
             </div>
           </div>
         </div>
@@ -351,13 +368,16 @@ onBeforeUnmount(() => {
             <i class="fas fa-graduation-cap"></i>
           </div>
           <p class="closing-text">
-            At Little Champ, we combine <strong>technology</strong>,
-            <strong>creativity</strong>, and
-            <strong>medical guidance</strong>
-            to build confident, intelligent, and happy children.
+            {{ $t('about.pillars.closing.textStart') }}
+            <strong>{{ $t('about.pillars.closing.word1') }}</strong
+            >{{ $t('about.pillars.closing.sep1')
+            }}<strong>{{ $t('about.pillars.closing.word2') }}</strong
+            >{{ $t('about.pillars.closing.sep2')
+            }}<strong>{{ $t('about.pillars.closing.word3') }}</strong
+            >{{ $t('about.pillars.closing.textEnd') }}
           </p>
           <h3 class="closing-tagline">
-            Growing Young Minds for a Brighter Future
+            {{ $t('about.pillars.closing.tagline') }}
           </h3>
         </div>
       </div>
@@ -374,12 +394,14 @@ onBeforeUnmount(() => {
             <div class="stat-icon stat-icon--transparent">
               <img
                 src="@/assets/kids-learning.png"
-                alt="Kids Learning"
+                :alt="$t('about.stats.kidsLearningAlt')"
                 class="stat-icon-img"
               />
             </div>
-            <h3 class="stat-number stat-number--green">Indian</h3>
-            <p class="stat-label">Kids Learning</p>
+            <h3 class="stat-number stat-number--green">
+              {{ $t('about.stats.kidsLearningNumber') }}
+            </h3>
+            <p class="stat-label">{{ $t('about.stats.kidsLearningLabel') }}</p>
             <div class="stat-bar stat-bar--green"></div>
           </div>
         </div>
@@ -388,12 +410,12 @@ onBeforeUnmount(() => {
             <div class="stat-icon stat-icon--transparent">
               <img
                 src="@/assets/game-controllers.png"
-                alt="Interactive Games"
+                :alt="$t('about.stats.gamesAlt')"
                 class="stat-icon-img"
               />
             </div>
             <h3 class="stat-number stat-number--pink">500+</h3>
-            <p class="stat-label">Interactive Games</p>
+            <p class="stat-label">{{ $t('about.stats.gamesLabel') }}</p>
             <div class="stat-bar stat-bar--pink"></div>
           </div>
         </div>
@@ -402,12 +424,12 @@ onBeforeUnmount(() => {
             <div class="stat-icon stat-icon--transparent">
               <img
                 src="@/assets/free-teachers.png"
-                alt="Teachers Trust Us"
+                :alt="$t('about.stats.teachersAlt')"
                 class="stat-icon-img"
               />
             </div>
             <h3 class="stat-number stat-number--navy">100+</h3>
-            <p class="stat-label">Teachers Trust Us</p>
+            <p class="stat-label">{{ $t('about.stats.teachersLabel') }}</p>
             <div class="stat-bar stat-bar--navy"></div>
           </div>
         </div>
@@ -416,12 +438,12 @@ onBeforeUnmount(() => {
             <div class="stat-icon stat-icon--transparent">
               <img
                 src="@/assets/countries-worldwide.png"
-                alt="Countries Worldwide"
+                :alt="$t('about.stats.countriesAlt')"
                 class="stat-icon-img"
               />
             </div>
             <h3 class="stat-number stat-number--accent">150+</h3>
-            <p class="stat-label">Countries Worldwide</p>
+            <p class="stat-label">{{ $t('about.stats.countriesLabel') }}</p>
             <div class="stat-bar stat-bar--accent"></div>
           </div>
         </div>
@@ -436,10 +458,13 @@ onBeforeUnmount(() => {
       <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
         <span class="section-tag section-tag--center">
           <i class="fas fa-rocket"></i>
-          How It Works
+          {{ $t('about.howItWorks.tag') }}
         </span>
         <h2 class="section-heading">
-          Get Started in <span class="title-highlight">4 Simple Steps</span>
+          {{ $t('about.howItWorks.headingLead') }}
+          <span class="title-highlight">{{
+            $t('about.howItWorks.headingHighlight')
+          }}</span>
         </h2>
       </div>
 
@@ -449,13 +474,13 @@ onBeforeUnmount(() => {
           <div class="step-icon-wrap step-icon--transparent">
             <img
               src="@/assets/signup-button.png"
-              alt="Sign Up Free"
+              :alt="$t('about.howItWorks.step1Alt')"
               class="step-icon-img"
             />
           </div>
-          <h3 class="step-title">Sign Up Free</h3>
+          <h3 class="step-title">{{ $t('about.howItWorks.step1Title') }}</h3>
           <p class="step-desc">
-            Create your account in seconds. All payments required.
+            {{ $t('about.howItWorks.step1Desc') }}
           </p>
         </div>
 
@@ -478,14 +503,13 @@ onBeforeUnmount(() => {
           <div class="step-icon-wrap step-icon--transparent">
             <img
               src="@/assets/choose-grade.png"
-              alt="Choose Your Grade"
+              :alt="$t('about.howItWorks.step2Alt')"
               class="step-icon-img"
             />
           </div>
-          <h3 class="step-title">Choose Your Grade</h3>
+          <h3 class="step-title">{{ $t('about.howItWorks.step2Title') }}</h3>
           <p class="step-desc">
-            Select from Pre-K to Grade 7. Pick subjects that interest your
-            child.
+            {{ $t('about.howItWorks.step2Desc') }}
           </p>
         </div>
 
@@ -508,13 +532,13 @@ onBeforeUnmount(() => {
           <div class="step-icon-wrap step-icon--transparent">
             <img
               src="@/assets/play-learn.png"
-              alt="Play & Learn"
+              :alt="$t('about.howItWorks.step3Alt')"
               class="step-icon-img"
             />
           </div>
-          <h3 class="step-title">Play & Learn</h3>
+          <h3 class="step-title">{{ $t('about.howItWorks.step3Title') }}</h3>
           <p class="step-desc">
-            Kids explore 500+ games. AI adapts difficulty to their level.
+            {{ $t('about.howItWorks.step3Desc') }}
           </p>
         </div>
 
@@ -537,13 +561,13 @@ onBeforeUnmount(() => {
           <div class="step-icon-wrap step-icon--transparent">
             <img
               src="@/assets/track-progress.png"
-              alt="Track Progress"
+              :alt="$t('about.howItWorks.step4Alt')"
               class="step-icon-img step-icon-img--larger"
             />
           </div>
-          <h3 class="step-title">Track Progress</h3>
+          <h3 class="step-title">{{ $t('about.howItWorks.step4Title') }}</h3>
           <p class="step-desc">
-            Parents & teachers get real-time insights on learning growth.
+            {{ $t('about.howItWorks.step4Desc') }}
           </p>
         </div>
       </div>
@@ -559,16 +583,16 @@ onBeforeUnmount(() => {
           <div class="testi-intro">
             <span class="section-tag">
               <i class="fas fa-comment-dots"></i>
-              Parent Reviews
+              {{ $t('about.testimonials.tag') }}
             </span>
             <h2 class="testi-heading">
-              What Parents & Teachers
-              <span class="title-highlight">Say About Us</span>
+              {{ $t('about.testimonials.headingLead') }}
+              <span class="title-highlight">{{
+                $t('about.testimonials.headingHighlight')
+              }}</span>
             </h2>
             <p class="testi-desc">
-              Discover how Little Champ is transforming learning for millions of
-              families worldwide. Real stories from real parents about their
-              children's progress.
+              {{ $t('about.testimonials.desc') }}
             </p>
           </div>
         </div>
@@ -588,7 +612,9 @@ onBeforeUnmount(() => {
                     </div>
                     <div>
                       <h5 class="testi-name">Priya Sharma</h5>
-                      <span class="testi-role">Parent, Grade 2</span>
+                      <span class="testi-role">{{
+                        $t('about.testimonials.t1Role')
+                      }}</span>
                     </div>
                     <div class="testi-quote-icon">
                       <i class="fas fa-quote-right"></i>
@@ -601,11 +627,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <h4 class="testi-card-title">My Daughter Loves Math Now!</h4>
+                  <h4 class="testi-card-title">
+                    {{ $t('about.testimonials.t1Title') }}
+                  </h4>
                   <p class="testi-card-text">
-                    My 7-year-old used to struggle with math, but since using
-                    Mind Jr, she's excited to practice every day. The games make
-                    learning fun and she's already ahead of her grade level!
+                    {{ $t('about.testimonials.t1Text') }}
                   </p>
                 </div>
               </div>
@@ -618,7 +644,9 @@ onBeforeUnmount(() => {
                     </div>
                     <div>
                       <h5 class="testi-name">Rajesh Patel</h5>
-                      <span class="testi-role">Homeschool Parent</span>
+                      <span class="testi-role">{{
+                        $t('about.testimonials.t2Role')
+                      }}</span>
                     </div>
                     <div class="testi-quote-icon">
                       <i class="fas fa-quote-right"></i>
@@ -631,11 +659,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <h4 class="testi-card-title">Perfect for Homeschooling</h4>
+                  <h4 class="testi-card-title">
+                    {{ $t('about.testimonials.t2Title') }}
+                  </h4>
                   <p class="testi-card-text">
-                    As a homeschool parent, Mind Jr has been a game-changer. The
-                    curriculum-aligned content covers all subjects and my kids
-                    are learning while having fun. Worth every penny!
+                    {{ $t('about.testimonials.t2Text') }}
                   </p>
                 </div>
               </div>
@@ -648,7 +676,9 @@ onBeforeUnmount(() => {
                     </div>
                     <div>
                       <h5 class="testi-name">Anita Desai</h5>
-                      <span class="testi-role">Elementary Teacher</span>
+                      <span class="testi-role">{{
+                        $t('about.testimonials.t3Role')
+                      }}</span>
                     </div>
                     <div class="testi-quote-icon">
                       <i class="fas fa-quote-right"></i>
@@ -661,11 +691,11 @@ onBeforeUnmount(() => {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <h4 class="testi-card-title">Engaging & Educational</h4>
+                  <h4 class="testi-card-title">
+                    {{ $t('about.testimonials.t3Title') }}
+                  </h4>
                   <p class="testi-card-text">
-                    I use Mind Jr in my classroom and the kids absolutely love
-                    it. The progress tracking helps me identify areas where
-                    students need extra support. Highly recommend!
+                    {{ $t('about.testimonials.t3Text') }}
                   </p>
                 </div>
               </div>

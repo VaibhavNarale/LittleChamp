@@ -1,0 +1,28 @@
+{
+  "branding": {
+    "title": "Welcome Back to",
+    "subtitle": "Little Champ!",
+    "description": "Continue your child's learning journey with 500+ interactive games and activities."
+  },
+  "form": {
+    "title": "Sign In",
+    "subtitle": "Access your Little Champ account",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot Password?",
+    "signIn": "Sign In",
+    "signingIn": "Signing In..."
+  },
+  "errors": {
+    "fillAllFields": "Please fill in all fields",
+    "loginFailed": "Login failed",
+    "generic": "An error occurred during login"
+  },
+  "teacher": {
+    "question": "Are you a teacher?",
+    "description": "Get a free account with premium features!"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "header": {
+    "name": "Growie",
+    "subtitle": "Little Champ Helper"
+  },
+  "greeting": "Hi there! 👋 I'm Growie, your Little Champ helper. Ask me about our subjects, pricing, free trial, or how to register — I'm happy to help!",
+  "askName": "Before we begin, may I know your name? 😊",
+  "greetingBubble": "👋 Hi! Need help? Chat with me!",
+  "footer": "Powered by Little Champ AI",
+  "chips": {
+    "subjects": "What subjects do you teach?",
+    "pricing": "How much does it cost?",
+    "trial": "How do I start a free trial?",
+    "playgroup": "I want to register my playgroup"
+  },
+  "placeholders": {
+    "name": "Type your name…",
+    "mobile": "Type your mobile number…",
+    "email": "Type your email…",
+    "message": "Type your message…"
+  },
+  "aria": {
+    "close": "Close chat",
+    "open": "Open chat",
+    "dismiss": "Dismiss",
+    "send": "Send"
+  },
+  "capture": {
+    "invalidName": "Oops, that doesn't look like a name. What should I call you? 😊",
+    "askMobile": "Nice to meet you, {name}! 📱 What's your mobile number?",
+    "invalidMobile": "Hmm, that doesn't look like a valid 10-digit mobile number. Could you enter it again? 📱",
+    "askEmail": "Great! 📧 And your email address?",
+    "invalidEmail": "That email doesn't look quite right. Mind typing it again? 📧",
+    "done": "Thanks, {name}! 🎉 You're all set. How can I help you today? Ask me about our subjects, pricing, free trial, or registration!"
+  },
+  "replies": {
+    "greeting": "Hello! 😊 I can help with subjects, pricing, free trials, registration, or contacting our team. What would you like to know?",
+    "subjects": "We make learning fun across three areas: 🔢 Maths, 📖 Your AI-Buddy (reading), and 🎨 Craft & Drawing — for Pre-K to Grade 7. Want to explore them? Visit the Subjects page from the top menu!",
+    "pricing": "You can start with a free trial and explore all features. For full plan details, check our Pricing page in the top menu. 💚",
+    "trial": "Getting started is easy! Click “Book Free AI Strategy Call” at the top, create your account, and start exploring 500+ games. 🚀",
+    "doctor": "We have a Doctor Program! Partner doctors meet families twice a month, chat on WhatsApp, and welcome branch visits. You can apply directly on the Doctor Registration page. 🩺",
+    "playgroup": "Lovely! You can register your playgroup directly on the Playgroup Registration page. You'll get 500+ games, parent progress updates, and a safe, guided space for little ones. 🧒",
+    "register": "You can register as a Parent, Doctor, or Playgroup. Just head to the Doctor Registration or Playgroup Registration page — which one are you interested in?",
+    "features": "Little Champ offers 500+ interactive games, adaptive learning, progress reports, a parent dashboard, and a 100% safe, ad-free space. See the Features page for the full list! ⭐",
+    "screenTime": "For ages 5–10 we suggest short, focused sessions of about 20–30 minutes, a few times a week. Our games are built in fun, rewarding bursts. 🌳",
+    "contact": "You can reach our team at 📞 +91 98217 49524 or ✉️ Info@kindergarden.com. The Contact page also has a quick message form and WhatsApp link!",
+    "thanks": "You're most welcome! 😊 Is there anything else I can help you with?",
+    "fallback": "Great question! I can help with our subjects, pricing, free trial, registration (parent / doctor / playgroup), or contacting our team. Could you tell me a little more about what you need?"
+  }
+}

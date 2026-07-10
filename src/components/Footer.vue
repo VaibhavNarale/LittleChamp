@@ -22,11 +22,7 @@ const currentYear = computed(() => new Date().getFullYear())
                     <Logo variant="white" size="large" />
                   </router-link>
                 </div>
-                <p class="about-text">
-                  Make learning magical and fun for your child with 500+
-                  interactive games for Math, Reading, and Craft & Drawing.
-                  Trusted by Indian kids and 100+ teachers worldwide.
-                </p>
+                <p class="about-text">{{ $t('footer.about') }}</p>
                 <div class="multi-social">
                   <a
                     href="https://facebook.com/kindergarden"
@@ -66,18 +62,32 @@ const currentYear = computed(() => new Date().getFullYear())
           <!-- Quick Links Widget -->
           <v-col xl="auto" md="6" class="wow fadeInUp" data-wow-delay="0.1s">
             <div class="widget footer-widget widget_nav_menu">
-              <h4 class="widget_title">Quick Links</h4>
+              <h4 class="widget_title">{{ $t('footer.quickLinks') }}</h4>
               <ul class="menu">
-                <li><router-link to="/subjects">Subjects</router-link></li>
-                <li><router-link to="/features">Features</router-link></li>
                 <li>
-                  <router-link to="/for-parents">For Parents</router-link>
+                  <router-link to="/subjects">{{
+                    $t('nav.subjects')
+                  }}</router-link>
                 </li>
                 <li>
-                  <router-link to="/for-teachers">For Teachers</router-link>
+                  <router-link to="/features">{{
+                    $t('nav.features')
+                  }}</router-link>
                 </li>
                 <li>
-                  <router-link to="/for-schools">For Schools</router-link>
+                  <router-link to="/for-parents">{{
+                    $t('nav.forParents')
+                  }}</router-link>
+                </li>
+                <li>
+                  <router-link to="/for-teachers">{{
+                    $t('nav.forTeachers')
+                  }}</router-link>
+                </li>
+                <li>
+                  <router-link to="/for-schools">{{
+                    $t('nav.forSchools')
+                  }}</router-link>
                 </li>
               </ul>
             </div>
@@ -86,16 +96,32 @@ const currentYear = computed(() => new Date().getFullYear())
           <!-- Resources Widget -->
           <v-col xl="auto" md="6" class="wow fadeInUp" data-wow-delay="0.1s">
             <div class="widget footer-widget widget_nav_menu">
-              <h4 class="widget_title">Resources</h4>
+              <h4 class="widget_title">{{ $t('footer.resources') }}</h4>
               <ul class="menu">
-                <li><router-link to="/blog">Learning Blog</router-link></li>
-                <li><router-link to="/about">About Us</router-link></li>
                 <li>
-                  <router-link to="/contact">Contact Support</router-link>
+                  <router-link to="/blog">{{
+                    $t('footer.learningBlog')
+                  }}</router-link>
                 </li>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
+                <li>
+                  <router-link to="/about">{{
+                    $t('footer.aboutUs')
+                  }}</router-link>
+                </li>
+                <li>
+                  <router-link to="/contact">{{
+                    $t('footer.contactSupport')
+                  }}</router-link>
+                </li>
+                <li>
+                  <a href="#">{{ $t('footer.helpCenter') }}</a>
+                </li>
+                <li>
+                  <a href="#">{{ $t('footer.privacyPolicy') }}</a>
+                </li>
+                <li>
+                  <a href="#">{{ $t('footer.termsOfService') }}</a>
+                </li>
               </ul>
             </div>
           </v-col>
@@ -103,7 +129,7 @@ const currentYear = computed(() => new Date().getFullYear())
           <!-- Contact Widget -->
           <v-col xl="auto" md="6" class="wow fadeInUp" data-wow-delay="0.1s">
             <div class="widget footer-widget">
-              <h3 class="widget_title">Contact Us</h3>
+              <h3 class="widget_title">{{ $t('footer.contactUs') }}</h3>
               <div class="vs-widget-contact">
                 <p class="footer-info">
                   <i class="fas fa-envelope"></i
@@ -135,10 +161,14 @@ const currentYear = computed(() => new Date().getFullYear())
     <div class="footer-copyright">
       <v-container>
         <p class="copyright">
-          &copy; Copyright {{ currentYear }} Little Champ Private Limited. All
-          Rights Reserved. |
-          <router-link to="/privacy">Privacy Policy</router-link> |
-          <router-link to="/terms">Terms of Service</router-link>
+          {{ $t('footer.copyright', { year: currentYear }) }} |
+          <router-link to="/privacy">{{
+            $t('footer.privacyPolicy')
+          }}</router-link>
+          |
+          <router-link to="/terms">{{
+            $t('footer.termsOfService')
+          }}</router-link>
         </p>
       </v-container>
     </div>
@@ -208,8 +238,15 @@ const currentYear = computed(() => new Date().getFullYear())
 }
 
 .about-logo {
-  margin-bottom: 0 !important;
+  margin-bottom: 18px !important;
   padding-top: 0 !important;
+}
+
+/* Theme's global `.footer-widget .about-text { margin-top: -14px }` pulls the
+   description up over the logo now that the logo's bottom margin is small.
+   Cancel it so the text always sits cleanly below the logo. */
+.footer-wrapper :deep(.about-text) {
+  margin-top: 0 !important;
 }
 
 .vs-widget-about {

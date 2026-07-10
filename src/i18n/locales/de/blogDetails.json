@@ -1,0 +1,35 @@
+{
+  "breadcrumb": {
+    "home": "Startseite",
+    "blog": "Blog",
+    "fallback": "Artikel"
+  },
+  "detail": {
+    "views": "{count} Aufrufe"
+  },
+  "minRead": "{minutes} Min. Lesezeit",
+  "error": {
+    "title": "Artikel nicht gefunden",
+    "text": "Der gesuchte Artikel existiert nicht oder wurde entfernt.",
+    "backToBlog": "Zurück zum Blog"
+  },
+  "share": {
+    "label": "Diesen Artikel teilen:"
+  },
+  "author": {
+    "writtenBy": "Geschrieben von",
+    "anonymous": "Anonym",
+    "defaultBio": "Content-Creator bei Little Champ, mit Leidenschaft dafür, Kindern durch ansprechende Lerninhalte beim Lernen und Wachsen zu helfen."
+  },
+  "related": {
+    "title": "Ähnliche Artikel"
+  },
+  "sidebar": {
+    "categories": "Kategorien",
+    "youMayAlsoLike": "Das könnte dir auch gefallen",
+    "postTags": "Artikel-Tags"
+  },
+  "search": {
+    "placeholder": "Artikel suchen..."
+  }
+}

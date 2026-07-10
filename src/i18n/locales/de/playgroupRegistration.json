@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "home": "Startseite",
+    "breadcrumb": "Spielgruppen-Registrierung",
+    "badge": "Für Spielgruppen & Vorschulen",
+    "titleLead": "Bring freudvolles Lernen zu",
+    "titleAccent": "deinen Kleinen",
+    "description": "Registriere deine Spielgruppe bei Little Champ und gib jedem kleinen Lernenden Zugang zu interaktivem, spielerischem Spaß. Lade deine Dokumente hoch, um loszulegen!"
+  },
+  "panel": {
+    "title1": "Registriere deine",
+    "title2": "Spielgruppe",
+    "desc": "Werde Teil einer wachsenden Gemeinschaft von Spielgruppen, die frühes Lernen spielerisch und wirkungsvoll gestalten.",
+    "perks": {
+      "games": "Über 500 interaktive Lernspiele",
+      "dashboards": "Dashboards für Lehrkräfte & Klassen",
+      "content": "Altersgerechte Inhalte",
+      "support": "Persönliche Ansprechperson im Support"
+    }
+  },
+  "form": {
+    "title": "Spielgruppen-Registrierungsformular",
+    "requiredBefore": "Mit",
+    "requiredAfter": "markierte Felder sind Pflichtfelder."
+  },
+  "fields": {
+    "playgroupName": "Name der Spielgruppe",
+    "playgroupNamePlaceholder": "Little Stars Playgroup",
+    "contactPerson": "Ansprechperson",
+    "contactPersonPlaceholder": "Name der Leitung / Koordination",
+    "designation": "Funktion",
+    "designationPlaceholder": "z. B. Leitung",
+    "email": "E-Mail-Adresse",
+    "emailPlaceholder": "playgroup@example.com",
+    "phone": "Telefonnummer",
+    "phonePlaceholder": "+91 00000 00000",
+    "playgroupType": "Art der Spielgruppe",
+    "playgroupTypePlaceholder": "Art auswählen",
+    "registrationNumber": "Registrierungs-/Lizenznr.",
+    "registrationNumberPlaceholder": "z. B. REG-123456",
+    "childCount": "Anzahl der Kinder",
+    "childCountPlaceholder": "z. B. 45",
+    "city": "Stadt",
+    "cityPlaceholder": "Mumbai",
+    "address": "Adresse der Spielgruppe",
+    "addressPlaceholder": "Straße, Ort, Postleitzahl",
+    "about": "Über die Spielgruppe",
+    "aboutPlaceholder": "Erzähl uns von deiner Spielgruppe und wonach du suchst ..."
+  },
+  "playgroupTypes": {
+    "playgroup": "Spielgruppe",
+    "preNursery": "Vorkindergarten",
+    "nursery": "Kindergarten",
+    "lkgUkg": "LKG / UKG",
+    "daycare": "Kindertagesstätte / Krippe",
+    "other": "Sonstiges"
+  },
+  "docs": {
+    "title": "Dokumente hochladen",
+    "subtitle": "Bitte lade gut lesbare Kopien der folgenden Dokumente hoch.",
+    "identityLabel": "Identitätsnachweis (bevollmächtigte Person)",
+    "identityHint": "Aadhaar / Reisepass / PAN — PNG, JPG oder PDF (max. 5 MB)",
+    "registrationLabel": "Registrierungs-/Lizenzdokument der Spielgruppe",
+    "registrationHint": "Registrierungs-/Lizenzurkunde — PNG, JPG oder PDF (max. 5 MB)"
+  },
+  "terms": {
+    "text": "Ich bestätige, dass die angegebenen Informationen korrekt sind, und ich akzeptiere die",
+    "termsOfService": "Nutzungsbedingungen",
+    "and": "und die",
+    "privacyPolicy": "Datenschutzrichtlinie"
+  },
+  "button": {
+    "submit": "Registrierung absenden",
+    "submitting": "Wird gesendet ..."
+  },
+  "messages": {
+    "requiredFields": "Bitte fülle alle Pflichtfelder aus.",
+    "uploadIdentity": "Bitte lade den Identitätsnachweis der bevollmächtigten Person hoch.",
+    "uploadRegistration": "Bitte lade das Registrierungs-/Lizenzdokument der Spielgruppe hoch.",
+    "agreeTerms": "Bitte stimme den Nutzungsbedingungen zu, um fortzufahren.",
+    "success": "Vielen Dank! Deine Spielgruppen-Registrierung wurde übermittelt. Unser Team prüft deine Dokumente und meldet sich bald bei dir. 🎉",
+    "error": "Beim Absenden ist etwas schiefgelaufen. Bitte versuche es erneut."
+  }
+}

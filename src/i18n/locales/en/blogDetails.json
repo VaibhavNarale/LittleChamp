@@ -1,0 +1,35 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "blog": "Blog",
+    "fallback": "Article"
+  },
+  "detail": {
+    "views": "{count} views"
+  },
+  "minRead": "{minutes} min read",
+  "error": {
+    "title": "Article Not Found",
+    "text": "The article you're looking for doesn't exist or has been removed.",
+    "backToBlog": "Back to Blog"
+  },
+  "share": {
+    "label": "Share this article:"
+  },
+  "author": {
+    "writtenBy": "Written by",
+    "anonymous": "Anonymous",
+    "defaultBio": "Content creator at Little Champ, passionate about helping children learn and grow through engaging educational content."
+  },
+  "related": {
+    "title": "Related Articles"
+  },
+  "sidebar": {
+    "categories": "Categories",
+    "youMayAlsoLike": "You May Also Like",
+    "postTags": "Post Tags"
+  },
+  "search": {
+    "placeholder": "Search articles..."
+  }
+}

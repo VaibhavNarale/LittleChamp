@@ -30,23 +30,26 @@ onBeforeUnmount(() => {
       <div class="container">
         <div class="servicedetails-hero-content">
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('nav.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">For Parents</span>
+            <span class="breadcrumb-current">{{
+              $t('forParents.breadcrumb.current')
+            }}</span>
           </nav>
           <div class="hero-badge">
             <i class="fas fa-heart badge-icon"></i>
-            <span>Empowering Parents</span>
+            <span>{{ $t('forParents.badge') }}</span>
           </div>
           <h1 class="servicedetails-hero-title">
-            Help Your Child
-            <span class="gradient-text-light d-block"
-              >Succeed with Little Champ</span
-            >
+            {{ $t('forParents.title.line1') }}
+            <span class="gradient-text-light d-block">{{
+              $t('forParents.title.line2')
+            }}</span>
           </h1>
           <p class="hero-description">
-            Give your child the gift of learning through play with 500+
-            educational games and activities designed by experts
+            {{ $t('forParents.description') }}
           </p>
         </div>
       </div>
@@ -67,9 +70,9 @@ onBeforeUnmount(() => {
       <div class="title-area text-center">
         <span class="sub-title">
           <i class="fas fa-star"></i>
-          Why Parents Choose Us
+          {{ $t('forParents.benefits.subTitle') }}
         </span>
-        <h2 class="sec-title">Benefits for Your Family</h2>
+        <h2 class="sec-title">{{ $t('forParents.benefits.secTitle') }}</h2>
       </div>
 
       <div class="row gy-4 mt-5">
@@ -78,14 +81,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="safeVaultImg"
-                alt="Safe & Ad-Free"
+                :alt="$t('forParents.benefits.safe.title')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Safe & Ad-Free</h3>
+            <h3 class="box-title">
+              {{ $t('forParents.benefits.safe.title') }}
+            </h3>
             <p class="feature-card-text">
-              100% safe environment with no ads, external links, or in-app
-              purchases. Your child's privacy is our priority.
+              {{ $t('forParents.benefits.safe.text') }}
             </p>
           </div>
         </div>
@@ -95,14 +99,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="trackProgressImg"
-                alt="Track Progress"
+                :alt="$t('forParents.benefits.track.title')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Track Progress</h3>
+            <h3 class="box-title">
+              {{ $t('forParents.benefits.track.title') }}
+            </h3>
             <p class="feature-card-text">
-              Monitor your child's learning journey with detailed progress
-              reports and insights into their strengths.
+              {{ $t('forParents.benefits.track.text') }}
             </p>
           </div>
         </div>
@@ -112,14 +117,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="chooseGradeImg"
-                alt="Expert Curriculum"
+                :alt="$t('forParents.benefits.curriculum.title')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Expert Curriculum</h3>
+            <h3 class="box-title">
+              {{ $t('forParents.benefits.curriculum.title') }}
+            </h3>
             <p class="feature-card-text">
-              Content aligned with educational standards and designed by
-              certified teachers and child development experts.
+              {{ $t('forParents.benefits.curriculum.text') }}
             </p>
           </div>
         </div>
@@ -129,14 +135,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="kidsLearningImg"
-                alt="Multiple Children"
+                :alt="$t('forParents.benefits.children.title')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Multiple Children</h3>
+            <h3 class="box-title">
+              {{ $t('forParents.benefits.children.title') }}
+            </h3>
             <p class="feature-card-text">
-              Create profiles for up to 3 children with one account. Each child
-              gets personalized learning experience.
+              {{ $t('forParents.benefits.children.text') }}
             </p>
           </div>
         </div>
@@ -146,14 +153,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="learnAnywhereImg"
-                alt="Learn Anywhere"
+                :alt="$t('forParents.benefits.anywhere.title')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Learn Anywhere</h3>
+            <h3 class="box-title">
+              {{ $t('forParents.benefits.anywhere.title') }}
+            </h3>
             <p class="feature-card-text">
-              Access on any device - tablet, computer, or smartphone. Learn at
-              home, on the go, or anywhere with internet.
+              {{ $t('forParents.benefits.anywhere.text') }}
             </p>
           </div>
         </div>
@@ -163,14 +171,15 @@ onBeforeUnmount(() => {
             <div class="feature-card-icon-wrap">
               <img
                 :src="rewardsTrophyImg"
-                alt="Rewards & Motivation"
+                :alt="$t('forParents.benefits.rewards.title')"
                 class="feature-card-img"
               />
             </div>
-            <h3 class="box-title">Rewards & Motivation</h3>
+            <h3 class="box-title">
+              {{ $t('forParents.benefits.rewards.title') }}
+            </h3>
             <p class="feature-card-text">
-              Keep kids engaged with points, badges, and rewards that celebrate
-              their achievements and progress.
+              {{ $t('forParents.benefits.rewards.text') }}
             </p>
           </div>
         </div>
@@ -184,9 +193,9 @@ onBeforeUnmount(() => {
       <div class="title-area text-center">
         <span class="sub-title">
           <i class="fas fa-lightbulb"></i>
-          Simple & Smart
+          {{ $t('forParents.howItWorks.subTitle') }}
         </span>
-        <h2 class="sec-title">How It Works for Parents</h2>
+        <h2 class="sec-title">{{ $t('forParents.howItWorks.secTitle') }}</h2>
       </div>
 
       <div class="row gy-4 mt-5">
@@ -196,9 +205,11 @@ onBeforeUnmount(() => {
             <div class="process-icon">
               <i class="fas fa-user-plus"></i>
             </div>
-            <h4 class="process-title">Sign Up</h4>
+            <h4 class="process-title">
+              {{ $t('forParents.howItWorks.step1.title') }}
+            </h4>
             <p class="process-text">
-              Create your account and add your child's profile in minutes
+              {{ $t('forParents.howItWorks.step1.text') }}
             </p>
           </div>
         </div>
@@ -209,9 +220,11 @@ onBeforeUnmount(() => {
             <div class="process-icon">
               <i class="fas fa-sliders-h"></i>
             </div>
-            <h4 class="process-title">Customize</h4>
+            <h4 class="process-title">
+              {{ $t('forParents.howItWorks.step2.title') }}
+            </h4>
             <p class="process-text">
-              Set learning goals and preferences based on your child's needs
+              {{ $t('forParents.howItWorks.step2.text') }}
             </p>
           </div>
         </div>
@@ -222,9 +235,11 @@ onBeforeUnmount(() => {
             <div class="process-icon">
               <i class="fas fa-play-circle"></i>
             </div>
-            <h4 class="process-title">Let Them Play</h4>
+            <h4 class="process-title">
+              {{ $t('forParents.howItWorks.step3.title') }}
+            </h4>
             <p class="process-text">
-              Your child explores 500+ games while learning key concepts
+              {{ $t('forParents.howItWorks.step3.text') }}
             </p>
           </div>
         </div>
@@ -235,9 +250,11 @@ onBeforeUnmount(() => {
             <div class="process-icon">
               <i class="fas fa-chart-bar"></i>
             </div>
-            <h4 class="process-title">Track Progress</h4>
+            <h4 class="process-title">
+              {{ $t('forParents.howItWorks.step4.title') }}
+            </h4>
             <p class="process-text">
-              Review detailed reports and celebrate achievements together
+              {{ $t('forParents.howItWorks.step4.text') }}
             </p>
           </div>
         </div>

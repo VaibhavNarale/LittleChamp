@@ -1,7 +1,10 @@
 <script setup>
 import { ref, computed, nextTick, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import api from '@/utils/api'
 import botAvatar from '@/assets/ai-robot-icon.png'
+
+const { t } = useI18n()
 
 /* ------------------------------------------------------------------
    Little Champ — Floating AI Chat Widget ("Growie")
@@ -13,15 +16,14 @@ import botAvatar from '@/assets/ai-robot-icon.png'
 ------------------------------------------------------------------- */
 const USE_AI_BACKEND = false
 
-const WELCOME =
-  "Hi there! 👋 I'm Growie, your Little Champ helper. Ask me about our subjects, pricing, free trial, or how to register — I'm happy to help!"
+const WELCOME = computed(() => t('chat.greeting'))
 
-const SUGGESTIONS = [
-  'What subjects do you teach?',
-  'How much does it cost?',
-  'How do I start a free trial?',
-  'I want to register my playgroup',
-]
+const SUGGESTIONS = computed(() => [
+  t('chat.chips.subjects'),
+  t('chat.chips.pricing'),
+  t('chat.chips.trial'),
+  t('chat.chips.playgroup'),
+])
 
 const open = ref(false)
 const showGreeting = ref(true)
@@ -41,13 +43,13 @@ const firstName = computed(() => (lead.value.name || '').split(' ')[0])
 const inputPlaceholder = computed(() => {
   switch (stage.value) {
     case STAGE.NAME:
-      return 'Type your name…'
+      return t('chat.placeholders.name')
     case STAGE.MOBILE:
-      return 'Type your mobile number…'
+      return t('chat.placeholders.mobile')
     case STAGE.EMAIL:
-      return 'Type your email…'
+      return t('chat.placeholders.email')
     default:
-      return 'Type your message…'
+      return t('chat.placeholders.message')
   }
 })
 
@@ -55,10 +57,10 @@ const toggleOpen = () => {
   open.value = !open.value
   showGreeting.value = false
   if (open.value && messages.value.length === 0) {
-    messages.value.push({ role: 'assistant', text: WELCOME })
+    messages.value.push({ role: 'assistant', text: WELCOME.value })
     messages.value.push({
       role: 'assistant',
-      text: 'Before we begin, may I know your name? 😊',
+      text: t('chat.askName'),
     })
     stage.value = STAGE.NAME
   }
@@ -86,16 +88,12 @@ const botSay = async (text, delay = 550) => {
 const handleCapture = async (content) => {
   if (stage.value === STAGE.NAME) {
     if (content.length < 2 || /\d/.test(content)) {
-      await botSay(
-        "Oops, that doesn't look like a name. What should I call you? 😊"
-      )
+      await botSay(t('chat.capture.invalidName'))
       return
     }
     lead.value.name = content
     stage.value = STAGE.MOBILE
-    await botSay(
-      `Nice to meet you, ${firstName.value}! 📱 What's your mobile number?`
-    )
+    await botSay(t('chat.capture.askMobile', { name: firstName.value }))
     return
   }
 
@@ -103,29 +101,23 @@ const handleCapture = async (content) => {
     const digits = content.replace(/\D/g, '')
     const ten = digits.length > 10 ? digits.slice(-10) : digits
     if (!/^[6-9]\d{9}$/.test(ten)) {
-      await botSay(
-        "Hmm, that doesn't look like a valid 10-digit mobile number. Could you enter it again? 📱"
-      )
+      await botSay(t('chat.capture.invalidMobile'))
       return
     }
     lead.value.mobile = ten
     stage.value = STAGE.EMAIL
-    await botSay('Great! 📧 And your email address?')
+    await botSay(t('chat.capture.askEmail'))
     return
   }
 
   if (stage.value === STAGE.EMAIL) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(content)) {
-      await botSay(
-        "That email doesn't look quite right. Mind typing it again? 📧"
-      )
+      await botSay(t('chat.capture.invalidEmail'))
       return
     }
     lead.value.email = content
     stage.value = STAGE.CHAT
-    await botSay(
-      `Thanks, ${firstName.value}! 🎉 You're all set. How can I help you today? Ask me about our subjects, pricing, free trial, or registration!`
-    )
+    await botSay(t('chat.capture.done', { name: firstName.value }))
   }
 }
 
@@ -180,30 +172,30 @@ function localReply(text) {
   const has = (...w) => w.some((x) => q.includes(x))
 
   if (has('hi', 'hello', 'hey', 'namaste') && q.length < 12)
-    return 'Hello! 😊 I can help with subjects, pricing, free trials, registration, or contacting our team. What would you like to know?'
+    return t('chat.replies.greeting')
   if (has('subject', 'teach', 'learn', 'course', 'math', 'reading', 'craft'))
-    return 'We make learning fun across three areas: 🔢 Maths, 📖 Your AI-Buddy (reading), and 🎨 Craft & Drawing — for Pre-K to Grade 7. Want to explore them? Visit the Subjects page from the top menu!'
+    return t('chat.replies.subjects')
   if (has('price', 'cost', 'fee', 'plan', 'subscription', 'pay'))
-    return 'You can start with a free trial and explore all features. For full plan details, check our Pricing page in the top menu. 💚'
+    return t('chat.replies.pricing')
   if (has('trial', 'free', 'start', 'sign up', 'signup', 'demo'))
-    return 'Getting started is easy! Click “Book Free AI Strategy Call” at the top, or the Register button, create your account, and start exploring 500+ games. 🚀'
+    return t('chat.replies.trial')
   if (has('doctor', 'pediatric', 'health', 'dr '))
-    return 'We have a Doctor Program! Partner doctors meet families twice a month, chat on WhatsApp, and welcome branch visits. You can apply via Register → Doctor Registration. 🩺'
+    return t('chat.replies.doctor')
   if (
     has('playgroup', 'school', 'pre-school', 'preschool', 'nursery', 'daycare')
   )
-    return 'Lovely! You can register your playgroup via Register → Playgroup Registration. You’ll get 500+ games, parent progress updates, and a safe, guided space for little ones. 🧒'
+    return t('chat.replies.playgroup')
   if (has('register', 'registration', 'join', 'enroll'))
-    return 'You can register as a Parent, Doctor, or Playgroup. Look for the “Register” menu at the top — which one are you interested in?'
+    return t('chat.replies.register')
   if (has('feature', 'what do you', 'how it works', 'about'))
-    return 'Little Champ offers 500+ interactive games, adaptive learning, progress reports, a parent dashboard, and a 100% safe, ad-free space. See the Features page for the full list! ⭐'
+    return t('chat.replies.features')
   if (has('screen time', 'screen', 'how long', 'hours'))
-    return 'For ages 5–10 we suggest short, focused sessions of about 20–30 minutes, a few times a week. Our games are built in fun, rewarding bursts. 🌳'
+    return t('chat.replies.screenTime')
   if (has('contact', 'phone', 'call', 'email', 'whatsapp', 'reach', 'talk to'))
-    return 'You can reach our team at 📞 +91 98217 49524 or ✉️ Info@kindergarden.com. The Contact page also has a quick message form and WhatsApp link!'
+    return t('chat.replies.contact')
   if (has('thank', 'thanks', 'great', 'awesome', 'ok', 'okay'))
-    return 'You’re most welcome! 😊 Is there anything else I can help you with?'
-  return 'Great question! I can help with our subjects, pricing, free trial, registration (parent / doctor / playgroup), or contacting our team. Could you tell me a little more about what you need?'
+    return t('chat.replies.thanks')
+  return t('chat.replies.fallback')
 }
 </script>
 
@@ -220,9 +212,13 @@ function localReply(text) {
           </div>
           <div class="cw-head-info">
             <h4>Growie</h4>
-            <p><span class="cw-dot"></span> Little Champ Helper</p>
+            <p><span class="cw-dot"></span> {{ $t('chat.header.subtitle') }}</p>
           </div>
-          <button class="cw-close" aria-label="Close chat" @click="toggleOpen">
+          <button
+            class="cw-close"
+            :aria-label="$t('chat.aria.close')"
+            @click="toggleOpen"
+          >
             <i class="fas fa-chevron-down"></i>
           </button>
         </div>
@@ -279,13 +275,13 @@ function localReply(text) {
             type="submit"
             class="cw-send"
             :disabled="loading || !input.trim()"
-            aria-label="Send"
+            :aria-label="$t('chat.aria.send')"
           >
             <i class="fas fa-paper-plane"></i>
           </button>
         </form>
 
-        <p class="cw-footer">Powered by Little Champ AI</p>
+        <p class="cw-footer">{{ $t('chat.footer') }}</p>
       </div>
     </transition>
 
@@ -294,12 +290,12 @@ function localReply(text) {
       <div v-if="!open && showGreeting" class="cw-greeting" @click="toggleOpen">
         <button
           class="cw-greeting-close"
-          aria-label="Dismiss"
+          :aria-label="$t('chat.aria.dismiss')"
           @click.stop="showGreeting = false"
         >
           <i class="fas fa-times"></i>
         </button>
-        <span>👋 Hi! Need help? Chat with me!</span>
+        <span>{{ $t('chat.greetingBubble') }}</span>
       </div>
     </transition>
 
@@ -307,7 +303,7 @@ function localReply(text) {
     <button
       class="cw-launcher"
       :class="{ 'is-open': open }"
-      aria-label="Open chat"
+      :aria-label="$t('chat.aria.open')"
       @click="toggleOpen"
     >
       <span class="cw-launcher-icon">

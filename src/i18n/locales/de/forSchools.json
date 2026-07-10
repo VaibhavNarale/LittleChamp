@@ -1,0 +1,115 @@
+{
+  "breadcrumb": {
+    "home": "Startseite",
+    "current": "Für Schulen"
+  },
+  "hero": {
+    "badge": "Lösungen für Institutionen",
+    "titleLine1": "Verwandle deine Schule",
+    "titleLine2": "mit Little Champ",
+    "description": "Umfassende Lernplattform für Schulen mit unbegrenzt vielen Schülerinnen und Schülern, fortschrittlichen Auswertungen und persönlichem Support"
+  },
+  "solutions": {
+    "subTitle": "Lösungen für Schulen",
+    "secTitle": "Alles, was deine Schule braucht",
+    "unlimitedStudents": {
+      "alt": "Unbegrenzt viele Schüler & Lehrkräfte",
+      "title": "Unbegrenzt viele Schüler & Lehrkräfte",
+      "text": "Füge unbegrenzt viele Schülerinnen, Schüler und Lehrkräfte über mehrere Klassenstufen und Klassen hinweg hinzu – ohne Gebühren pro Nutzer."
+    },
+    "ferpaCoppa": {
+      "alt": "FERPA- & COPPA-konform",
+      "title": "FERPA- & COPPA-konform",
+      "text": "Vollständige Einhaltung der Datenschutzvorschriften im Bildungsbereich. Die Daten deiner Schülerinnen und Schüler sind sicher und werden niemals weitergegeben."
+    },
+    "schoolAnalytics": {
+      "alt": "Schulweite Auswertungen",
+      "title": "Schulweite Auswertungen",
+      "text": "Umfassendes Analyse-Dashboard, mit dem die Schulleitung die Leistung über alle Klassenstufen und Klassen hinweg verfolgen kann."
+    },
+    "dedicatedManager": {
+      "alt": "Persönlicher Ansprechpartner",
+      "title": "Persönlicher Ansprechpartner",
+      "text": "Ein persönlicher Ansprechpartner unterstützt dich bei Einrichtung, Schulung und laufendem Support für deine Schule."
+    },
+    "ssoIntegration": {
+      "alt": "SSO- & LMS-Integration",
+      "title": "SSO- & LMS-Integration",
+      "text": "Unterstützung für Single Sign-on und nahtlose Integration mit beliebten LMS-Plattformen wie Google Classroom und Canvas."
+    },
+    "professionalDev": {
+      "alt": "Berufliche Weiterbildung",
+      "title": "Berufliche Weiterbildung",
+      "text": "Kostenlose Schulungen und fortlaufende Weiterbildungsangebote für alle Lehrkräfte und Mitarbeitenden."
+    }
+  },
+  "results": {
+    "subTitle": "Bewährte Ergebnisse",
+    "secTitle": "Warum Schulen sich für uns entscheiden",
+    "stats": {
+      "partnerSchools": "Partnerschulen",
+      "activeStudents": "Aktive Schülerinnen und Schüler",
+      "satisfactionRate": "Zufriedenheitsrate",
+      "performanceBoost": "Leistungssteigerung"
+    },
+    "costEffective": {
+      "title": "Kostengünstige Lösung",
+      "text": "Deutliche Einsparungen im Vergleich zu herkömmlichen Lernmaterialien und Softwarelizenzen"
+    },
+    "easyImplementation": {
+      "title": "Einfache Einführung",
+      "text": "Schnelle Einrichtung mit minimalen IT-Anforderungen. Leg schon in wenigen Tagen los"
+    },
+    "flexibleDeployment": {
+      "title": "Flexibler Einsatz",
+      "text": "Funktioniert auf jedem Gerät – Desktops, Tablets, Chromebooks und interaktiven Whiteboards"
+    },
+    "technicalSupport": {
+      "title": "Technischer Support rund um die Uhr",
+      "text": "Bevorzugter Support von unserem engagierten Schul-Support-Team, wann immer du ihn brauchst"
+    }
+  },
+  "pricing": {
+    "subTitle": "Preise für Schulen",
+    "secTitle": "Einfache, transparente Preise",
+    "secText": "Spezielle Preise für Schulen mit flexiblen Zahlungsoptionen",
+    "perYear": "/Jahr",
+    "contactSales": "Vertrieb kontaktieren",
+    "starter": {
+      "badge": "KLEINE SCHULEN",
+      "title": "Starter",
+      "feature1": "Bis zu 250 Schülerinnen und Schüler",
+      "feature2": "10 Lehrerkonten",
+      "feature3": "Grundlegende Auswertungen",
+      "feature4": "E-Mail-Support",
+      "feature5": "LMS-Integration"
+    },
+    "professional": {
+      "badge": "AM BELIEBTESTEN",
+      "title": "Professional",
+      "feature1": "Bis zu 750 Schülerinnen und Schüler",
+      "feature2": "Unbegrenzt viele Lehrkräfte",
+      "feature3": "Fortschrittliche Auswertungen",
+      "feature4": "Bevorzugter Support",
+      "feature5": "Berufliche Weiterbildung",
+      "feature6": "Persönlicher Ansprechpartner"
+    },
+    "enterprise": {
+      "badge": "GROSSE SCHULBEZIRKE",
+      "title": "Enterprise",
+      "priceCustom": "Individuell",
+      "feature1": "Unbegrenzt viele Schülerinnen und Schüler",
+      "feature2": "Unbegrenzt viele Lehrkräfte",
+      "feature3": "Individuelle Auswertungen",
+      "feature4": "Telefon-Support rund um die Uhr",
+      "feature5": "SSO-Integration",
+      "feature6": "API-Zugang",
+      "feature7": "Erstellung individueller Inhalte"
+    }
+  },
+  "cta": {
+    "title": "Bereit, Little Champ an deine Schule zu bringen?",
+    "text": "Kontaktiere unser Schul-Vertriebsteam für eine kostenlose Demo, Preisinformationen und einen individuellen Einführungsplan.",
+    "button": "Demo vereinbaren"
+  }
+}

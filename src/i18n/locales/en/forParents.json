@@ -1,0 +1,59 @@
+{
+  "breadcrumb": {
+    "current": "For Parents"
+  },
+  "badge": "Empowering Parents",
+  "title": {
+    "line1": "Help Your Child",
+    "line2": "Succeed with Little Champ"
+  },
+  "description": "Give your child the gift of learning through play with 500+ educational games and activities designed by experts",
+  "benefits": {
+    "subTitle": "Why Parents Choose Us",
+    "secTitle": "Benefits for Your Family",
+    "safe": {
+      "title": "Safe & Ad-Free",
+      "text": "100% safe environment with no ads, external links, or in-app purchases. Your child's privacy is our priority."
+    },
+    "track": {
+      "title": "Track Progress",
+      "text": "Monitor your child's learning journey with detailed progress reports and insights into their strengths."
+    },
+    "curriculum": {
+      "title": "Expert Curriculum",
+      "text": "Content aligned with educational standards and designed by certified teachers and child development experts."
+    },
+    "children": {
+      "title": "Multiple Children",
+      "text": "Create profiles for up to 3 children with one account. Each child gets personalized learning experience."
+    },
+    "anywhere": {
+      "title": "Learn Anywhere",
+      "text": "Access on any device - tablet, computer, or smartphone. Learn at home, on the go, or anywhere with internet."
+    },
+    "rewards": {
+      "title": "Rewards & Motivation",
+      "text": "Keep kids engaged with points, badges, and rewards that celebrate their achievements and progress."
+    }
+  },
+  "howItWorks": {
+    "subTitle": "Simple & Smart",
+    "secTitle": "How It Works for Parents",
+    "step1": {
+      "title": "Sign Up",
+      "text": "Create your account and add your child's profile in minutes"
+    },
+    "step2": {
+      "title": "Customize",
+      "text": "Set learning goals and preferences based on your child's needs"
+    },
+    "step3": {
+      "title": "Let Them Play",
+      "text": "Your child explores 500+ games while learning key concepts"
+    },
+    "step4": {
+      "title": "Track Progress",
+      "text": "Review detailed reports and celebrate achievements together"
+    }
+  }
+}

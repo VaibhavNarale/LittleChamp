@@ -42,27 +42,32 @@ onBeforeUnmount(() => {
         <div class="features-hero-content">
           <!-- Subtle Breadcrumb -->
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('features.breadcrumb.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Features</span>
+            <span class="breadcrumb-current">{{
+              $t('features.breadcrumb.current')
+            }}</span>
           </nav>
 
           <!-- Hero Badge -->
           <div class="hero-badge">
             <i class="fas fa-star"></i>
-            <span>Why Choose Little Champ</span>
+            <span>{{ $t('features.hero.badge') }}</span>
           </div>
 
           <!-- Hero Title -->
           <h1 class="features-hero-title">
-            Everything Your Child
-            <span class="gradient-text-light d-block">Needs to Excel</span>
+            {{ $t('features.hero.titleLine1') }}
+            <span class="gradient-text-light d-block">{{
+              $t('features.hero.titleHighlight')
+            }}</span>
           </h1>
 
           <!-- Hero Description -->
           <p class="features-hero-description">
-            Discover the powerful features that make Little Champ the #1 choice
-            for Indian kids and 100+ teachers worldwide
+            {{ $t('features.hero.description') }}
           </p>
         </div>
       </div>
@@ -94,26 +99,26 @@ onBeforeUnmount(() => {
             <div class="feature-icon-wrapper mb-4">
               <img
                 :src="gameControllersImg"
-                alt="Interactive Games"
+                :alt="$t('features.core.f1Alt')"
                 class="feature-cartoon-img"
               />
             </div>
-            <h3 class="h4 mb-3">500+ Interactive Games</h3>
+            <h3 class="h4 mb-3">{{ $t('features.core.f1Title') }}</h3>
             <p class="mb-3">
-              Kids learn through play with engaging, curriculum-aligned games
-              that adapt to their skill level in real-time.
+              {{ $t('features.core.f1Desc') }}
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> Math, Reading & Craft
-                & Drawing
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f1Item1') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Pre-K to Grade 7
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f1Item2') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> New games added
-                monthly
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f1Item3') }}
               </li>
             </ul>
           </div>
@@ -125,26 +130,26 @@ onBeforeUnmount(() => {
             <div class="feature-icon-wrapper mb-4">
               <img
                 :src="personalizedLearningImg"
-                alt="Adaptive Technology"
+                :alt="$t('features.core.f2Alt')"
                 class="feature-cartoon-img"
               />
             </div>
-            <h3 class="h4 mb-3">Adaptive Technology</h3>
+            <h3 class="h4 mb-3">{{ $t('features.core.f2Title') }}</h3>
             <p class="mb-3">
-              Our AI-powered system automatically adjusts difficulty and pace to
-              match each child's unique learning style.
+              {{ $t('features.core.f2Desc') }}
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> Real-time difficulty
-                adjustment
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f2Item1') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Personalized learning
-                paths
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f2Item2') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Smart recommendations
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f2Item3') }}
               </li>
             </ul>
           </div>
@@ -156,24 +161,26 @@ onBeforeUnmount(() => {
             <div class="feature-icon-wrapper mb-4">
               <img
                 :src="trackProgressImg"
-                alt="Progress Reports"
+                :alt="$t('features.core.f3Alt')"
                 class="feature-cartoon-img feature-cartoon-img--larger"
               />
             </div>
-            <h3 class="h4 mb-3">Detailed Progress Reports</h3>
+            <h3 class="h4 mb-3">{{ $t('features.core.f3Title') }}</h3>
             <p class="mb-3">
-              Track your child's learning journey with comprehensive analytics
-              and weekly progress reports.
+              {{ $t('features.core.f3Desc') }}
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> Weekly email reports
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f3Item1') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Skill mastery tracking
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f3Item2') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Visual progress charts
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f3Item3') }}
               </li>
             </ul>
           </div>
@@ -185,25 +192,26 @@ onBeforeUnmount(() => {
             <div class="feature-icon-wrapper mb-4">
               <img
                 :src="safeVaultImg"
-                alt="Safe & Ad-Free"
+                :alt="$t('features.core.f4Alt')"
                 class="feature-cartoon-img"
               />
             </div>
-            <h3 class="h4 mb-3">100% Safe & Ad-Free</h3>
+            <h3 class="h4 mb-3">{{ $t('features.core.f4Title') }}</h3>
             <p class="mb-3">
-              COPPA and FERPA compliant platform with no ads, ensuring a safe
-              learning environment for kids.
+              {{ $t('features.core.f4Desc') }}
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> Zero advertisements
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f4Item1') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Data privacy protected
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f4Item2') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Age-appropriate
-                content
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f4Item3') }}
               </li>
             </ul>
           </div>
@@ -215,24 +223,26 @@ onBeforeUnmount(() => {
             <div class="feature-icon-wrapper mb-4">
               <img
                 :src="learnAnywhereImg"
-                alt="Learn Anywhere"
+                :alt="$t('features.core.f5Alt')"
                 class="feature-cartoon-img feature-cartoon-img--larger"
               />
             </div>
-            <h3 class="h4 mb-3">Learn Anywhere, Anytime</h3>
+            <h3 class="h4 mb-3">{{ $t('features.core.f5Title') }}</h3>
             <p class="mb-3">
-              Access on web, iOS, Android, or Chromebook. Learning continues
-              seamlessly across all devices.
+              {{ $t('features.core.f5Desc') }}
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> Web browser access
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f5Item1') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> iOS & Android apps
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f5Item2') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Offline mode available
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f5Item3') }}
               </li>
             </ul>
           </div>
@@ -244,26 +254,26 @@ onBeforeUnmount(() => {
             <div class="feature-icon-wrapper mb-4">
               <img
                 :src="chooseGradeImg"
-                alt="Curriculum Aligned"
+                :alt="$t('features.core.f6Alt')"
                 class="feature-cartoon-img"
               />
             </div>
-            <h3 class="h4 mb-3">Curriculum Aligned</h3>
+            <h3 class="h4 mb-3">{{ $t('features.core.f6Title') }}</h3>
             <p class="mb-3">
-              All content aligns with Common Core standards and state-specific
-              curricula for Pre-K through Grade 7.
+              {{ $t('features.core.f6Desc') }}
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> Common Core aligned
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f6Item1') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> State standards
-                covered
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f6Item2') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Teacher reviewed
-                content
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f6Item3') }}
               </li>
             </ul>
           </div>
@@ -275,25 +285,26 @@ onBeforeUnmount(() => {
             <div class="feature-icon-wrapper mb-4">
               <img
                 :src="playLearnImg"
-                alt="Printable Worksheets"
+                :alt="$t('features.core.f7Alt')"
                 class="feature-cartoon-img"
               />
             </div>
-            <h3 class="h4 mb-3">Printable Worksheets</h3>
+            <h3 class="h4 mb-3">{{ $t('features.core.f7Title') }}</h3>
             <p class="mb-3">
-              Thousands of downloadable worksheets for offline practice and
-              reinforcement of concepts.
+              {{ $t('features.core.f7Desc') }}
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> 10,000+ worksheets
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f7Item1') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Answer keys included
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f7Item2') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Organized by grade &
-                skill
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f7Item3') }}
               </li>
             </ul>
           </div>
@@ -305,25 +316,26 @@ onBeforeUnmount(() => {
             <div class="feature-icon-wrapper mb-4">
               <img
                 :src="rewardsTrophyImg"
-                alt="Rewards System"
+                :alt="$t('features.core.f8Alt')"
                 class="feature-cartoon-img feature-cartoon-img--larger"
               />
             </div>
-            <h3 class="h4 mb-3">Engaging Rewards System</h3>
+            <h3 class="h4 mb-3">{{ $t('features.core.f8Title') }}</h3>
             <p class="mb-3">
-              Kids earn badges, trophies, and unlock achievements as they
-              progress, keeping them motivated.
+              {{ $t('features.core.f8Desc') }}
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> 200+ badges to earn
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f8Item1') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Virtual trophies &
-                certificates
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f8Item2') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Customizable avatars
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f8Item3') }}
               </li>
             </ul>
           </div>
@@ -335,25 +347,26 @@ onBeforeUnmount(() => {
             <div class="feature-icon-wrapper mb-4">
               <img
                 :src="parentDashboardImg"
-                alt="Parent Dashboard"
+                :alt="$t('features.core.f9Alt')"
                 class="feature-cartoon-img feature-cartoon-img--larger"
               />
             </div>
-            <h3 class="h4 mb-3">Parent Dashboard</h3>
+            <h3 class="h4 mb-3">{{ $t('features.core.f9Title') }}</h3>
             <p class="mb-3">
-              Monitor progress, set learning goals, and receive weekly email
-              updates on your child's achievements.
+              {{ $t('features.core.f9Desc') }}
             </p>
             <ul class="feature-highlights">
               <li>
-                <i class="fas fa-check text-success"></i> Real-time progress
-                updates
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f9Item1') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Set learning goals
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f9Item2') }}
               </li>
               <li>
-                <i class="fas fa-check text-success"></i> Weekly email summaries
+                <i class="fas fa-check text-success"></i>
+                {{ $t('features.core.f9Item3') }}
               </li>
             </ul>
           </div>
@@ -371,13 +384,17 @@ onBeforeUnmount(() => {
       >
         <div class="col-xl-8">
           <div class="title-area">
-            <span class="sub-title">For Educators</span>
+            <span class="sub-title">{{
+              $t('features.teachers.subTitle')
+            }}</span>
             <h2 class="sec-title">
-              <span class="gradient-text">Free</span> Tools for Teachers
+              <span class="gradient-text">{{
+                $t('features.teachers.titleHighlight')
+              }}</span>
+              {{ $t('features.teachers.titleRest') }}
             </h2>
             <p class="mt-3">
-              Powerful classroom management features, completely free for all
-              educators
+              {{ $t('features.teachers.intro') }}
             </p>
           </div>
         </div>
@@ -389,10 +406,9 @@ onBeforeUnmount(() => {
             <div class="icon-badge">
               <i class="fas fa-users-class fa-2x" style="color: #4a8b3f"></i>
             </div>
-            <h4>Class Management</h4>
+            <h4>{{ $t('features.teachers.card1Title') }}</h4>
             <p>
-              Manage up to 100 students per class with easy rostering and
-              organization tools.
+              {{ $t('features.teachers.card1Desc') }}
             </p>
           </div>
         </div>
@@ -402,10 +418,9 @@ onBeforeUnmount(() => {
             <div class="icon-badge">
               <i class="fas fa-tasks fa-2x" style="color: #ff6584"></i>
             </div>
-            <h4>Assign Homework</h4>
+            <h4>{{ $t('features.teachers.card2Title') }}</h4>
             <p>
-              Create and assign custom homework with automatic grading and
-              progress tracking.
+              {{ $t('features.teachers.card2Desc') }}
             </p>
           </div>
         </div>
@@ -415,10 +430,9 @@ onBeforeUnmount(() => {
             <div class="icon-badge">
               <i class="fas fa-chart-bar fa-2x" style="color: #00d2a0"></i>
             </div>
-            <h4>Class Reports</h4>
+            <h4>{{ $t('features.teachers.card3Title') }}</h4>
             <p>
-              View detailed analytics on class performance and individual
-              student progress.
+              {{ $t('features.teachers.card3Desc') }}
             </p>
           </div>
         </div>
@@ -428,10 +442,9 @@ onBeforeUnmount(() => {
             <div class="icon-badge">
               <i class="fas fa-book-reader fa-2x" style="color: #4ecdc4"></i>
             </div>
-            <h4>Lesson Plans</h4>
+            <h4>{{ $t('features.teachers.card4Title') }}</h4>
             <p>
-              Access hundreds of ready-made lesson plans aligned with curriculum
-              standards.
+              {{ $t('features.teachers.card4Desc') }}
             </p>
           </div>
         </div>
@@ -441,9 +454,9 @@ onBeforeUnmount(() => {
             <div class="icon-badge">
               <i class="fas fa-print fa-2x" style="color: #ffb800"></i>
             </div>
-            <h4>Teaching Resources</h4>
+            <h4>{{ $t('features.teachers.card5Title') }}</h4>
             <p>
-              Download worksheets, activity guides, and supplementary materials.
+              {{ $t('features.teachers.card5Desc') }}
             </p>
           </div>
         </div>
@@ -456,10 +469,9 @@ onBeforeUnmount(() => {
                 style="color: #6c5ce7"
               ></i>
             </div>
-            <h4>Differentiated Instruction</h4>
+            <h4>{{ $t('features.teachers.card6Title') }}</h4>
             <p>
-              Easily assign different activities to students based on their
-              skill levels.
+              {{ $t('features.teachers.card6Desc') }}
             </p>
           </div>
         </div>
@@ -467,7 +479,7 @@ onBeforeUnmount(() => {
 
       <div class="text-center mt-50 wow fadeInUp" data-wow-delay="0.7s">
         <router-link to="/for-teachers" class="vs-btn style2">
-          Learn More About Teacher Features
+          {{ $t('features.teachers.cta') }}
           <i class="fas fa-arrow-right ms-2"></i>
         </router-link>
       </div>
@@ -480,14 +492,17 @@ onBeforeUnmount(() => {
       <div class="row align-items-center gy-40">
         <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
           <div class="title-area">
-            <span class="sub-title">Safe & Secure</span>
+            <span class="sub-title">{{
+              $t('features.security.subTitle')
+            }}</span>
             <h2 class="sec-title">
-              Your Child's Safety is Our
-              <span class="gradient-text">Top Priority</span>
+              {{ $t('features.security.titleLead') }}
+              <span class="gradient-text">{{
+                $t('features.security.titleHighlight')
+              }}</span>
             </h2>
             <p class="mb-4">
-              We take privacy and security seriously. Little Champ is fully
-              compliant with all major children's privacy regulations.
+              {{ $t('features.security.intro') }}
             </p>
           </div>
 
@@ -498,10 +513,9 @@ onBeforeUnmount(() => {
                   <i class="fas fa-check-circle fa-2x text-success"></i>
                 </div>
                 <div>
-                  <h5>COPPA Compliant</h5>
+                  <h5>{{ $t('features.security.item1Title') }}</h5>
                   <p class="mb-0 text-muted">
-                    Full compliance with Children's Online Privacy Protection
-                    Act
+                    {{ $t('features.security.item1Desc') }}
                   </p>
                 </div>
               </div>
@@ -513,9 +527,9 @@ onBeforeUnmount(() => {
                   <i class="fas fa-check-circle fa-2x text-success"></i>
                 </div>
                 <div>
-                  <h5>FERPA Compliant</h5>
+                  <h5>{{ $t('features.security.item2Title') }}</h5>
                   <p class="mb-0 text-muted">
-                    Meets Family Educational Rights and Privacy Act standards
+                    {{ $t('features.security.item2Desc') }}
                   </p>
                 </div>
               </div>
@@ -527,10 +541,9 @@ onBeforeUnmount(() => {
                   <i class="fas fa-check-circle fa-2x text-success"></i>
                 </div>
                 <div>
-                  <h5>Data Encryption</h5>
+                  <h5>{{ $t('features.security.item3Title') }}</h5>
                   <p class="mb-0 text-muted">
-                    All data encrypted in transit and at rest using
-                    industry-standard protocols
+                    {{ $t('features.security.item3Desc') }}
                   </p>
                 </div>
               </div>
@@ -542,9 +555,9 @@ onBeforeUnmount(() => {
                   <i class="fas fa-check-circle fa-2x text-success"></i>
                 </div>
                 <div>
-                  <h5>No Third-Party Ads</h5>
+                  <h5>{{ $t('features.security.item4Title') }}</h5>
                   <p class="mb-0 text-muted">
-                    100% ad-free experience with zero tracking pixels
+                    {{ $t('features.security.item4Desc') }}
                   </p>
                 </div>
               </div>
@@ -556,7 +569,7 @@ onBeforeUnmount(() => {
           <div class="security-image-wrapper text-center">
             <img
               src="/assets/img/shape/shape-slide-1.png"
-              alt="Security"
+              :alt="$t('features.security.imageAlt')"
               class="img-fluid"
             />
           </div>
@@ -574,10 +587,12 @@ onBeforeUnmount(() => {
   >
     <div class="container text-center z-index-common">
       <div class="title-area mb-35 wow fadeInUp" data-wow-delay="0.1s">
-        <span class="sub-title text-white">Ready to Get Started?</span>
-        <h2 class="sec-title text-white">Start Your 7-Day Free Trial Today</h2>
+        <span class="sub-title text-white">{{
+          $t('features.cta.subTitle')
+        }}</span>
+        <h2 class="sec-title text-white">{{ $t('features.cta.title') }}</h2>
         <p class="text-white fs-md mt-3">
-          All payments required • Access all features
+          {{ $t('features.cta.text') }}
         </p>
       </div>
     </div>

@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import Logo from './Logo.vue'
+import LanguageSwitcher from './LanguageSwitcher.vue'
 
 const authStore = useAuthStore()
 const showSearch = ref(false)
@@ -99,72 +100,83 @@ const handleLogout = async () => {
                     </router-link>
                   </div>
                 </v-col>
-                <v-col cols="auto" class="flex-grow-1 d-flex justify-end">
+                <v-col cols="auto" class="flex-grow-1 d-flex justify-center">
                   <nav class="main-menu menu-style1 d-none d-lg-inline-block">
                     <ul>
                       <li>
-                        <router-link to="/">Home</router-link>
+                        <router-link to="/">{{ $t('nav.home') }}</router-link>
                       </li>
                       <li class="menu-item-has-children">
-                        <router-link to="/subjects">Subjects</router-link>
+                        <router-link to="/subjects">{{
+                          $t('nav.subjects')
+                        }}</router-link>
                         <ul class="sub-menu">
                           <li>
-                            <router-link to="/subjects"
-                              >All Subjects</router-link
-                            >
+                            <router-link to="/subjects">{{
+                              $t('nav.allSubjects')
+                            }}</router-link>
                           </li>
                           <li>
-                            <router-link to="/subjects/math"
-                              >Mathematics</router-link
-                            >
+                            <router-link to="/subjects/math">{{
+                              $t('nav.mathematics')
+                            }}</router-link>
                           </li>
                           <li>
-                            <router-link to="/subjects/reading"
-                              >Your AI-Buddy</router-link
-                            >
+                            <router-link to="/subjects/reading">{{
+                              $t('nav.aiBuddy')
+                            }}</router-link>
                           </li>
-                          <!-- <li><router-link to="/subjects/science">Science</router-link></li> -->
                           <li>
-                            <router-link to="/subjects/craft-drawing"
-                              >Craft &amp; Drawing</router-link
-                            >
+                            <router-link to="/subjects/craft-drawing">{{
+                              $t('nav.craftDrawing')
+                            }}</router-link>
                           </li>
                         </ul>
                       </li>
                       <li>
-                        <router-link to="/features">Features</router-link>
+                        <router-link to="/features">{{
+                          $t('nav.features')
+                        }}</router-link>
                       </li>
                       <li class="menu-item-has-children">
-                        <a href="#">For You</a>
+                        <a href="#">{{ $t('nav.forYou') }}</a>
                         <ul class="sub-menu">
                           <li>
-                            <router-link to="/for-parents"
-                              >For Parents</router-link
-                            >
+                            <router-link to="/for-parents">{{
+                              $t('nav.forParents')
+                            }}</router-link>
                           </li>
                           <li>
-                            <router-link to="/for-teachers"
-                              >For Teachers</router-link
-                            >
+                            <router-link to="/for-teachers">{{
+                              $t('nav.forTeachers')
+                            }}</router-link>
                           </li>
                           <li>
-                            <router-link to="/for-schools"
-                              >For Schools</router-link
-                            >
+                            <router-link to="/for-schools">{{
+                              $t('nav.forSchools')
+                            }}</router-link>
                           </li>
                         </ul>
                       </li>
                       <li>
-                        <router-link to="/blog">Blog</router-link>
+                        <router-link to="/blog">{{
+                          $t('nav.blog')
+                        }}</router-link>
                       </li>
                       <li>
-                        <router-link to="/about">About</router-link>
+                        <router-link to="/about">{{
+                          $t('nav.about')
+                        }}</router-link>
                       </li>
                       <li>
-                        <router-link to="/gallery">Gallery</router-link>
+                        <router-link to="/gallery">{{
+                          $t('nav.gallery')
+                        }}</router-link>
                       </li>
                       <li>
-                        <router-link to="/contact">Contact</router-link>
+                        <router-link to="/contact">{{
+                          $t('nav.contact')
+                        }}</router-link>
                       </li>
                     </ul>
                   </nav>
@@ -173,16 +185,17 @@ const handleLogout = async () => {
                     class="vs-menu-toggle d-block d-lg-none"
                     @click="$emit('toggle-mobile-menu')"
                   >
-                    <i class="far fa-bars"></i> Menu
+                    <i class="far fa-bars"></i> {{ $t('header.menu') }}
                   </button>
                 </v-col>
                 <v-col cols="auto" class="d-none d-lg-block flex-shrink-0">
                   <div class="header-button d-flex align-items-center gap-2">
+                    <LanguageSwitcher />
                     <!-- Show when NOT logged in -->
                     <template v-if="!isLoggedIn">
                       <router-link to="/login" class="btn-login">
                         <i class="fas fa-sign-in-alt"></i>
-                        <span class="btn-text">Login</span>
+                        <span class="btn-text">{{ $t('header.login') }}</span>
                       </router-link>
                     </template>
 
@@ -194,7 +207,9 @@ const handleLogout = async () => {
                         @click="goToDashboard"
                       >
                         <i class="fas fa-th-large"></i>
-                        <span class="btn-text">Dashboard</span>
+                        <span class="btn-text">{{
+                          $t('header.dashboard')
+                        }}</span>
                       </button>
                       <div class="user-dropdown">
                         <button
@@ -212,14 +227,14 @@ const handleLogout = async () => {
                         >
                           <button class="dropdown-item" @click="goToDashboard">
                             <i class="fas fa-th-large"></i>
-                            <span>Dashboard</span>
+                            <span>{{ $t('header.dashboard') }}</span>
                           </button>
                           <button
                             class="dropdown-item logout"
                             @click="handleLogout"
                           >
                             <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                            <span>{{ $t('header.logout') }}</span>
                           </button>
                         </div>
                       </div>
@@ -254,7 +269,7 @@ const handleLogout = async () => {
           v-model="searchQuery"
           type="text"
           class="border-theme"
-          placeholder="What are you looking for"
+          :placeholder="$t('header.searchPlaceholder')"
         />
         <button type="submit"><i class="fal fa-search"></i></button>
       </form>

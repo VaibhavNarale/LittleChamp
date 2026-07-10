@@ -1,0 +1,81 @@
+{
+  "hero": {
+    "home": "Home",
+    "breadcrumb": "Doctor Registration",
+    "badge": "For Health Professionals",
+    "titleLead": "Join Our Circle of",
+    "titleAccent": "Caring Doctors",
+    "description": "Partner with Little Champ to support children's growth and well-being. Register below and upload your documents to get started!"
+  },
+  "panel": {
+    "title1": "Become a",
+    "title2": "Partner Doctor",
+    "desc": "Help us make learning safe, joyful and healthy for every child.",
+    "perks": {
+      "development": "Support children's development",
+      "profile": "Verified & trusted profile",
+      "flexible": "Flexible engagement",
+      "families": "Connect with caring families"
+    }
+  },
+  "form": {
+    "title": "Doctor Registration Form",
+    "requiredBefore": "Fields marked with",
+    "requiredAfter": "are required."
+  },
+  "fields": {
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Dr. Aarav Sharma",
+    "email": "Email Address",
+    "emailPlaceholder": "doctor@example.com",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+91 00000 00000",
+    "specialization": "Specialization",
+    "specializationPlaceholder": "Select specialization",
+    "registrationNumber": "Medical Registration No.",
+    "registrationNumberPlaceholder": "e.g. MH-123456",
+    "experience": "Years of Experience",
+    "experiencePlaceholder": "e.g. 8",
+    "clinic": "Clinic / Hospital Name",
+    "clinicPlaceholder": "Sunshine Children's Clinic",
+    "city": "City",
+    "cityPlaceholder": "Mumbai",
+    "about": "About You",
+    "aboutPlaceholder": "Tell us a little about your practice and how you'd like to help..."
+  },
+  "specializations": {
+    "pediatrician": "Pediatrician",
+    "psychologist": "Child Psychologist",
+    "speechTherapist": "Speech Therapist",
+    "occupationalTherapist": "Occupational Therapist",
+    "developmentalSpecialist": "Developmental Specialist",
+    "generalPhysician": "General Physician",
+    "other": "Other"
+  },
+  "docs": {
+    "title": "Documents Upload",
+    "subtitle": "Please upload clear copies of the documents below.",
+    "identityLabel": "Identity Proof",
+    "identityHint": "Aadhaar / Passport / PAN — PNG, JPG or PDF (max 5 MB)",
+    "certificateLabel": "Medical Certificate / Registration Document",
+    "certificateHint": "Degree / Council Registration — PNG, JPG or PDF (max 5 MB)"
+  },
+  "terms": {
+    "text": "I confirm the information provided is accurate and I agree to the",
+    "termsOfService": "Terms of Service",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "button": {
+    "submit": "Submit Registration",
+    "submitting": "Submitting..."
+  },
+  "messages": {
+    "requiredFields": "Please fill in all the required fields.",
+    "uploadIdentity": "Please upload your Identity Proof.",
+    "uploadCertificate": "Please upload your Medical Certificate / Registration Document.",
+    "agreeTerms": "Please agree to the Terms of Service to continue.",
+    "success": "Thank you! Your doctor registration has been submitted. Our team will review your documents and get back to you soon. 🎉",
+    "error": "Something went wrong while submitting. Please try again."
+  }
+}

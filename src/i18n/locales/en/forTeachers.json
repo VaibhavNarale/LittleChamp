@@ -1,0 +1,81 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "current": "For Teachers"
+  },
+  "hero": {
+    "badge": "Supporting Educators",
+    "titleLine1": "Empower Your Classroom",
+    "titleLine2": "with Little Champ",
+    "description": "Free premium access for teachers! Engage your students with interactive learning games and track their progress in real-time"
+  },
+  "banner": {
+    "title": "100% Free Premium Access for Teachers!",
+    "text": "We believe in supporting educators. Get full access to all premium features at no cost when you register as a teacher."
+  },
+  "benefits": {
+    "subTitle": "Teacher Benefits",
+    "secTitle": "Everything You Need in the Classroom",
+    "manageClasses": {
+      "alt": "Manage Multiple Classes",
+      "title": "Manage Multiple Classes",
+      "text": "Create and manage unlimited classes with up to 40 students per class. Perfect for all grade levels."
+    },
+    "assignActivities": {
+      "alt": "Assign Activities",
+      "title": "Assign Activities",
+      "text": "Easily assign specific games and activities to individuals, groups, or your entire class with one click."
+    },
+    "realtimeProgress": {
+      "alt": "Real-Time Progress",
+      "title": "Real-Time Progress",
+      "text": "Monitor student progress in real-time with detailed analytics and insights on individual performance."
+    },
+    "standardsAligned": {
+      "alt": "Standards-Aligned",
+      "title": "Standards-Aligned",
+      "text": "All content is curriculum-aligned and mapped to educational standards for easy integration."
+    },
+    "automatedReports": {
+      "alt": "Automated Reports",
+      "title": "Automated Reports",
+      "text": "Generate comprehensive reports for students, parents, and administrators with just a few clicks."
+    },
+    "interactiveWhiteboard": {
+      "alt": "Interactive Whiteboard",
+      "title": "Interactive Whiteboard",
+      "text": "Display activities on your interactive whiteboard for whole-class instruction and engagement."
+    }
+  },
+  "features": {
+    "subTitle": "Teacher Features",
+    "secTitle": "What Teachers Get",
+    "item1": "Unlimited student accounts",
+    "item2": "Access to all 500+ educational games",
+    "item3": "Customizable learning paths",
+    "item4": "Parent communication tools",
+    "item5": "Printable worksheets and resources",
+    "item6": "Professional development resources",
+    "item7": "Priority support from our team",
+    "item8": "Regular content updates"
+  },
+  "testimonials": {
+    "subTitle": "Teacher Testimonials",
+    "secTitle": "What Teachers Say",
+    "item1": {
+      "text": "\"Little Champ has transformed how I teach mathematics. My students are more engaged and their test scores have improved significantly!\"",
+      "name": "Priya Sharma",
+      "role": "3rd Grade Teacher, Mumbai"
+    },
+    "item2": {
+      "text": "\"The progress tracking tools are incredible. I can easily see which students need extra help and tailor my instruction accordingly.\"",
+      "name": "Rahul Mehta",
+      "role": "2nd Grade Teacher, Delhi"
+    },
+    "item3": {
+      "text": "\"My students love earning rewards and competing with each other. It's made learning fun and my classroom is more productive than ever!\"",
+      "name": "Ananya Iyer",
+      "role": "1st Grade Teacher, Bangalore"
+    }
+  }
+}

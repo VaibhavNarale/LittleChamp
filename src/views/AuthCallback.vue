@@ -36,7 +36,9 @@ onMounted(() => {
   } else {
     // Handle error case
     console.error('OAuth error:', error)
-    router.push('/login?error=' + encodeURIComponent(error || 'authentication_failed'))
+    router.push(
+      '/login?error=' + encodeURIComponent(error || 'authentication_failed')
+    )
   }
 })
 </script>
@@ -45,7 +47,7 @@ onMounted(() => {
   <div class="auth-callback-container">
     <div class="loading-spinner">
       <div class="spinner"></div>
-      <p>Completing authentication...</p>
+      <p>{{ $t('authCallback.completing') }}</p>
     </div>
   </div>
 </template>

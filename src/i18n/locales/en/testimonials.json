@@ -1,0 +1,46 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Team Member"
+  },
+  "badge": "Our Team",
+  "heroTitle": {
+    "line1": "Meet Our",
+    "line2": "Team Member"
+  },
+  "member": {
+    "name": "Meera Krishnan",
+    "designation": "Full Time Teacher",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+    "experienceLabel": "Experience:",
+    "experienceValue": "10 Years",
+    "experienceAtLabel": "Experience At:",
+    "experienceAtValue": "Kid's Training, Kid's Caring.",
+    "emailLabel": "Email:",
+    "mobileLabel": "Mobile:"
+  },
+  "staff": {
+    "subtitle": "Our Expert Staff",
+    "title": "Most Dedicated Staff For Your Child",
+    "cardText": "Assertively repurpose orthogonal architectures through just in time manufactured products.",
+    "members": {
+      "m1": { "name": "Arjun Pillai", "designation": "Kids Specialist" },
+      "m2": { "name": "Pooja Verma", "designation": "Drawing Teacher" },
+      "m3": { "name": "Ravi Shankar", "designation": "Kids Teacher" },
+      "m4": { "name": "Nisha Kapoor", "designation": "Kids Specialist" }
+    }
+  },
+  "benefits": {
+    "subtitle": "Service Benefits",
+    "title": "We Are Here To Bring Your Child Next Level",
+    "text": "Monotonectally conceptualize economically sound value after accurate growth strategies. Quickly parallel task client-centric materials with worldwide technologies. Assertively re-engineer interoperable customer",
+    "feature1": {
+      "title": "Full Care Of Your Child",
+      "text": "Proactively myocardinate high-quality quality vectors rather than collaborative best practices. Continually create go forward total linkage vis-a-vis wireless mindshare."
+    },
+    "feature2": {
+      "title": "Professional Teachers",
+      "text": "Proactively myocardinate high-quality quality vectors rather than collaborative best practices. Continually create go forward total linkage vis-a-vis wireless mindshare."
+    }
+  }
+}

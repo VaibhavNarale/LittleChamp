@@ -1,0 +1,328 @@
+{
+  "breadcrumb": {
+    "home": "Startseite",
+    "subjects": "Fächer"
+  },
+  "hero": {
+    "titleSuffix": "Mit Spaß & Spielen"
+  },
+  "labels": {
+    "games": "Spiele",
+    "worksheets": "Arbeitsblätter",
+    "topicsCovered": "Behandelte Themen:",
+    "beginner": "Anfänger",
+    "intermediate": "Mittelstufe",
+    "advanced": "Fortgeschritten"
+  },
+  "gradeBreakdown": {
+    "tag": "Klasse für Klasse",
+    "title": "Was dein Kind lernen wird",
+    "description": "{name}-Kompetenzen und -Konzepte, aufgeschlüsselt nach Klassenstufe"
+  },
+  "benefits": {
+    "tag": "Vorteile",
+    "title": "Warum {name} lernen?"
+  },
+  "cta": {
+    "title": "Bereit, mit {name} loszulegen?",
+    "description": "Gib deinem Kind die Werkzeuge zum Erfolg mit unterhaltsamen, lehrplangerechten {name}-Aktivitäten.",
+    "button": "Weitere Fächer entdecken"
+  },
+  "subjects": {
+    "math": {
+      "name": "Mathematik",
+      "heroTitle": "Mathematik meistern",
+      "heroDescription": "Baue mit interaktiven Spielen, Rätseln und Aktivitäten für die Vorschule bis Klasse 7 eine starke mathematische Grundlage auf.",
+      "description": "Entwickle Zahlenverständnis, meistere die Grundrechenarten, entdecke Geometrie und löse Alltagsprobleme durch spannende Spiele und Aktivitäten.",
+      "stats": {
+        "games": "1000+",
+        "worksheets": "3500+",
+        "grades": "Vorschule bis Klasse 7"
+      },
+      "topics": [
+        { "name": "Zählen & Zahlen", "games": "120 Spiele" },
+        { "name": "Addition", "games": "95 Spiele" },
+        { "name": "Subtraktion", "games": "88 Spiele" },
+        { "name": "Multiplikation", "games": "102 Spiele" },
+        { "name": "Division", "games": "76 Spiele" },
+        { "name": "Geometrie", "games": "64 Spiele" },
+        { "name": "Brüche & Dezimalzahlen", "games": "85 Spiele" },
+        { "name": "Textaufgaben", "games": "92 Spiele" }
+      ],
+      "grades": [
+        {
+          "name": "Vorschule",
+          "ages": "3-4 Jahre",
+          "skills": ["Zahlen 1-10 erkennen", "Objekte zählen", "Formen erkennen", "Sortieren & Muster"]
+        },
+        {
+          "name": "Kindergarten",
+          "ages": "5-6 Jahre",
+          "skills": ["Bis 100 zählen", "Addition bis 10", "Zahlen vergleichen", "Grundformen & Messen"]
+        },
+        {
+          "name": "1. Klasse",
+          "ages": "6-7 Jahre",
+          "skills": ["Addition & Subtraktion bis 20", "Stellenwert (Zehner & Einer)", "Uhrzeit ablesen", "Längen messen"]
+        },
+        {
+          "name": "2. Klasse",
+          "ages": "7-8 Jahre",
+          "skills": ["Addition & Subtraktion bis 100", "Einführung in die Multiplikation", "Umgang mit Geld", "Einfache Brüche"]
+        },
+        {
+          "name": "3. Klasse",
+          "ages": "8-9 Jahre",
+          "skills": ["Multiplikation & Division", "Brüche auf dem Zahlenstrahl", "Fläche & Umfang", "Zahlen runden"]
+        },
+        {
+          "name": "4. Klasse",
+          "ages": "9-10 Jahre",
+          "skills": ["Mehrstellige Multiplikation", "Schriftliche Division", "Gleichwertige Brüche", "Winkel & Geometrie"]
+        },
+        {
+          "name": "5. Klasse",
+          "ages": "10-11 Jahre",
+          "skills": ["Rechnen mit Dezimalzahlen", "Brüche addieren & subtrahieren", "Volumen messen", "Koordinaten zeichnen"]
+        }
+      ],
+      "features": [
+        {
+          "title": "Fördert Problemlösung",
+          "description": "Entwickle kritisches Denken und logisches Schlussfolgern durch mathematische Herausforderungen und Rätsel aus dem echten Leben."
+        },
+        {
+          "title": "Adaptives Lernen",
+          "description": "Die Aktivitäten passen den Schwierigkeitsgrad automatisch an das Können und den Fortschritt deines Kindes an."
+        },
+        {
+          "title": "Anwendung im Alltag",
+          "description": "Lerne Mathematik anhand praktischer Situationen wie Einkaufen, Kochen und Messen, die Kinder täglich erleben."
+        },
+        {
+          "title": "Fortschrittsverfolgung",
+          "description": "Übersichtliche Dashboards und Erfolgsabzeichen halten Kinder motiviert und Eltern informiert."
+        }
+      ]
+    },
+    "reading": {
+      "name": "Dein AI-Buddy",
+      "heroTitle": "Entdecke deinen AI-Buddy",
+      "heroDescription": "Wecke mit Aktivitäten zu Lautschrift, Wortschatz, Verständnis und Schreiben für die Vorschule bis Klasse 7 eine lebenslange Liebe zum Lesen.",
+      "description": "Die KI-gestützte Funktion verbindet freundliche Interaktion, Kommunikationsfähigkeiten und Allgemeinwissen und führt Kinder beim Entdecken der Welt draußen — für ein unterhaltsames, spannendes und lehrreiches Erlebnis an einem Ort.",
+      "stats": {
+        "games": "500+",
+        "worksheets": "500+",
+        "grades": "Vorschule bis Klasse 7"
+      },
+      "topics": [
+        { "name": "Lautschrift & Buchstaben", "games": "150 Spiele" },
+        { "name": "Rechtschreibung", "games": "110 Spiele" },
+        { "name": "Leseverständnis", "games": "180 Spiele" },
+        { "name": "Wortschatz", "games": "95 Spiele" },
+        { "name": "Grammatik", "games": "88 Spiele" },
+        { "name": "Schreiben", "games": "72 Spiele" },
+        { "name": "Wortarten", "games": "65 Spiele" },
+        { "name": "Zeichensetzung", "games": "55 Spiele" }
+      ],
+      "grades": [
+        {
+          "name": "Vorschule",
+          "ages": "3-4 Jahre",
+          "skills": ["Buchstaben erkennen", "Reimwörter", "Hörverständnis", "Den eigenen Namen schreiben"]
+        },
+        {
+          "name": "Kindergarten",
+          "ages": "5-6 Jahre",
+          "skills": ["Buchstabenlaute & Lautschrift", "Sichtwörter", "Einfache Sätze lesen", "Umgang mit Gedrucktem"]
+        },
+        {
+          "name": "1. Klasse",
+          "ages": "6-7 Jahre",
+          "skills": ["Entschlüsseln & Zusammenlauten", "Lesegeläufigkeit", "Geschichten verstehen", "Grundlegende Rechtschreibmuster"]
+        },
+        {
+          "name": "2. Klasse",
+          "ages": "7-8 Jahre",
+          "skills": ["Kapitelbücher lesen", "Wortschatz aufbauen", "Elemente einer Geschichte", "Absätze schreiben"]
+        },
+        {
+          "name": "3. Klasse",
+          "ages": "8-9 Jahre",
+          "skills": ["Lesen, um Informationen zu gewinnen", "Bedeutung aus dem Kontext", "Grammatik & Zeichensetzung", "Aufsätze schreiben"]
+        },
+        {
+          "name": "4. Klasse",
+          "ages": "9-10 Jahre",
+          "skills": ["Schlussfolgern & Analysieren", "Recherchekompetenzen", "Wortarten beherrschen", "Erzählendes Schreiben"]
+        },
+        {
+          "name": "5. Klasse",
+          "ages": "10-11 Jahre",
+          "skills": ["Kritisches Lesen", "Fortgeschrittener Wortschatz", "Überzeugendes Schreiben", "Literarische Analyse"]
+        }
+      ],
+      "features": [
+        {
+          "title": "Fördert Lesekompetenz",
+          "description": "Strukturierte Programme zu Lautschrift und Lesen, die Schritt für Schritt selbstbewusste, eigenständige Leser entwickeln."
+        },
+        {
+          "title": "Weckt die Fantasie",
+          "description": "Interaktive Geschichten und kreative Schreibimpulse, die die Liebe zum Lesen und den Selbstausdruck fördern."
+        },
+        {
+          "title": "Kommunikationsfähigkeiten",
+          "description": "Übungen zu Grammatik, Wortschatz und Schreiben, die stärken, wie Kinder ihre Ideen ausdrücken."
+        },
+        {
+          "title": "Fortschrittsverfolgung",
+          "description": "Übersichtliche Dashboards und Erfolgsabzeichen halten Kinder motiviert und Eltern informiert."
+        }
+      ]
+    },
+    "science": {
+      "name": "Basteln & Zeichnen",
+      "heroTitle": "Entdecke Basteln & Zeichnen",
+      "heroDescription": "Entfalte die Kreativität mit praktischen Bastelprojekten, Zeichenaktivitäten und interaktiven Kunstübungen für den Kindergarten bis Klasse 7.",
+      "description": "Entfalte Kreativität durch praktische Bastelprojekte, Zeichenanleitungen und interaktive Kunstaktivitäten zu Malen, Origami und kreativem Gestalten.",
+      "stats": {
+        "games": "800+",
+        "worksheets": "2500+",
+        "grades": "Kindergarten bis Klasse 5"
+      },
+      "topics": [
+        { "name": "Tiere & Lebensräume", "games": "110 Spiele" },
+        { "name": "Pflanzen & Lebenszyklen", "games": "85 Spiele" },
+        { "name": "Wetter & Jahreszeiten", "games": "72 Spiele" },
+        { "name": "Erde & Weltraum", "games": "95 Spiele" },
+        { "name": "Materie & Energie", "games": "68 Spiele" },
+        { "name": "Wissenschaftliche Methode", "games": "55 Spiele" }
+      ],
+      "grades": [
+        {
+          "name": "Kindergarten",
+          "ages": "5-6 Jahre",
+          "skills": ["Die fünf Sinne", "Lebendig vs. nicht lebendig", "Grundlagen des Wetters", "Bedürfnisse von Tieren"]
+        },
+        {
+          "name": "1. Klasse",
+          "ages": "6-7 Jahre",
+          "skills": ["Pflanzenteile & -bedürfnisse", "Tag- & Nachthimmel", "Grundlagen von Schall & Licht", "Lebensräume von Tieren"]
+        },
+        {
+          "name": "2. Klasse",
+          "ages": "7-8 Jahre",
+          "skills": ["Lebenszyklen", "Aggregatzustände", "Landformen & Wasser", "Zieh- & Schubkräfte"]
+        },
+        {
+          "name": "3. Klasse",
+          "ages": "8-9 Jahre",
+          "skills": ["Ökosysteme & Nahrungsketten", "Wettermuster", "Einfache Maschinen", "Vererbte Merkmale"]
+        },
+        {
+          "name": "4. Klasse",
+          "ages": "9-10 Jahre",
+          "skills": ["Systeme der Erde", "Energieübertragung", "Gesteinskreislauf", "Strukturen von Pflanzen & Tieren"]
+        },
+        {
+          "name": "5. Klasse",
+          "ages": "10-11 Jahre",
+          "skills": ["Materie & chemische Veränderungen", "Erd- & Weltraumsysteme", "Organismen & Umwelt", "Ingenieurmäßiges Gestalten"]
+        }
+      ],
+      "features": [
+        {
+          "title": "Fördert die Neugier",
+          "description": "Praktische Experimente und entdeckendes Lernen, die Kinder dazu anregen, Fragen zu stellen und zu erforschen."
+        },
+        {
+          "title": "Wissenschaftliches Denken",
+          "description": "Lerne die wissenschaftliche Methode durch Beobachten, Vermuten und Experimentieren."
+        },
+        {
+          "title": "Verbindungen zur echten Welt",
+          "description": "Entdecke Themen wie Wetter, Tiere und Weltraum, die das Gelernte mit der Welt ringsum verbinden."
+        },
+        {
+          "title": "Fortschrittsverfolgung",
+          "description": "Übersichtliche Dashboards und Erfolgsabzeichen halten Kinder motiviert und Eltern informiert."
+        }
+      ]
+    },
+    "craft-drawing": {
+      "name": "Basteln & Zeichnen",
+      "heroTitle": "Entdecke Basteln & Zeichnen",
+      "heroDescription": "Entfalte die Kreativität deines Kindes durch unterhaltsame Zeichenstunden, Papierbasteln und praktische Kunstaktivitäten, die Feinmotorik, Fantasie und Selbstausdruck fördern.",
+      "description": "Vom Bleistiftzeichnen bis zum Papierbasteln helfen unsere kreativen Aktivitäten Kindern, in einer unterhaltsamen, angeleiteten Umgebung künstlerische Fähigkeiten, Feinmotorik und fantasievolles Denken zu entwickeln.",
+      "stats": {
+        "games": "200+",
+        "worksheets": "500+",
+        "grades": "Vorschule bis Klasse 7"
+      },
+      "topics": [
+        { "name": "Bleistiftzeichnen", "games": "45 Aktivitäten" },
+        { "name": "Farben & Malen", "games": "60 Aktivitäten" },
+        { "name": "Papierbasteln", "games": "50 Aktivitäten" },
+        { "name": "Origami & Falten", "games": "35 Aktivitäten" },
+        { "name": "Ton & Modellieren", "games": "30 Aktivitäten" },
+        { "name": "Kreativprojekte", "games": "40 Aktivitäten" }
+      ],
+      "grades": [
+        {
+          "name": "Vorschule",
+          "ages": "3-4 Jahre",
+          "skills": ["Kritzeln & freies Zeichnen", "Grundlagen des Fingermalens", "Einfaches Reißen & Kleben von Papier", "Farben durch Kunst erkennen"]
+        },
+        {
+          "name": "Kindergarten",
+          "ages": "5-6 Jahre",
+          "skills": ["Grundformen & Figuren zeichnen", "Innerhalb der Linien ausmalen", "Einfaches Papierfalten", "Basteln mit Kleber & Schere"]
+        },
+        {
+          "name": "1. Klasse",
+          "ages": "6-7 Jahre",
+          "skills": ["Tiere & Objekte zeichnen", "Grundlagen der Aquarellmalerei", "Basteln mit Papptellern", "Muster zeichnen & nachzeichnen"]
+        },
+        {
+          "name": "2. Klasse",
+          "ages": "7-8 Jahre",
+          "skills": ["Landschaften & Szenen zeichnen", "Techniken zum Farbmischen", "Einfache Origami-Modelle", "Grundlagen des Modellierens mit Ton"]
+        },
+        {
+          "name": "3. Klasse",
+          "ages": "8-9 Jahre",
+          "skills": ["Einführung in Perspektive & Schattierung", "Grundlagen der Acrylmalerei", "Fortgeschrittene Origami-Figuren", "Basteln mit recycelten Materialien"]
+        },
+        {
+          "name": "4. Klasse",
+          "ages": "9-10 Jahre",
+          "skills": ["Porträt- & Figurenzeichnen", "Mixed-Media-Kunst", "Pappmaché-Projekte", "Bastelentwurf & -planung"]
+        },
+        {
+          "name": "5. Klasse",
+          "ages": "10-11 Jahre",
+          "skills": ["Realistische Zeichentechniken", "Leinwand-Malprojekte", "Skulpturen & 3D-Kunst", "Ein kreatives Portfolio aufbauen"]
+        }
+      ],
+      "features": [
+        {
+          "title": "Fördert die Kreativität",
+          "description": "Kunstaktivitäten fördern eigenständiges Denken, Fantasie und das Selbstvertrauen, Ideen visuell auszudrücken."
+        },
+        {
+          "title": "Feinmotorik",
+          "description": "Schneiden, Falten, Zeichnen und Formen stärken die Auge-Hand-Koordination und Geschicklichkeit."
+        },
+        {
+          "title": "Emotionaler Ausdruck",
+          "description": "Kunst bietet Kindern ein sicheres Ventil, um Gefühle auszudrücken, Selbstwertgefühl aufzubauen und Achtsamkeit zu entwickeln."
+        },
+        {
+          "title": "Fortschrittsverfolgung",
+          "description": "Visuelle Portfolios und Erfolgsabzeichen halten Kinder motiviert und Eltern über den kreativen Fortschritt informiert."
+        }
+      ]
+    }
+  }
+}

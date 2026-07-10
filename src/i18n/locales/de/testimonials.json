@@ -1,0 +1,46 @@
+{
+  "breadcrumb": {
+    "home": "Startseite",
+    "current": "Teammitglied"
+  },
+  "badge": "Unser Team",
+  "heroTitle": {
+    "line1": "Lerne unser",
+    "line2": "Teammitglied kennen"
+  },
+  "member": {
+    "name": "Meera Krishnan",
+    "designation": "Vollzeit-Lehrerin",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+    "experienceLabel": "Erfahrung:",
+    "experienceValue": "10 Jahre",
+    "experienceAtLabel": "Erfahrung bei:",
+    "experienceAtValue": "Kindertraining, Kinderbetreuung.",
+    "emailLabel": "E-Mail:",
+    "mobileLabel": "Handy:"
+  },
+  "staff": {
+    "subtitle": "Unser Expertenteam",
+    "title": "Das engagierteste Team für dein Kind",
+    "cardText": "Wir gestalten moderne Lernkonzepte, die genau auf die Bedürfnisse deines Kindes zugeschnitten sind.",
+    "members": {
+      "m1": { "name": "Arjun Pillai", "designation": "Kinderspezialist" },
+      "m2": { "name": "Pooja Verma", "designation": "Zeichenlehrerin" },
+      "m3": { "name": "Ravi Shankar", "designation": "Kinderlehrer" },
+      "m4": { "name": "Nisha Kapoor", "designation": "Kinderspezialistin" }
+    }
+  },
+  "benefits": {
+    "subtitle": "Vorteile unseres Angebots",
+    "title": "Wir bringen dein Kind auf die nächste Stufe",
+    "text": "Wir entwickeln durchdachte Lernstrategien mit echtem Mehrwert und verbinden kindgerechte Inhalte mit modernster Technologie – für ein Lernerlebnis, das dein Kind wirklich weiterbringt.",
+    "feature1": {
+      "title": "Volle Fürsorge für dein Kind",
+      "text": "Wir setzen auf eine hochwertige, kindgerechte Förderung und schaffen kontinuierlich ein sicheres, vernetztes Lernumfeld für dein Kind."
+    },
+    "feature2": {
+      "title": "Professionelle Lehrkräfte",
+      "text": "Wir setzen auf eine hochwertige, kindgerechte Förderung und schaffen kontinuierlich ein sicheres, vernetztes Lernumfeld für dein Kind."
+    }
+  }
+}

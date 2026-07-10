@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import {
   initTemplateScripts,
   cleanupTemplateScripts,
@@ -12,640 +13,154 @@ import craftIcon from '@/assets/craft-drawing-icon.png'
 
 const route = useRoute()
 const router = useRouter()
+const { t } = useI18n()
 
-const subjectsData = {
+// Non-text metadata (icons, colors, gradients, images) preserved exactly.
+// All human-visible text comes from the `subjectDetails` i18n namespace.
+const subjectsMeta = {
   math: {
-    name: 'Mathematics',
     icon: 'fas fa-calculator',
     iconImage: mathIcon,
     color: '#6C5CE7',
     gradient: 'linear-gradient(135deg, #6C5CE7, #5EA750)',
-    heroTitle: 'Master Mathematics',
-    heroDescription:
-      'Build strong math foundations with interactive games, puzzles, and activities designed for Pre-K through Grade 7.',
-    description:
-      'Build number sense, master arithmetic, explore geometry, and solve real-world problems through engaging games and activities.',
-    stats: {
-      games: '1000+',
-      worksheets: '3500+',
-      grades: 'Pre-K to 7',
-    },
     topics: [
-      {
-        icon: 'fas fa-hashtag',
-        name: 'Counting & Numbers',
-        games: '120 games',
-        color: '#F97316',
-      },
-      {
-        icon: 'fas fa-plus',
-        name: 'Addition',
-        games: '95 games',
-        color: '#0EA5E9',
-      },
-      {
-        icon: 'fas fa-minus',
-        name: 'Subtraction',
-        games: '88 games',
-        color: '#F97066',
-      },
-      {
-        icon: 'fas fa-times',
-        name: 'Multiplication',
-        games: '102 games',
-        color: '#14B8A6',
-      },
-      {
-        icon: 'fas fa-divide',
-        name: 'Division',
-        games: '76 games',
-        color: '#6366F1',
-      },
-      {
-        icon: 'fas fa-shapes',
-        name: 'Geometry',
-        games: '64 games',
-        color: '#10B981',
-      },
-      {
-        icon: 'fas fa-percentage',
-        name: 'Fractions & Decimals',
-        games: '85 games',
-        color: '#F59E0B',
-      },
-      {
-        icon: 'fas fa-question-circle',
-        name: 'Word Problems',
-        games: '92 games',
-        color: '#F43F5E',
-      },
+      { icon: 'fas fa-hashtag', color: '#F97316' },
+      { icon: 'fas fa-plus', color: '#0EA5E9' },
+      { icon: 'fas fa-minus', color: '#F97066' },
+      { icon: 'fas fa-times', color: '#14B8A6' },
+      { icon: 'fas fa-divide', color: '#6366F1' },
+      { icon: 'fas fa-shapes', color: '#10B981' },
+      { icon: 'fas fa-percentage', color: '#F59E0B' },
+      { icon: 'fas fa-question-circle', color: '#F43F5E' },
     ],
-    grades: [
-      {
-        name: 'Pre-K',
-        ages: '3-4 years',
-        skills: [
-          'Number recognition 1-10',
-          'Counting objects',
-          'Shape identification',
-          'Sorting & patterns',
-        ],
-      },
-      {
-        name: 'Kindergarten',
-        ages: '5-6 years',
-        skills: [
-          'Counting to 100',
-          'Addition within 10',
-          'Comparing numbers',
-          'Basic shapes & measurement',
-        ],
-      },
-      {
-        name: '1st Grade',
-        ages: '6-7 years',
-        skills: [
-          'Addition & subtraction to 20',
-          'Place value (tens & ones)',
-          'Telling time',
-          'Measuring lengths',
-        ],
-      },
-      {
-        name: '2nd Grade',
-        ages: '7-8 years',
-        skills: [
-          'Addition & subtraction to 100',
-          'Introduction to multiplication',
-          'Money concepts',
-          'Basic fractions',
-        ],
-      },
-      {
-        name: '3rd Grade',
-        ages: '8-9 years',
-        skills: [
-          'Multiplication & division facts',
-          'Fractions on number lines',
-          'Area & perimeter',
-          'Rounding numbers',
-        ],
-      },
-      {
-        name: '4th Grade',
-        ages: '9-10 years',
-        skills: [
-          'Multi-digit multiplication',
-          'Long division',
-          'Equivalent fractions',
-          'Angles & geometry',
-        ],
-      },
-      {
-        name: '5th Grade',
-        ages: '10-11 years',
-        skills: [
-          'Decimal operations',
-          'Adding & subtracting fractions',
-          'Volume measurement',
-          'Coordinate graphing',
-        ],
-      },
-    ],
-    features: [
-      {
-        icon: 'fas fa-brain',
-        title: 'Builds Problem Solving',
-        description:
-          'Develop critical thinking and logical reasoning through real-world math challenges and puzzles.',
-      },
-      {
-        icon: 'fas fa-chart-line',
-        title: 'Adaptive Learning',
-        description:
-          "Activities automatically adjust difficulty based on your child's skill level and progress.",
-      },
-      {
-        icon: 'fas fa-globe-americas',
-        title: 'Real-World Application',
-        description:
-          'Learn math through practical scenarios like shopping, cooking, and measuring that kids encounter daily.',
-      },
-      {
-        icon: 'fas fa-trophy',
-        title: 'Progress Tracking',
-        description:
-          'Visual dashboards and achievement badges keep kids motivated and parents informed.',
-      },
+    gradeCount: 7,
+    featureIcons: [
+      'fas fa-brain',
+      'fas fa-chart-line',
+      'fas fa-globe-americas',
+      'fas fa-trophy',
     ],
   },
   reading: {
-    name: 'Your AI-Buddy',
     icon: 'fas fa-book-open',
     iconImage: readingIcon,
     color: '#FD79A8',
     gradient: 'linear-gradient(135deg, #FD79A8, #E84393)',
-    heroTitle: 'Explore Your AI-Buddy',
-    heroDescription:
-      'Spark a lifelong love of reading with phonics, vocabulary, comprehension, and writing activities for Pre-K through Grade 7.',
-    description:
-      'AI-powered feature combines friendly interaction, communication skills, general knowledge, and guides children on exploring the outside world — creating a fun, engaging, and educational experience all in one place.',
-    stats: {
-      games: '500+',
-      worksheets: '500+',
-      grades: 'Pre-K to 7',
-    },
     topics: [
-      {
-        icon: 'fas fa-font',
-        name: 'Phonics & Letters',
-        games: '150 games',
-        color: '#F97066',
-      },
-      {
-        icon: 'fas fa-spell-check',
-        name: 'Spelling',
-        games: '110 games',
-        color: '#8B5CF6',
-      },
-      {
-        icon: 'fas fa-book-reader',
-        name: 'Reading Comprehension',
-        games: '180 games',
-        color: '#14B8A6',
-      },
-      {
-        icon: 'fas fa-language',
-        name: 'Vocabulary',
-        games: '95 games',
-        color: '#F59E0B',
-      },
-      {
-        icon: 'fas fa-pen-fancy',
-        name: 'Grammar',
-        games: '88 games',
-        color: '#6366F1',
-      },
-      {
-        icon: 'fas fa-pencil-alt',
-        name: 'Writing',
-        games: '72 games',
-        color: '#10B981',
-      },
-      {
-        icon: 'fas fa-comment-dots',
-        name: 'Parts of Speech',
-        games: '65 games',
-        color: '#F43F5E',
-      },
-      {
-        icon: 'fas fa-quote-left',
-        name: 'Punctuation',
-        games: '55 games',
-        color: '#0EA5E9',
-      },
+      { icon: 'fas fa-font', color: '#F97066' },
+      { icon: 'fas fa-spell-check', color: '#8B5CF6' },
+      { icon: 'fas fa-book-reader', color: '#14B8A6' },
+      { icon: 'fas fa-language', color: '#F59E0B' },
+      { icon: 'fas fa-pen-fancy', color: '#6366F1' },
+      { icon: 'fas fa-pencil-alt', color: '#10B981' },
+      { icon: 'fas fa-comment-dots', color: '#F43F5E' },
+      { icon: 'fas fa-quote-left', color: '#0EA5E9' },
     ],
-    grades: [
-      {
-        name: 'Pre-K',
-        ages: '3-4 years',
-        skills: [
-          'Letter recognition',
-          'Rhyming words',
-          'Listening comprehension',
-          'Name writing',
-        ],
-      },
-      {
-        name: 'Kindergarten',
-        ages: '5-6 years',
-        skills: [
-          'Letter sounds & phonics',
-          'Sight words',
-          'Simple sentence reading',
-          'Print concepts',
-        ],
-      },
-      {
-        name: '1st Grade',
-        ages: '6-7 years',
-        skills: [
-          'Decoding & blending',
-          'Reading fluency',
-          'Story comprehension',
-          'Basic spelling patterns',
-        ],
-      },
-      {
-        name: '2nd Grade',
-        ages: '7-8 years',
-        skills: [
-          'Chapter book reading',
-          'Vocabulary building',
-          'Story elements',
-          'Writing paragraphs',
-        ],
-      },
-      {
-        name: '3rd Grade',
-        ages: '8-9 years',
-        skills: [
-          'Reading for information',
-          'Context clues',
-          'Grammar & punctuation',
-          'Writing essays',
-        ],
-      },
-      {
-        name: '4th Grade',
-        ages: '9-10 years',
-        skills: [
-          'Inference & analysis',
-          'Research skills',
-          'Parts of speech mastery',
-          'Narrative writing',
-        ],
-      },
-      {
-        name: '5th Grade',
-        ages: '10-11 years',
-        skills: [
-          'Critical reading',
-          'Advanced vocabulary',
-          'Persuasive writing',
-          'Literary analysis',
-        ],
-      },
-    ],
-    features: [
-      {
-        icon: 'fas fa-book',
-        title: 'Builds Literacy',
-        description:
-          'Structured phonics and reading programs that develop confident, independent readers step by step.',
-      },
-      {
-        icon: 'fas fa-lightbulb',
-        title: 'Sparks Imagination',
-        description:
-          'Interactive stories and creative writing prompts that nurture a love of reading and self-expression.',
-      },
-      {
-        icon: 'fas fa-comments',
-        title: 'Communication Skills',
-        description:
-          'Grammar, vocabulary, and writing exercises that strengthen how kids express their ideas.',
-      },
-      {
-        icon: 'fas fa-trophy',
-        title: 'Progress Tracking',
-        description:
-          'Visual dashboards and achievement badges keep kids motivated and parents informed.',
-      },
+    gradeCount: 7,
+    featureIcons: [
+      'fas fa-book',
+      'fas fa-lightbulb',
+      'fas fa-comments',
+      'fas fa-trophy',
     ],
   },
   science: {
-    name: 'Craft & Drawing',
     icon: 'fas fa-paint-brush',
     iconImage: scienceIcon,
     color: '#00B894',
     gradient: 'linear-gradient(135deg, #00B894, #00D2A0)',
-    heroTitle: 'Discover Craft & Drawing',
-    heroDescription:
-      'Unleash creativity with hands-on craft projects, drawing activities, and interactive art exercises for K through Grade 7.',
-    description:
-      'Unleash creativity through hands-on craft projects, drawing tutorials, and interactive art activities covering painting, origami, and creative design.',
-    stats: {
-      games: '800+',
-      worksheets: '2500+',
-      grades: 'K to 5',
-    },
     topics: [
-      {
-        icon: 'fas fa-paw',
-        name: 'Animals & Habitats',
-        games: '110 games',
-        color: '#16A34A',
-      },
-      {
-        icon: 'fas fa-seedling',
-        name: 'Plants & Life Cycles',
-        games: '85 games',
-        color: '#F97066',
-      },
-      {
-        icon: 'fas fa-cloud-sun-rain',
-        name: 'Weather & Seasons',
-        games: '72 games',
-        color: '#0EA5E9',
-      },
-      {
-        icon: 'fas fa-globe-americas',
-        name: 'Earth & Space',
-        games: '95 games',
-        color: '#6366F1',
-      },
-      {
-        icon: 'fas fa-atom',
-        name: 'Matter & Energy',
-        games: '68 games',
-        color: '#F59E0B',
-      },
-      {
-        icon: 'fas fa-microscope',
-        name: 'Scientific Method',
-        games: '55 games',
-        color: '#14B8A6',
-      },
+      { icon: 'fas fa-paw', color: '#16A34A' },
+      { icon: 'fas fa-seedling', color: '#F97066' },
+      { icon: 'fas fa-cloud-sun-rain', color: '#0EA5E9' },
+      { icon: 'fas fa-globe-americas', color: '#6366F1' },
+      { icon: 'fas fa-atom', color: '#F59E0B' },
+      { icon: 'fas fa-microscope', color: '#14B8A6' },
     ],
-    grades: [
-      {
-        name: 'Kindergarten',
-        ages: '5-6 years',
-        skills: [
-          'Five senses',
-          'Living vs non-living',
-          'Basic weather',
-          'Animal needs',
-        ],
-      },
-      {
-        name: '1st Grade',
-        ages: '6-7 years',
-        skills: [
-          'Plant parts & needs',
-          'Day & night sky',
-          'Sound & light basics',
-          'Animal habitats',
-        ],
-      },
-      {
-        name: '2nd Grade',
-        ages: '7-8 years',
-        skills: [
-          'Life cycles',
-          'States of matter',
-          'Landforms & water',
-          'Push & pull forces',
-        ],
-      },
-      {
-        name: '3rd Grade',
-        ages: '8-9 years',
-        skills: [
-          'Ecosystems & food chains',
-          'Weather patterns',
-          'Simple machines',
-          'Inherited traits',
-        ],
-      },
-      {
-        name: '4th Grade',
-        ages: '9-10 years',
-        skills: [
-          "Earth's systems",
-          'Energy transfer',
-          'Rock cycle',
-          'Plant & animal structures',
-        ],
-      },
-      {
-        name: '5th Grade',
-        ages: '10-11 years',
-        skills: [
-          'Matter & chemical changes',
-          'Earth & space systems',
-          'Organisms & environments',
-          'Engineering design',
-        ],
-      },
-    ],
-    features: [
-      {
-        icon: 'fas fa-search',
-        title: 'Nurtures Curiosity',
-        description:
-          'Hands-on experiments and discovery-based activities that encourage kids to ask questions and explore.',
-      },
-      {
-        icon: 'fas fa-flask',
-        title: 'Scientific Thinking',
-        description:
-          'Learn the scientific method through observation, hypothesis, and experimentation activities.',
-      },
-      {
-        icon: 'fas fa-globe-americas',
-        title: 'Real-World Connections',
-        description:
-          'Explore topics like weather, animals, and space that connect classroom learning to the world around them.',
-      },
-      {
-        icon: 'fas fa-trophy',
-        title: 'Progress Tracking',
-        description:
-          'Visual dashboards and achievement badges keep kids motivated and parents informed.',
-      },
+    gradeCount: 6,
+    featureIcons: [
+      'fas fa-search',
+      'fas fa-flask',
+      'fas fa-globe-americas',
+      'fas fa-trophy',
     ],
   },
   'craft-drawing': {
-    name: 'Craft & Drawing',
     icon: 'fas fa-palette',
     iconImage: craftIcon,
     color: '#F59E0B',
     gradient: 'linear-gradient(135deg, #F59E0B, #F97316)',
-    heroTitle: 'Explore Craft & Drawing',
-    heroDescription:
-      'Unleash creativity through fun drawing lessons, paper crafts, and hands-on art activities that build fine motor skills, imagination, and self-expression.',
-    description:
-      'From pencil sketching to paper crafts, our creative activities help children develop artistic skills, fine motor control, and imaginative thinking in a fun, guided environment.',
-    stats: {
-      games: '200+',
-      worksheets: '500+',
-      grades: 'Pre-K to 7',
-    },
     topics: [
-      {
-        icon: 'fas fa-pencil-alt',
-        name: 'Pencil Sketching',
-        games: '45 activities',
-        color: '#F59E0B',
-      },
-      {
-        icon: 'fas fa-palette',
-        name: 'Color & Painting',
-        games: '60 activities',
-        color: '#E91E8C',
-      },
-      {
-        icon: 'fas fa-cut',
-        name: 'Paper Craft',
-        games: '50 activities',
-        color: '#16A34A',
-      },
-      {
-        icon: 'fas fa-shapes',
-        name: 'Origami & Folding',
-        games: '35 activities',
-        color: '#6366F1',
-      },
-      {
-        icon: 'fas fa-hand-sparkles',
-        name: 'Clay & Modelling',
-        games: '30 activities',
-        color: '#0EA5E9',
-      },
-      {
-        icon: 'fas fa-magic',
-        name: 'Creative Projects',
-        games: '40 activities',
-        color: '#14B8A6',
-      },
+      { icon: 'fas fa-pencil-alt', color: '#F59E0B' },
+      { icon: 'fas fa-palette', color: '#E91E8C' },
+      { icon: 'fas fa-cut', color: '#16A34A' },
+      { icon: 'fas fa-shapes', color: '#6366F1' },
+      { icon: 'fas fa-hand-sparkles', color: '#0EA5E9' },
+      { icon: 'fas fa-magic', color: '#14B8A6' },
     ],
-    grades: [
-      {
-        name: 'Pre-K',
-        ages: '3-4 years',
-        skills: [
-          'Scribbling & free drawing',
-          'Finger painting basics',
-          'Simple paper tearing & pasting',
-          'Color recognition through art',
-        ],
-      },
-      {
-        name: 'Kindergarten',
-        ages: '5-6 years',
-        skills: [
-          'Drawing basic shapes & figures',
-          'Coloring within lines',
-          'Simple paper folding',
-          'Craft with glue & scissors',
-        ],
-      },
-      {
-        name: '1st Grade',
-        ages: '6-7 years',
-        skills: [
-          'Drawing animals & objects',
-          'Watercolor painting basics',
-          'Paper plate crafts',
-          'Pattern drawing & tracing',
-        ],
-      },
-      {
-        name: '2nd Grade',
-        ages: '7-8 years',
-        skills: [
-          'Landscape & scenery drawing',
-          'Color mixing techniques',
-          'Origami simple models',
-          'Clay modelling basics',
-        ],
-      },
-      {
-        name: '3rd Grade',
-        ages: '8-9 years',
-        skills: [
-          'Perspective & shading intro',
-          'Acrylic painting basics',
-          'Advanced origami figures',
-          'Recycled material crafts',
-        ],
-      },
-      {
-        name: '4th Grade',
-        ages: '9-10 years',
-        skills: [
-          'Portrait & figure drawing',
-          'Mixed media art',
-          'Papier-mâché projects',
-          'Craft design & planning',
-        ],
-      },
-      {
-        name: '5th Grade',
-        ages: '10-11 years',
-        skills: [
-          'Realistic sketching techniques',
-          'Canvas painting projects',
-          'Sculpture & 3D art',
-          'Creative portfolio building',
-        ],
-      },
-    ],
-    features: [
-      {
-        icon: 'fas fa-paint-brush',
-        title: 'Builds Creativity',
-        description:
-          'Art activities encourage original thinking, imagination, and the confidence to express ideas visually.',
-      },
-      {
-        icon: 'fas fa-hand-paper',
-        title: 'Fine Motor Skills',
-        description:
-          'Cutting, folding, drawing, and moulding strengthen hand-eye coordination and dexterity.',
-      },
-      {
-        icon: 'fas fa-smile',
-        title: 'Emotional Expression',
-        description:
-          'Art provides a safe outlet for children to express feelings, build self-esteem, and develop mindfulness.',
-      },
-      {
-        icon: 'fas fa-trophy',
-        title: 'Progress Tracking',
-        description:
-          'Visual portfolios and achievement badges keep kids motivated and parents informed about creative growth.',
-      },
+    gradeCount: 7,
+    featureIcons: [
+      'fas fa-paint-brush',
+      'fas fa-hand-paper',
+      'fas fa-smile',
+      'fas fa-trophy',
     ],
   },
 }
 
+const SKILLS_PER_GRADE = 4
+
+// Built reactively so the object re-renders when the locale changes.
+const subjectsData = computed(() => {
+  const build = (key) => {
+    const meta = subjectsMeta[key]
+    const base = `subjectDetails.subjects.${key}`
+    return {
+      name: t(`${base}.name`),
+      icon: meta.icon,
+      iconImage: meta.iconImage,
+      color: meta.color,
+      gradient: meta.gradient,
+      heroTitle: t(`${base}.heroTitle`),
+      heroDescription: t(`${base}.heroDescription`),
+      description: t(`${base}.description`),
+      stats: {
+        games: t(`${base}.stats.games`),
+        worksheets: t(`${base}.stats.worksheets`),
+        grades: t(`${base}.stats.grades`),
+      },
+      topics: meta.topics.map((topic, i) => ({
+        icon: topic.icon,
+        color: topic.color,
+        name: t(`${base}.topics.${i}.name`),
+        games: t(`${base}.topics.${i}.games`),
+      })),
+      grades: Array.from({ length: meta.gradeCount }, (_, gi) => ({
+        name: t(`${base}.grades.${gi}.name`),
+        ages: t(`${base}.grades.${gi}.ages`),
+        skills: Array.from({ length: SKILLS_PER_GRADE }, (_, si) =>
+          t(`${base}.grades.${gi}.skills.${si}`)
+        ),
+      })),
+      features: meta.featureIcons.map((icon, i) => ({
+        icon,
+        title: t(`${base}.features.${i}.title`),
+        description: t(`${base}.features.${i}.description`),
+      })),
+    }
+  }
+  return {
+    math: build('math'),
+    reading: build('reading'),
+    science: build('science'),
+    'craft-drawing': build('craft-drawing'),
+  }
+})
+
 const subject = computed(() => {
   const key = route.params.subject
-  if (subjectsData[key]) {
-    return subjectsData[key]
+  if (subjectsData.value[key]) {
+    return subjectsData.value[key]
   }
   router.replace('/subjects')
   return null
@@ -741,11 +256,13 @@ onBeforeUnmount(() => {
         <div class="container">
           <div class="classdetails-hero-content">
             <nav class="modern-breadcrumb">
-              <router-link to="/" class="breadcrumb-link">Home</router-link>
+              <router-link to="/" class="breadcrumb-link">{{
+                $t('subjectDetails.breadcrumb.home')
+              }}</router-link>
               <i class="fas fa-chevron-right"></i>
-              <router-link to="/subjects" class="breadcrumb-link"
-                >Subjects</router-link
-              >
+              <router-link to="/subjects" class="breadcrumb-link">{{
+                $t('subjectDetails.breadcrumb.subjects')
+              }}</router-link>
               <i class="fas fa-chevron-right"></i>
               <span class="breadcrumb-current">{{ subject.name }}</span>
             </nav>
@@ -761,7 +278,9 @@ onBeforeUnmount(() => {
             </div>
             <h1 class="classdetails-hero-title">
               {{ subject.heroTitle }}
-              <span class="gradient-text-light d-block">With Fun & Games</span>
+              <span class="gradient-text-light d-block">{{
+                $t('subjectDetails.hero.titleSuffix')
+              }}</span>
             </h1>
             <p class="classdetails-hero-description">
               {{ subject.heroDescription }}
@@ -808,11 +327,13 @@ onBeforeUnmount(() => {
                 <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                   <div class="meta-badge">
                     <i class="fas fa-gamepad text-primary"></i>
-                    <strong>{{ subject.stats.games }}</strong> Games
+                    <strong>{{ subject.stats.games }}</strong>
+                    {{ $t('subjectDetails.labels.games') }}
                   </div>
                   <div class="meta-badge">
                     <i class="fas fa-file-alt text-success"></i>
-                    <strong>{{ subject.stats.worksheets }}</strong> Worksheets
+                    <strong>{{ subject.stats.worksheets }}</strong>
+                    {{ $t('subjectDetails.labels.worksheets') }}
                   </div>
                   <div class="meta-badge">
                     <i class="fas fa-graduation-cap text-warning"></i>
@@ -820,16 +341,24 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="difficulty-badges mb-4">
-                  <span class="badge-pill beginner">Beginner</span>
-                  <span class="badge-pill intermediate">Intermediate</span>
-                  <span class="badge-pill advanced">Advanced</span>
+                  <span class="badge-pill beginner">{{
+                    $t('subjectDetails.labels.beginner')
+                  }}</span>
+                  <span class="badge-pill intermediate">{{
+                    $t('subjectDetails.labels.intermediate')
+                  }}</span>
+                  <span class="badge-pill advanced">{{
+                    $t('subjectDetails.labels.advanced')
+                  }}</span>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-7">
               <div class="topic-grid">
-                <h5 class="mb-4">Topics Covered:</h5>
+                <h5 class="mb-4">
+                  {{ $t('subjectDetails.labels.topicsCovered') }}
+                </h5>
                 <div class="row g-3">
                   <div
                     v-for="(topic, index) in subject.topics"
@@ -880,11 +409,18 @@ onBeforeUnmount(() => {
               :alt="subject.name"
               class="section-tag-img me-1"
             />
-            <i v-else :class="subject.icon" class="me-1"></i> Grade-by-Grade
+            <i v-else :class="subject.icon" class="me-1"></i>
+            {{ $t('subjectDetails.gradeBreakdown.tag') }}
           </span>
-          <h2 class="sec-title mt-3">What Your Child Will Learn</h2>
+          <h2 class="sec-title mt-3">
+            {{ $t('subjectDetails.gradeBreakdown.title') }}
+          </h2>
           <p class="sec-description">
-            {{ subject.name }} skills and concepts broken down by grade level
+            {{
+              $t('subjectDetails.gradeBreakdown.description', {
+                name: subject.name,
+              })
+            }}
           </p>
         </div>
 
@@ -926,9 +462,12 @@ onBeforeUnmount(() => {
             class="section-tag"
             :style="{ background: subject.color + '18', color: subject.color }"
           >
-            <i class="fas fa-star me-1"></i> Benefits
+            <i class="fas fa-star me-1"></i>
+            {{ $t('subjectDetails.benefits.tag') }}
           </span>
-          <h2 class="sec-title mt-3">Why Learn {{ subject.name }}?</h2>
+          <h2 class="sec-title mt-3">
+            {{ $t('subjectDetails.benefits.title', { name: subject.name }) }}
+          </h2>
         </div>
 
         <div class="row g-4">
@@ -1000,15 +539,15 @@ onBeforeUnmount(() => {
           </div>
           <div class="text-center position-relative" style="z-index: 2">
             <h2 class="cta-title">
-              Ready to Start Learning {{ subject.name }}?
+              {{ $t('subjectDetails.cta.title', { name: subject.name }) }}
             </h2>
             <p class="cta-description">
-              Give your child the tools to succeed with fun, curriculum-aligned
-              {{ subject.name.toLowerCase() }} activities.
+              {{ $t('subjectDetails.cta.description', { name: subject.name }) }}
             </p>
             <div class="cta-buttons">
               <router-link to="/subjects" class="vs-btn cta-btn-secondary">
-                <i class="fas fa-th-large me-2"></i> Explore Other Subjects
+                <i class="fas fa-th-large me-2"></i>
+                {{ $t('subjectDetails.cta.button') }}
               </router-link>
             </div>
           </div>

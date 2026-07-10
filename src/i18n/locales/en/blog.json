@@ -1,0 +1,40 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Blog"
+  },
+  "hero": {
+    "titlePrefix": "Our",
+    "titleHighlight": "Blog",
+    "description": "Tips, stories & learning resources for parents and educators"
+  },
+  "filter": {
+    "all": "All"
+  },
+  "search": {
+    "placeholder": "Search articles..."
+  },
+  "featured": {
+    "badge": "Featured",
+    "readArticle": "Read Article"
+  },
+  "card": {
+    "read": "Read"
+  },
+  "meta": {
+    "views": "{count} views"
+  },
+  "minRead": "{minutes} min read",
+  "empty": {
+    "title": "No articles found",
+    "text": "Try adjusting your search or filter criteria",
+    "clearFilters": "Clear Filters"
+  },
+  "loadMore": "Load More Articles",
+  "loadingMore": "Loading more...",
+  "sidebar": {
+    "allCategories": "All Categories",
+    "categories": "Categories",
+    "popularArticles": "Popular Articles"
+  }
+}

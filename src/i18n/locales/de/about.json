@@ -1,0 +1,124 @@
+{
+  "breadcrumb": {
+    "home": "Startseite",
+    "current": "Über uns"
+  },
+  "hero": {
+    "badge": "Wer wir sind",
+    "titleLine1": "Wir machen Lernen",
+    "titleHighlight": "magisch & fröhlich",
+    "titleLine2": "für jedes Kind",
+    "description": "Wir haben eine Mission: 100 Millionen Kindern helfen, sich durch spielerisches Lernen ins Lernen zu verlieben"
+  },
+  "mission": {
+    "imgMainAlt": "Kinder lernen mit Little Champ",
+    "imgSmallAlt": "Interaktive Lernspiele",
+    "badgeNumber": "500+",
+    "badgeText": "lernende Kinder",
+    "tag": "Über Little Champ",
+    "titleLead": "Little Champs",
+    "titleHighlight": "Funktionen",
+    "desc": "Little Champ ist eine führende Bildungstechnologie-Plattform, die verändert, wie Kinder lernen. Mit über 500 interaktiven Spielen zu Mathe, Lesen sowie Basteln & Zeichnen von der Vorschule bis zur 7. Klasse fühlt sich Lernen wie Spielen an – während wir lehrplangerechte Inhalte liefern, die wichtige Fähigkeiten aufbauen.",
+    "feature1Name": "Spielerisches Lernen",
+    "feature1Desc": "500+ Spiele, die Bildung spannend machen",
+    "feature2Name": "KI-gestützte Lernwege",
+    "feature2Desc": "Personalisiertes Lernen für jedes Kind",
+    "feature3Name": "Fortschritts-Tracking",
+    "feature3Desc": "Echtzeit-Einblicke für Eltern & Lehrkräfte"
+  },
+  "pillars": {
+    "tag": "Was wir bieten",
+    "kidLeftAlt": "Kind schießt einen Fußball",
+    "kidRightAlt": "Kind nimmt einen Fußball an",
+    "headingLead": "Unsere drei zentralen",
+    "headingHighlight": "Schwerpunkte",
+    "intro": "Little Champ ist ein kindzentriertes Entwicklungszentrum, das junge Köpfe durch Innovation, Kreativität und fachkundige Begleitung fördert. Wir glauben, dass jedes Kind in einem unterstützenden, motivierenden und inspirierenden Umfeld am besten wächst.",
+    "card1": {
+      "iconAlt": "KI-Lernen",
+      "titleLine1": "KI-Lernen &",
+      "titleLine2": "kindliche Entwicklung",
+      "desc": "Bei Little Champ führen wir KI-gestütztes Lernen auf kindgerechte Weise ein, um Neugier und cleveres Denken zu fördern.",
+      "item1": "KI als Lernbegleiter und interaktiver Freund",
+      "item2": "Allgemeinwissen und schulisches Lernen verbessern",
+      "item3": "Kommunikationsfähigkeiten stärken",
+      "item4": "Positives Verhalten und emotionales Wachstum entwickeln",
+      "item5": "Sprachentwicklung und Wortschatz festigen",
+      "highlight": "Selbstbewusst wachsen & eigenständig denken"
+    },
+    "card2": {
+      "iconAlt": "Denkspiele & Gaming",
+      "titleLine1": "Denkaktivitäten,",
+      "titleLine2": "Gaming & Kreativität",
+      "desc": "Lernen wird kraftvoll, wenn es Spaß macht und fesselt. Wir bieten:",
+      "item1": "Gehirntraining-Spiele für mehr Konzentration und logisches Denken",
+      "item2": "Denksport-Einheiten für Gedächtnis und Problemlösung",
+      "item3": "Zeichenkurse zur Förderung der Kreativität",
+      "item4": "Bastelaktivitäten für Feinmotorik und Fantasie",
+      "highlight": "Lernen genießen und dabei Lebenskompetenzen aufbauen"
+    },
+    "card3": {
+      "iconAlt": "Kinderärztliche Beratung & Elternunterstützung",
+      "titleLine1": "Kinderärztliche Beratung",
+      "titleLine2": "& Elternunterstützung",
+      "desc": "Uns liegt die ganzheitliche Entwicklung deines Kindes am Herzen. Deshalb bieten wir:",
+      "item1": "Interaktive Einheiten mit erfahrenen Kinderärztinnen und -ärzten",
+      "item2": "Terminbuchung für persönliche Beratung",
+      "item3": "Monatliche Elterngespräche mit Ärztinnen und Ärzten",
+      "item4": "Expertenrat für gesundes körperliches, geistiges und emotionales Wachstum",
+      "highlight": "Wir begleiten jeden Schritt im Wachstum deines Kindes"
+    },
+    "closing": {
+      "textStart": "Bei Little Champ verbinden wir",
+      "word1": "Technologie",
+      "sep1": ", ",
+      "word2": "Kreativität",
+      "sep2": " und ",
+      "word3": "medizinische Begleitung",
+      "textEnd": ", um selbstbewusste, kluge und glückliche Kinder großzuziehen.",
+      "tagline": "Wir fördern junge Köpfe für eine strahlende Zukunft"
+    }
+  },
+  "stats": {
+    "kidsLearningAlt": "lernende Kinder",
+    "kidsLearningNumber": "Indische",
+    "kidsLearningLabel": "lernende Kinder",
+    "gamesAlt": "Interaktive Spiele",
+    "gamesLabel": "Interaktive Spiele",
+    "teachersAlt": "Lehrkräfte vertrauen uns",
+    "teachersLabel": "Lehrkräfte vertrauen uns",
+    "countriesAlt": "Länder weltweit",
+    "countriesLabel": "Länder weltweit"
+  },
+  "howItWorks": {
+    "tag": "So funktioniert's",
+    "headingLead": "Leg los in",
+    "headingHighlight": "4 einfachen Schritten",
+    "step1Alt": "Kostenlos registrieren",
+    "step1Title": "Kostenlos registrieren",
+    "step1Desc": "Erstelle dein Konto in Sekunden. Alle Zahlungen erforderlich.",
+    "step2Alt": "Klassenstufe wählen",
+    "step2Title": "Klassenstufe wählen",
+    "step2Desc": "Wähle von der Vorschule bis zur 7. Klasse. Suche Fächer aus, die dein Kind interessieren.",
+    "step3Alt": "Spielen & Lernen",
+    "step3Title": "Spielen & Lernen",
+    "step3Desc": "Kinder entdecken 500+ Spiele. Die KI passt den Schwierigkeitsgrad an ihr Niveau an.",
+    "step4Alt": "Fortschritt verfolgen",
+    "step4Title": "Fortschritt verfolgen",
+    "step4Desc": "Eltern & Lehrkräfte erhalten Echtzeit-Einblicke in den Lernfortschritt."
+  },
+  "testimonials": {
+    "tag": "Elternstimmen",
+    "headingLead": "Was Eltern & Lehrkräfte",
+    "headingHighlight": "über uns sagen",
+    "desc": "Entdecke, wie Little Champ das Lernen für Millionen Familien weltweit verändert. Echte Geschichten von echten Eltern über die Fortschritte ihrer Kinder.",
+    "t1Role": "Elternteil, 2. Klasse",
+    "t1Title": "Meine Tochter liebt jetzt Mathe!",
+    "t1Text": "Meine 7-Jährige hatte früher Schwierigkeiten mit Mathe, aber seit sie Mind Jr nutzt, freut sie sich jeden Tag aufs Üben. Die Spiele machen Lernen zum Vergnügen und sie ist ihrer Klassenstufe schon voraus!",
+    "t2Role": "Elternteil im Homeschooling",
+    "t2Title": "Perfekt für den Heimunterricht",
+    "t2Text": "Als Elternteil im Homeschooling war Mind Jr ein echter Wendepunkt. Die lehrplangerechten Inhalte decken alle Fächer ab und meine Kinder lernen mit viel Spaß. Jeden Cent wert!",
+    "t3Role": "Grundschullehrerin",
+    "t3Title": "Fesselnd & lehrreich",
+    "t3Text": "Ich nutze Mind Jr in meinem Klassenzimmer und die Kinder lieben es total. Das Fortschritts-Tracking hilft mir zu erkennen, wo Schülerinnen und Schüler zusätzliche Unterstützung brauchen. Sehr empfehlenswert!"
+  }
+}

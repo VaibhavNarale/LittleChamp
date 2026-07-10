@@ -101,27 +101,32 @@ onBeforeUnmount(() => {
         <div class="subjects-hero-content">
           <!-- Subtle Breadcrumb -->
           <nav class="modern-breadcrumb">
-            <router-link to="/" class="breadcrumb-link">Home</router-link>
+            <router-link to="/" class="breadcrumb-link">{{
+              $t('subjects.breadcrumb.home')
+            }}</router-link>
             <i class="fas fa-chevron-right"></i>
-            <span class="breadcrumb-current">Subjects</span>
+            <span class="breadcrumb-current">{{
+              $t('subjects.breadcrumb.current')
+            }}</span>
           </nav>
 
           <!-- Hero Badge -->
           <div class="hero-badge">
             <i class="fas fa-book-open"></i>
-            <span>Learning Subjects</span>
+            <span>{{ $t('subjects.hero.badge') }}</span>
           </div>
 
           <!-- Hero Title -->
           <h1 class="subjects-hero-title">
-            What Will Your Child
-            <span class="gradient-text-light d-block">Master Today?</span>
+            {{ $t('subjects.hero.titleLine1') }}
+            <span class="gradient-text-light d-block">{{
+              $t('subjects.hero.titleLine2')
+            }}</span>
           </h1>
 
           <!-- Hero Description -->
           <p class="subjects-hero-description">
-            Curriculum-aligned content for Pre-K through Grade 7 • 500+ Games •
-            10,000+ Worksheets
+            {{ $t('subjects.hero.description') }}
           </p>
         </div>
       </div>
@@ -156,28 +161,28 @@ onBeforeUnmount(() => {
             :class="{ active: activeGrade === 'all' }"
             @click="gradeFilter('all')"
           >
-            All Grades
+            {{ $t('subjects.grades.all') }}
           </button>
           <button
             class="grade-pill"
             :class="{ active: activeGrade === '3-6' }"
             @click="gradeFilter('3-6')"
           >
-            3 to 6
+            {{ $t('subjects.grades.g36') }}
           </button>
           <button
             class="grade-pill"
             :class="{ active: activeGrade === '7-8' }"
             @click="gradeFilter('7-8')"
           >
-            7 and 8
+            {{ $t('subjects.grades.g78') }}
           </button>
           <button
             class="grade-pill"
             :class="{ active: activeGrade === '8-12' }"
             @click="gradeFilter('8-12')"
           >
-            8 to 12
+            {{ $t('subjects.grades.g812') }}
           </button>
         </div>
       </div>
@@ -194,40 +199,47 @@ onBeforeUnmount(() => {
               <div class="subject-icon-large subject-icon-img-wrap mb-4">
                 <img
                   src="@/assets/math-icon.png"
-                  alt="Mathematics"
+                  :alt="$t('subjects.math.alt')"
                   class="subject-icon-img"
                 />
               </div>
-              <h2 class="sec-title mb-3">Mathematics</h2>
+              <h2 class="sec-title mb-3">{{ $t('subjects.math.name') }}</h2>
               <p class="fs-md mb-3">
-                Build number sense, master arithmetic, explore geometry, and
-                solve real-world problems through engaging games and activities.
+                {{ $t('subjects.math.description') }}
               </p>
               <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                 <div class="meta-badge">
                   <i class="fas fa-gamepad text-primary"></i>
-                  <strong>1000+</strong> Games
+                  <strong>{{ $t('subjects.math.stats.games') }}</strong>
+                  {{ $t('subjects.labels.games') }}
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-file-alt text-success"></i>
-                  <strong>3500+</strong> Worksheets
+                  <strong>{{ $t('subjects.math.stats.worksheets') }}</strong>
+                  {{ $t('subjects.labels.worksheets') }}
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-graduation-cap text-warning"></i>
-                  <strong>Pre-K to 7</strong>
+                  <strong>{{ $t('subjects.math.stats.gradesRange') }}</strong>
                 </div>
               </div>
               <div class="difficulty-badges mb-4">
-                <span class="badge-pill beginner">Beginner</span>
-                <span class="badge-pill intermediate">Intermediate</span>
-                <span class="badge-pill advanced">Advanced</span>
+                <span class="badge-pill beginner">{{
+                  $t('subjects.labels.beginner')
+                }}</span>
+                <span class="badge-pill intermediate">{{
+                  $t('subjects.labels.intermediate')
+                }}</span>
+                <span class="badge-pill advanced">{{
+                  $t('subjects.labels.advanced')
+                }}</span>
               </div>
             </div>
           </div>
 
           <div class="col-lg-7">
             <div class="topic-grid">
-              <h5 class="mb-4">Topics Covered:</h5>
+              <h5 class="mb-4">{{ $t('subjects.labels.topicsCovered') }}</h5>
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="topic-item" style="--topic-hover-color: #f97316">
@@ -238,8 +250,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-hashtag text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Counting & Numbers</h6>
-                      <p class="small mb-0 text-muted">120 games</p>
+                      <h6>{{ $t('subjects.math.topics.counting') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.math.topics.countingGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -252,8 +266,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-plus text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Addition</h6>
-                      <p class="small mb-0 text-muted">95 games</p>
+                      <h6>{{ $t('subjects.math.topics.addition') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.math.topics.additionGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -266,8 +282,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-minus text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Subtraction</h6>
-                      <p class="small mb-0 text-muted">88 games</p>
+                      <h6>{{ $t('subjects.math.topics.subtraction') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.math.topics.subtractionGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -280,8 +298,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-times text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Multiplication</h6>
-                      <p class="small mb-0 text-muted">102 games</p>
+                      <h6>{{ $t('subjects.math.topics.multiplication') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.math.topics.multiplicationGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -294,8 +314,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-divide text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Division</h6>
-                      <p class="small mb-0 text-muted">76 games</p>
+                      <h6>{{ $t('subjects.math.topics.division') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.math.topics.divisionGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -308,8 +330,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-shapes text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Geometry</h6>
-                      <p class="small mb-0 text-muted">64 games</p>
+                      <h6>{{ $t('subjects.math.topics.geometry') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.math.topics.geometryGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -322,8 +346,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-percentage text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Fractions & Decimals</h6>
-                      <p class="small mb-0 text-muted">85 games</p>
+                      <h6>{{ $t('subjects.math.topics.fractions') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.math.topics.fractionsGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -336,8 +362,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-question-circle text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Word Problems</h6>
-                      <p class="small mb-0 text-muted">92 games</p>
+                      <h6>{{ $t('subjects.math.topics.wordProblems') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.math.topics.wordProblemsGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -345,7 +373,7 @@ onBeforeUnmount(() => {
 
               <div class="mt-4">
                 <router-link to="/subjects/math" class="vs-btn style2">
-                  Explore All Math Games
+                  {{ $t('subjects.math.button') }}
                   <i class="fas fa-arrow-right ms-2"></i>
                 </router-link>
               </div>
@@ -366,42 +394,49 @@ onBeforeUnmount(() => {
               <div class="subject-icon-large subject-icon-img-wrap mb-4">
                 <img
                   src="@/assets/ai-buddy-icon.png"
-                  alt="Your AI-Buddy"
+                  :alt="$t('subjects.aiBuddy.alt')"
                   class="subject-icon-img"
                 />
               </div>
-              <h2 class="sec-title mb-3">Your AI-Buddy</h2>
+              <h2 class="sec-title mb-3">{{ $t('subjects.aiBuddy.name') }}</h2>
               <p class="fs-md mb-3">
-                AI-powered feature combines friendly interaction, communication
-                skills, general knowledge, and guides children on exploring the
-                outside world — creating a fun, engaging, and educational
-                experience all in one place.
+                {{ $t('subjects.aiBuddy.description') }}
               </p>
               <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                 <div class="meta-badge">
                   <i class="fas fa-gamepad text-primary"></i>
-                  <strong>500+</strong> Games
+                  <strong>{{ $t('subjects.aiBuddy.stats.games') }}</strong>
+                  {{ $t('subjects.labels.games') }}
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-file-alt text-success"></i>
-                  <strong>500+</strong> Worksheets
+                  <strong>{{ $t('subjects.aiBuddy.stats.worksheets') }}</strong>
+                  {{ $t('subjects.labels.worksheets') }}
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-graduation-cap text-warning"></i>
-                  <strong>Pre-K to 7</strong>
+                  <strong>{{
+                    $t('subjects.aiBuddy.stats.gradesRange')
+                  }}</strong>
                 </div>
               </div>
               <div class="difficulty-badges mb-4">
-                <span class="badge-pill beginner">Beginner</span>
-                <span class="badge-pill intermediate">Intermediate</span>
-                <span class="badge-pill advanced">Advanced</span>
+                <span class="badge-pill beginner">{{
+                  $t('subjects.labels.beginner')
+                }}</span>
+                <span class="badge-pill intermediate">{{
+                  $t('subjects.labels.intermediate')
+                }}</span>
+                <span class="badge-pill advanced">{{
+                  $t('subjects.labels.advanced')
+                }}</span>
               </div>
             </div>
           </div>
 
           <div class="col-lg-7">
             <div class="topic-grid">
-              <h5 class="mb-4">Topics Covered:</h5>
+              <h5 class="mb-4">{{ $t('subjects.labels.topicsCovered') }}</h5>
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="topic-item" style="--topic-hover-color: #f97066">
@@ -412,8 +447,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-font text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Phonics & Letters</h6>
-                      <p class="small mb-0 text-muted">150 games</p>
+                      <h6>{{ $t('subjects.aiBuddy.topics.phonics') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.aiBuddy.topics.phonicsGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -426,8 +463,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-spell-check text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Spelling</h6>
-                      <p class="small mb-0 text-muted">110 games</p>
+                      <h6>{{ $t('subjects.aiBuddy.topics.spelling') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.aiBuddy.topics.spellingGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -440,8 +479,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-book-reader text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Reading Comprehension</h6>
-                      <p class="small mb-0 text-muted">180 games</p>
+                      <h6>{{ $t('subjects.aiBuddy.topics.comprehension') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.aiBuddy.topics.comprehensionGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -454,8 +495,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-language text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Vocabulary</h6>
-                      <p class="small mb-0 text-muted">95 games</p>
+                      <h6>{{ $t('subjects.aiBuddy.topics.vocabulary') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.aiBuddy.topics.vocabularyGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -468,8 +511,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-pen-fancy text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Grammar</h6>
-                      <p class="small mb-0 text-muted">88 games</p>
+                      <h6>{{ $t('subjects.aiBuddy.topics.grammar') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.aiBuddy.topics.grammarGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -482,8 +527,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-pencil-alt text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Writing</h6>
-                      <p class="small mb-0 text-muted">72 games</p>
+                      <h6>{{ $t('subjects.aiBuddy.topics.writing') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.aiBuddy.topics.writingGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -496,8 +543,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-comment-dots text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Parts of Speech</h6>
-                      <p class="small mb-0 text-muted">65 games</p>
+                      <h6>{{ $t('subjects.aiBuddy.topics.partsOfSpeech') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.aiBuddy.topics.partsOfSpeechGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -510,8 +559,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-quote-left text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Punctuation</h6>
-                      <p class="small mb-0 text-muted">55 games</p>
+                      <h6>{{ $t('subjects.aiBuddy.topics.punctuation') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.aiBuddy.topics.punctuationGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -519,7 +570,7 @@ onBeforeUnmount(() => {
 
               <div class="mt-4">
                 <router-link to="/subjects/reading" class="vs-btn style2">
-                  Explore All Reading Games
+                  {{ $t('subjects.aiBuddy.button') }}
                   <i class="fas fa-arrow-right ms-2"></i>
                 </router-link>
               </div>
@@ -561,41 +612,47 @@ onBeforeUnmount(() => {
               <div class="subject-icon-large subject-icon-img-wrap mb-4">
                 <img
                   src="@/assets/craft-drawing-icon.png"
-                  alt="Craft & Drawing"
+                  :alt="$t('subjects.craft.alt')"
                   class="subject-icon-img"
                 />
               </div>
-              <h2 class="sec-title mb-3">Craft & Drawing</h2>
+              <h2 class="sec-title mb-3">{{ $t('subjects.craft.name') }}</h2>
               <p class="fs-md mb-3">
-                Unleash your child's creativity through fun drawing lessons,
-                paper crafts, and hands-on art activities that build fine motor
-                skills, imagination, and self-expression.
+                {{ $t('subjects.craft.description') }}
               </p>
               <div class="subject-meta d-flex flex-wrap gap-3 mb-4">
                 <div class="meta-badge">
                   <i class="fas fa-paint-brush text-primary"></i>
-                  <strong>200+</strong> Activities
+                  <strong>{{ $t('subjects.craft.stats.activities') }}</strong>
+                  {{ $t('subjects.labels.activities') }}
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-file-alt text-success"></i>
-                  <strong>500+</strong> Templates
+                  <strong>{{ $t('subjects.craft.stats.templates') }}</strong>
+                  {{ $t('subjects.labels.templates') }}
                 </div>
                 <div class="meta-badge">
                   <i class="fas fa-graduation-cap text-warning"></i>
-                  <strong>Pre-K to 7</strong>
+                  <strong>{{ $t('subjects.craft.stats.gradesRange') }}</strong>
                 </div>
               </div>
               <div class="difficulty-badges mb-4">
-                <span class="badge-pill beginner">Beginner</span>
-                <span class="badge-pill intermediate">Intermediate</span>
-                <span class="badge-pill advanced">Advanced</span>
+                <span class="badge-pill beginner">{{
+                  $t('subjects.labels.beginner')
+                }}</span>
+                <span class="badge-pill intermediate">{{
+                  $t('subjects.labels.intermediate')
+                }}</span>
+                <span class="badge-pill advanced">{{
+                  $t('subjects.labels.advanced')
+                }}</span>
               </div>
             </div>
           </div>
 
           <div class="col-lg-7">
             <div class="topic-grid">
-              <h5 class="mb-4">Topics Covered:</h5>
+              <h5 class="mb-4">{{ $t('subjects.labels.topicsCovered') }}</h5>
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="topic-item" style="--topic-hover-color: #f59e0b">
@@ -606,8 +663,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-pencil-alt text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Pencil Sketching</h6>
-                      <p class="small mb-0 text-muted">45 activities</p>
+                      <h6>{{ $t('subjects.craft.topics.sketching') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.craft.topics.sketchingGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -620,8 +679,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-palette text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Color & Painting</h6>
-                      <p class="small mb-0 text-muted">60 activities</p>
+                      <h6>{{ $t('subjects.craft.topics.painting') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.craft.topics.paintingGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -634,8 +695,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-cut text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Paper Craft</h6>
-                      <p class="small mb-0 text-muted">50 activities</p>
+                      <h6>{{ $t('subjects.craft.topics.paperCraft') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.craft.topics.paperCraftGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -648,8 +711,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-shapes text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Origami & Folding</h6>
-                      <p class="small mb-0 text-muted">35 activities</p>
+                      <h6>{{ $t('subjects.craft.topics.origami') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.craft.topics.origamiGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -662,8 +727,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-hand-sparkles text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Clay & Modelling</h6>
-                      <p class="small mb-0 text-muted">30 activities</p>
+                      <h6>{{ $t('subjects.craft.topics.clay') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.craft.topics.clayGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -676,8 +743,10 @@ onBeforeUnmount(() => {
                       <i class="fas fa-magic text-white"></i>
                     </div>
                     <div class="topic-info">
-                      <h6>Creative Projects</h6>
-                      <p class="small mb-0 text-muted">40 activities</p>
+                      <h6>{{ $t('subjects.craft.topics.creative') }}</h6>
+                      <p class="small mb-0 text-muted">
+                        {{ $t('subjects.craft.topics.creativeGames') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -685,7 +754,7 @@ onBeforeUnmount(() => {
 
               <div class="mt-4">
                 <router-link to="/subjects/craft-drawing" class="vs-btn style2">
-                  Explore All Craft & Drawing Activities
+                  {{ $t('subjects.craft.button') }}
                   <i class="fas fa-arrow-right ms-2"></i>
                 </router-link>
               </div>
@@ -705,10 +774,12 @@ onBeforeUnmount(() => {
   >
     <div class="container text-center z-index-common">
       <div class="title-area mb-35 wow fadeInUp" data-wow-delay="0.1s">
-        <span class="sub-title text-white">Start Learning Today</span>
-        <h2 class="sec-title text-white">Ready to Help Your Child Excel?</h2>
+        <span class="sub-title text-white">{{
+          $t('subjects.cta.subTitle')
+        }}</span>
+        <h2 class="sec-title text-white">{{ $t('subjects.cta.title') }}</h2>
         <p class="text-white fs-md mt-3">
-          Join Indian kids learning through play
+          {{ $t('subjects.cta.description') }}
         </p>
       </div>
     </div>

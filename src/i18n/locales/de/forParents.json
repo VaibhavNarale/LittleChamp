@@ -1,0 +1,59 @@
+{
+  "breadcrumb": {
+    "current": "Für Eltern"
+  },
+  "badge": "Eltern stärken",
+  "title": {
+    "line1": "Hilf deinem Kind,",
+    "line2": "mit Little Champ erfolgreich zu sein"
+  },
+  "description": "Schenke deinem Kind die Freude am Lernen durch Spielen mit über 500 Lernspielen und Aktivitäten, die von Experten entwickelt wurden",
+  "benefits": {
+    "subTitle": "Warum Eltern uns wählen",
+    "secTitle": "Vorteile für deine Familie",
+    "safe": {
+      "title": "Sicher & werbefrei",
+      "text": "100 % sichere Umgebung ohne Werbung, externe Links oder In-App-Käufe. Die Privatsphäre deines Kindes hat für uns Priorität."
+    },
+    "track": {
+      "title": "Fortschritt verfolgen",
+      "text": "Verfolge den Lernweg deines Kindes mit detaillierten Fortschrittsberichten und Einblicken in seine Stärken."
+    },
+    "curriculum": {
+      "title": "Lehrplan von Experten",
+      "text": "Inhalte, die auf Bildungsstandards abgestimmt und von zertifizierten Lehrkräften und Experten für kindliche Entwicklung gestaltet wurden."
+    },
+    "children": {
+      "title": "Mehrere Kinder",
+      "text": "Lege mit einem Konto Profile für bis zu 3 Kinder an. Jedes Kind erhält ein persönliches Lernerlebnis."
+    },
+    "anywhere": {
+      "title": "Überall lernen",
+      "text": "Zugriff auf jedem Gerät - Tablet, Computer oder Smartphone. Lerne zu Hause, unterwegs oder überall mit Internet."
+    },
+    "rewards": {
+      "title": "Belohnungen & Motivation",
+      "text": "Halte Kinder mit Punkten, Abzeichen und Belohnungen bei der Stange, die ihre Erfolge und Fortschritte feiern."
+    }
+  },
+  "howItWorks": {
+    "subTitle": "Einfach & clever",
+    "secTitle": "So funktioniert es für Eltern",
+    "step1": {
+      "title": "Registrieren",
+      "text": "Erstelle dein Konto und lege in wenigen Minuten das Profil deines Kindes an"
+    },
+    "step2": {
+      "title": "Anpassen",
+      "text": "Lege Lernziele und Vorlieben passend zu den Bedürfnissen deines Kindes fest"
+    },
+    "step3": {
+      "title": "Lass sie spielen",
+      "text": "Dein Kind entdeckt über 500 Spiele und lernt dabei wichtige Konzepte"
+    },
+    "step4": {
+      "title": "Fortschritt verfolgen",
+      "text": "Sieh dir detaillierte Berichte an und feiert Erfolge gemeinsam"
+    }
+  }
+}

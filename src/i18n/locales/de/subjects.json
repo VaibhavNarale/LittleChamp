@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "badge": "Lernfächer",
+    "titleLine1": "Was wird dein Kind",
+    "titleLine2": "heute meistern?",
+    "description": "Lehrplangerechte Inhalte von der Vorschule bis Klasse 7 • 500+ Spiele • 10.000+ Arbeitsblätter"
+  },
+  "breadcrumb": {
+    "home": "Startseite",
+    "current": "Fächer"
+  },
+  "grades": {
+    "all": "Alle Klassenstufen",
+    "g36": "3 bis 6",
+    "g78": "7 und 8",
+    "g812": "8 bis 12"
+  },
+  "labels": {
+    "games": "Spiele",
+    "worksheets": "Arbeitsblätter",
+    "activities": "Aktivitäten",
+    "templates": "Vorlagen",
+    "gradesRange": "Vorschule bis Klasse 7",
+    "beginner": "Anfänger",
+    "intermediate": "Mittelstufe",
+    "advanced": "Fortgeschritten",
+    "topicsCovered": "Behandelte Themen:"
+  },
+  "math": {
+    "name": "Mathematik",
+    "alt": "Mathematik",
+    "description": "Entwickle Zahlenverständnis, meistere die Grundrechenarten, entdecke Geometrie und löse Alltagsprobleme durch spannende Spiele und Aktivitäten.",
+    "button": "Alle Mathe-Spiele entdecken",
+    "stats": {
+      "games": "1000+",
+      "worksheets": "3500+",
+      "gradesRange": "Vorschule bis Klasse 7"
+    },
+    "topics": {
+      "counting": "Zählen & Zahlen",
+      "countingGames": "120 Spiele",
+      "addition": "Addition",
+      "additionGames": "95 Spiele",
+      "subtraction": "Subtraktion",
+      "subtractionGames": "88 Spiele",
+      "multiplication": "Multiplikation",
+      "multiplicationGames": "102 Spiele",
+      "division": "Division",
+      "divisionGames": "76 Spiele",
+      "geometry": "Geometrie",
+      "geometryGames": "64 Spiele",
+      "fractions": "Brüche & Dezimalzahlen",
+      "fractionsGames": "85 Spiele",
+      "wordProblems": "Textaufgaben",
+      "wordProblemsGames": "92 Spiele"
+    }
+  },
+  "aiBuddy": {
+    "name": "Dein AI-Buddy",
+    "alt": "Dein AI-Buddy",
+    "description": "Die KI-gestützte Funktion verbindet freundliche Interaktion, Kommunikationsfähigkeiten und Allgemeinwissen und führt Kinder beim Entdecken der Welt draußen — für ein unterhaltsames, spannendes und lehrreiches Erlebnis an einem Ort.",
+    "button": "Alle Lese-Spiele entdecken",
+    "stats": {
+      "games": "500+",
+      "worksheets": "500+",
+      "gradesRange": "Vorschule bis Klasse 7"
+    },
+    "topics": {
+      "phonics": "Lautschrift & Buchstaben",
+      "phonicsGames": "150 Spiele",
+      "spelling": "Rechtschreibung",
+      "spellingGames": "110 Spiele",
+      "comprehension": "Leseverständnis",
+      "comprehensionGames": "180 Spiele",
+      "vocabulary": "Wortschatz",
+      "vocabularyGames": "95 Spiele",
+      "grammar": "Grammatik",
+      "grammarGames": "88 Spiele",
+      "writing": "Schreiben",
+      "writingGames": "72 Spiele",
+      "partsOfSpeech": "Wortarten",
+      "partsOfSpeechGames": "65 Spiele",
+      "punctuation": "Zeichensetzung",
+      "punctuationGames": "55 Spiele"
+    }
+  },
+  "craft": {
+    "name": "Basteln & Zeichnen",
+    "alt": "Basteln & Zeichnen",
+    "description": "Entfalte die Kreativität deines Kindes durch unterhaltsame Zeichenstunden, Papierbasteln und praktische Kunstaktivitäten, die Feinmotorik, Fantasie und Selbstausdruck fördern.",
+    "button": "Alle Bastel- & Zeichenaktivitäten entdecken",
+    "stats": {
+      "activities": "200+",
+      "templates": "500+",
+      "gradesRange": "Vorschule bis Klasse 7"
+    },
+    "topics": {
+      "sketching": "Bleistiftzeichnen",
+      "sketchingGames": "45 Aktivitäten",
+      "painting": "Farben & Malen",
+      "paintingGames": "60 Aktivitäten",
+      "paperCraft": "Papierbasteln",
+      "paperCraftGames": "50 Aktivitäten",
+      "origami": "Origami & Falten",
+      "origamiGames": "35 Aktivitäten",
+      "clay": "Ton & Modellieren",
+      "clayGames": "30 Aktivitäten",
+      "creative": "Kreativprojekte",
+      "creativeGames": "40 Aktivitäten"
+    }
+  },
+  "cta": {
+    "subTitle": "Beginne heute mit dem Lernen",
+    "title": "Bereit, dein Kind zu fördern?",
+    "description": "Schließe dich indischen Kindern an, die spielerisch lernen"
+  }
+}
