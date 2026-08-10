@@ -1,6 +1,6 @@
+/* Global Responsive Styles */
+@import './responsive.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Global Responsive Styles */
-@import './responsive.css';
