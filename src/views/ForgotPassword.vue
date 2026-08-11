@@ -66,6 +66,11 @@ const handleResetPassword = async () => {
 const goBackToLogin = () => {
   router.push('/login')
 }
+
+const resetForm = () => {
+  emailSent.value = false
+  successMessage.value = ''
+}
 </script>
 
 <template>
@@ -189,13 +194,7 @@ const goBackToLogin = () => {
                   <li>{{ $t('forgotPassword.success.checkAddress') }}</li>
                   <li>{{ $t('forgotPassword.success.waitAndCheck') }}</li>
                 </ul>
-                <button
-                  class="btn-secondary"
-                  @click="
-                    emailSent = false
-                    successMessage = ''
-                  "
-                >
+                <button class="btn-secondary" @click="resetForm">
                   <i class="fas fa-redo me-2"></i
                   >{{ $t('forgotPassword.success.tryAgain') }}
                 </button>
