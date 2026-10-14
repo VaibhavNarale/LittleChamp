@@ -1,31 +1,12 @@
 <script setup>
-import { ref, computed } from 'vue'
-import { useAuthStore } from '@/stores/auth'
+import { ref } from 'vue'
 import Logo from './Logo.vue'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 
-const authStore = useAuthStore()
 const showSearch = ref(false)
 const searchQuery = ref('')
-const showUserMenu = ref(false)
-
-// Admin Client URL for sign up/login links
-const adminClientUrl =
-  import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
 
 defineEmits(['toggle-mobile-menu', 'toggle-side-menu'])
-
-const isLoggedIn = computed(() => authStore.authenticated)
-const userName = computed(() => {
-  if (!authStore.user || !authStore.user.first_name) return 'User'
-  return `${authStore.user.first_name} ${authStore.user.last_name || ''}`
-})
-const userInitials = computed(() => {
-  if (!authStore.user || !authStore.user.first_name) return 'U'
-  const first = authStore.user.first_name?.charAt(0) || ''
-  const last = authStore.user.last_name?.charAt(0) || ''
-  return `${first}${last}`.toUpperCase()
-})
 
 const toggleSearch = () => {
   showSearch.value = !showSearch.value
@@ -34,22 +15,6 @@ const toggleSearch = () => {
 const handleSearch = () => {
   console.log('Search for:', searchQuery.value)
   // Implement search functionality
-}
-
-const goToDashboard = () => {
-  // Pass token in URL so admin panel can authenticate without re-login
-  const token = authStore.token
-  if (token) {
-    window.location.href = `${adminClientUrl}?token=${encodeURIComponent(token)}`
-  } else {
-    window.location.href = adminClientUrl
-  }
-}
-
-const handleLogout = async () => {
-  await authStore.logOut()
-  showUserMenu.value = false
-  window.location.href = '/'
 }
 </script>
 
@@ -191,54 +156,10 @@ const handleLogout = async () => {
                 <v-col cols="auto" class="d-none d-lg-block flex-shrink-0">
                   <div class="header-button d-flex align-items-center gap-2">
                     <LanguageSwitcher />
-                    <!-- Show when NOT logged in -->
-                    <template v-if="!isLoggedIn">
-                      <router-link to="/login" class="btn-login">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span class="btn-text">{{ $t('header.login') }}</span>
-                      </router-link>
-                    </template>
-
-                    <!-- Show when logged in -->
-                    <template v-else>
-                      <button
-                        type="button"
-                        class="btn-dashboard"
-                        @click="goToDashboard"
-                      >
-                        <i class="fas fa-th-large"></i>
-                        <span class="btn-text">{{
-                          $t('header.dashboard')
-                        }}</span>
-                      </button>
-                      <div class="user-dropdown">
-                        <button
-                          type="button"
-                          class="user-btn"
-                          @click="showUserMenu = !showUserMenu"
-                        >
-                          <div class="user-avatar">{{ userInitials }}</div>
-                          <span class="user-name">{{ userName }}</span>
-                          <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div
-                          class="dropdown-menu"
-                          :class="{ show: showUserMenu }"
-                        >
-                          <button class="dropdown-item" @click="goToDashboard">
-                            <i class="fas fa-th-large"></i>
-                            <span>{{ $t('header.dashboard') }}</span>
-                          </button>
-                          <button
-                            class="dropdown-item logout"
-                            @click="handleLogout"
-                          >
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>{{ $t('header.logout') }}</span>
-                          </button>
-                        </div>
-                      </div>
-                    </template>
+                    <router-link to="/contact" class="btn-login">
+                      <i class="fas fa-envelope"></i>
+                      <span class="btn-text">{{ $t('nav.contact') }}</span>
+                    </router-link>
 
                     <button
                       type="button"

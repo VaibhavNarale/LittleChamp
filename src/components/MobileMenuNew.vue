@@ -1,45 +1,17 @@
 <script setup>
-import { ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/auth'
+import { ref } from 'vue'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 defineProps({
   show: Boolean,
 })
 
 const emit = defineEmits(['close'])
-const router = useRouter()
-const authStore = useAuthStore()
-
-const isLoggedIn = computed(() => authStore.authenticated)
-const userName = computed(() => {
-  if (!authStore.user || !authStore.user.first_name) return 'User'
-  return `${authStore.user.first_name} ${authStore.user.last_name || ''}`
-})
 
 // Track which submenu is open
 const activeSubmenu = ref(null)
 
 const toggleSubmenu = (menuName) => {
   activeSubmenu.value = activeSubmenu.value === menuName ? null : menuName
-}
-
-const goToDashboard = () => {
-  const token = authStore.token
-  const adminClientUrl =
-    import.meta.env.VITE_ADMIN_CLIENT_URL || 'http://localhost:5174'
-  if (token) {
-    window.location.href = `${adminClientUrl}?token=${encodeURIComponent(token)}`
-  } else {
-    window.location.href = adminClientUrl
-  }
-  emit('close')
-}
-
-const handleLogout = async () => {
-  await authStore.logOut()
-  emit('close')
-  router.push('/')
 }
 
 const handleLinkClick = () => {
@@ -66,34 +38,14 @@ const handleLinkClick = () => {
 
     <!-- Auth Section -->
     <div class="auth-section mt-3">
-      <template v-if="!isLoggedIn">
-        <router-link
-          to="/login"
-          class="auth-btn login-btn"
-          @click="handleLinkClick"
-        >
-          <i class="fas fa-sign-in-alt"></i>
-          <span>{{ $t('header.login') }}</span>
-        </router-link>
-      </template>
-      <template v-else>
-        <div class="user-info">
-          <i class="fas fa-user-circle"></i>
-          <span>{{ userName }}</span>
-        </div>
-        <button
-          class="auth-btn dashboard-btn"
-          type="button"
-          @click="goToDashboard"
-        >
-          <i class="fas fa-th-large"></i>
-          <span>{{ $t('header.dashboard') }}</span>
-        </button>
-        <button class="auth-btn logout-btn" type="button" @click="handleLogout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span>{{ $t('header.logout') }}</span>
-        </button>
-      </template>
+      <router-link
+        to="/contact"
+        class="auth-btn login-btn"
+        @click="handleLinkClick"
+      >
+        <i class="fas fa-envelope"></i>
+        <span>{{ $t('nav.contact') }}</span>
+      </router-link>
     </div>
 
     <!-- Navigation Menu -->

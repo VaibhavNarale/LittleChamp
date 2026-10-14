@@ -10,22 +10,19 @@ import { useBlogStore } from '@/stores/blog'
 import heroImage1 from '@/assets/new-images/new-image1.webp'
 import heroImage2 from '@/assets/new-images/new-image2.webp'
 import heroImage3 from '@/assets/new-images/new-image3.webp'
-import mathImage from '@/assets/new-images/vedic-math.webp'
-import readingImage from '@/assets/new-images/gettyimages-123273724-640x640.webp'
-import scienceImage from '@/assets/new-images/Kids_hands_creating_on_card_arches_with_an_array_of_craft_suppplies.webp'
+import mathImage from '@/assets/new-images/kids-math-tablet.webp'
+import readingImage from '@/assets/new-images/kids-reading-together.webp'
+import scienceImage from '@/assets/new-images/kids-painting-class.webp'
 
-// Blog store for dynamic blog posts
+// Blog store (static posts from src/data/blogPosts.js)
 const blogStore = useBlogStore()
 const blogLoading = ref(true)
-const storageUrl =
-  import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
 
 const blogPosts = computed(() => blogStore.posts.slice(0, 3))
 
 function getImageUrl(path) {
   if (!path) return '/assets/img/blog/blog-1.jpg'
-  if (path.startsWith('http') || path.startsWith('/')) return path
-  return `${storageUrl}${path}`
+  return path
 }
 
 function formatDate(dateStr) {
@@ -1528,10 +1525,6 @@ onBeforeUnmount(() => {
                 <span
                   ><i class="fal fa-calendar-alt"></i>
                   {{ formatDate(post.published_at) }}</span
-                >
-                <span
-                  ><i class="fal fa-eye"></i> {{ post.views || 0 }}
-                  {{ $t('home.blog.views') }}</span
                 >
               </div>
               <h4 class="home-blog-title">

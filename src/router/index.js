@@ -1,15 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAuthStore } from '@/stores/auth'
 
 // Main Pages
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
-import Login from '../views/Login.vue'
-import ForgotPassword from '../views/ForgotPassword.vue'
-import AuthCallback from '../views/AuthCallback.vue'
-import DoctorRegistration from '../views/DoctorRegistration.vue'
-import PlaygroupRegistration from '../views/PlaygroupRegistration.vue'
 
 // Learning Content (Subjects)
 import Subjects from '../views/Subjects.vue'
@@ -37,25 +31,6 @@ const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/about', name: 'About', component: About },
   { path: '/contact', name: 'Contact', component: Contact },
-  { path: '/login', name: 'Login', component: Login },
-  {
-    path: '/forgot-password',
-    name: 'ForgotPassword',
-    component: ForgotPassword,
-  },
-  { path: '/auth/callback', name: 'AuthCallback', component: AuthCallback },
-
-  // Registration Forms (Doctor & School)
-  {
-    path: '/doctor-registration',
-    name: 'DoctorRegistration',
-    component: DoctorRegistration,
-  },
-  {
-    path: '/playgroup-registration',
-    name: 'PlaygroupRegistration',
-    component: PlaygroupRegistration,
-  },
 
   // Subjects (Learning Content)
   { path: '/subjects', name: 'Subjects', component: Subjects },
@@ -93,30 +68,6 @@ const router = createRouter({
     if (savedPosition) return savedPosition
     return { top: 0 }
   },
-})
-
-// Navigation guards
-router.beforeEach((to, from, next) => {
-  // Check if user is authenticated - same as admin panel approach
-  const authStore = useAuthStore()
-  const isAuthenticated = authStore.authenticated
-  // If user is logged in and trying to access login/register, redirect to admin panel
-  if (
-    isAuthenticated &&
-    (to.name === 'Login' || to.name === 'ForgotPassword')
-  ) {
-    // Pass token in URL for cross-domain authentication
-    next({ name: 'Home' })
-    return
-  }
-
-  // If route requires authentication and user is not logged in
-  if (to.meta.requiresAuth && !isAuthenticated) {
-    next({ name: 'Login', query: { redirect: to.fullPath } })
-    return
-  }
-
-  next()
 })
 
 export default router

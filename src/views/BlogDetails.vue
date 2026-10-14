@@ -26,15 +26,7 @@ const error = computed(() => blogStore.error)
 // Get image URL
 const getImageUrl = (imagePath) => {
   if (!imagePath) return mathImg
-  if (
-    imagePath.startsWith('http') ||
-    imagePath.startsWith('data:') ||
-    imagePath.startsWith('/')
-  )
-    return imagePath
-  const storageUrl =
-    import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
-  return `${storageUrl}${imagePath}`
+  return imagePath
 }
 
 // Format date
@@ -178,13 +170,6 @@ watch(
             >
             <span class="meta-dot"></span>
             <span><i class="far fa-clock"></i> {{ readingTime }}</span>
-            <span class="meta-dot"></span>
-            <span
-              ><i class="far fa-eye"></i>
-              {{
-                $t('blogDetails.detail.views', { count: post.views || 0 })
-              }}</span
-            >
           </div>
         </div>
       </div>

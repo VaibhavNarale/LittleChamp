@@ -54,15 +54,7 @@ const readingTime = (content) => {
 // Get image URL
 const getImageUrl = (imagePath) => {
   if (!imagePath) return mathImg
-  if (
-    imagePath.startsWith('http') ||
-    imagePath.startsWith('data:') ||
-    imagePath.startsWith('/')
-  )
-    return imagePath
-  const storageUrl =
-    import.meta.env.VITE_STORAGE_URL || 'https://blr1.vultrobjects.com/space-1/'
-  return `${storageUrl}${imagePath}`
+  return imagePath
 }
 
 // Format date
@@ -276,12 +268,6 @@ watch(searchQuery, () => {
               ><i class="far fa-clock"></i>
               {{ readingTime(featuredPost.content) }}</span
             >
-            <span
-              ><i class="far fa-eye"></i>
-              {{
-                $t('blog.meta.views', { count: featuredPost.views || 0 })
-              }}</span
-            >
           </div>
           <span class="read-more-link">
             {{ $t('blog.featured.readArticle') }}
@@ -376,9 +362,6 @@ watch(searchQuery, () => {
                     <span
                       ><i class="far fa-calendar-alt"></i>
                       {{ formatDate(post.published_at) }}</span
-                    >
-                    <span
-                      ><i class="far fa-eye"></i> {{ post.views || 0 }}</span
                     >
                   </div>
                   <span class="card-arrow">

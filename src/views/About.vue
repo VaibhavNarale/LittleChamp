@@ -89,13 +89,13 @@ onBeforeUnmount(() => {
           <div class="mission-images">
             <div class="mission-img-main">
               <img
-                src="/assets/img/normal/square-1.png"
+                src="/assets/img/normal/about-kids-art.webp"
                 :alt="$t('about.mission.imgMainAlt')"
               />
             </div>
             <div class="mission-img-small">
               <img
-                src="/assets/img/normal/square-2.png"
+                src="/assets/img/normal/about-girl-smiling.webp"
                 :alt="$t('about.mission.imgSmallAlt')"
               />
             </div>
